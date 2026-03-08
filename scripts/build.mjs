@@ -28,7 +28,7 @@ const OUT_DIR = path.join(ROOT, 'dist');
 const OUT_SVG = path.join(OUT_DIR, 'svg');
 const OUT_REACT = path.join(OUT_DIR, 'react');
 const OUT_CSS = path.join(OUT_DIR, 'css');
-const GALLERY_DATA = path.join(ROOT, 'gallery/src/data');
+const GALLERY_DATA = path.join(ROOT, 'src/data');
 
 const INITIAL_SUBSET = [
   // Arrows & directional

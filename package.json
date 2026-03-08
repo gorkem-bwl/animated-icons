@@ -1,16 +1,31 @@
 {
-  "name": "animated-lucide",
+  "name": "animated-icons",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Animated Lucide & Heroicons with CSS hover transitions",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "build:icons": "node scripts/build.mjs",
+    "build:heroicons": "node scripts/build-heroicons.mjs",
+    "prepare:gallery": "node scripts/prepare-gallery.mjs"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
+    "heroicons": "^2.2.0",
     "lucide-react": "^0.577.0",
-    "lucide-static": "^0.577.0"
+    "lucide-static": "^0.577.0",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.1",
+    "@types/node": "^25.3.5",
+    "@types/react": "^19.2.14",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3"
   }
 }
