@@ -1,22 +1,22 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import IconCard from "./IconCard";
 
-interface IconData {
+interface IconMeta {
   name: string;
   componentName: string;
   category: string;
   animation: string;
   elementCount: number;
-  svg: string;
 }
 
 interface GalleryProps {
-  icons: IconData[];
+  iconsMeta: IconMeta[];
 }
 
 const PAGE_SIZE = 80;
+const CHUNK_SIZE = 200; // Must match prepare-gallery.mjs
 
 const COLOR_PRESETS = [
   { p: "#0d9488", s: "#0f766e", name: "Teal" },
@@ -29,7 +29,6 @@ const COLOR_PRESETS = [
   { p: "#10b981", s: "#059669", name: "Emerald" },
 ];
 
-// Representative icon for each category
 const CATEGORY_ICONS: Record<string, string> = {
   all: "layers",
   arrows: "arrow-right",
@@ -48,7 +47,6 @@ const CATEGORY_ICONS: Record<string, string> = {
   development: "code",
 };
 
-// Renders a small animated icon from trusted build output (not user input)
 function CategoryIcon({ svg, isActive }: { svg: string; isActive: boolean }) {
   return (
     <span
@@ -57,13 +55,12 @@ function CategoryIcon({ svg, isActive }: { svg: string; isActive: boolean }) {
           ? "text-white dark:text-neutral-900"
           : "text-neutral-400 dark:text-white/30"
       }`}
-      // SVG content from our build script — trusted source, not user input
       dangerouslySetInnerHTML={{ __html: svg }}
     />
   );
 }
 
-export default function Gallery({ icons }: GalleryProps) {
+export default function Gallery({ iconsMeta }: GalleryProps) {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
   const [primaryColor, setPrimaryColor] = useState("#0d9488");
@@ -71,43 +68,77 @@ export default function Gallery({ icons }: GalleryProps) {
   const [page, setPage] = useState(1);
   const [showCustomColor, setShowCustomColor] = useState(false);
 
-  // Build a lookup for category icon SVGs
-  const categoryIconSvgs = useMemo(() => {
-    const lookup: Record<string, string> = {};
-    for (const icon of icons) {
-      if (Object.values(CATEGORY_ICONS).includes(icon.name)) {
-        lookup[icon.name] = icon.svg;
-      }
-    }
-    return lookup;
-  }, [icons]);
+  // SVG content cache: name → svg string
+  const [svgCache, setSvgCache] = useState<Record<string, string>>({});
+  const loadingChunks = useRef<Set<number>>(new Set());
+
+  // Build a sorted index of all icon names for chunk lookup
+  const allIconNames = useMemo(() => iconsMeta.map((i) => i.name), [iconsMeta]);
 
   const categoriesWithCounts = useMemo(() => {
-    const counts: Record<string, number> = { all: icons.length };
-    for (const icon of icons) {
+    const counts: Record<string, number> = { all: iconsMeta.length };
+    for (const icon of iconsMeta) {
       counts[icon.category] = (counts[icon.category] || 0) + 1;
     }
     const sorted = Object.keys(counts)
       .filter((k) => k !== "all")
       .sort();
-    return [{ name: "all", count: icons.length }, ...sorted.map((k) => ({ name: k, count: counts[k] }))];
-  }, [icons]);
+    return [{ name: "all", count: iconsMeta.length }, ...sorted.map((k) => ({ name: k, count: counts[k] }))];
+  }, [iconsMeta]);
 
   const filtered = useMemo(() => {
-    return icons.filter((icon) => {
+    return iconsMeta.filter((icon) => {
       const matchesSearch =
         !search || icon.name.includes(search.toLowerCase());
       const matchesCategory =
         activeCategory === "all" || icon.category === activeCategory;
       return matchesSearch && matchesCategory;
     });
-  }, [icons, search, activeCategory]);
+  }, [iconsMeta, search, activeCategory]);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const paginated = useMemo(() => {
     const start = (page - 1) * PAGE_SIZE;
     return filtered.slice(start, start + PAGE_SIZE);
   }, [filtered, page]);
+
+  // Determine which chunks are needed for the current page
+  const loadChunk = useCallback(async (chunkIndex: number) => {
+    if (loadingChunks.current.has(chunkIndex)) return;
+    loadingChunks.current.add(chunkIndex);
+    try {
+      const res = await fetch(`/data/icons-chunk-${chunkIndex}.json`);
+      if (res.ok) {
+        const data: Record<string, string> = await res.json();
+        setSvgCache((prev) => ({ ...prev, ...data }));
+      }
+    } catch {
+      loadingChunks.current.delete(chunkIndex);
+    }
+  }, []);
+
+  // Load chunks needed for current paginated icons
+  useEffect(() => {
+    const neededChunks = new Set<number>();
+    for (const icon of paginated) {
+      const globalIndex = allIconNames.indexOf(icon.name);
+      if (globalIndex >= 0) {
+        neededChunks.add(Math.floor(globalIndex / CHUNK_SIZE));
+      }
+    }
+    // Also load chunks for category icons
+    for (const iconName of Object.values(CATEGORY_ICONS)) {
+      const globalIndex = allIconNames.indexOf(iconName);
+      if (globalIndex >= 0) {
+        neededChunks.add(Math.floor(globalIndex / CHUNK_SIZE));
+      }
+    }
+    for (const chunk of neededChunks) {
+      if (!loadingChunks.current.has(chunk)) {
+        loadChunk(chunk);
+      }
+    }
+  }, [paginated, allIconNames, loadChunk]);
 
   const handleCategoryChange = useCallback((cat: string) => {
     setActiveCategory(cat);
@@ -137,7 +168,7 @@ export default function Gallery({ icons }: GalleryProps) {
 
   const getCategoryIconSvg = (catName: string) => {
     const iconName = CATEGORY_ICONS[catName];
-    return iconName ? categoryIconSvgs[iconName] : null;
+    return iconName ? svgCache[iconName] ?? null : null;
   };
 
   const colorVars = {
@@ -211,7 +242,11 @@ export default function Gallery({ icons }: GalleryProps) {
                       }`}
                       aria-current={isActive ? "true" : undefined}
                     >
-                      {svg && <CategoryIcon svg={svg} isActive={isActive} />}
+                      {svg ? (
+                        <CategoryIcon svg={svg} isActive={isActive} />
+                      ) : (
+                        <span className="w-4 h-4 shrink-0" />
+                      )}
                       <span className="capitalize flex-1">{cat.name}</span>
                       <span className={`text-[11px] tabular-nums ${
                         isActive
@@ -300,7 +335,7 @@ export default function Gallery({ icons }: GalleryProps) {
 
         {/* Main content */}
         <div className="flex-1 min-w-0">
-          {/* Mobile controls (shown below lg) */}
+          {/* Mobile controls */}
           <div className="lg:hidden mb-6 space-y-4">
             <div className="relative">
               <label htmlFor="icon-search-mobile" className="sr-only">
@@ -321,7 +356,7 @@ export default function Gallery({ icons }: GalleryProps) {
               <input
                 id="icon-search-mobile"
                 type="text"
-                placeholder={`Search ${icons.length} icons...`}
+                placeholder={`Search ${iconsMeta.length} icons...`}
                 value={search}
                 onChange={(e) => handleSearchChange(e.target.value)}
                 className="w-full rounded-xl border border-neutral-200 dark:border-white/[0.08] bg-white dark:bg-white/[0.04] pl-10 pr-4 py-2.5 text-sm text-neutral-800 dark:text-white/80 placeholder:text-neutral-400 dark:placeholder:text-white/25 focus:border-teal-500/50 dark:focus:border-teal-500/30 focus:outline-none focus:ring-2 focus:ring-teal-500/10 transition-all"
@@ -390,7 +425,7 @@ export default function Gallery({ icons }: GalleryProps) {
                 name={icon.name}
                 category={icon.category}
                 animation={icon.animation}
-                svgContent={icon.svg}
+                svgContent={svgCache[icon.name] ?? null}
               />
             ))}
           </div>

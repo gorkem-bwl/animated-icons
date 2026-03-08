@@ -1,6 +1,6 @@
 import Gallery from "@/components/Gallery";
 import ThemeToggle from "@/components/ThemeToggle";
-import iconsData from "@/data/icons-with-svg.json";
+import iconsMeta from "@/data/icons-meta.json";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-3xl px-6 pt-20 pb-16 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-neutral-200/80 dark:border-white/[0.06] bg-white/60 dark:bg-white/[0.03] px-4 py-1.5 text-xs text-neutral-500 dark:text-white/50 backdrop-blur-sm">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-teal-500 dark:bg-teal-400 animate-pulse" />
-            {iconsData.length.toLocaleString()} animated icons
+            {iconsMeta.length.toLocaleString()} animated icons
           </div>
           <h1 className="text-5xl font-bold tracking-tight sm:text-6xl leading-[1.1]">
             <span className="bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-white dark:to-white/50 bg-clip-text text-transparent">
@@ -51,7 +51,7 @@ export default function Home() {
 
       {/* Gallery */}
       <div id="gallery">
-        <Gallery icons={iconsData} />
+        <Gallery iconsMeta={iconsMeta} />
       </div>
 
       {/* Usage section */}
