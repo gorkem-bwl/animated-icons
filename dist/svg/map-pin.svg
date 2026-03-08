@@ -1,0 +1,43 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-map-pin"
+  role="img"
+  aria-label="map pin"
+>
+  <title>map pin</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes pin-drop-0 {
+  0% { transform: translateY(-4px); opacity: 0.5; }
+  60% { transform: translateY(1px); opacity: 1; }
+  80% { transform: translateY(-1px); }
+  100% { transform: translateY(0); }
+}
+@keyframes pin-drop-1 {
+  0% { transform: translateY(-4px); opacity: 0.5; }
+  60% { transform: translateY(1px); opacity: 1; }
+  80% { transform: translateY(-1px); }
+  100% { transform: translateY(0); }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: pin-drop-0 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 0s both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: pin-drop-1 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s both; }
+
+</style>
+  <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" class="animated-lucide-primary animated-lucide-el-0" style="transform-origin: 12px 24px;" />
+  <circle cx="12" cy="10" r="3" class="animated-lucide-secondary animated-lucide-el-1" style="transform-origin: 12px 24px;" />
+</svg>

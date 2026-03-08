@@ -1,0 +1,57 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-smile"
+  role="img"
+  aria-label="smile"
+>
+  <title>smile</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes smile-pop-0 {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+@keyframes smile-pop-1 {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+@keyframes smile-pop-2 {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+@keyframes smile-pop-3 {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: smile-pop-0 0.4s ease 0s both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: smile-pop-1 0.4s ease 0.05s both; }
+.animated-lucide-icon:hover .animated-lucide-el-2,
+.al-icon-wrapper:hover .animated-lucide-el-2 { animation: smile-pop-2 0.4s ease 0.1s both; }
+.animated-lucide-icon:hover .animated-lucide-el-3,
+.al-icon-wrapper:hover .animated-lucide-el-3 { animation: smile-pop-3 0.4s ease 0.15000000000000002s both; }
+
+</style>
+  <circle cx="12" cy="12" r="10" class="animated-lucide-primary animated-lucide-el-0" style="transform-origin: 12px 12px;" />
+  <path d="M8 14s1.5 2 4 2 4-2 4-2" class="animated-lucide-secondary animated-lucide-el-1" style="transform-origin: 12px 12px;" />
+  <line x1="9" x2="9.01" y1="9" y2="9" class="animated-lucide-secondary animated-lucide-el-2" style="transform-origin: 12px 12px;" />
+  <line x1="15" x2="15.01" y1="9" y2="9" class="animated-lucide-secondary animated-lucide-el-3" style="transform-origin: 12px 12px;" />
+</svg>

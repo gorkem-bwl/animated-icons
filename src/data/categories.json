@@ -1,0 +1,242 @@
+{
+  "categories": {
+    "arrows": {
+      "animation": "directional",
+      "description": "Arrow and directional icons",
+      "icons": [
+        "arrow-right", "arrow-left", "arrow-up", "arrow-down",
+        "chevron-right", "chevron-left", "chevron-up", "chevron-down",
+        "move-right", "move-left", "corner-down-right", "corner-up-left",
+        "arrow-up-right", "arrow-down-left", "arrow-big-right", "arrow-big-up",
+        "redo", "undo", "refresh-cw", "refresh-ccw", "rotate-cw", "rotate-ccw",
+        "chevrons-right", "chevrons-left", "chevrons-up", "chevrons-down",
+        "arrow-right-left", "arrow-up-down", "move", "move-horizontal",
+        "move-vertical", "move-diagonal", "move-diagonal-2"
+      ]
+    },
+    "communication": {
+      "animation": "pop-envelope",
+      "description": "Mail, messaging, and communication icons",
+      "icons": [
+        "mail", "mail-open", "mail-check", "mail-plus", "mail-minus",
+        "mail-question", "mail-search", "mail-warning", "mail-x",
+        "message-circle", "message-square", "message-circle-plus",
+        "message-square-plus", "message-circle-reply",
+        "send", "send-horizontal", "forward", "reply", "reply-all",
+        "at-sign", "inbox", "mailbox"
+      ]
+    },
+    "media": {
+      "animation": "playback",
+      "description": "Audio, video, and media controls",
+      "icons": [
+        "play", "pause", "stop-circle", "skip-forward", "skip-back",
+        "fast-forward", "rewind", "volume", "volume-1", "volume-2", "volume-x",
+        "mic", "mic-off", "headphones", "speaker", "radio",
+        "music", "music-2", "music-3", "music-4",
+        "video", "video-off", "camera", "camera-off", "image",
+        "film", "tv", "monitor", "youtube", "podcast"
+      ]
+    },
+    "files": {
+      "animation": "unfold",
+      "description": "Files, folders, and documents",
+      "icons": [
+        "file", "file-text", "file-code", "file-json", "file-image",
+        "file-video", "file-audio", "file-archive", "file-spreadsheet",
+        "file-plus", "file-minus", "file-check", "file-x",
+        "folder", "folder-open", "folder-plus", "folder-minus",
+        "folder-check", "folder-x", "folder-archive",
+        "clipboard", "clipboard-check", "clipboard-list", "clipboard-copy",
+        "notebook", "book", "book-open", "bookmark", "bookmarks"
+      ]
+    },
+    "ui": {
+      "animation": "toggle",
+      "description": "UI controls and interface elements",
+      "icons": [
+        "check", "check-circle", "check-square", "x", "x-circle", "x-square",
+        "plus", "plus-circle", "plus-square", "minus", "minus-circle", "minus-square",
+        "menu", "more-horizontal", "more-vertical", "grip-horizontal", "grip-vertical",
+        "maximize", "minimize", "maximize-2", "minimize-2",
+        "expand", "shrink", "external-link", "link", "link-2",
+        "toggle-left", "toggle-right", "switch-camera",
+        "sliders", "sliders-horizontal", "settings", "settings-2"
+      ]
+    },
+    "status": {
+      "animation": "pulse",
+      "description": "Status indicators and alerts",
+      "icons": [
+        "alert-circle", "alert-octagon", "alert-triangle",
+        "info", "help-circle", "bell", "bell-ring", "bell-off",
+        "bell-plus", "bell-minus",
+        "circle-dot", "loader", "loader-2", "loader-circle",
+        "hourglass", "timer", "timer-off", "timer-reset",
+        "signal", "signal-high", "signal-medium", "signal-low", "signal-zero",
+        "wifi", "wifi-off", "bluetooth", "bluetooth-off",
+        "activity", "activity-square", "pulse", "heart-pulse",
+        "zap", "zap-off"
+      ]
+    },
+    "weather": {
+      "animation": "ambient",
+      "description": "Weather and nature icons",
+      "icons": [
+        "sun", "moon", "cloud", "cloud-rain", "cloud-snow",
+        "cloud-lightning", "cloud-drizzle", "cloud-fog", "cloud-hail",
+        "cloud-sun", "cloud-moon", "cloud-off",
+        "wind", "tornado", "rainbow", "umbrella",
+        "thermometer", "thermometer-sun", "thermometer-snowflake",
+        "snowflake", "droplets", "droplet",
+        "sunrise", "sunset", "star", "stars", "sparkle", "sparkles"
+      ]
+    },
+    "objects": {
+      "animation": "bounce-in",
+      "description": "Physical objects and tools",
+      "icons": [
+        "home", "building", "building-2", "warehouse", "factory",
+        "key", "lock", "lock-open", "unlock",
+        "trash", "trash-2", "archive", "package",
+        "gift", "shopping-bag", "shopping-cart",
+        "coffee", "cup-soda", "beer", "wine", "glass-water",
+        "utensils", "cookie", "pizza", "apple", "banana",
+        "car", "bus", "train", "plane", "ship", "bike", "rocket",
+        "lightbulb", "lamp", "flashlight", "candle"
+      ]
+    },
+    "editing": {
+      "animation": "draw",
+      "description": "Text editing and formatting tools",
+      "icons": [
+        "pencil", "pen", "pen-tool", "eraser", "highlighter",
+        "type", "bold", "italic", "underline", "strikethrough",
+        "align-left", "align-center", "align-right", "align-justify",
+        "list", "list-ordered", "list-checks", "list-tree",
+        "copy", "scissors", "crop", "rotate-3d",
+        "palette", "paintbrush", "paint-bucket", "pipette",
+        "ruler", "compass", "protractor"
+      ]
+    },
+    "people": {
+      "animation": "wave",
+      "description": "People and user icons",
+      "icons": [
+        "user", "user-plus", "user-minus", "user-check", "user-x",
+        "users", "user-circle", "user-cog",
+        "hand", "thumbs-up", "thumbs-down",
+        "smile", "frown", "meh", "laugh", "angry",
+        "heart", "heart-crack", "heart-handshake",
+        "eye", "eye-off", "scan-eye",
+        "brain", "skull", "bone", "fingerprint"
+      ]
+    },
+    "navigation": {
+      "animation": "locate",
+      "description": "Navigation and location",
+      "icons": [
+        "map", "map-pin", "map-pinned", "compass", "navigation", "navigation-2",
+        "locate", "locate-fixed", "locate-off",
+        "globe", "globe-2", "earth",
+        "flag", "flag-triangle-left", "flag-triangle-right",
+        "milestone", "signpost", "route"
+      ]
+    },
+    "data": {
+      "animation": "chart-rise",
+      "description": "Charts, data, and analytics",
+      "icons": [
+        "bar-chart", "bar-chart-2", "bar-chart-3", "bar-chart-4",
+        "bar-chart-horizontal", "bar-chart-big",
+        "line-chart", "area-chart", "pie-chart",
+        "trending-up", "trending-down",
+        "database", "server", "hard-drive",
+        "table", "table-2", "kanban", "gantt-chart",
+        "calculator", "percent", "hash", "binary", "braces"
+      ]
+    },
+    "security": {
+      "animation": "shield",
+      "description": "Security and authentication",
+      "icons": [
+        "shield", "shield-check", "shield-alert", "shield-x", "shield-off",
+        "shield-plus", "shield-minus", "shield-question",
+        "scan", "scan-line", "scan-face", "scan-barcode",
+        "qr-code", "fingerprint", "key-round", "key-square",
+        "lock-keyhole", "unlock-keyhole"
+      ]
+    },
+    "development": {
+      "animation": "type-in",
+      "description": "Code and development tools",
+      "icons": [
+        "code", "code-2", "terminal", "terminal-square",
+        "bug", "bug-off", "bug-play",
+        "git-branch", "git-commit", "git-merge", "git-pull-request",
+        "git-fork", "git-compare",
+        "blocks", "box", "boxes", "component", "puzzle",
+        "wrench", "hammer", "screwdriver",
+        "cpu", "chip", "circuit-board", "memory-stick"
+      ]
+    }
+  },
+  "animationTypes": {
+    "directional": {
+      "description": "Elements translate in the direction the icon suggests",
+      "css": "translateX or translateY with slight overshoot"
+    },
+    "pop-envelope": {
+      "description": "Container stays, content pops up or opens",
+      "css": "scale + translateY on inner elements"
+    },
+    "playback": {
+      "description": "Play/pause style transforms, scale bounce",
+      "css": "scale from center with slight bounce"
+    },
+    "unfold": {
+      "description": "Page unfold or reveal effect",
+      "css": "scaleY from top edge, opacity cascade"
+    },
+    "toggle": {
+      "description": "Quick snap/toggle transformation",
+      "css": "scale bounce with slight rotation"
+    },
+    "pulse": {
+      "description": "Pulsing or breathing effect",
+      "css": "scale pulse with opacity"
+    },
+    "ambient": {
+      "description": "Gentle ambient motion (floating, swaying)",
+      "css": "subtle translateY + rotation loop"
+    },
+    "bounce-in": {
+      "description": "Bounce in from bottom or side",
+      "css": "translateY with spring easing"
+    },
+    "draw": {
+      "description": "Stroke draw-in effect",
+      "css": "stroke-dashoffset animation"
+    },
+    "wave": {
+      "description": "Wave or greeting animation",
+      "css": "rotation with transform-origin shift"
+    },
+    "locate": {
+      "description": "Pin drop or locate pulse",
+      "css": "translateY drop + scale ring pulse"
+    },
+    "chart-rise": {
+      "description": "Bars/lines rising up",
+      "css": "scaleY from bottom with stagger"
+    },
+    "shield": {
+      "description": "Shield solidify/lock effect",
+      "css": "scale with inner element draw-in"
+    },
+    "type-in": {
+      "description": "Characters typing in",
+      "css": "stroke-dashoffset with stagger per element"
+    }
+  }
+}

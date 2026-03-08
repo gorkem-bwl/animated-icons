@@ -1,0 +1,46 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-globe"
+  role="img"
+  aria-label="globe"
+>
+  <title>globe</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes globe-spin-0 {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(20deg); }
+}
+@keyframes globe-spin-1 {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(-10deg); }
+}
+@keyframes globe-spin-2 {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(-10deg); }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: globe-spin-0 0.6s ease both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: globe-spin-1 0.6s ease both; }
+.animated-lucide-icon:hover .animated-lucide-el-2,
+.al-icon-wrapper:hover .animated-lucide-el-2 { animation: globe-spin-2 0.6s ease both; }
+
+</style>
+  <circle cx="12" cy="12" r="10" class="animated-lucide-primary animated-lucide-el-0" style="transform-origin: 12px 12px;" />
+  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" class="animated-lucide-secondary animated-lucide-el-1" style="transform-origin: 12px 12px;" />
+  <path d="M2 12h20" class="animated-lucide-secondary animated-lucide-el-2" style="transform-origin: 12px 12px;" />
+</svg>

@@ -1,0 +1,81 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-loader"
+  role="img"
+  aria-label="loader"
+>
+  <title>loader</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes loader-spin-0 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes loader-spin-1 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes loader-spin-2 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes loader-spin-3 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes loader-spin-4 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes loader-spin-5 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes loader-spin-6 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes loader-spin-7 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: loader-spin-0 0.8s linear; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: loader-spin-1 0.8s linear; }
+.animated-lucide-icon:hover .animated-lucide-el-2,
+.al-icon-wrapper:hover .animated-lucide-el-2 { animation: loader-spin-2 0.8s linear; }
+.animated-lucide-icon:hover .animated-lucide-el-3,
+.al-icon-wrapper:hover .animated-lucide-el-3 { animation: loader-spin-3 0.8s linear; }
+.animated-lucide-icon:hover .animated-lucide-el-4,
+.al-icon-wrapper:hover .animated-lucide-el-4 { animation: loader-spin-4 0.8s linear; }
+.animated-lucide-icon:hover .animated-lucide-el-5,
+.al-icon-wrapper:hover .animated-lucide-el-5 { animation: loader-spin-5 0.8s linear; }
+.animated-lucide-icon:hover .animated-lucide-el-6,
+.al-icon-wrapper:hover .animated-lucide-el-6 { animation: loader-spin-6 0.8s linear; }
+.animated-lucide-icon:hover .animated-lucide-el-7,
+.al-icon-wrapper:hover .animated-lucide-el-7 { animation: loader-spin-7 0.8s linear; }
+
+</style>
+  <path d="M12 2v4" class="animated-lucide-primary animated-lucide-el-0" style="transform-origin: 12px 12px;" />
+  <path d="m16.2 7.8 2.9-2.9" class="animated-lucide-secondary animated-lucide-el-1" style="transform-origin: 12px 12px;" />
+  <path d="M18 12h4" class="animated-lucide-secondary animated-lucide-el-2" style="transform-origin: 12px 12px;" />
+  <path d="m16.2 16.2 2.9 2.9" class="animated-lucide-secondary animated-lucide-el-3" style="transform-origin: 12px 12px;" />
+  <path d="M12 18v4" class="animated-lucide-secondary animated-lucide-el-4" style="transform-origin: 12px 12px;" />
+  <path d="m4.9 19.1 2.9-2.9" class="animated-lucide-secondary animated-lucide-el-5" style="transform-origin: 12px 12px;" />
+  <path d="M2 12h4" class="animated-lucide-secondary animated-lucide-el-6" style="transform-origin: 12px 12px;" />
+  <path d="m4.9 4.9 2.9 2.9" class="animated-lucide-secondary animated-lucide-el-7" style="transform-origin: 12px 12px;" />
+</svg>

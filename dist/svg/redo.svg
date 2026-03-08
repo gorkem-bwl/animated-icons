@@ -1,0 +1,43 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-redo"
+  role="img"
+  aria-label="redo"
+>
+  <title>redo</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes redo-sweep-0 {
+  0% { transform: rotate(0deg) scale(1); }
+  40% { transform: rotate(-30deg) scale(0.9); }
+  70% { transform: rotate(10deg) scale(1.05); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+@keyframes redo-sweep-1 {
+  0% { transform: translateX(0) translateY(0); }
+  40% { transform: translateX(4px) translateY(-3px); }
+  70% { transform: translateX(-1px) translateY(1px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: redo-sweep-0 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: redo-sweep-1 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+</style>
+  <path d="M21 7v6h-6" class="animated-lucide-primary animated-lucide-el-0" style="transform-origin: 12px 12px;" />
+  <path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7" class="animated-lucide-secondary animated-lucide-el-1" style="transform-origin: 12px 12px;" />
+</svg>

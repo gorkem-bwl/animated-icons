@@ -1,0 +1,45 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-send"
+  role="img"
+  aria-label="send"
+>
+  <title>send</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes send-launch-0 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  30% { transform: translate(-3px, 2px) rotate(5deg); }
+  60% { transform: translate(8px, -6px) rotate(-15deg); }
+  80% { transform: translate(2px, -1px) rotate(-3deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+@keyframes send-launch-1 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  30% { transform: translate(-2px, 1px) rotate(3deg); }
+  60% { transform: translate(6px, -5px) rotate(-10deg); }
+  80% { transform: translate(1px, -1px) rotate(-2deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: send-launch-0 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: send-launch-1 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+</style>
+  <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" class="animated-lucide-primary animated-lucide-el-0" style="transform-origin: 12px 12px;" />
+  <path d="m21.854 2.147-10.94 10.939" class="animated-lucide-secondary animated-lucide-el-1" style="transform-origin: 12px 12px;" />
+</svg>

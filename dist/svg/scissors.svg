@@ -1,0 +1,60 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-scissors"
+  role="img"
+  aria-label="scissors"
+>
+  <title>scissors</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes draw-in-scissors-0 {
+  0% { stroke-dashoffset: var(--path-length-0); }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes draw-in-scissors-1 {
+  0% { stroke-dashoffset: var(--path-length-1); }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes draw-in-scissors-2 {
+  0% { stroke-dashoffset: var(--path-length-2); }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes draw-in-scissors-3 {
+  0% { stroke-dashoffset: var(--path-length-3); }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes draw-in-scissors-4 {
+  0% { stroke-dashoffset: var(--path-length-4); }
+  100% { stroke-dashoffset: 0; }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: draw-in-scissors-0 0.5s ease 0s both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: draw-in-scissors-1 0.5s ease 0.1s both; }
+.animated-lucide-icon:hover .animated-lucide-el-2,
+.al-icon-wrapper:hover .animated-lucide-el-2 { animation: draw-in-scissors-2 0.5s ease 0.2s both; }
+.animated-lucide-icon:hover .animated-lucide-el-3,
+.al-icon-wrapper:hover .animated-lucide-el-3 { animation: draw-in-scissors-3 0.5s ease 0.30000000000000004s both; }
+.animated-lucide-icon:hover .animated-lucide-el-4,
+.al-icon-wrapper:hover .animated-lucide-el-4 { animation: draw-in-scissors-4 0.5s ease 0.4s both; }
+
+</style>
+  <circle cx="6" cy="6" r="3" stroke-dasharray="var(--path-length-0)" stroke-dashoffset="0" class="animated-lucide-primary animated-lucide-el-0" style="" />
+  <path d="M8.12 8.12 12 12" stroke-dasharray="var(--path-length-1)" stroke-dashoffset="0" class="animated-lucide-secondary animated-lucide-el-1" style="" />
+  <path d="M20 4 8.12 15.88" stroke-dasharray="var(--path-length-2)" stroke-dashoffset="0" class="animated-lucide-secondary animated-lucide-el-2" style="" />
+  <circle cx="6" cy="18" r="3" stroke-dasharray="var(--path-length-3)" stroke-dashoffset="0" class="animated-lucide-secondary animated-lucide-el-3" style="" />
+  <path d="M14.8 14.8 20 20" stroke-dasharray="var(--path-length-4)" stroke-dashoffset="0" class="animated-lucide-secondary animated-lucide-el-4" style="" />
+</svg>

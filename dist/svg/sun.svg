@@ -1,0 +1,96 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-sun"
+  role="img"
+  aria-label="sun"
+>
+  <title>sun</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes sun-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(45deg); }
+}
+@keyframes sun-ray-1 {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes sun-ray-2 {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes sun-ray-3 {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes sun-ray-4 {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes sun-ray-5 {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes sun-ray-6 {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes sun-ray-7 {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes sun-ray-8 {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: sun-spin 0.6s ease both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: sun-ray-1 0.6s ease both; }
+.animated-lucide-icon:hover .animated-lucide-el-2,
+.al-icon-wrapper:hover .animated-lucide-el-2 { animation: sun-ray-2 0.6s ease both; }
+.animated-lucide-icon:hover .animated-lucide-el-3,
+.al-icon-wrapper:hover .animated-lucide-el-3 { animation: sun-ray-3 0.6s ease both; }
+.animated-lucide-icon:hover .animated-lucide-el-4,
+.al-icon-wrapper:hover .animated-lucide-el-4 { animation: sun-ray-4 0.6s ease both; }
+.animated-lucide-icon:hover .animated-lucide-el-5,
+.al-icon-wrapper:hover .animated-lucide-el-5 { animation: sun-ray-5 0.6s ease both; }
+.animated-lucide-icon:hover .animated-lucide-el-6,
+.al-icon-wrapper:hover .animated-lucide-el-6 { animation: sun-ray-6 0.6s ease both; }
+.animated-lucide-icon:hover .animated-lucide-el-7,
+.al-icon-wrapper:hover .animated-lucide-el-7 { animation: sun-ray-7 0.6s ease both; }
+.animated-lucide-icon:hover .animated-lucide-el-8,
+.al-icon-wrapper:hover .animated-lucide-el-8 { animation: sun-ray-8 0.6s ease both; }
+
+</style>
+  <circle cx="12" cy="12" r="4" class="animated-lucide-primary animated-lucide-el-0" style="transform-origin: 12px 12px;" />
+  <path d="M12 2v2" class="animated-lucide-secondary animated-lucide-el-1" style="transform-origin: 12px 12px;" />
+  <path d="M12 20v2" class="animated-lucide-secondary animated-lucide-el-2" style="transform-origin: 12px 12px;" />
+  <path d="m4.93 4.93 1.41 1.41" class="animated-lucide-secondary animated-lucide-el-3" style="transform-origin: 12px 12px;" />
+  <path d="m17.66 17.66 1.41 1.41" class="animated-lucide-secondary animated-lucide-el-4" style="transform-origin: 12px 12px;" />
+  <path d="M2 12h2" class="animated-lucide-secondary animated-lucide-el-5" style="transform-origin: 12px 12px;" />
+  <path d="M20 12h2" class="animated-lucide-secondary animated-lucide-el-6" style="transform-origin: 12px 12px;" />
+  <path d="m6.34 17.66-1.41 1.41" class="animated-lucide-secondary animated-lucide-el-7" style="transform-origin: 12px 12px;" />
+  <path d="m19.07 4.93-1.41 1.41" class="animated-lucide-secondary animated-lucide-el-8" style="transform-origin: 12px 12px;" />
+</svg>

@@ -1,0 +1,43 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-clipboard"
+  role="img"
+  aria-label="clipboard"
+>
+  <title>clipboard</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes page-reveal-clipboard-0 {
+  0% { transform: scaleY(1); }
+  30% { transform: scaleY(0.92); }
+  60% { transform: scaleY(1.03); }
+  100% { transform: scaleY(1); }
+}
+@keyframes page-reveal-clipboard-1 {
+  0% { transform: scaleY(1); }
+  30% { transform: scaleY(0.92); }
+  60% { transform: scaleY(1.03); }
+  100% { transform: scaleY(1); }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: page-reveal-clipboard-0 0.4s ease 0s both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: page-reveal-clipboard-1 0.4s ease 0.07s both; }
+
+</style>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" class="animated-lucide-primary animated-lucide-el-0" style="transform-origin: center bottom;" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" class="animated-lucide-secondary animated-lucide-el-1" style="transform-origin: center bottom;" />
+</svg>

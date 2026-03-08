@@ -1,0 +1,16 @@
+{
+  "name": "animated-lucide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lucide-react": "^0.577.0",
+    "lucide-static": "^0.577.0"
+  }
+}

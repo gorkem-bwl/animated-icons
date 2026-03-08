@@ -1,0 +1,115 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-fingerprint"
+  role="img"
+  aria-label="fingerprint"
+>
+  <title>fingerprint</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes wave-fingerprint-0 {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-3deg) translateY(-1px); }
+  50% { transform: rotate(3deg) translateY(0); }
+  75% { transform: rotate(-1deg) translateY(-0.5px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+@keyframes wave-fingerprint-1 {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-3deg) translateY(-1px); }
+  50% { transform: rotate(3deg) translateY(0); }
+  75% { transform: rotate(-1deg) translateY(-0.5px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+@keyframes wave-fingerprint-2 {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-3deg) translateY(-1px); }
+  50% { transform: rotate(3deg) translateY(0); }
+  75% { transform: rotate(-1deg) translateY(-0.5px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+@keyframes wave-fingerprint-3 {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-3deg) translateY(-1px); }
+  50% { transform: rotate(3deg) translateY(0); }
+  75% { transform: rotate(-1deg) translateY(-0.5px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+@keyframes wave-fingerprint-4 {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-3deg) translateY(-1px); }
+  50% { transform: rotate(3deg) translateY(0); }
+  75% { transform: rotate(-1deg) translateY(-0.5px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+@keyframes wave-fingerprint-5 {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-3deg) translateY(-1px); }
+  50% { transform: rotate(3deg) translateY(0); }
+  75% { transform: rotate(-1deg) translateY(-0.5px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+@keyframes wave-fingerprint-6 {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-3deg) translateY(-1px); }
+  50% { transform: rotate(3deg) translateY(0); }
+  75% { transform: rotate(-1deg) translateY(-0.5px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+@keyframes wave-fingerprint-7 {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-3deg) translateY(-1px); }
+  50% { transform: rotate(3deg) translateY(0); }
+  75% { transform: rotate(-1deg) translateY(-0.5px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+@keyframes wave-fingerprint-8 {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-3deg) translateY(-1px); }
+  50% { transform: rotate(3deg) translateY(0); }
+  75% { transform: rotate(-1deg) translateY(-0.5px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: wave-fingerprint-0 0.5s ease 0s both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: wave-fingerprint-1 0.5s ease 0.08s both; }
+.animated-lucide-icon:hover .animated-lucide-el-2,
+.al-icon-wrapper:hover .animated-lucide-el-2 { animation: wave-fingerprint-2 0.5s ease 0.16s both; }
+.animated-lucide-icon:hover .animated-lucide-el-3,
+.al-icon-wrapper:hover .animated-lucide-el-3 { animation: wave-fingerprint-3 0.5s ease 0.24s both; }
+.animated-lucide-icon:hover .animated-lucide-el-4,
+.al-icon-wrapper:hover .animated-lucide-el-4 { animation: wave-fingerprint-4 0.5s ease 0.32s both; }
+.animated-lucide-icon:hover .animated-lucide-el-5,
+.al-icon-wrapper:hover .animated-lucide-el-5 { animation: wave-fingerprint-5 0.5s ease 0.4s both; }
+.animated-lucide-icon:hover .animated-lucide-el-6,
+.al-icon-wrapper:hover .animated-lucide-el-6 { animation: wave-fingerprint-6 0.5s ease 0.48s both; }
+.animated-lucide-icon:hover .animated-lucide-el-7,
+.al-icon-wrapper:hover .animated-lucide-el-7 { animation: wave-fingerprint-7 0.5s ease 0.56s both; }
+.animated-lucide-icon:hover .animated-lucide-el-8,
+.al-icon-wrapper:hover .animated-lucide-el-8 { animation: wave-fingerprint-8 0.5s ease 0.64s both; }
+
+</style>
+  <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" class="animated-lucide-primary animated-lucide-el-0" style="transform-origin: 12px 16px;" />
+  <path d="M14 13.12c0 2.38 0 6.38-1 8.88" class="animated-lucide-secondary animated-lucide-el-1" style="transform-origin: 12px 16px;" />
+  <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02" class="animated-lucide-secondary animated-lucide-el-2" style="transform-origin: 12px 16px;" />
+  <path d="M2 12a10 10 0 0 1 18-6" class="animated-lucide-secondary animated-lucide-el-3" style="transform-origin: 12px 16px;" />
+  <path d="M2 16h.01" class="animated-lucide-secondary animated-lucide-el-4" style="transform-origin: 12px 16px;" />
+  <path d="M21.8 16c.2-2 .131-5.354 0-6" class="animated-lucide-secondary animated-lucide-el-5" style="transform-origin: 12px 16px;" />
+  <path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2" class="animated-lucide-secondary animated-lucide-el-6" style="transform-origin: 12px 16px;" />
+  <path d="M8.65 22c.21-.66.45-1.32.57-2" class="animated-lucide-secondary animated-lucide-el-7" style="transform-origin: 12px 16px;" />
+  <path d="M9 6.8a6 6 0 0 1 9 5.2v2" class="animated-lucide-secondary animated-lucide-el-8" style="transform-origin: 12px 16px;" />
+</svg>

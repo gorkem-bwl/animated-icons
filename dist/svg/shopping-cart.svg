@@ -1,0 +1,52 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-shopping-cart"
+  role="img"
+  aria-label="shopping cart"
+>
+  <title>shopping cart</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes cart-roll-0 {
+  0% { transform: translateX(0); }
+  30% { transform: translateX(3px); }
+  60% { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+@keyframes cart-roll-1 {
+  0% { transform: translateX(0); }
+  30% { transform: translateX(3px); }
+  60% { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+@keyframes cart-roll-2 {
+  0% { transform: translateX(0); }
+  30% { transform: translateX(3px); }
+  60% { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: cart-roll-0 0.4s ease 0s both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: cart-roll-1 0.4s ease 0.04s both; }
+.animated-lucide-icon:hover .animated-lucide-el-2,
+.al-icon-wrapper:hover .animated-lucide-el-2 { animation: cart-roll-2 0.4s ease 0.08s both; }
+
+</style>
+  <circle cx="8" cy="21" r="1" class="animated-lucide-primary animated-lucide-el-0" style="" />
+  <circle cx="19" cy="21" r="1" class="animated-lucide-secondary animated-lucide-el-1" style="" />
+  <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" class="animated-lucide-secondary animated-lucide-el-2" style="" />
+</svg>

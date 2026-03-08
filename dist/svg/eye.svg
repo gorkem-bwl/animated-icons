@@ -1,0 +1,43 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-eye"
+  role="img"
+  aria-label="eye"
+>
+  <title>eye</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes eye-blink-outer {
+  0% { transform: scaleY(1); }
+  40% { transform: scaleY(0.1); }
+  60% { transform: scaleY(0.1); }
+  100% { transform: scaleY(1); }
+}
+@keyframes eye-blink-inner-1 {
+  0% { transform: scaleY(1); opacity: 1; }
+  40% { transform: scaleY(0.3); opacity: 0; }
+  60% { transform: scaleY(0.3); opacity: 0; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: eye-blink-outer 0.4s ease both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: eye-blink-inner-1 0.4s ease both; }
+
+</style>
+  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" class="animated-lucide-primary animated-lucide-el-0" style="transform-origin: 12px 12px;" />
+  <circle cx="12" cy="12" r="3" class="animated-lucide-secondary animated-lucide-el-1" style="transform-origin: 12px 12px;" />
+</svg>

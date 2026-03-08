@@ -1,0 +1,43 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-mail"
+  role="img"
+  aria-label="mail"
+>
+  <title>mail</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes mail-letter-peek {
+  0% { transform: translateY(0) rotateX(0deg); }
+  30% { transform: translateY(-8px) rotateX(-20deg); }
+  60% { transform: translateY(-4px) rotateX(-10deg); }
+  100% { transform: translateY(0) rotateX(0deg); }
+}
+@keyframes mail-body-react {
+  0% { transform: scale(1, 1); }
+  30% { transform: scale(1.03, 0.94); }
+  60% { transform: scale(0.98, 1.02); }
+  100% { transform: scale(1, 1); }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: mail-letter-peek 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: mail-body-react 0.5s ease 0.05s both; }
+
+</style>
+  <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" class="animated-lucide-secondary animated-lucide-el-0" style="transform-origin: center bottom;" />
+  <rect x="2" y="4" width="20" height="16" rx="2" class="animated-lucide-primary animated-lucide-el-1" style="transform-origin: center bottom;" />
+</svg>

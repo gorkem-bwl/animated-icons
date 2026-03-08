@@ -1,0 +1,394 @@
+[
+  {
+    "name": "arrow-right",
+    "componentName": "ArrowRight",
+    "category": "arrows",
+    "animation": "directional",
+    "elementCount": 2
+  },
+  {
+    "name": "chevron-down",
+    "componentName": "ChevronDown",
+    "category": "arrows",
+    "animation": "directional",
+    "elementCount": 1
+  },
+  {
+    "name": "refresh-cw",
+    "componentName": "RefreshCw",
+    "category": "arrows",
+    "animation": "directional",
+    "elementCount": 4
+  },
+  {
+    "name": "redo",
+    "componentName": "Redo",
+    "category": "arrows",
+    "animation": "directional",
+    "elementCount": 2
+  },
+  {
+    "name": "mail",
+    "componentName": "Mail",
+    "category": "communication",
+    "animation": "pop-envelope",
+    "elementCount": 2
+  },
+  {
+    "name": "send",
+    "componentName": "Send",
+    "category": "communication",
+    "animation": "pop-envelope",
+    "elementCount": 2
+  },
+  {
+    "name": "message-circle",
+    "componentName": "MessageCircle",
+    "category": "communication",
+    "animation": "pop-envelope",
+    "elementCount": 1
+  },
+  {
+    "name": "inbox",
+    "componentName": "Inbox",
+    "category": "communication",
+    "animation": "pop-envelope",
+    "elementCount": 2
+  },
+  {
+    "name": "play",
+    "componentName": "Play",
+    "category": "media",
+    "animation": "playback",
+    "elementCount": 1
+  },
+  {
+    "name": "volume-2",
+    "componentName": "Volume2",
+    "category": "media",
+    "animation": "playback",
+    "elementCount": 3
+  },
+  {
+    "name": "camera",
+    "componentName": "Camera",
+    "category": "media",
+    "animation": "playback",
+    "elementCount": 2
+  },
+  {
+    "name": "music",
+    "componentName": "Music",
+    "category": "media",
+    "animation": "playback",
+    "elementCount": 3
+  },
+  {
+    "name": "file",
+    "componentName": "File",
+    "category": "files",
+    "animation": "unfold",
+    "elementCount": 2
+  },
+  {
+    "name": "folder",
+    "componentName": "Folder",
+    "category": "files",
+    "animation": "unfold",
+    "elementCount": 1
+  },
+  {
+    "name": "clipboard",
+    "componentName": "Clipboard",
+    "category": "files",
+    "animation": "unfold",
+    "elementCount": 2
+  },
+  {
+    "name": "book-open",
+    "componentName": "BookOpen",
+    "category": "files",
+    "animation": "unfold",
+    "elementCount": 2
+  },
+  {
+    "name": "check",
+    "componentName": "Check",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 1
+  },
+  {
+    "name": "x",
+    "componentName": "X",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 2
+  },
+  {
+    "name": "plus",
+    "componentName": "Plus",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 2
+  },
+  {
+    "name": "menu",
+    "componentName": "Menu",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 3
+  },
+  {
+    "name": "settings",
+    "componentName": "Settings",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 2
+  },
+  {
+    "name": "search",
+    "componentName": "Search",
+    "category": "uncategorized",
+    "animation": "draw",
+    "elementCount": 2
+  },
+  {
+    "name": "bell",
+    "componentName": "Bell",
+    "category": "status",
+    "animation": "pulse",
+    "elementCount": 2
+  },
+  {
+    "name": "alert-triangle",
+    "componentName": "AlertTriangle",
+    "category": "status",
+    "animation": "pulse",
+    "elementCount": 3
+  },
+  {
+    "name": "loader",
+    "componentName": "Loader",
+    "category": "status",
+    "animation": "pulse",
+    "elementCount": 8
+  },
+  {
+    "name": "zap",
+    "componentName": "Zap",
+    "category": "status",
+    "animation": "pulse",
+    "elementCount": 1
+  },
+  {
+    "name": "sun",
+    "componentName": "Sun",
+    "category": "weather",
+    "animation": "ambient",
+    "elementCount": 9
+  },
+  {
+    "name": "cloud",
+    "componentName": "Cloud",
+    "category": "weather",
+    "animation": "ambient",
+    "elementCount": 1
+  },
+  {
+    "name": "moon",
+    "componentName": "Moon",
+    "category": "weather",
+    "animation": "ambient",
+    "elementCount": 1
+  },
+  {
+    "name": "snowflake",
+    "componentName": "Snowflake",
+    "category": "weather",
+    "animation": "ambient",
+    "elementCount": 12
+  },
+  {
+    "name": "home",
+    "componentName": "Home",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 2
+  },
+  {
+    "name": "lock",
+    "componentName": "Lock",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 2
+  },
+  {
+    "name": "trash-2",
+    "componentName": "Trash2",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 5
+  },
+  {
+    "name": "shopping-cart",
+    "componentName": "ShoppingCart",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 3
+  },
+  {
+    "name": "rocket",
+    "componentName": "Rocket",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 4
+  },
+  {
+    "name": "pencil",
+    "componentName": "Pencil",
+    "category": "editing",
+    "animation": "draw",
+    "elementCount": 2
+  },
+  {
+    "name": "copy",
+    "componentName": "Copy",
+    "category": "editing",
+    "animation": "draw",
+    "elementCount": 2
+  },
+  {
+    "name": "scissors",
+    "componentName": "Scissors",
+    "category": "editing",
+    "animation": "draw",
+    "elementCount": 5
+  },
+  {
+    "name": "user",
+    "componentName": "User",
+    "category": "people",
+    "animation": "wave",
+    "elementCount": 2
+  },
+  {
+    "name": "heart",
+    "componentName": "Heart",
+    "category": "people",
+    "animation": "wave",
+    "elementCount": 1
+  },
+  {
+    "name": "eye",
+    "componentName": "Eye",
+    "category": "people",
+    "animation": "wave",
+    "elementCount": 2
+  },
+  {
+    "name": "smile",
+    "componentName": "Smile",
+    "category": "people",
+    "animation": "wave",
+    "elementCount": 4
+  },
+  {
+    "name": "map-pin",
+    "componentName": "MapPin",
+    "category": "navigation",
+    "animation": "locate",
+    "elementCount": 2
+  },
+  {
+    "name": "globe",
+    "componentName": "Globe",
+    "category": "navigation",
+    "animation": "locate",
+    "elementCount": 3
+  },
+  {
+    "name": "compass",
+    "componentName": "Compass",
+    "category": "editing",
+    "animation": "draw",
+    "elementCount": 2
+  },
+  {
+    "name": "navigation",
+    "componentName": "Navigation",
+    "category": "navigation",
+    "animation": "locate",
+    "elementCount": 1
+  },
+  {
+    "name": "bar-chart-2",
+    "componentName": "BarChart2",
+    "category": "data",
+    "animation": "chart-rise",
+    "elementCount": 3
+  },
+  {
+    "name": "trending-up",
+    "componentName": "TrendingUp",
+    "category": "data",
+    "animation": "chart-rise",
+    "elementCount": 2
+  },
+  {
+    "name": "database",
+    "componentName": "Database",
+    "category": "data",
+    "animation": "chart-rise",
+    "elementCount": 3
+  },
+  {
+    "name": "shield",
+    "componentName": "Shield",
+    "category": "security",
+    "animation": "shield",
+    "elementCount": 1
+  },
+  {
+    "name": "key",
+    "componentName": "Key",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 3
+  },
+  {
+    "name": "fingerprint",
+    "componentName": "Fingerprint",
+    "category": "people",
+    "animation": "wave",
+    "elementCount": 9
+  },
+  {
+    "name": "code",
+    "componentName": "Code",
+    "category": "development",
+    "animation": "type-in",
+    "elementCount": 2
+  },
+  {
+    "name": "terminal",
+    "componentName": "Terminal",
+    "category": "development",
+    "animation": "type-in",
+    "elementCount": 2
+  },
+  {
+    "name": "git-branch",
+    "componentName": "GitBranch",
+    "category": "development",
+    "animation": "type-in",
+    "elementCount": 3
+  },
+  {
+    "name": "bug",
+    "componentName": "Bug",
+    "category": "development",
+    "animation": "type-in",
+    "elementCount": 11
+  }
+]

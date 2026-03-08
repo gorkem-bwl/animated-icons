@@ -1,0 +1,39 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-pencil"
+  role="img"
+  aria-label="pencil"
+>
+  <title>pencil</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes draw-in-pencil-0 {
+  0% { stroke-dashoffset: var(--path-length-0); }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes draw-in-pencil-1 {
+  0% { stroke-dashoffset: var(--path-length-1); }
+  100% { stroke-dashoffset: 0; }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: draw-in-pencil-0 0.5s ease 0s both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: draw-in-pencil-1 0.5s ease 0.1s both; }
+
+</style>
+  <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" stroke-dasharray="var(--path-length-0)" stroke-dashoffset="0" class="animated-lucide-primary animated-lucide-el-0" style="" />
+  <path d="m15 5 4 4" stroke-dasharray="var(--path-length-1)" stroke-dashoffset="0" class="animated-lucide-secondary animated-lucide-el-1" style="" />
+</svg>

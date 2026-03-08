@@ -1,0 +1,46 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-git-branch"
+  role="img"
+  aria-label="git branch"
+>
+  <title>git branch</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes type-git-branch-0 {
+  0% { stroke-dashoffset: var(--path-length-0); opacity: 0.3; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+@keyframes type-git-branch-1 {
+  0% { stroke-dashoffset: var(--path-length-1); opacity: 0.3; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+@keyframes type-git-branch-2 {
+  0% { stroke-dashoffset: var(--path-length-2); opacity: 0.3; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: type-git-branch-0 0.4s ease 0s both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: type-git-branch-1 0.4s ease 0.12s both; }
+.animated-lucide-icon:hover .animated-lucide-el-2,
+.al-icon-wrapper:hover .animated-lucide-el-2 { animation: type-git-branch-2 0.4s ease 0.24s both; }
+
+</style>
+  <path d="M15 6a9 9 0 0 0-9 9V3" stroke-dasharray="var(--path-length-0)" stroke-dashoffset="0" class="animated-lucide-primary animated-lucide-el-0" style="" />
+  <circle cx="18" cy="6" r="3" stroke-dasharray="var(--path-length-1)" stroke-dashoffset="0" class="animated-lucide-secondary animated-lucide-el-1" style="" />
+  <circle cx="6" cy="18" r="3" stroke-dasharray="var(--path-length-2)" stroke-dashoffset="0" class="animated-lucide-primary animated-lucide-el-2" style="" />
+</svg>

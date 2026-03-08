@@ -1,0 +1,39 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-compass"
+  role="img"
+  aria-label="compass"
+>
+  <title>compass</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes draw-in-compass-0 {
+  0% { stroke-dashoffset: var(--path-length-0); }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes draw-in-compass-1 {
+  0% { stroke-dashoffset: var(--path-length-1); }
+  100% { stroke-dashoffset: 0; }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: draw-in-compass-0 0.5s ease 0s both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: draw-in-compass-1 0.5s ease 0.1s both; }
+
+</style>
+  <circle cx="12" cy="12" r="10" stroke-dasharray="var(--path-length-0)" stroke-dashoffset="0" class="animated-lucide-primary animated-lucide-el-0" style="" />
+  <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" stroke-dasharray="var(--path-length-1)" stroke-dashoffset="0" class="animated-lucide-secondary animated-lucide-el-1" style="" />
+</svg>

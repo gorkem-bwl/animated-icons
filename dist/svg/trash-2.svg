@@ -1,0 +1,65 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="animated-lucide-icon animated-lucide-trash-2"
+  role="img"
+  aria-label="trash 2"
+>
+  <title>trash 2</title>
+
+<style>
+  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
+  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
+  .animated-lucide-icon:hover .animated-lucide-secondary,
+  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
+  .animated-lucide-icon * { transition: opacity 0.2s ease; }
+@keyframes trash-lid {
+  0% { transform: translateY(0) rotate(0deg); }
+  40% { transform: translateY(-3px) rotate(-8deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+@keyframes trash-body-1 {
+  0% { transform: scaleY(1); }
+  30% { transform: scaleY(0.95); }
+  100% { transform: scaleY(1); }
+}
+@keyframes trash-body-2 {
+  0% { transform: scaleY(1); }
+  30% { transform: scaleY(0.95); }
+  100% { transform: scaleY(1); }
+}
+@keyframes trash-body-3 {
+  0% { transform: scaleY(1); }
+  30% { transform: scaleY(0.95); }
+  100% { transform: scaleY(1); }
+}
+@keyframes trash-body-4 {
+  0% { transform: scaleY(1); }
+  30% { transform: scaleY(0.95); }
+  100% { transform: scaleY(1); }
+}
+.animated-lucide-icon:hover .animated-lucide-el-0,
+.al-icon-wrapper:hover .animated-lucide-el-0 { animation: trash-lid 0.4s ease 0s both; }
+.animated-lucide-icon:hover .animated-lucide-el-1,
+.al-icon-wrapper:hover .animated-lucide-el-1 { animation: trash-body-1 0.4s ease 0.05s both; }
+.animated-lucide-icon:hover .animated-lucide-el-2,
+.al-icon-wrapper:hover .animated-lucide-el-2 { animation: trash-body-2 0.4s ease 0.1s both; }
+.animated-lucide-icon:hover .animated-lucide-el-3,
+.al-icon-wrapper:hover .animated-lucide-el-3 { animation: trash-body-3 0.4s ease 0.15000000000000002s both; }
+.animated-lucide-icon:hover .animated-lucide-el-4,
+.al-icon-wrapper:hover .animated-lucide-el-4 { animation: trash-body-4 0.4s ease 0.2s both; }
+
+</style>
+  <path d="M10 11v6" class="animated-lucide-secondary animated-lucide-el-0" style="transform-origin: 12px 6px;" />
+  <path d="M14 11v6" class="animated-lucide-primary animated-lucide-el-1" style="transform-origin: center bottom;" />
+  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" class="animated-lucide-primary animated-lucide-el-2" style="transform-origin: center bottom;" />
+  <path d="M3 6h18" class="animated-lucide-primary animated-lucide-el-3" style="transform-origin: center bottom;" />
+  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" class="animated-lucide-primary animated-lucide-el-4" style="transform-origin: center bottom;" />
+</svg>
