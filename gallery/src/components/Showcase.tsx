@@ -82,7 +82,7 @@ export default function Showcase() {
                   key={item.label}
                   className={`al-icon-wrapper flex items-center gap-3 rounded-lg px-3 py-2 text-sm cursor-pointer transition-all ${
                     item.active
-                      ? "bg-teal-600 text-white"
+                      ? "bg-teal-500/15 dark:bg-teal-500/15 text-teal-700 dark:text-teal-300"
                       : "text-neutral-600 dark:text-white/50 hover:bg-neutral-100 dark:hover:bg-white/[0.06] hover:text-neutral-900 dark:hover:text-white"
                   }`}
                 >
@@ -91,7 +91,7 @@ export default function Showcase() {
                   {item.badge && (
                     <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
                       item.active
-                        ? "bg-white/20 text-white"
+                        ? "bg-teal-500/20 text-teal-700 dark:text-teal-300"
                         : "bg-teal-100 dark:bg-teal-500/20 text-teal-700 dark:text-teal-400"
                     }`}>
                       {item.badge}
@@ -135,7 +135,7 @@ export default function Showcase() {
           <ExampleCard title="Buttons" dot="bg-violet-500">
             <div className="space-y-3">
               <div className="flex gap-2 flex-wrap">
-                <button className="al-icon-wrapper inline-flex items-center gap-2 rounded-lg bg-teal-600 hover:bg-teal-700 px-4 py-2 text-sm text-white font-medium transition-colors cursor-pointer">
+                <button className="al-icon-wrapper inline-flex items-center gap-2 rounded-lg bg-teal-500/15 dark:bg-teal-500/15 hover:bg-teal-500/25 dark:hover:bg-teal-500/25 px-4 py-2 text-sm text-teal-700 dark:text-teal-300 font-medium transition-colors cursor-pointer">
                   <AnimIcon name="send" cache={svgCache} size="h-4 w-4" />
                   Send
                 </button>
@@ -242,7 +242,7 @@ export default function Showcase() {
                   >
                     <div className={`flex items-center justify-center transition-colors ${
                       item.fab
-                        ? "h-10 w-10 rounded-full bg-teal-600 text-white shadow-md"
+                        ? "h-10 w-10 rounded-full bg-teal-500/20 dark:bg-teal-500/20 text-teal-700 dark:text-teal-300 shadow-sm ring-1 ring-teal-500/20"
                         : item.active
                           ? "text-teal-600 dark:text-teal-400"
                           : "text-neutral-400 dark:text-white/30 hover:text-neutral-600 dark:hover:text-white/50"
