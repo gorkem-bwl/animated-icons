@@ -8,7 +8,7 @@
   stroke-width="2"
   stroke-linecap="round"
   stroke-linejoin="round"
-  overflow="hidden"
+  overflow="visible"
   class="animated-lucide-icon animated-lucide-picture-in-picture"
   role="img"
   aria-label="picture in picture"

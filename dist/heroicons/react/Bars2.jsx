@@ -298,7 +298,7 @@ const Bars2 = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" className="ah-primary ah-anim-menu-line ah-delay-0" style={{ '--ah-scale-x': '1' }} />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" className="ah-primary ah-anim-shake ah-delay-0" style={{}} />
       </svg>
     </>
   );

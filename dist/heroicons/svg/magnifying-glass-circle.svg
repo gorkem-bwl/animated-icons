@@ -8,7 +8,7 @@
   stroke-width="1.5"
   stroke-linecap="round"
   stroke-linejoin="round"
-  overflow="hidden"
+  overflow="visible"
   class="animated-heroicon animated-heroicon-magnifying-glass-circle"
   role="img"
   aria-label="magnifying glass circle"

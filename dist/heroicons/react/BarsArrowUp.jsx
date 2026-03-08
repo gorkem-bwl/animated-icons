@@ -298,7 +298,7 @@ const BarsArrowUp = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h5.25m5.25-.75L17.25 9m0 0L21 12.75M17.25 9v12" className="ah-primary ah-anim-menu-line ah-delay-0" style={{ '--ah-scale-x': '1' }} />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h5.25m5.25-.75L17.25 9m0 0L21 12.75M17.25 9v12" className="ah-primary ah-anim-shake ah-delay-0" style={{}} />
       </svg>
     </>
   );

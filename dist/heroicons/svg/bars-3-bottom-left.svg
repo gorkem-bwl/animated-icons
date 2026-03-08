@@ -8,7 +8,7 @@
   stroke-width="1.5"
   stroke-linecap="round"
   stroke-linejoin="round"
-  overflow="hidden"
+  overflow="visible"
   class="animated-heroicon animated-heroicon-bars-3-bottom-left"
   role="img"
   aria-label="bars 3 bottom left"
@@ -273,5 +273,5 @@
     100% { transform: rotate(360deg); }
   }
 </style>
-  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" class="ah-primary ah-anim-menu-line ah-delay-0" style="--ah-scale-x: 1" />
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" class="ah-primary ah-anim-shake ah-delay-0" />
 </svg>

@@ -242,7 +242,7 @@ const animationStrategies = {
     if (iconName.includes('inbox')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: i === 0 ? 'fill' : 'fade',
+        anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'fade'),
         delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
@@ -291,7 +291,7 @@ const animationStrategies = {
     if (iconName.includes('camera') || iconName.includes('video')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: i === 0 ? 'fill' : 'scale-pop',
+        anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'scale-pop'),
         delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
@@ -329,16 +329,17 @@ const animationStrategies = {
     if (iconName.includes('book')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: i === 0 ? 'fill' : 'page-turn',
+        anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'page-turn'),
         delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
     }
 
     // folder, document, clipboard, archive, bookmark, newspaper, paper-clip, queue-list
+    // Single-path: use scale-pop (fill barely visible on outlines)
     return elements.map((el, i) => ({
       ...el,
-      anim: i === 0 ? 'fill' : 'fade',
+      anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'fade'),
       delay: i,
       colorGroup: i === 0 ? 'primary' : 'secondary',
     }));
@@ -366,12 +367,12 @@ const animationStrategies = {
     }
 
     if (iconName.includes('bars')) {
+      // bars-* are single-path icons — use shake for visible whole-icon animation
       return elements.map((el, i) => ({
         ...el,
-        anim: 'menu-line',
+        anim: 'shake',
         delay: i,
-        colorGroup: i % 2 === 0 ? 'primary' : 'secondary',
-        customProps: { scaleX: 1 - i * 0.15 },
+        colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
     }
 
@@ -432,10 +433,10 @@ const animationStrategies = {
       }));
     }
 
-    // exclamation, information, question: fill + fade
+    // exclamation, information, question: single-path uses scale-pop
     return elements.map((el, i) => ({
       ...el,
-      anim: i === 0 ? 'fill' : 'fade',
+      anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'fade'),
       delay: i,
       colorGroup: i === 0 ? 'primary' : 'secondary',
     }));
@@ -466,7 +467,7 @@ const animationStrategies = {
     if (iconName.includes('cloud')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: i === 0 ? 'fill' : 'fade',
+        anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'fade'),
         delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
@@ -513,7 +514,7 @@ const animationStrategies = {
     if (iconName.includes('trash')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: i === 0 ? 'handle-lift' : 'fill',
+        anim: elements.length === 1 ? 'shake' : (i === 0 ? 'handle-lift' : 'fill'),
         delay: i,
         colorGroup: i === 0 ? 'secondary' : 'primary',
       }));
@@ -522,7 +523,7 @@ const animationStrategies = {
     if (iconName.includes('lock')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: i === 0 ? 'fill' : 'handle-lift',
+        anim: elements.length === 1 ? 'shake' : (i === 0 ? 'fill' : 'handle-lift'),
         delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
@@ -568,10 +569,10 @@ const animationStrategies = {
       }));
     }
 
-    // Default: fill on main shape, fade on details
+    // Default: single-path uses scale-pop, multi uses fill+fade
     return elements.map((el, i) => ({
       ...el,
-      anim: i === 0 ? 'fill' : 'fade',
+      anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'fade'),
       delay: i,
       colorGroup: i === 0 ? 'primary' : 'secondary',
     }));
@@ -621,7 +622,7 @@ const animationStrategies = {
     if (iconName.includes('eye')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: i === 0 ? 'fill' : 'scale-pop',
+        anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'scale-pop'),
         delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
@@ -639,16 +640,16 @@ const animationStrategies = {
     if (iconName.includes('face') || iconName.includes('smile') || iconName.includes('frown')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: i === 0 ? 'fill' : 'fade',
+        anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'fade'),
         delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
     }
 
-    // user, users, identification, finger-print: fill + fade
+    // user, users, identification, finger-print: single-path uses scale-pop
     return elements.map((el, i) => ({
       ...el,
-      anim: i === 0 ? 'fill' : 'fade',
+      anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'fade'),
       delay: i,
       colorGroup: i === 0 ? 'primary' : 'secondary',
     }));
@@ -659,7 +660,7 @@ const animationStrategies = {
     if (iconName.includes('map-pin')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: i === 0 ? 'fill' : 'dot-appear',
+        anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'dot-appear'),
         delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
@@ -668,7 +669,7 @@ const animationStrategies = {
     if (iconName.includes('globe')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: i === 0 ? 'fill' : 'fade',
+        anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'fade'),
         delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
@@ -692,10 +693,10 @@ const animationStrategies = {
       }));
     }
 
-    // calendar, viewfinder, map: fill + fade
+    // calendar, viewfinder, map: single-path uses scale-pop
     return elements.map((el, i) => ({
       ...el,
-      anim: i === 0 ? 'fill' : 'fade',
+      anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'fade'),
       delay: i,
       colorGroup: i === 0 ? 'primary' : 'secondary',
     }));
@@ -742,10 +743,18 @@ const animationStrategies = {
 
   // ── Security (shield, star, qr-code) ──
   shield(elements, iconName) {
-    // Shield: container fills, inner elements fade
+    if (iconName.includes('star')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: 'scale-pop',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+    // Shield: single-path uses scale-pop, multi uses fill+fade
     return elements.map((el, i) => ({
       ...el,
-      anim: i === 0 ? 'fill' : 'fade',
+      anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'fade'),
       delay: i,
       colorGroup: i === 0 ? 'primary' : 'secondary',
     }));
@@ -753,9 +762,10 @@ const animationStrategies = {
 
   // ── Development (code, terminal, bug, cpu) ──
   'type-in'(elements, iconName) {
+    // Single-path: use scale-pop (fill barely visible on outlines)
     return elements.map((el, i) => ({
       ...el,
-      anim: i === 0 ? 'fill' : 'fade',
+      anim: elements.length === 1 ? 'scale-pop' : (i === 0 ? 'fill' : 'fade'),
       delay: i,
       colorGroup: i % 2 === 0 ? 'primary' : 'secondary',
     }));
@@ -1092,7 +1102,7 @@ function generateAnimatedSvg(iconName, svgContent, animationType) {
   stroke-width="1.5"
   stroke-linecap="round"
   stroke-linejoin="round"
-  overflow="hidden"
+  overflow="visible"
   class="animated-heroicon animated-heroicon-${iconName}"
   role="img"
   aria-label="${label}"

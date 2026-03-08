@@ -8,7 +8,7 @@
   stroke-width="1.5"
   stroke-linecap="round"
   stroke-linejoin="round"
-  overflow="hidden"
+  overflow="visible"
   class="animated-heroicon animated-heroicon-arrow-turn-up-right"
   role="img"
   aria-label="arrow turn up right"

@@ -1100,7 +1100,7 @@ function generateAnimatedSvg(iconName, svgContent, animationType) {
   stroke-width="${svgAttrs['stroke-width'] || '2'}"
   stroke-linecap="${svgAttrs['stroke-linecap'] || 'round'}"
   stroke-linejoin="${svgAttrs['stroke-linejoin'] || 'round'}"
-  overflow="hidden"
+  overflow="visible"
   class="animated-lucide-icon animated-lucide-${iconName}"
   role="img"
   aria-label="${label}"
