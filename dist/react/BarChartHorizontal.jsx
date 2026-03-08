@@ -299,9 +299,9 @@ const BarChartHorizontal = forwardRef(({
       >
         <title>{label}</title>
         <path d="M3 3v16a2 2 0 0 0 2 2h16" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M7 16h8" className="al-secondary al-anim-fill al-delay-1" style={{}} />
-        <path d="M7 11h12" className="al-primary al-anim-fill al-delay-2" style={{}} />
-        <path d="M7 6h3" className="al-secondary al-anim-fill al-delay-3" style={{}} />
+        <path d="M7 16h8" className="al-secondary al-anim-bar al-delay-1" style={{}} />
+        <path d="M7 11h12" className="al-primary al-anim-bar al-delay-2" style={{}} />
+        <path d="M7 6h3" className="al-secondary al-anim-bar al-delay-3" style={{}} />
       </svg>
     </>
   );

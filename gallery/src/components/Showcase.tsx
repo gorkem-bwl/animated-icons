@@ -15,12 +15,10 @@ const ICON_CHUNK_MAP: Record<string, number> = {
   scissors: 7, "arrow-right": 0, check: 1, camera: 1,
 };
 
-const COLOR_VARS = {
-  "--animated-lucide-primary": "#0d9488",
-  "--animated-lucide-secondary": "#0f766e",
-  "--al-primary": "#0d9488",
-  "--al-secondary": "#0f766e",
-} as React.CSSProperties;
+interface ShowcaseProps {
+  primaryColor: string;
+  secondaryColor: string;
+}
 
 // SVG content from our own build output — trusted, not user input
 function AnimIcon({ name, cache, size = "h-5 w-5" }: { name: string; cache: Record<string, string>; size?: string }) {
@@ -34,9 +32,16 @@ function AnimIcon({ name, cache, size = "h-5 w-5" }: { name: string; cache: Reco
   );
 }
 
-export default function Showcase() {
+export default function Showcase({ primaryColor, secondaryColor }: ShowcaseProps) {
   const [svgCache, setSvgCache] = useState<Record<string, string>>({});
   const loaded = useRef(false);
+
+  const COLOR_VARS = {
+    "--animated-lucide-primary": primaryColor,
+    "--animated-lucide-secondary": secondaryColor,
+    "--al-primary": primaryColor,
+    "--al-secondary": secondaryColor,
+  } as React.CSSProperties;
 
   useEffect(() => {
     if (loaded.current) return;
@@ -109,8 +114,6 @@ export default function Showcase() {
                 {[
                   { icon: "layers", label: "Overview", active: true },
                   { icon: "mail", label: "Messages" },
-                  { icon: "file-text", label: "Files" },
-                  { icon: "settings", label: "Settings" },
                 ].map((tab) => (
                   <div
                     key={tab.label}

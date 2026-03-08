@@ -1,5 +1,4 @@
-import Gallery from "@/components/Gallery";
-import Showcase from "@/components/Showcase";
+import PageClient from "@/components/PageClient";
 import ThemeToggle from "@/components/ThemeToggle";
 import iconsMeta from "@/data/icons-meta.json";
 
@@ -50,13 +49,8 @@ export default function Home() {
         <div className="h-px bg-gradient-to-r from-transparent via-neutral-200 dark:via-white/[0.06] to-transparent" />
       </header>
 
-      {/* Gallery */}
-      <div id="gallery">
-        <Gallery iconsMeta={iconsMeta} />
-      </div>
-
-      {/* Showcase examples */}
-      <Showcase />
+      {/* Gallery + Showcase (share color state) */}
+      <PageClient iconsMeta={iconsMeta} />
 
       {/* Usage section */}
       <section className="border-t border-neutral-200 dark:border-white/[0.06]">

@@ -273,7 +273,7 @@
     100% { transform: rotate(360deg); }
   }
 </style>
-  <path d="M5 21v-6" class="al-primary al-anim-fill al-delay-0" />
-  <path d="M12 21V9" class="al-secondary al-anim-fill al-delay-1" />
-  <path d="M19 21V3" class="al-primary al-anim-fill al-delay-2" />
+  <path d="M5 21v-6" class="al-primary al-anim-bar al-delay-0" />
+  <path d="M12 21V9" class="al-secondary al-anim-bar al-delay-1" />
+  <path d="M19 21V3" class="al-primary al-anim-bar al-delay-2" />
 </svg>

@@ -298,9 +298,9 @@ const BarChart = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M5 21v-6" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M12 21V9" className="al-secondary al-anim-fill al-delay-1" style={{}} />
-        <path d="M19 21V3" className="al-primary al-anim-fill al-delay-2" style={{}} />
+        <path d="M5 21v-6" className="al-primary al-anim-bar al-delay-0" style={{}} />
+        <path d="M12 21V9" className="al-secondary al-anim-bar al-delay-1" style={{}} />
+        <path d="M19 21V3" className="al-primary al-anim-bar al-delay-2" style={{}} />
       </svg>
     </>
   );

@@ -663,11 +663,45 @@ const animationStrategies = {
   // ── Data (bar-chart, trending, database) ──
   'chart-rise'(elements, iconName) {
     if (iconName.includes('bar-chart')) {
+      // Helper: detect bar-like elements (vertical/horizontal lines drawn as paths, rects, or actual lines)
+      const isBarElement = (el) => {
+        if (el.tag === 'line') return true;
+        if (el.tag === 'rect') return true;
+        if (el.tag === 'path') {
+          const d = el.attrs.d || '';
+          // Vertical bars: e.g. "M5 21v-6" or "M12 21V3"
+          if (/^M[\d.\s]+[vV][-\d.]+\s*$/.test(d.trim())) return true;
+          // Horizontal bars: e.g. "M7 16h8" or "M7 11h12"
+          if (/^M[\d.\s]+[hH][-\d.]+\s*$/.test(d.trim())) return true;
+        }
+        return false;
+      };
+
+      return elements.map((el, i) => {
+        if (isBarElement(el)) {
+          return {
+            ...el,
+            anim: 'bar',
+            delay: i,
+            colorGroup: i % 2 === 0 ? 'primary' : 'secondary',
+          };
+        }
+        // Axis lines or containers get fill
+        return {
+          ...el,
+          anim: 'fill',
+          delay: 0,
+          colorGroup: 'primary',
+        };
+      });
+    }
+
+    if (iconName.includes('line-chart')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: el.tag === 'line' ? 'bar' : 'fill',
+        anim: i === 0 ? 'fill' : 'draw',
         delay: i,
-        colorGroup: i % 2 === 0 ? 'primary' : 'secondary',
+        colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
     }
 
@@ -682,7 +716,17 @@ const animationStrategies = {
       }));
     }
 
-    // database, etc
+    if (iconName.includes('pie-chart')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: i === 0 ? 'gear' : 'fade',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+        customProps: i === 0 ? { rotation: 45 } : undefined,
+      }));
+    }
+
+    // database, server, table, calculator, etc
     return elements.map((el, i) => ({
       ...el,
       anim: i === 0 ? 'fill' : 'fade',

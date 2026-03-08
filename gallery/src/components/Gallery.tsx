@@ -13,6 +13,9 @@ interface IconMeta {
 
 interface GalleryProps {
   iconsMeta: IconMeta[];
+  primaryColor: string;
+  secondaryColor: string;
+  onColorChange: (primary: string, secondary: string) => void;
 }
 
 const PAGE_SIZE = 80;
@@ -60,13 +63,14 @@ function CategoryIcon({ svg, isActive }: { svg: string; isActive: boolean }) {
   );
 }
 
-export default function Gallery({ iconsMeta }: GalleryProps) {
+export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onColorChange }: GalleryProps) {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
-  const [primaryColor, setPrimaryColor] = useState("#0d9488");
-  const [secondaryColor, setSecondaryColor] = useState("#0f766e");
   const [page, setPage] = useState(1);
   const [showCustomColor, setShowCustomColor] = useState(false);
+
+  const setPrimaryColor = (c: string) => onColorChange(c, secondaryColor);
+  const setSecondaryColor = (c: string) => onColorChange(primaryColor, c);
 
   // SVG content cache: name → svg string
   const [svgCache, setSvgCache] = useState<Record<string, string>>({});
@@ -275,8 +279,7 @@ export default function Gallery({ iconsMeta }: GalleryProps) {
                   <button
                     key={preset.name}
                     onClick={() => {
-                      setPrimaryColor(preset.p);
-                      setSecondaryColor(preset.s);
+                      onColorChange(preset.p, preset.s);
                     }}
                     className={`group/color relative h-8 w-8 rounded-lg transition-all ${
                       primaryColor === preset.p

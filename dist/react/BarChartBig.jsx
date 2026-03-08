@@ -299,8 +299,8 @@ const BarChartBig = forwardRef(({
       >
         <title>{label}</title>
         <path d="M3 3v16a2 2 0 0 0 2 2h16" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <rect x="15" y="5" width="4" height="12" rx="1" className="al-secondary al-anim-fill al-delay-1" style={{}} />
-        <rect x="7" y="8" width="4" height="9" rx="1" className="al-primary al-anim-fill al-delay-2" style={{}} />
+        <rect x="15" y="5" width="4" height="12" rx="1" className="al-secondary al-anim-bar al-delay-1" style={{}} />
+        <rect x="7" y="8" width="4" height="9" rx="1" className="al-primary al-anim-bar al-delay-2" style={{}} />
       </svg>
     </>
   );
