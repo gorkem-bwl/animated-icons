@@ -1,8 +1,11 @@
 import PageClient from "@/components/PageClient";
 import ThemeToggle from "@/components/ThemeToggle";
-import iconsMeta from "@/data/icons-meta.json";
+import lucideMeta from "@/data/icons-meta.json";
+import heroiconsMeta from "@/data/heroicons-meta.json";
 
 export default function Home() {
+  const totalIcons = lucideMeta.length + heroiconsMeta.length;
+
   return (
     <main className="min-h-screen">
       {/* Hero */}
@@ -14,16 +17,16 @@ export default function Home() {
         <div className="relative mx-auto max-w-3xl px-6 pt-20 pb-16 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-neutral-200/80 dark:border-white/[0.06] bg-white/60 dark:bg-white/[0.03] px-4 py-1.5 text-xs text-neutral-500 dark:text-white/50 backdrop-blur-sm">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-teal-500 dark:bg-teal-400 animate-pulse" />
-            {iconsMeta.length.toLocaleString()} animated icons
+            {totalIcons.toLocaleString()} animated icons
           </div>
           <h1 className="text-5xl font-bold tracking-tight sm:text-6xl leading-[1.1]">
             <span className="bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-white dark:to-white/50 bg-clip-text text-transparent">
-              Animated Lucide
+              Animated Icons
             </span>
           </h1>
           <p className="mx-auto mt-5 max-w-lg text-[15px] text-neutral-500 dark:text-white/40 leading-relaxed">
-            Every Lucide icon, semantically animated with CSS-only hover transitions
-            and two-tone color support. Drop-in replacement for lucide-react.
+            Lucide and Heroicons, semantically animated with CSS-only hover
+            transitions and two-tone color support.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
@@ -50,7 +53,7 @@ export default function Home() {
       </header>
 
       {/* Gallery + Showcase (share color state) */}
-      <PageClient iconsMeta={iconsMeta} />
+      <PageClient lucideMeta={lucideMeta} heroiconsMeta={heroiconsMeta} />
 
       {/* Usage section */}
       <section className="border-t border-neutral-200 dark:border-white/[0.06]">
@@ -68,7 +71,7 @@ export default function Home() {
               <div className="px-5 py-3 border-b border-neutral-200 dark:border-white/[0.06] flex items-center gap-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-blue-500/80" />
                 <h3 className="text-xs font-medium text-neutral-600 dark:text-white/60">
-                  React
+                  Lucide (React)
                 </h3>
               </div>
               <pre className="p-5 text-[13px] text-neutral-700 dark:text-white/60 font-mono overflow-x-auto leading-relaxed">
@@ -88,19 +91,24 @@ function App() {
             </div>
             <div className="rounded-2xl border border-neutral-200 dark:border-white/[0.06] bg-neutral-50 dark:bg-white/[0.02] overflow-hidden">
               <div className="px-5 py-3 border-b border-neutral-200 dark:border-white/[0.06] flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-orange-500/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-indigo-500/80" />
                 <h3 className="text-xs font-medium text-neutral-600 dark:text-white/60">
-                  Standalone SVG
+                  Heroicons (React)
                 </h3>
               </div>
               <pre className="p-5 text-[13px] text-neutral-700 dark:text-white/60 font-mono overflow-x-auto leading-relaxed">
-{`<div class="al-icon-wrapper"
-  style="
-    --animated-lucide-primary: #ef4444;
-    --animated-lucide-secondary: #dc2626;
-  ">
-  <!-- paste SVG from dist/svg/ -->
-</div>`}
+{`import { Heart, Envelope }
+  from 'animated-heroicons-react';
+
+function App() {
+  return (
+    <Heart
+      size={24}
+      primaryColor="#ef4444"
+      secondaryColor="#dc2626"
+    />
+  );
+}`}
               </pre>
             </div>
           </div>
@@ -108,17 +116,17 @@ function App() {
             <div className="px-5 py-3 border-b border-neutral-200 dark:border-white/[0.06] flex items-center gap-2">
               <span className="h-2.5 w-2.5 rounded-full bg-teal-500/80" />
               <h3 className="text-xs font-medium text-neutral-600 dark:text-white/60">
-                Customize colors
+                Standalone SVG
               </h3>
             </div>
             <pre className="p-5 text-[13px] text-neutral-700 dark:text-white/60 font-mono overflow-x-auto leading-relaxed">
-{`:root {
-  --animated-lucide-primary: #0d9488;
-  --animated-lucide-secondary: #0f766e;
-}
-
-/* Or per-icon via React props */
-<Mail primaryColor="#3b82f6" secondaryColor="#2563eb" />`}
+{`<div class="al-icon-wrapper"
+  style="
+    --animated-lucide-primary: #0d9488;
+    --animated-lucide-secondary: #0f766e;
+  ">
+  <!-- paste SVG from dist/svg/ -->
+</div>`}
             </pre>
           </div>
         </div>
@@ -134,9 +142,18 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Lucide Icons
+            Lucide
           </a>
-          {" "}&middot; Icons licensed under ISC &middot;{" "}
+          {" "}and{" "}
+          <a
+            href="https://heroicons.com"
+            className="underline decoration-neutral-300 dark:decoration-white/20 hover:text-neutral-600 dark:hover:text-white/40 underline-offset-2 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Heroicons
+          </a>
+          {" "}&middot; Icons licensed under ISC / MIT &middot;{" "}
           <a
             href="https://github.com/gorkem-bwl/animated-icons"
             className="underline decoration-neutral-300 dark:decoration-white/20 hover:text-neutral-600 dark:hover:text-white/40 underline-offset-2 transition-colors"

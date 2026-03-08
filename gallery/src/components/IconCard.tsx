@@ -7,29 +7,32 @@ interface IconCardProps {
   category: string;
   animation: string;
   svgContent: string | null;
+  wrapperClass: string;
+  packageName: string;
 }
 
 export default function IconCard({
   name,
-  category,
-  animation,
   svgContent,
+  wrapperClass,
+  packageName,
 }: IconCardProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(
-      `import { ${toPascalCase(name)} } from 'animated-lucide-react';`
+      `import { ${toPascalCase(name)} } from '${packageName}';`
     );
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
 
+  // SVG content from our own build output — trusted, not user input
   return (
     <button
       onClick={handleCopy}
       aria-label={`${name} icon. Click to copy import statement`}
-      className="al-icon-wrapper group relative flex flex-col items-center gap-2 rounded-xl border border-neutral-100 dark:border-white/[0.04] bg-white dark:bg-white/[0.02] p-4 transition-all duration-200 hover:border-neutral-200 dark:hover:border-white/[0.1] hover:bg-neutral-50 dark:hover:bg-white/[0.05] hover:shadow-sm dark:hover:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50 cursor-pointer"
+      className={`${wrapperClass} group relative flex flex-col items-center gap-2 rounded-xl border border-neutral-100 dark:border-white/[0.04] bg-white dark:bg-white/[0.02] p-4 transition-all duration-200 hover:border-neutral-200 dark:hover:border-white/[0.1] hover:bg-neutral-50 dark:hover:bg-white/[0.05] hover:shadow-sm dark:hover:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50 cursor-pointer`}
     >
       <div className="flex h-10 w-10 items-center justify-center text-neutral-600 dark:text-white/70 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors [&_svg]:w-6 [&_svg]:h-6">
         {svgContent ? (

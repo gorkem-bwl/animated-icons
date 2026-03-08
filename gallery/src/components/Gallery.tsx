@@ -2,24 +2,19 @@
 
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import IconCard from "./IconCard";
-
-interface IconMeta {
-  name: string;
-  componentName: string;
-  category: string;
-  animation: string;
-  elementCount: number;
-}
+import type { IconSet, IconMeta } from "./PageClient";
+import { ICON_SET_CONFIG } from "./PageClient";
 
 interface GalleryProps {
   iconsMeta: IconMeta[];
+  activeSet: IconSet;
+  config: (typeof ICON_SET_CONFIG)[IconSet];
   primaryColor: string;
   secondaryColor: string;
   onColorChange: (primary: string, secondary: string) => void;
 }
 
 const PAGE_SIZE = 80;
-const CHUNK_SIZE = 200; // Must match prepare-gallery.mjs
 
 const COLOR_PRESETS = [
   { p: "#0d9488", s: "#0f766e", name: "Teal" },
@@ -32,7 +27,7 @@ const COLOR_PRESETS = [
   { p: "#10b981", s: "#059669", name: "Emerald" },
 ];
 
-const CATEGORY_ICONS: Record<string, string> = {
+const LUCIDE_CATEGORY_ICONS: Record<string, string> = {
   all: "layers",
   arrows: "arrow-right",
   communication: "mail",
@@ -50,6 +45,25 @@ const CATEGORY_ICONS: Record<string, string> = {
   development: "code",
 };
 
+const HEROICONS_CATEGORY_ICONS: Record<string, string> = {
+  all: "squares-2x2",
+  arrows: "arrow-right",
+  communication: "envelope",
+  media: "play",
+  files: "document-text",
+  ui: "cog",
+  status: "bell",
+  weather: "sun",
+  objects: "home",
+  editing: "pencil",
+  people: "user",
+  navigation: "map-pin",
+  data: "chart-bar",
+  security: "shield-check",
+  development: "code-bracket",
+};
+
+// SVG content from our own build output — trusted, not user input
 function CategoryIcon({ svg, isActive }: { svg: string; isActive: boolean }) {
   return (
     <span
@@ -63,7 +77,7 @@ function CategoryIcon({ svg, isActive }: { svg: string; isActive: boolean }) {
   );
 }
 
-export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onColorChange }: GalleryProps) {
+export default function Gallery({ iconsMeta, activeSet, config, primaryColor, secondaryColor, onColorChange }: GalleryProps) {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
   const [page, setPage] = useState(1);
@@ -72,11 +86,19 @@ export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onCol
   const setPrimaryColor = (c: string) => onColorChange(c, secondaryColor);
   const setSecondaryColor = (c: string) => onColorChange(primaryColor, c);
 
-  // SVG content cache: name → svg string
+  // SVG content cache: name → svg string (per icon set)
   const [svgCache, setSvgCache] = useState<Record<string, string>>({});
-  const loadingChunks = useRef<Set<number>>(new Set());
+  const loadingChunks = useRef<Set<string>>(new Set());
 
-  // Build a sorted index of all icon names for chunk lookup
+  const CATEGORY_ICONS = activeSet === "lucide" ? LUCIDE_CATEGORY_ICONS : HEROICONS_CATEGORY_ICONS;
+
+  // Reset state when icon set changes
+  useEffect(() => {
+    setActiveCategory("all");
+    setPage(1);
+    setSearch("");
+  }, [activeSet]);
+
   const allIconNames = useMemo(() => iconsMeta.map((i) => i.name), [iconsMeta]);
 
   const categoriesWithCounts = useMemo(() => {
@@ -110,43 +132,39 @@ export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onCol
     return filtered.slice(start, start + PAGE_SIZE);
   }, [filtered, page]);
 
-  // Determine which chunks are needed for the current page
-  const loadChunk = useCallback(async (chunkIndex: number) => {
-    if (loadingChunks.current.has(chunkIndex)) return;
-    loadingChunks.current.add(chunkIndex);
+  const loadChunk = useCallback(async (chunkIndex: number, chunkPath: string) => {
+    const key = `${chunkPath}-${chunkIndex}`;
+    if (loadingChunks.current.has(key)) return;
+    loadingChunks.current.add(key);
     try {
-      const res = await fetch(`/data/icons-chunk-${chunkIndex}.json`);
+      const res = await fetch(`${chunkPath}/icons-chunk-${chunkIndex}.json`);
       if (res.ok) {
         const data: Record<string, string> = await res.json();
         setSvgCache((prev) => ({ ...prev, ...data }));
       }
     } catch {
-      loadingChunks.current.delete(chunkIndex);
+      loadingChunks.current.delete(key);
     }
   }, []);
 
-  // Load chunks needed for current paginated icons
   useEffect(() => {
     const neededChunks = new Set<number>();
     for (const icon of paginated) {
       const globalIndex = allIconNames.indexOf(icon.name);
       if (globalIndex >= 0) {
-        neededChunks.add(Math.floor(globalIndex / CHUNK_SIZE));
+        neededChunks.add(Math.floor(globalIndex / config.chunkSize));
       }
     }
-    // Also load chunks for category icons
     for (const iconName of Object.values(CATEGORY_ICONS)) {
       const globalIndex = allIconNames.indexOf(iconName);
       if (globalIndex >= 0) {
-        neededChunks.add(Math.floor(globalIndex / CHUNK_SIZE));
+        neededChunks.add(Math.floor(globalIndex / config.chunkSize));
       }
     }
     for (const chunk of neededChunks) {
-      if (!loadingChunks.current.has(chunk)) {
-        loadChunk(chunk);
-      }
+      loadChunk(chunk, config.chunkPath);
     }
-  }, [paginated, allIconNames, loadChunk]);
+  }, [paginated, allIconNames, loadChunk, config.chunkPath, config.chunkSize, CATEGORY_ICONS]);
 
   const handleCategoryChange = useCallback((cat: string) => {
     setActiveCategory(cat);
@@ -180,11 +198,22 @@ export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onCol
   };
 
   const colorVars = {
+    [config.primaryVar]: primaryColor,
+    [config.secondaryVar]: secondaryColor,
+    [config.shortPrimaryVar]: primaryColor,
+    [config.shortSecondaryVar]: secondaryColor,
+    // Set both so sidebar icons always work
     "--animated-lucide-primary": primaryColor,
     "--animated-lucide-secondary": secondaryColor,
     "--al-primary": primaryColor,
     "--al-secondary": secondaryColor,
+    "--animated-heroicon-primary": primaryColor,
+    "--animated-heroicon-secondary": secondaryColor,
+    "--ah-primary": primaryColor,
+    "--ah-secondary": secondaryColor,
   } as React.CSSProperties;
+
+  const wrapperClass = config.wrapperClass;
 
   return (
     <div className="mx-auto max-w-[1400px] px-6 py-8">
@@ -220,7 +249,7 @@ export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onCol
               {search && (
                 <button
                   onClick={() => handleSearchChange("")}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-white/30 hover:text-neutral-600 dark:hover:text-white/60"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-white/30 hover:text-neutral-600 dark:hover:text-white/60 cursor-pointer"
                   aria-label="Clear search"
                 >
                   <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -243,7 +272,7 @@ export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onCol
                     <button
                       key={cat.name}
                       onClick={() => handleCategoryChange(cat.name)}
-                      className={`al-icon-wrapper flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-[13px] font-medium transition-all text-left cursor-pointer group/cat ${
+                      className={`${wrapperClass} flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-[13px] font-medium transition-all text-left cursor-pointer group/cat ${
                         isActive
                           ? "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900"
                           : "text-neutral-600 dark:text-white/50 hover:text-neutral-900 dark:hover:text-white/80 hover:bg-neutral-100 dark:hover:bg-white/[0.06]"
@@ -278,10 +307,8 @@ export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onCol
                 {COLOR_PRESETS.map((preset) => (
                   <button
                     key={preset.name}
-                    onClick={() => {
-                      onColorChange(preset.p, preset.s);
-                    }}
-                    className={`group/color relative h-8 w-8 rounded-lg transition-all ${
+                    onClick={() => onColorChange(preset.p, preset.s)}
+                    className={`group/color relative h-8 w-8 rounded-lg transition-all cursor-pointer ${
                       primaryColor === preset.p
                         ? "ring-2 ring-offset-2 ring-offset-white dark:ring-offset-[#0a0a0b] scale-110"
                         : "hover:scale-110"
@@ -297,7 +324,7 @@ export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onCol
               </div>
               <button
                 onClick={() => setShowCustomColor(!showCustomColor)}
-                className={`mt-3 w-full flex items-center justify-center gap-1.5 rounded-lg border border-dashed px-2 py-1.5 text-[11px] font-medium transition-all ${
+                className={`mt-3 w-full flex items-center justify-center gap-1.5 rounded-lg border border-dashed px-2 py-1.5 text-[11px] font-medium transition-all cursor-pointer ${
                   showCustomColor
                     ? "border-teal-400 dark:border-teal-500/50 text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-500/[0.05]"
                     : "border-neutral-300 dark:border-white/15 text-neutral-500 dark:text-white/40 hover:text-neutral-700 dark:hover:text-white/60 hover:border-neutral-400 dark:hover:border-white/25"
@@ -378,7 +405,7 @@ export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onCol
                   <button
                     key={cat.name}
                     onClick={() => handleCategoryChange(cat.name)}
-                    className={`al-icon-wrapper shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer ${
+                    className={`${wrapperClass} shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer ${
                       isActive
                         ? "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 shadow-sm"
                         : "text-neutral-500 dark:text-white/40 hover:text-neutral-700 dark:hover:text-white/60 hover:bg-neutral-100 dark:hover:bg-white/[0.06]"
@@ -402,11 +429,8 @@ export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onCol
               {COLOR_PRESETS.map((preset) => (
                 <button
                   key={preset.name}
-                  onClick={() => {
-                    setPrimaryColor(preset.p);
-                    setSecondaryColor(preset.s);
-                  }}
-                  className={`h-6 w-6 rounded-full transition-all ${
+                  onClick={() => onColorChange(preset.p, preset.s)}
+                  className={`h-6 w-6 rounded-full transition-all cursor-pointer ${
                     primaryColor === preset.p
                       ? "ring-2 ring-offset-2 ring-offset-white dark:ring-offset-[#0a0a0b] scale-110"
                       : "hover:scale-110"
@@ -433,6 +457,8 @@ export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onCol
                 category={icon.category}
                 animation={icon.animation}
                 svgContent={svgCache[icon.name] ?? null}
+                wrapperClass={wrapperClass}
+                packageName={config.packageName}
               />
             ))}
           </div>
@@ -451,7 +477,7 @@ export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onCol
               </p>
               <button
                 onClick={() => handleSearchChange("")}
-                className="mt-3 text-xs text-teal-600 dark:text-teal-400 hover:underline"
+                className="mt-3 text-xs text-teal-600 dark:text-teal-400 hover:underline cursor-pointer"
               >
                 Clear search
               </button>
@@ -465,7 +491,7 @@ export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onCol
                 <button
                   onClick={() => setPage(Math.max(1, page - 1))}
                   disabled={page === 1}
-                  className="h-9 w-9 rounded-lg flex items-center justify-center text-neutral-500 dark:text-white/40 hover:bg-neutral-100 dark:hover:bg-white/[0.06] transition-colors disabled:opacity-30 disabled:pointer-events-none"
+                  className="h-9 w-9 rounded-lg flex items-center justify-center text-neutral-500 dark:text-white/40 hover:bg-neutral-100 dark:hover:bg-white/[0.06] transition-colors disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
                   aria-label="Previous page"
                 >
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -482,7 +508,7 @@ export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onCol
                     <button
                       key={p}
                       onClick={() => setPage(p)}
-                      className={`h-9 min-w-[36px] rounded-lg px-2 text-sm font-medium transition-all ${
+                      className={`h-9 min-w-[36px] rounded-lg px-2 text-sm font-medium transition-all cursor-pointer ${
                         page === p
                           ? "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 shadow-sm"
                           : "text-neutral-500 dark:text-white/40 hover:bg-neutral-100 dark:hover:bg-white/[0.06]"
@@ -496,7 +522,7 @@ export default function Gallery({ iconsMeta, primaryColor, secondaryColor, onCol
                 <button
                   onClick={() => setPage(Math.min(totalPages, page + 1))}
                   disabled={page === totalPages}
-                  className="h-9 w-9 rounded-lg flex items-center justify-center text-neutral-500 dark:text-white/40 hover:bg-neutral-100 dark:hover:bg-white/[0.06] transition-colors disabled:opacity-30 disabled:pointer-events-none"
+                  className="h-9 w-9 rounded-lg flex items-center justify-center text-neutral-500 dark:text-white/40 hover:bg-neutral-100 dark:hover:bg-white/[0.06] transition-colors disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
                   aria-label="Next page"
                 >
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

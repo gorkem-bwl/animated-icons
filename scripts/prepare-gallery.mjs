@@ -14,7 +14,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const SVG_DIR = path.join(ROOT, 'dist/svg');
 const GALLERY_DATA = path.join(ROOT, 'gallery/src/data');
-const PUBLIC_DATA = path.join(ROOT, 'gallery/public/data');
+const PUBLIC_DATA = path.join(ROOT, 'gallery/public/data/lucide');
 
 const CHUNK_SIZE = 200;
 
