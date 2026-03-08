@@ -81,9 +81,13 @@ export default function Gallery({ iconsMeta }: GalleryProps) {
       counts[icon.category] = (counts[icon.category] || 0) + 1;
     }
     const sorted = Object.keys(counts)
-      .filter((k) => k !== "all")
+      .filter((k) => k !== "all" && k !== "uncategorized")
       .sort();
-    return [{ name: "all", count: iconsMeta.length }, ...sorted.map((k) => ({ name: k, count: counts[k] }))];
+    const result = [{ name: "all", count: iconsMeta.length }, ...sorted.map((k) => ({ name: k, count: counts[k] }))];
+    if (counts["uncategorized"]) {
+      result.push({ name: "uncategorized", count: counts["uncategorized"] });
+    }
+    return result;
   }, [iconsMeta]);
 
   const filtered = useMemo(() => {

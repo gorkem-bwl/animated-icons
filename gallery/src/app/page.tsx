@@ -1,4 +1,5 @@
 import Gallery from "@/components/Gallery";
+import Showcase from "@/components/Showcase";
 import ThemeToggle from "@/components/ThemeToggle";
 import iconsMeta from "@/data/icons-meta.json";
 
@@ -53,6 +54,9 @@ export default function Home() {
       <div id="gallery">
         <Gallery iconsMeta={iconsMeta} />
       </div>
+
+      {/* Showcase examples */}
+      <Showcase />
 
       {/* Usage section */}
       <section className="border-t border-neutral-200 dark:border-white/[0.06]">
