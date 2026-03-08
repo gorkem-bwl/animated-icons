@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const GitCommitHorizontal = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="12" cy="12" r="3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <line x1="3" x2="9" y1="12" y2="12" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <line x1="15" x2="21" y1="12" y2="12" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <circle cx="12" cy="12" r="3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <line x1="3" x2="9" y1="12" y2="12" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <line x1="15" x2="21" y1="12" y2="12" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

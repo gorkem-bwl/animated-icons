@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,7 +298,7 @@ const Volume2 = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" className="al-primary al-anim-fill al-delay-0" style={{}} />
+        <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
         <path d="M16 9a5 5 0 0 1 0 6" className="al-secondary al-anim-pulse-element al-delay-1" style={{}} />
         <path d="M19.364 18.364a9 9 0 0 0 0-12.728" className="al-secondary al-anim-pulse-element al-delay-2" style={{}} />
       </svg>

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,7 +298,7 @@ const Eraser = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M21 21H8a2 2 0 0 1-1.42-.587l-3.994-3.999a2 2 0 0 1 0-2.828l10-10a2 2 0 0 1 2.829 0l5.999 6a2 2 0 0 1 0 2.828L12.834 21" className="al-primary al-anim-fill al-delay-0" style={{}} />
+        <path d="M21 21H8a2 2 0 0 1-1.42-.587l-3.994-3.999a2 2 0 0 1 0-2.828l10-10a2 2 0 0 1 2.829 0l5.999 6a2 2 0 0 1 0 2.828L12.834 21" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
         <path d="m5.082 11.09 8.828 8.828" className="al-secondary al-anim-fade al-delay-1" style={{}} />
       </svg>
     </>

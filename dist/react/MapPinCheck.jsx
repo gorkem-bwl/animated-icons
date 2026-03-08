@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const MapPinCheck = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M19.43 12.935c.357-.967.57-1.955.57-2.935a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 1.202 0 32.197 32.197 0 0 0 .813-.728" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="12" cy="10" r="3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m16 18 2 2 4-4" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M19.43 12.935c.357-.967.57-1.955.57-2.935a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 1.202 0 32.197 32.197 0 0 0 .813-.728" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="12" cy="10" r="3" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m16 18 2 2 4-4" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

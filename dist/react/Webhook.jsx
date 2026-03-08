@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const Webhook = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m6 17 3.13-5.78c.53-.97.1-2.18-.5-3.1a4 4 0 1 1 6.89-4.06" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m12 6 3.13 5.73C15.66 12.7 16.9 13 18 13a4 4 0 0 1 0 8" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m6 17 3.13-5.78c.53-.97.1-2.18-.5-3.1a4 4 0 1 1 6.89-4.06" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m12 6 3.13 5.73C15.66 12.7 16.9 13 18 13a4 4 0 0 1 0 8" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

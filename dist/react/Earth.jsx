@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,7 +298,7 @@ const Earth = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M21.54 15H17a2 2 0 0 0-2 2v4.54" className="al-primary al-anim-fill al-delay-0" style={{}} />
+        <path d="M21.54 15H17a2 2 0 0 0-2 2v4.54" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
         <path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17" className="al-secondary al-anim-fade al-delay-1" style={{}} />
         <path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05" className="al-secondary al-anim-fade al-delay-2" style={{}} />
         <circle cx="12" cy="12" r="10" className="al-secondary al-anim-fade al-delay-3" style={{}} />

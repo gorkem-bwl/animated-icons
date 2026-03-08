@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,16 +298,16 @@ const KeyboardOff = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M 20 4 A2 2 0 0 1 22 6" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M 22 6 L 22 16.41" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M 7 16 L 16 16" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M 9.69 4 L 20 4" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M14 8h.01" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M18 8h.01" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="m2 2 20 20" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <path d="M20 20H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <path d="M6 8h.01" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <path d="M8 12h.01" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <path d="M 20 4 A2 2 0 0 1 22 6" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M 22 6 L 22 16.41" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M 7 16 L 16 16" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M 9.69 4 L 20 4" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M14 8h.01" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M18 8h.01" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="m2 2 20 20" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
+        <path d="M20 20H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <path d="M6 8h.01" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <path d="M8 12h.01" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
       </svg>
     </>
   );

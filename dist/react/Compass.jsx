@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,7 +298,7 @@ const Compass = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="12" cy="12" r="10" className="al-primary al-anim-fill al-delay-0" style={{}} />
+        <circle cx="12" cy="12" r="10" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
         <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" className="al-secondary al-anim-fade al-delay-1" style={{}} />
       </svg>
     </>

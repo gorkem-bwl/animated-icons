@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const Orbit = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M20.341 6.484A10 10 0 0 1 10.266 21.85" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M3.659 17.516A10 10 0 0 1 13.74 2.152" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <circle cx="12" cy="12" r="3" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <circle cx="19" cy="5" r="2" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <circle cx="5" cy="19" r="2" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="M20.341 6.484A10 10 0 0 1 10.266 21.85" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M3.659 17.516A10 10 0 0 1 13.74 2.152" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <circle cx="12" cy="12" r="3" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <circle cx="19" cy="5" r="2" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <circle cx="5" cy="19" r="2" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

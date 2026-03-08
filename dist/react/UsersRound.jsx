@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const UsersRound = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M18 21a8 8 0 0 0-16 0" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="10" cy="8" r="5" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M18 21a8 8 0 0 0-16 0" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="10" cy="8" r="5" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const Donut = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M20.5 10a2.5 2.5 0 0 1-2.4-3H18a2.95 2.95 0 0 1-2.6-4.4 10 10 0 1 0 6.3 7.1c-.3.2-.8.3-1.2.3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="12" cy="12" r="3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <path d="M20.5 10a2.5 2.5 0 0 1-2.4-3H18a2.95 2.95 0 0 1-2.6-4.4 10 10 0 1 0 6.3 7.1c-.3.2-.8.3-1.2.3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="12" cy="12" r="3" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

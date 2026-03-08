@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,7 +298,7 @@ const Signpost = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M12 13v8" className="al-primary al-anim-fill al-delay-0" style={{}} />
+        <path d="M12 13v8" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
         <path d="M12 3v3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
         <path d="M18 6a2 2 0 0 1 1.387.56l2.307 2.22a1 1 0 0 1 0 1.44l-2.307 2.22A2 2 0 0 1 18 13H6a2 2 0 0 1-1.387-.56l-2.306-2.22a1 1 0 0 1 0-1.44l2.306-2.22A2 2 0 0 1 6 6z" className="al-secondary al-anim-fade al-delay-2" style={{}} />
       </svg>

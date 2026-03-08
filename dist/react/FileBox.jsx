@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const FileBox = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M14.5 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.8" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M14 2v5a1 1 0 0 0 1 1h5" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M11.7 14.2 7 17l-4.7-2.8" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M3 13.1a2 2 0 0 0-.999 1.76v3.24a2 2 0 0 0 .969 1.78L6 21.7a2 2 0 0 0 2.03.01L11 19.9a2 2 0 0 0 1-1.76V14.9a2 2 0 0 0-.97-1.78L8 11.3a2 2 0 0 0-2.03-.01z" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M7 17v5" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="M14.5 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.8" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M14 2v5a1 1 0 0 0 1 1h5" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M11.7 14.2 7 17l-4.7-2.8" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M3 13.1a2 2 0 0 0-.999 1.76v3.24a2 2 0 0 0 .969 1.78L6 21.7a2 2 0 0 0 2.03.01L11 19.9a2 2 0 0 0 1-1.76V14.9a2 2 0 0 0-.97-1.78L8 11.3a2 2 0 0 0-2.03-.01z" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M7 17v5" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

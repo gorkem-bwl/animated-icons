@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,12 +298,12 @@ const Microscope = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M6 18h8" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M3 22h18" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M14 22a7 7 0 1 0 0-14h-1" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M9 14h2" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" className="al-secondary al-anim-fade al-delay-5" style={{}} />
+        <path d="M6 18h8" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M3 22h18" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M14 22a7 7 0 1 0 0-14h-1" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M9 14h2" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
       </svg>
     </>
   );

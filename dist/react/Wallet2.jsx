@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const Wallet2 = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M17 14h.01" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <path d="M17 14h.01" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

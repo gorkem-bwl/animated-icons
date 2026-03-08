@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,12 +298,12 @@ const DatabaseBackup = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <ellipse cx="12" cy="5" rx="9" ry="3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M3 12a9 3 0 0 0 5 2.69" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M21 9.3V5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M3 5v14a9 3 0 0 0 6.47 2.88" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M12 12v4h4" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M13 20a5 5 0 0 0 9-3 4.5 4.5 0 0 0-4.5-4.5c-1.33 0-2.54.54-3.41 1.41L12 16" className="al-secondary al-anim-fade al-delay-5" style={{}} />
+        <ellipse cx="12" cy="5" rx="9" ry="3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M3 12a9 3 0 0 0 5 2.69" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M21 9.3V5" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M3 5v14a9 3 0 0 0 6.47 2.88" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M12 12v4h4" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M13 20a5 5 0 0 0 9-3 4.5 4.5 0 0 0-4.5-4.5c-1.33 0-2.54.54-3.41 1.41L12 16" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
       </svg>
     </>
   );

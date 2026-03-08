@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const SearchCode = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m13 13.5 2-2.5-2-2.5" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m21 21-4.3-4.3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M9 8.5 7 11l2 2.5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <circle cx="11" cy="11" r="8" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="m13 13.5 2-2.5-2-2.5" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m21 21-4.3-4.3" className="al-secondary al-anim-fill al-delay-1" style={{}} />
+        <path d="M9 8.5 7 11l2 2.5" className="al-secondary al-anim-fill al-delay-2" style={{}} />
+        <circle cx="11" cy="11" r="8" className="al-secondary al-anim-fill al-delay-3" style={{}} />
       </svg>
     </>
   );

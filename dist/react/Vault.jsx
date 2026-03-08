@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,16 +298,16 @@ const Vault = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect width="18" height="18" x="3" y="3" rx="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m7.9 7.9 2.7 2.7" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="m13.4 10.6 2.7-2.7" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <circle cx="7.5" cy="16.5" r=".5" fill="currentColor" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="m7.9 16.1 2.7-2.7" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <circle cx="16.5" cy="16.5" r=".5" fill="currentColor" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <path d="m13.4 13.4 2.7 2.7" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <circle cx="12" cy="12" r="2" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <rect width="18" height="18" x="3" y="3" rx="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m7.9 7.9 2.7 2.7" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="m13.4 10.6 2.7-2.7" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <circle cx="7.5" cy="16.5" r=".5" fill="currentColor" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="m7.9 16.1 2.7-2.7" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
+        <circle cx="16.5" cy="16.5" r=".5" fill="currentColor" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <path d="m13.4 13.4 2.7 2.7" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <circle cx="12" cy="12" r="2" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
       </svg>
     </>
   );

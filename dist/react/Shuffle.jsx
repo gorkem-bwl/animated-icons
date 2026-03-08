@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const Shuffle = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m18 14 4 4-4 4" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m18 2 4 4-4 4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M2 6h1.972a4 4 0 0 1 3.6 2.2" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="m18 14 4 4-4 4" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m18 2 4 4-4 4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M2 6h1.972a4 4 0 0 1 3.6 2.2" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

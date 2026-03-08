@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const Cherry = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M2 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M12 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M7 14c3.22-2.91 4.29-8.75 5-12 1.66 2.38 4.94 9 5 12" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M22 9c-4.29 0-7.14-2.33-10-7 5.71 0 10 4.67 10 7Z" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M2 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M12 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M7 14c3.22-2.91 4.29-8.75 5-12 1.66 2.38 4.94 9 5 12" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M22 9c-4.29 0-7.14-2.33-10-7 5.71 0 10 4.67 10 7Z" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

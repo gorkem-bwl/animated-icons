@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const Signature = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m21 17-2.156-1.868A.5.5 0 0 0 18 15.5v.5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1c0-2.545-3.991-3.97-8.5-4a1 1 0 0 0 0 5c4.153 0 4.745-11.295 5.708-13.5a2.5 2.5 0 1 1 3.31 3.284" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M3 21h18" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <path d="m21 17-2.156-1.868A.5.5 0 0 0 18 15.5v.5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1c0-2.545-3.991-3.97-8.5-4a1 1 0 0 0 0 5c4.153 0 4.745-11.295 5.708-13.5a2.5 2.5 0 1 1 3.31 3.284" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M3 21h18" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

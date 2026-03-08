@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const Stamp = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-6 0c0 2 1 2 1 3.5V13" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M20 15.5a2.5 2.5 0 0 0-2.5-2.5h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1z" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M5 22h14" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-6 0c0 2 1 2 1 3.5V13" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M20 15.5a2.5 2.5 0 0 0-2.5-2.5h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1z" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M5 22h14" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

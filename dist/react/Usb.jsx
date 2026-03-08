@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,13 +298,13 @@ const Usb = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="10" cy="7" r="1" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="4" cy="20" r="1" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M4.7 19.3 19 5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m21 3-3 1 2 2Z" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M9.26 7.68 5 12l2 5" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="m10 14 5 2 3.5-3.5" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="m18 12 1-1 1 1-1 1Z" className="al-secondary al-anim-fade al-delay-6" style={{}} />
+        <circle cx="10" cy="7" r="1" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="4" cy="20" r="1" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M4.7 19.3 19 5" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m21 3-3 1 2 2Z" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M9.26 7.68 5 12l2 5" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="m10 14 5 2 3.5-3.5" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="m18 12 1-1 1 1-1 1Z" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
       </svg>
     </>
   );

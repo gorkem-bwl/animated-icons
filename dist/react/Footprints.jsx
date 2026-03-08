@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const Footprints = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M16 17h4" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M4 13h4" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M16 17h4" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M4 13h4" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

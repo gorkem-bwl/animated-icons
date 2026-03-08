@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const BringToFront = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect x="8" y="8" width="8" height="8" rx="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M4 10a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M14 20a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <rect x="8" y="8" width="8" height="8" rx="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M4 10a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M14 20a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

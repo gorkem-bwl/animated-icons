@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const Link2Off = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M9 17H7A5 5 0 0 1 7 7" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M15 7h2a5 5 0 0 1 4 8" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <line x1="8" x2="12" y1="12" y2="12" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <line x1="2" x2="22" y1="2" y2="22" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M9 17H7A5 5 0 0 1 7 7" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M15 7h2a5 5 0 0 1 4 8" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <line x1="8" x2="12" y1="12" y2="12" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <line x1="2" x2="22" y1="2" y2="22" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const Clapperboard = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m12.296 3.464 3.02 3.956" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m6.18 5.276 3.1 3.899" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="m12.296 3.464 3.02 3.956" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m6.18 5.276 3.1 3.899" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

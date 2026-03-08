@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,12 +298,12 @@ const GitGraph = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="5" cy="6" r="3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M5 9v6" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <circle cx="5" cy="18" r="3" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M12 3v18" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <circle cx="19" cy="6" r="3" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M16 15.7A9 9 0 0 0 19 9" className="al-secondary al-anim-fade al-delay-5" style={{}} />
+        <circle cx="5" cy="6" r="3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M5 9v6" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <circle cx="5" cy="18" r="3" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M12 3v18" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <circle cx="19" cy="6" r="3" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M16 15.7A9 9 0 0 0 19 9" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
       </svg>
     </>
   );

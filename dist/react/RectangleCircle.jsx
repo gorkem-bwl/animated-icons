@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const RectangleCircle = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M14 4v16H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="14" cy="12" r="8" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <path d="M14 4v16H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="14" cy="12" r="8" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

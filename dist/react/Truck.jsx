@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const Truck = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M15 18H9" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <circle cx="17" cy="18" r="2" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <circle cx="7" cy="18" r="2" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M15 18H9" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <circle cx="17" cy="18" r="2" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <circle cx="7" cy="18" r="2" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

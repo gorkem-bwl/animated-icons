@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const FileSearchCorner = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M11.1 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.589 3.588A2.4 2.4 0 0 1 20 8v3.25" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M14 2v5a1 1 0 0 0 1 1h5" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m21 22-2.88-2.88" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <circle cx="16" cy="17" r="3" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M11.1 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.589 3.588A2.4 2.4 0 0 1 20 8v3.25" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M14 2v5a1 1 0 0 0 1 1h5" className="al-secondary al-anim-fill al-delay-1" style={{}} />
+        <path d="m21 22-2.88-2.88" className="al-secondary al-anim-fill al-delay-2" style={{}} />
+        <circle cx="16" cy="17" r="3" className="al-secondary al-anim-fill al-delay-3" style={{}} />
       </svg>
     </>
   );

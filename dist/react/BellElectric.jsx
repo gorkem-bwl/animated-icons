@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,12 +298,12 @@ const BellElectric = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M18.518 17.347A7 7 0 0 1 14 19" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M18.8 4A11 11 0 0 1 20 9" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M9 9h.01" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <circle cx="20" cy="16" r="2" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <circle cx="9" cy="9" r="7" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <rect x="4" y="16" width="10" height="6" rx="2" className="al-secondary al-anim-fade al-delay-5" style={{}} />
+        <path d="M18.518 17.347A7 7 0 0 1 14 19" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M18.8 4A11 11 0 0 1 20 9" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M9 9h.01" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <circle cx="20" cy="16" r="2" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <circle cx="9" cy="9" r="7" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <rect x="4" y="16" width="10" height="6" rx="2" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
       </svg>
     </>
   );

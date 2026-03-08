@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const LampCeiling = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M12 2v5" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M14.829 15.998a3 3 0 1 1-5.658 0" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M20.92 14.606A1 1 0 0 1 20 16H4a1 1 0 0 1-.92-1.394l3-7A1 1 0 0 1 7 7h10a1 1 0 0 1 .92.606z" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M12 2v5" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M14.829 15.998a3 3 0 1 1-5.658 0" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M20.92 14.606A1 1 0 0 1 20 16H4a1 1 0 0 1-.92-1.394l3-7A1 1 0 0 1 7 7h10a1 1 0 0 1 .92.606z" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

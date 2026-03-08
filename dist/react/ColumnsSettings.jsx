@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,18 +298,18 @@ const ColumnsSettings = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M10.5 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5.5" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m14.3 19.6 1-.4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M15 3v7.5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m15.2 16.9-.9-.3" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="m16.6 21.7.3-.9" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="m16.8 15.3-.4-1" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="m19.1 15.2.3-.9" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <path d="m19.6 21.7-.4-1" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <path d="m20.7 16.8 1-.4" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <path d="m21.7 19.4-.9-.3" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <path d="M9 3v18" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <circle cx="18" cy="18" r="3" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <path d="M10.5 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5.5" className="al-primary al-anim-gear al-delay-0" style={{ '--al-rotation': '90deg' }} />
+        <path d="m14.3 19.6 1-.4" className="al-secondary al-anim-gear al-delay-1" style={{ '--al-rotation': '90deg' }} />
+        <path d="M15 3v7.5" className="al-secondary al-anim-gear al-delay-2" style={{ '--al-rotation': '90deg' }} />
+        <path d="m15.2 16.9-.9-.3" className="al-secondary al-anim-gear al-delay-3" style={{ '--al-rotation': '90deg' }} />
+        <path d="m16.6 21.7.3-.9" className="al-secondary al-anim-gear al-delay-4" style={{ '--al-rotation': '90deg' }} />
+        <path d="m16.8 15.3-.4-1" className="al-secondary al-anim-gear al-delay-5" style={{ '--al-rotation': '90deg' }} />
+        <path d="m19.1 15.2.3-.9" className="al-secondary al-anim-gear al-delay-6" style={{ '--al-rotation': '90deg' }} />
+        <path d="m19.6 21.7-.4-1" className="al-secondary al-anim-gear al-delay-7" style={{ '--al-rotation': '90deg' }} />
+        <path d="m20.7 16.8 1-.4" className="al-secondary al-anim-gear al-delay-7" style={{ '--al-rotation': '90deg' }} />
+        <path d="m21.7 19.4-.9-.3" className="al-secondary al-anim-gear al-delay-7" style={{ '--al-rotation': '90deg' }} />
+        <path d="M9 3v18" className="al-secondary al-anim-gear al-delay-7" style={{ '--al-rotation': '90deg' }} />
+        <circle cx="18" cy="18" r="3" className="al-secondary al-anim-gear al-delay-7" style={{ '--al-rotation': '90deg' }} />
       </svg>
     </>
   );

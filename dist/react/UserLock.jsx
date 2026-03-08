@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const UserLock = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M19 16v-2a2 2 0 0 0-4 0v2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M9.5 15H7a4 4 0 0 0-4 4v2" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <circle cx="10" cy="7" r="4" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <rect x="13" y="16" width="8" height="5" rx=".899" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M19 16v-2a2 2 0 0 0-4 0v2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M9.5 15H7a4 4 0 0 0-4 4v2" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <circle cx="10" cy="7" r="4" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <rect x="13" y="16" width="8" height="5" rx=".899" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

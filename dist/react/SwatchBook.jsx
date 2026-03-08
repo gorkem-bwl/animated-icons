@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const SwatchBook = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M11 17a4 4 0 0 1-8 0V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2Z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M16.7 13H19a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H7" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M 7 17h.01" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m11 8 2.3-2.3a2.4 2.4 0 0 1 3.404.004L18.6 7.6a2.4 2.4 0 0 1 .026 3.434L9.9 19.8" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M11 17a4 4 0 0 1-8 0V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2Z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M16.7 13H19a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H7" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M 7 17h.01" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m11 8 2.3-2.3a2.4 2.4 0 0 1 3.404.004L18.6 7.6a2.4 2.4 0 0 1 .026 3.434L9.9 19.8" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

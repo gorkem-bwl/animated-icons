@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,16 +298,16 @@ const FolderCog2 = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m14.305 19.53.923-.382" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m15.228 16.852-.923-.383" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m16.852 15.228-.383-.923" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="m16.852 20.772-.383.924" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="m19.148 15.228.383-.923" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="m19.53 21.696-.382-.924" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <path d="m20.772 16.852.924-.383" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <path d="m20.772 19.148.924.383" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <circle cx="18" cy="18" r="3" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <path d="M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m14.305 19.53.923-.382" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m15.228 16.852-.923-.383" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m16.852 15.228-.383-.923" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="m16.852 20.772-.383.924" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="m19.148 15.228.383-.923" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="m19.53 21.696-.382-.924" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
+        <path d="m20.772 16.852.924-.383" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <path d="m20.772 19.148.924.383" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <circle cx="18" cy="18" r="3" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
       </svg>
     </>
   );

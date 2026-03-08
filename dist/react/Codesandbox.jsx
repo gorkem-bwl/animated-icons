@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,12 +298,12 @@ const Codesandbox = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <polyline points="7.5 4.21 12 6.81 16.5 4.21" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <polyline points="7.5 19.79 7.5 14.6 3 12" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <polyline points="21 12 16.5 14.6 16.5 19.79" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <polyline points="3.27 6.96 12 12.01 20.73 6.96" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <line x1="12" x2="12" y1="22.08" y2="12" className="al-secondary al-anim-fade al-delay-5" style={{}} />
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <polyline points="7.5 4.21 12 6.81 16.5 4.21" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <polyline points="7.5 19.79 7.5 14.6 3 12" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <polyline points="21 12 16.5 14.6 16.5 19.79" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <line x1="12" x2="12" y1="22.08" y2="12" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const ZodiacLibra = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M3 16h6.857c.162-.012.19-.323.038-.38a6 6 0 1 1 4.212 0c-.153.057-.125.368.038.38H21" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M3 20h18" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <path d="M3 16h6.857c.162-.012.19-.323.038-.38a6 6 0 1 1 4.212 0c-.153.057-.125.368.038.38H21" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M3 20h18" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

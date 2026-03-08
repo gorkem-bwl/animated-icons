@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const MenuSquare = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect width="18" height="18" x="3" y="3" rx="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M7 8h10" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M7 12h10" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M7 16h10" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <rect width="18" height="18" x="3" y="3" rx="2" className="al-primary al-anim-menu-line al-delay-0" style={{ '--al-scale-x': '1' }} />
+        <path d="M7 8h10" className="al-secondary al-anim-menu-line al-delay-1" style={{ '--al-scale-x': '0.85' }} />
+        <path d="M7 12h10" className="al-primary al-anim-menu-line al-delay-2" style={{ '--al-scale-x': '0.7' }} />
+        <path d="M7 16h10" className="al-secondary al-anim-menu-line al-delay-3" style={{ '--al-scale-x': '0.55' }} />
       </svg>
     </>
   );

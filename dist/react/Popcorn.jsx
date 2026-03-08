@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const Popcorn = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M18 8a2 2 0 0 0 0-4 2 2 0 0 0-4 0 2 2 0 0 0-4 0 2 2 0 0 0-4 0 2 2 0 0 0 0 4" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M10 22 9 8" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m14 22 1-14" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M20 8c.5 0 .9.4.8 1l-2.6 12c-.1.5-.7 1-1.2 1H7c-.6 0-1.1-.4-1.2-1L3.2 9c-.1-.6.3-1 .8-1Z" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M18 8a2 2 0 0 0 0-4 2 2 0 0 0-4 0 2 2 0 0 0-4 0 2 2 0 0 0-4 0 2 2 0 0 0 0 4" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M10 22 9 8" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m14 22 1-14" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M20 8c.5 0 .9.4.8 1l-2.6 12c-.1.5-.7 1-1.2 1H7c-.6 0-1.1-.4-1.2-1L3.2 9c-.1-.6.3-1 .8-1Z" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

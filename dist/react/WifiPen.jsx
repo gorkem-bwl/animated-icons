@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const WifiPen = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M2 8.82a15 15 0 0 1 20 0" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M5 12.859a10 10 0 0 1 10.5-2.222" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M8.5 16.429a5 5 0 0 1 3-1.406" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M2 8.82a15 15 0 0 1 20 0" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M5 12.859a10 10 0 0 1 10.5-2.222" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M8.5 16.429a5 5 0 0 1 3-1.406" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

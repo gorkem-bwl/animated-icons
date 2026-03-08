@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const Torus = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <ellipse cx="12" cy="11" rx="3" ry="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <ellipse cx="12" cy="12.5" rx="10" ry="8.5" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <ellipse cx="12" cy="11" rx="3" ry="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <ellipse cx="12" cy="12.5" rx="10" ry="8.5" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

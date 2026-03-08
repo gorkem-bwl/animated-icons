@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,16 +298,16 @@ const Flower = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="12" cy="12" r="3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M12 7.5V9" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M7.5 12H9" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M16.5 12H15" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M12 16.5V15" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="m8 8 1.88 1.88" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <path d="M14.12 9.88 16 8" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <path d="m8 16 1.88-1.88" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <path d="M14.12 14.12 16 16" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <circle cx="12" cy="12" r="3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M12 7.5V9" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M7.5 12H9" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M16.5 12H15" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M12 16.5V15" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="m8 8 1.88 1.88" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
+        <path d="M14.12 9.88 16 8" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <path d="m8 16 1.88-1.88" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <path d="M14.12 14.12 16 16" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
       </svg>
     </>
   );

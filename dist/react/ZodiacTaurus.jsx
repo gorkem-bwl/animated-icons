@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const ZodiacTaurus = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="12" cy="15" r="6" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M18 3A6 6 0 0 1 6 3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <circle cx="12" cy="15" r="6" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M18 3A6 6 0 0 1 6 3" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

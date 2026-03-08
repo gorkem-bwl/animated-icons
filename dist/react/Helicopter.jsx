@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,14 +298,14 @@ const Helicopter = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M11 17v4" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M14 3v8a2 2 0 0 0 2 2h5.865" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M17 17v4" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M18 17a4 4 0 0 0 4-4 8 6 0 0 0-8-6 6 5 0 0 0-6 5v3a2 2 0 0 0 2 2z" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M2 10v5" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M6 3h16" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="M7 21h14" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <path d="M8 13H2" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <path d="M11 17v4" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M14 3v8a2 2 0 0 0 2 2h5.865" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M17 17v4" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M18 17a4 4 0 0 0 4-4 8 6 0 0 0-8-6 6 5 0 0 0-6 5v3a2 2 0 0 0 2 2z" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M2 10v5" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M6 3h16" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="M7 21h14" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
+        <path d="M8 13H2" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
       </svg>
     </>
   );

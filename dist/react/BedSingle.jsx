@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const BedSingle = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M3 20v-8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M5 10V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M3 18h18" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M3 20v-8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M5 10V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M3 18h18" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const CakeSlice = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M16 13H3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M16 17H3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m7.2 7.9-3.388 2.5A2 2 0 0 0 3 12.01V20a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-8.654c0-2-2.44-6.026-6.44-8.026a1 1 0 0 0-1.082.057L10.4 5.6" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <circle cx="9" cy="7" r="2" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M16 13H3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M16 17H3" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m7.2 7.9-3.388 2.5A2 2 0 0 0 3 12.01V20a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-8.654c0-2-2.44-6.026-6.44-8.026a1 1 0 0 0-1.082.057L10.4 5.6" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <circle cx="9" cy="7" r="2" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,12 +298,12 @@ const SmilePlus = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M22 11v1a10 10 0 1 1-9-10" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M8 14s1.5 2 4 2 4-2 4-2" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <line x1="9" x2="9.01" y1="9" y2="9" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <line x1="15" x2="15.01" y1="9" y2="9" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M16 5h6" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M19 2v6" className="al-secondary al-anim-fade al-delay-5" style={{}} />
+        <path d="M22 11v1a10 10 0 1 1-9-10" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M8 14s1.5 2 4 2 4-2 4-2" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <line x1="9" x2="9.01" y1="9" y2="9" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <line x1="15" x2="15.01" y1="9" y2="9" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M16 5h6" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M19 2v6" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
       </svg>
     </>
   );

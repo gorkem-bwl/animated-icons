@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const SquareStack = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M4 10c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M10 16c-1.1 0-2-.9-2-2v-4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <rect width="8" height="8" x="14" y="14" rx="2" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M4 10c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M10 16c-1.1 0-2-.9-2-2v-4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <rect width="8" height="8" x="14" y="14" rx="2" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

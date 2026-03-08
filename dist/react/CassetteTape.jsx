@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const CassetteTape = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect width="20" height="16" x="2" y="4" rx="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="8" cy="10" r="2" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M8 12h8" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <circle cx="16" cy="10" r="2" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="m6 20 .7-2.9A1.4 1.4 0 0 1 8.1 16h7.8a1.4 1.4 0 0 1 1.4 1l.7 3" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <rect width="20" height="16" x="2" y="4" rx="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="8" cy="10" r="2" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M8 12h8" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <circle cx="16" cy="10" r="2" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="m6 20 .7-2.9A1.4 1.4 0 0 1 8.1 16h7.8a1.4 1.4 0 0 1 1.4 1l.7 3" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

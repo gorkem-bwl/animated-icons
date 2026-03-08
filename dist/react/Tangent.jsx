@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const Tangent = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="17" cy="4" r="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M15.59 5.41 5.41 15.59" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <circle cx="4" cy="17" r="2" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M12 22s-4-9-1.5-11.5S22 12 22 12" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <circle cx="17" cy="4" r="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M15.59 5.41 5.41 15.59" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <circle cx="4" cy="17" r="2" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M12 22s-4-9-1.5-11.5S22 12 22 12" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

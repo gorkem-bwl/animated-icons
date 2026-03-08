@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const SoapDispenserDroplet = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M10.5 2v4" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M14 2H7a2 2 0 0 0-2 2" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M19.29 14.76A6.67 6.67 0 0 1 17 11a6.6 6.6 0 0 1-2.29 3.76c-1.15.92-1.71 2.04-1.71 3.19 0 2.22 1.8 4.05 4 4.05s4-1.83 4-4.05c0-1.16-.57-2.26-1.71-3.19" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M9.607 21H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h7V7a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M10.5 2v4" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M14 2H7a2 2 0 0 0-2 2" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M19.29 14.76A6.67 6.67 0 0 1 17 11a6.6 6.6 0 0 1-2.29 3.76c-1.15.92-1.71 2.04-1.71 3.19 0 2.22 1.8 4.05 4 4.05s4-1.83 4-4.05c0-1.16-.57-2.26-1.71-3.19" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M9.607 21H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h7V7a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

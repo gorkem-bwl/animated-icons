@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,7 +298,7 @@ const RectangleHorizontal = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect width="20" height="12" x="2" y="6" rx="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
+        <rect width="20" height="12" x="2" y="6" rx="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
       </svg>
     </>
   );

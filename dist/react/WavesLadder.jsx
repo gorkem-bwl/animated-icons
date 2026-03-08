@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const WavesLadder = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M19 5a2 2 0 0 0-2 2v11" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M7 13h10" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M7 9h10" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M9 5a2 2 0 0 0-2 2v11" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="M19 5a2 2 0 0 0-2 2v11" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M7 13h10" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M7 9h10" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M9 5a2 2 0 0 0-2 2v11" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const MirrorRound = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M10 6.6 8.6 8" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M12 18v4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M15 7.5 9.5 13" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M7 22h10" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <circle cx="12" cy="10" r="8" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="M10 6.6 8.6 8" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M12 18v4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M15 7.5 9.5 13" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M7 22h10" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <circle cx="12" cy="10" r="8" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

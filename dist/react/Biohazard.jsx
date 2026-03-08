@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,16 +298,16 @@ const Biohazard = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="12" cy="11.9" r="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M6.7 3.4c-.9 2.5 0 5.2 2.2 6.7C6.5 9 3.7 9.6 2 11.6" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m8.9 10.1 1.4.8" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M17.3 3.4c.9 2.5 0 5.2-2.2 6.7 2.4-1.2 5.2-.6 6.9 1.5" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="m15.1 10.1-1.4.8" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M16.7 20.8c-2.6-.4-4.6-2.6-4.7-5.3-.2 2.6-2.1 4.8-4.7 5.2" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="M12 13.9v1.6" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <path d="M13.5 5.4c-1-.2-2-.2-3 0" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <path d="M17 16.4c.7-.7 1.2-1.6 1.5-2.5" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <path d="M5.5 13.9c.3.9.8 1.8 1.5 2.5" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <circle cx="12" cy="11.9" r="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M6.7 3.4c-.9 2.5 0 5.2 2.2 6.7C6.5 9 3.7 9.6 2 11.6" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m8.9 10.1 1.4.8" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M17.3 3.4c.9 2.5 0 5.2-2.2 6.7 2.4-1.2 5.2-.6 6.9 1.5" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="m15.1 10.1-1.4.8" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M16.7 20.8c-2.6-.4-4.6-2.6-4.7-5.3-.2 2.6-2.1 4.8-4.7 5.2" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="M12 13.9v1.6" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
+        <path d="M13.5 5.4c-1-.2-2-.2-3 0" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <path d="M17 16.4c.7-.7 1.2-1.6 1.5-2.5" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <path d="M5.5 13.9c.3.9.8 1.8 1.5 2.5" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
       </svg>
     </>
   );

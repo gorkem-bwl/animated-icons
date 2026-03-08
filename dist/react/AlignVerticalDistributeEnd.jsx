@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const AlignVerticalDistributeEnd = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect width="14" height="6" x="5" y="14" rx="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <rect width="10" height="6" x="7" y="4" rx="2" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M2 20h20" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M2 10h20" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <rect width="14" height="6" x="5" y="14" rx="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <rect width="10" height="6" x="7" y="4" rx="2" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M2 20h20" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M2 10h20" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

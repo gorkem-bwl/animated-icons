@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const MonitorCloud = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M11 13a3 3 0 1 1 2.83-4H14a2 2 0 0 1 0 4z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M12 17v4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M8 21h8" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <rect x="2" y="3" width="20" height="14" rx="2" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M11 13a3 3 0 1 1 2.83-4H14a2 2 0 0 1 0 4z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M12 17v4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M8 21h8" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <rect x="2" y="3" width="20" height="14" rx="2" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

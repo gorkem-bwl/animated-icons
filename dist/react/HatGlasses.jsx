@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const HatGlasses = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M14 18a2 2 0 0 0-4 0" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m19 11-2.11-6.657a2 2 0 0 0-2.752-1.148l-1.276.61A2 2 0 0 1 12 4H8.5a2 2 0 0 0-1.925 1.456L5 11" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M2 11h20" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <circle cx="17" cy="18" r="3" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <circle cx="7" cy="18" r="3" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="M14 18a2 2 0 0 0-4 0" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m19 11-2.11-6.657a2 2 0 0 0-2.752-1.148l-1.276.61A2 2 0 0 1 12 4H8.5a2 2 0 0 0-1.925 1.456L5 11" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M2 11h20" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <circle cx="17" cy="18" r="3" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <circle cx="7" cy="18" r="3" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

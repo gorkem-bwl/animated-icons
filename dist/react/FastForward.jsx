@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const FastForward = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M12 6a2 2 0 0 1 3.414-1.414l6 6a2 2 0 0 1 0 2.828l-6 6A2 2 0 0 1 12 18z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M2 6a2 2 0 0 1 3.414-1.414l6 6a2 2 0 0 1 0 2.828l-6 6A2 2 0 0 1 2 18z" className="al-secondary al-anim-fill al-delay-1" style={{}} />
+        <path d="M12 6a2 2 0 0 1 3.414-1.414l6 6a2 2 0 0 1 0 2.828l-6 6A2 2 0 0 1 12 18z" className="al-primary al-anim-nudge al-delay-0" style={{ '--al-tx': '2px', '--al-ty': '0px' }} />
+        <path d="M2 6a2 2 0 0 1 3.414-1.414l6 6a2 2 0 0 1 0 2.828l-6 6A2 2 0 0 1 2 18z" className="al-secondary al-anim-nudge al-delay-1" style={{ '--al-tx': '2px', '--al-ty': '0px' }} />
       </svg>
     </>
   );

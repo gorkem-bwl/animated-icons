@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const Magnet = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m12 15 4 4" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M2.352 10.648a1.205 1.205 0 0 0 0 1.704l2.296 2.296a1.205 1.205 0 0 0 1.704 0l6.029-6.029a1 1 0 1 1 3 3l-6.029 6.029a1.205 1.205 0 0 0 0 1.704l2.296 2.296a1.205 1.205 0 0 0 1.704 0l6.365-6.367A1 1 0 0 0 8.716 4.282z" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m5 8 4 4" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="m12 15 4 4" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M2.352 10.648a1.205 1.205 0 0 0 0 1.704l2.296 2.296a1.205 1.205 0 0 0 1.704 0l6.029-6.029a1 1 0 1 1 3 3l-6.029 6.029a1.205 1.205 0 0 0 0 1.704l2.296 2.296a1.205 1.205 0 0 0 1.704 0l6.365-6.367A1 1 0 0 0 8.716 4.282z" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m5 8 4 4" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

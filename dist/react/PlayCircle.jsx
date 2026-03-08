@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const PlayCircle = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="12" cy="12" r="10" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="12" cy="12" r="10" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const Gamepad = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <line x1="6" x2="10" y1="12" y2="12" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <line x1="8" x2="8" y1="10" y2="14" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <line x1="15" x2="15.01" y1="13" y2="13" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <line x1="18" x2="18.01" y1="11" y2="11" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <rect width="20" height="12" x="2" y="6" rx="2" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <line x1="6" x2="10" y1="12" y2="12" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <line x1="8" x2="8" y1="10" y2="14" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <line x1="15" x2="15.01" y1="13" y2="13" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <line x1="18" x2="18.01" y1="11" y2="11" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <rect width="20" height="12" x="2" y="6" rx="2" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const ArchiveRestore = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect width="20" height="5" x="2" y="3" rx="1" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M4 8v11a2 2 0 0 0 2 2h2" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M20 8v11a2 2 0 0 1-2 2h-2" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m9 15 3-3 3 3" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M12 12v9" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <rect width="20" height="5" x="2" y="3" rx="1" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M4 8v11a2 2 0 0 0 2 2h2" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M20 8v11a2 2 0 0 1-2 2h-2" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m9 15 3-3 3 3" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M12 12v9" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const BadgeSwissFranc = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M11 17V8h4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M11 12h3" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M9 16h4" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M11 17V8h4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M11 12h3" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M9 16h4" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

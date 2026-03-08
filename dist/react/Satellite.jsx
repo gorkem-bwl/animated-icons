@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const Satellite = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m13.5 6.5-3.148-3.148a1.205 1.205 0 0 0-1.704 0L6.352 5.648a1.205 1.205 0 0 0 0 1.704L9.5 10.5" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M16.5 7.5 19 5" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m17.5 10.5 3.148 3.148a1.205 1.205 0 0 1 0 1.704l-2.296 2.296a1.205 1.205 0 0 1-1.704 0L13.5 14.5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M9 21a6 6 0 0 0-6-6" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M9.352 10.648a1.205 1.205 0 0 0 0 1.704l2.296 2.296a1.205 1.205 0 0 0 1.704 0l4.296-4.296a1.205 1.205 0 0 0 0-1.704l-2.296-2.296a1.205 1.205 0 0 0-1.704 0z" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="m13.5 6.5-3.148-3.148a1.205 1.205 0 0 0-1.704 0L6.352 5.648a1.205 1.205 0 0 0 0 1.704L9.5 10.5" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M16.5 7.5 19 5" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m17.5 10.5 3.148 3.148a1.205 1.205 0 0 1 0 1.704l-2.296 2.296a1.205 1.205 0 0 1-1.704 0L13.5 14.5" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M9 21a6 6 0 0 0-6-6" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M9.352 10.648a1.205 1.205 0 0 0 0 1.704l2.296 2.296a1.205 1.205 0 0 0 1.704 0l4.296-4.296a1.205 1.205 0 0 0 0-1.704l-2.296-2.296a1.205 1.205 0 0 0-1.704 0z" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

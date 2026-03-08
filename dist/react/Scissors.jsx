@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const Scissors = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="6" cy="6" r="3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M8.12 8.12 12 12" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M20 4 8.12 15.88" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <circle cx="6" cy="18" r="3" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M14.8 14.8 20 20" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <circle cx="6" cy="6" r="3" className="al-primary al-anim-gear al-delay-0" style={{ '--al-rotation': '15deg' }} />
+        <path d="M8.12 8.12 12 12" className="al-secondary al-anim-gear al-delay-1" style={{ '--al-rotation': '15deg' }} />
+        <path d="M20 4 8.12 15.88" className="al-secondary al-anim-gear al-delay-2" style={{ '--al-rotation': '15deg' }} />
+        <circle cx="6" cy="18" r="3" className="al-secondary al-anim-gear al-delay-3" style={{ '--al-rotation': '15deg' }} />
+        <path d="M14.8 14.8 20 20" className="al-secondary al-anim-gear al-delay-4" style={{ '--al-rotation': '15deg' }} />
       </svg>
     </>
   );

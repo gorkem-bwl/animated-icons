@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,13 +298,13 @@ const University = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M14 21v-3a2 2 0 0 0-4 0v3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M18 12h.01" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M18 16h.01" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M22 7a1 1 0 0 0-1-1h-2a2 2 0 0 1-1.143-.359L13.143 2.36a2 2 0 0 0-2.286-.001L6.143 5.64A2 2 0 0 1 5 6H3a1 1 0 0 0-1 1v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2z" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M6 12h.01" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M6 16h.01" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <circle cx="12" cy="10" r="2" className="al-secondary al-anim-fade al-delay-6" style={{}} />
+        <path d="M14 21v-3a2 2 0 0 0-4 0v3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M18 12h.01" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M18 16h.01" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M22 7a1 1 0 0 0-1-1h-2a2 2 0 0 1-1.143-.359L13.143 2.36a2 2 0 0 0-2.286-.001L6.143 5.64A2 2 0 0 1 5 6H3a1 1 0 0 0-1 1v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2z" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M6 12h.01" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M6 16h.01" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <circle cx="12" cy="10" r="2" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const Figma = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

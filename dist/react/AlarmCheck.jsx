@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,12 +298,12 @@ const AlarmCheck = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="12" cy="13" r="8" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M5 3 2 6" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m22 6-3-3" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M6.38 18.7 4 21" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M17.64 18.67 20 21" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="m9 13 2 2 4-4" className="al-secondary al-anim-fade al-delay-5" style={{}} />
+        <circle cx="12" cy="13" r="8" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M5 3 2 6" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m22 6-3-3" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M6.38 18.7 4 21" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M17.64 18.67 20 21" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="m9 13 2 2 4-4" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
       </svg>
     </>
   );

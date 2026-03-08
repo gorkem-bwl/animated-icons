@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const WholeWord = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="7" cy="12" r="3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M10 9v6" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <circle cx="17" cy="12" r="3" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M14 7v8" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M22 17v1c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1v-1" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <circle cx="7" cy="12" r="3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M10 9v6" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <circle cx="17" cy="12" r="3" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M14 7v8" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M22 17v1c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1v-1" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

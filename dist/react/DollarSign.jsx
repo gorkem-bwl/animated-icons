@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const DollarSign = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <line x1="12" x2="12" y1="2" y2="22" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <line x1="12" x2="12" y1="2" y2="22" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

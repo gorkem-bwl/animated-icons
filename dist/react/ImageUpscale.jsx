@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,14 +298,14 @@ const ImageUpscale = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M16 3h5v5" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M17 21h2a2 2 0 0 0 2-2" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M21 12v3" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m21 3-5 5" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M3 7V5a2 2 0 0 1 2-2" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="m5 21 4.144-4.144a1.21 1.21 0 0 1 1.712 0L13 19" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="M9 3h3" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <rect x="3" y="11" width="10" height="10" rx="1" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <path d="M16 3h5v5" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M17 21h2a2 2 0 0 0 2-2" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M21 12v3" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m21 3-5 5" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M3 7V5a2 2 0 0 1 2-2" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="m5 21 4.144-4.144a1.21 1.21 0 0 1 1.712 0L13 19" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="M9 3h3" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
+        <rect x="3" y="11" width="10" height="10" rx="1" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
       </svg>
     </>
   );

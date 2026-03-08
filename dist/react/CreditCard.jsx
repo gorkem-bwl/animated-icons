@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const CreditCard = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect width="20" height="14" x="2" y="5" rx="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <line x1="2" x2="22" y1="10" y2="10" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <rect width="20" height="14" x="2" y="5" rx="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <line x1="2" x2="22" y1="10" y2="10" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const Handshake = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m11 17 2 2a1 1 0 1 0 3-3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m21 3 1 11h-2" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M3 4h8" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="m11 17 2 2a1 1 0 1 0 3-3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m21 3 1 11h-2" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M3 4h8" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

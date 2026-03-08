@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const Pill = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m8.5 8.5 7 7" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m8.5 8.5 7 7" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

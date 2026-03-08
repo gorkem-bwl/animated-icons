@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const PawPrint = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="11" cy="4" r="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="18" cy="8" r="2" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <circle cx="20" cy="16" r="2" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <circle cx="11" cy="4" r="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="18" cy="8" r="2" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <circle cx="20" cy="16" r="2" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const LineDotRightHorizontal = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M 3 12 L 15 12" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="18" cy="12" r="3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <path d="M 3 12 L 15 12" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="18" cy="12" r="3" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,13 +298,13 @@ const ScissorsLineDashed = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M5.42 9.42 8 12" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="4" cy="8" r="2" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m14 6-8.58 8.58" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <circle cx="4" cy="16" r="2" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M10.8 14.8 14 18" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M16 12h-2" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="M22 12h-2" className="al-secondary al-anim-fade al-delay-6" style={{}} />
+        <path d="M5.42 9.42 8 12" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="4" cy="8" r="2" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m14 6-8.58 8.58" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <circle cx="4" cy="16" r="2" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M10.8 14.8 14 18" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M16 12h-2" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="M22 12h-2" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
       </svg>
     </>
   );

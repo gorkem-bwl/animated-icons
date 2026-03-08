@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const Flower2 = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="12" cy="8" r="2" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M12 10v12" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="12" cy="8" r="2" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M12 10v12" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

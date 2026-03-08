@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const TrendingUp = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M16 7h6v6" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m22 7-8.5 8.5-5-5L2 17" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <path d="M16 7h6v6" className="al-primary al-anim-nudge al-delay-0" style={{ '--al-tx': '1.5px', '--al-ty': '-1.5px' }} />
+        <path d="m22 7-8.5 8.5-5-5L2 17" className="al-secondary al-anim-nudge al-delay-1" style={{ '--al-tx': '1.5px', '--al-ty': '-1.5px' }} />
       </svg>
     </>
   );

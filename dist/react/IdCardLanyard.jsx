@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const IdCardLanyard = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M13.5 8h-3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m15 2-1 2h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M16.899 22A5 5 0 0 0 7.1 22" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m9 2 3 6" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <circle cx="12" cy="15" r="3" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="M13.5 8h-3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m15 2-1 2h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M16.899 22A5 5 0 0 0 7.1 22" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m9 2 3 6" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <circle cx="12" cy="15" r="3" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const Podcast = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M13 17a1 1 0 1 0-2 0l.5 4.5a0.5 0.5 0 0 0 1 0z" fill="currentColor" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M16.85 18.58a9 9 0 1 0-9.7 0" className="al-secondary al-anim-fill al-delay-1" style={{}} />
-        <path d="M8 14a5 5 0 1 1 8 0" className="al-secondary al-anim-fill al-delay-2" style={{}} />
-        <circle cx="12" cy="11" r="1" fill="currentColor" className="al-secondary al-anim-fill al-delay-3" style={{}} />
+        <path d="M13 17a1 1 0 1 0-2 0l.5 4.5a0.5 0.5 0 0 0 1 0z" fill="currentColor" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M16.85 18.58a9 9 0 1 0-9.7 0" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M8 14a5 5 0 1 1 8 0" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <circle cx="12" cy="11" r="1" fill="currentColor" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

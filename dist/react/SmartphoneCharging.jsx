@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const SmartphoneCharging = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect width="14" height="20" x="5" y="2" rx="2" ry="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M12.667 8 10 12h4l-2.667 4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <rect width="14" height="20" x="5" y="2" rx="2" ry="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M12.667 8 10 12h4l-2.667 4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

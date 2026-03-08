@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,15 +298,15 @@ const Drone = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M10 10 7 7" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m10 14-3 3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m14 10 3-3" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m14 14 3 3" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M14.205 4.139a4 4 0 1 1 5.439 5.863" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M19.637 14a4 4 0 1 1-5.432 5.868" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="M4.367 10a4 4 0 1 1 5.438-5.862" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <path d="M9.795 19.862a4 4 0 1 1-5.429-5.873" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <rect x="10" y="8" width="4" height="8" rx="1" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <path d="M10 10 7 7" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m10 14-3 3" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m14 10 3-3" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m14 14 3 3" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M14.205 4.139a4 4 0 1 1 5.439 5.863" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M19.637 14a4 4 0 1 1-5.432 5.868" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="M4.367 10a4 4 0 1 1 5.438-5.862" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
+        <path d="M9.795 19.862a4 4 0 1 1-5.429-5.873" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <rect x="10" y="8" width="4" height="8" rx="1" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const WavesArrowDown = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M12 10L12 2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M16 6L12 10L8 6" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M2 15C2.6 15.5 3.2 16 4.5 16C7 16 7 14 9.5 14C12.1 14 11.9 16 14.5 16C17 16 17 14 19.5 14C20.8 14 21.4 14.5 22 15" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M2 21C2.6 21.5 3.2 22 4.5 22C7 22 7 20 9.5 20C12.1 20 11.9 22 14.5 22C17 22 17 20 19.5 20C20.8 20 21.4 20.5 22 21" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M12 10L12 2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M16 6L12 10L8 6" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M2 15C2.6 15.5 3.2 16 4.5 16C7 16 7 14 9.5 14C12.1 14 11.9 16 14.5 16C17 16 17 14 19.5 14C20.8 14 21.4 14.5 22 15" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M2 21C2.6 21.5 3.2 22 4.5 22C7 22 7 20 9.5 20C12.1 20 11.9 22 14.5 22C17 22 17 20 19.5 20C20.8 20 21.4 20.5 22 21" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const GitPullRequestDraft = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="18" cy="18" r="3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="6" cy="6" r="3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M18 6V5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M18 11v-1" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <line x1="6" x2="6" y1="9" y2="21" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <circle cx="18" cy="18" r="3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="6" cy="6" r="3" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M18 6V5" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M18 11v-1" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <line x1="6" x2="6" y1="9" y2="21" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

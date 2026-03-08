@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,12 +298,12 @@ const Bird = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M16 7h.01" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m20 7 2 .5-2 .5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M10 18v3" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M14 17.75V21" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M7 18a6 6 0 0 0 3.84-10.61" className="al-secondary al-anim-fade al-delay-5" style={{}} />
+        <path d="M16 7h.01" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m20 7 2 .5-2 .5" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M10 18v3" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M14 17.75V21" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M7 18a6 6 0 0 0 3.84-10.61" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
       </svg>
     </>
   );

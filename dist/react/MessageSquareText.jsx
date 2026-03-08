@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const MessageSquareText = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M7 11h10" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M7 15h6" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M7 7h8" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M7 11h10" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M7 15h6" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M7 7h8" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

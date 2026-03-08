@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const Nfc = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M6 8.32a7.43 7.43 0 0 1 0 7.36" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M9.46 6.21a11.76 11.76 0 0 1 0 11.58" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M12.91 4.1a15.91 15.91 0 0 1 .01 15.8" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M16.37 2a20.16 20.16 0 0 1 0 20" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M6 8.32a7.43 7.43 0 0 1 0 7.36" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M9.46 6.21a11.76 11.76 0 0 1 0 11.58" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M12.91 4.1a15.91 15.91 0 0 1 .01 15.8" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M16.37 2a20.16 20.16 0 0 1 0 20" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

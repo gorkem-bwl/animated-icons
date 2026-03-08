@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const Paintbrush2 = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M10 2v2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M14 2v4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M17 2a1 1 0 0 1 1 1v9H6V3a1 1 0 0 1 1-1z" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M6 12a1 1 0 0 0-1 1v1a2 2 0 0 0 2 2h2a1 1 0 0 1 1 1v2.9a2 2 0 1 0 4 0V17a1 1 0 0 1 1-1h2a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M10 2v2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M14 2v4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M17 2a1 1 0 0 1 1 1v9H6V3a1 1 0 0 1 1-1z" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M6 12a1 1 0 0 0-1 1v1a2 2 0 0 0 2 2h2a1 1 0 0 1 1 1v2.9a2 2 0 1 0 4 0V17a1 1 0 0 1 1-1h2a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const GraduationCap = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M22 10v6" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M22 10v6" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

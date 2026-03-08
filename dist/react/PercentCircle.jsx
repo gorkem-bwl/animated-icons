@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const PercentCircle = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="12" cy="12" r="10" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m15 9-6 6" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M9 9h.01" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M15 15h.01" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <circle cx="12" cy="12" r="10" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m15 9-6 6" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M9 9h.01" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M15 15h.01" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,14 +298,14 @@ const CalendarRange = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect width="18" height="18" x="3" y="4" rx="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M16 2v4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M3 10h18" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M8 2v4" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M17 14h-6" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M13 18H7" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="M7 14h.01" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <path d="M17 18h.01" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <rect width="18" height="18" x="3" y="4" rx="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M16 2v4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M3 10h18" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M8 2v4" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M17 14h-6" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M13 18H7" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="M7 14h.01" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
+        <path d="M17 18h.01" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
       </svg>
     </>
   );

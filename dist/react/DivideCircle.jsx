@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const DivideCircle = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="12" cy="12" r="10" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <line x1="8" x2="16" y1="12" y2="12" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <line x1="12" x2="12" y1="16" y2="16" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <line x1="12" x2="12" y1="8" y2="8" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <circle cx="12" cy="12" r="10" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <line x1="8" x2="16" y1="12" y2="12" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <line x1="12" x2="12" y1="16" y2="16" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <line x1="12" x2="12" y1="8" y2="8" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

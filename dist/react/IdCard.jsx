@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const IdCard = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M16 10h2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M16 14h2" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M6.17 15a3 3 0 0 1 5.66 0" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <circle cx="9" cy="11" r="2" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <rect x="2" y="5" width="20" height="14" rx="2" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="M16 10h2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M16 14h2" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M6.17 15a3 3 0 0 1 5.66 0" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <circle cx="9" cy="11" r="2" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <rect x="2" y="5" width="20" height="14" rx="2" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,15 +298,15 @@ const BusFront = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M4 6 2 7" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M10 6h4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m22 7-2-1" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <rect width="16" height="16" x="4" y="3" rx="2" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M4 11h16" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M8 15h.01" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="M16 15h.01" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <path d="M6 19v2" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <path d="M18 21v-2" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <path d="M4 6 2 7" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M10 6h4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m22 7-2-1" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <rect width="16" height="16" x="4" y="3" rx="2" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M4 11h16" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M8 15h.01" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="M16 15h.01" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
+        <path d="M6 19v2" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <path d="M18 21v-2" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
       </svg>
     </>
   );

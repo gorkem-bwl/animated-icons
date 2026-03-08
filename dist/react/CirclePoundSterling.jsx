@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const CirclePoundSterling = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="12" cy="12" r="10" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M10 16V9.5a1 1 0 0 1 5 0" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M8 12h4" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M8 16h7" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <circle cx="12" cy="12" r="10" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M10 16V9.5a1 1 0 0 1 5 0" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M8 12h4" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M8 16h7" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

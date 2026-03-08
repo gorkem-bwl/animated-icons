@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const ArrowUpNarrowWide = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m3 8 4-4 4 4" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M7 4v16" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M11 12h4" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M11 16h7" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M11 20h10" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="m3 8 4-4 4 4" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M7 4v16" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M11 12h4" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M11 16h7" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M11 20h10" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

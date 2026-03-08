@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const AppWindow = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect x="2" y="4" width="20" height="16" rx="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M10 4v4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M2 8h20" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M6 4v4" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <rect x="2" y="4" width="20" height="16" rx="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M10 4v4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M2 8h20" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M6 4v4" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

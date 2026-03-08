@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,12 +298,12 @@ const CigaretteOff = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M12 12H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h13" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M18 8c0-2.5-2-2.5-2-5" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m2 2 20 20" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M21 12a1 1 0 0 1 1 1v2a1 1 0 0 1-.5.866" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M22 8c0-2.5-2-2.5-2-5" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M7 12v4" className="al-secondary al-anim-fade al-delay-5" style={{}} />
+        <path d="M12 12H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h13" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M18 8c0-2.5-2-2.5-2-5" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m2 2 20 20" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M21 12a1 1 0 0 1 1 1v2a1 1 0 0 1-.5.866" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M22 8c0-2.5-2-2.5-2-5" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M7 12v4" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
       </svg>
     </>
   );

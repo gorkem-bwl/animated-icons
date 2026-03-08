@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const Sheet = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect width="18" height="18" x="3" y="3" rx="2" ry="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <line x1="3" x2="21" y1="9" y2="9" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <line x1="3" x2="21" y1="15" y2="15" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <line x1="9" x2="9" y1="9" y2="21" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <line x1="15" x2="15" y1="9" y2="21" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <rect width="18" height="18" x="3" y="3" rx="2" ry="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <line x1="3" x2="21" y1="9" y2="9" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <line x1="3" x2="21" y1="15" y2="15" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <line x1="9" x2="9" y1="9" y2="21" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <line x1="15" x2="15" y1="9" y2="21" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const Instagram = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

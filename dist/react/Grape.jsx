@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,15 +298,15 @@ const Grape = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M22 5V2l-5.89 5.89" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="16.6" cy="15.89" r="3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <circle cx="8.11" cy="7.4" r="3" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <circle cx="12.35" cy="11.65" r="3" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <circle cx="13.91" cy="5.85" r="3" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <circle cx="18.15" cy="10.09" r="3" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <circle cx="6.56" cy="13.2" r="3" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <circle cx="10.8" cy="17.44" r="3" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <circle cx="5" cy="19" r="3" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <path d="M22 5V2l-5.89 5.89" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="16.6" cy="15.89" r="3" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <circle cx="8.11" cy="7.4" r="3" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <circle cx="12.35" cy="11.65" r="3" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <circle cx="13.91" cy="5.85" r="3" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <circle cx="18.15" cy="10.09" r="3" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <circle cx="6.56" cy="13.2" r="3" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
+        <circle cx="10.8" cy="17.44" r="3" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <circle cx="5" cy="19" r="3" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
       </svg>
     </>
   );

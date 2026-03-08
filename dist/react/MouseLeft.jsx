@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const MouseLeft = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M12 7.318V10" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M5 10v5a7 7 0 0 0 14 0V9c0-3.527-2.608-6.515-6-7" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <circle cx="7" cy="4" r="2" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M12 7.318V10" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M5 10v5a7 7 0 0 0 14 0V9c0-3.527-2.608-6.515-6-7" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <circle cx="7" cy="4" r="2" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

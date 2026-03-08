@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const ZoomIn = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="11" cy="11" r="8" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <line x1="21" x2="16.65" y1="21" y2="16.65" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <line x1="11" x2="11" y1="8" y2="14" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <line x1="8" x2="14" y1="11" y2="11" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <circle cx="11" cy="11" r="8" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <line x1="21" x2="16.65" y1="21" y2="16.65" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <line x1="11" x2="11" y1="8" y2="14" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <line x1="8" x2="14" y1="11" y2="11" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

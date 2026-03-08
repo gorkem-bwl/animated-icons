@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const RussianRuble = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M6 11h8a4 4 0 0 0 0-8H9v18" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M6 15h8" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <path d="M6 11h8a4 4 0 0 0 0-8H9v18" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M6 15h8" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,7 +298,7 @@ const Milestone = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M12 13v8" className="al-primary al-anim-fill al-delay-0" style={{}} />
+        <path d="M12 13v8" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
         <path d="M12 3v3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
         <path d="M4 6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h13a2 2 0 0 0 1.152-.365l3.424-2.317a1 1 0 0 0 0-1.635l-3.424-2.318A2 2 0 0 0 17 6z" className="al-secondary al-anim-fade al-delay-2" style={{}} />
       </svg>

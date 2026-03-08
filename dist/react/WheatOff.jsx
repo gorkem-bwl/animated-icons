@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,16 +298,16 @@ const WheatOff = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m2 22 10-10" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m16 8-1.17 1.17" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m8 8-.53.53a3.5 3.5 0 0 0 0 4.94L9 15l1.53-1.53c.55-.55.88-1.25.98-1.97" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M10.91 5.26c.15-.26.34-.51.56-.73L13 3l1.53 1.53a3.5 3.5 0 0 1 .28 4.62" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <path d="m16 16-.53.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.49 3.49 0 0 1 1.97-.98" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <path d="M18.74 13.09c.26-.15.51-.34.73-.56L21 11l-1.53-1.53a3.5 3.5 0 0 0-4.62-.28" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <line x1="2" x2="22" y1="2" y2="22" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <path d="m2 22 10-10" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m16 8-1.17 1.17" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m8 8-.53.53a3.5 3.5 0 0 0 0 4.94L9 15l1.53-1.53c.55-.55.88-1.25.98-1.97" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M10.91 5.26c.15-.26.34-.51.56-.73L13 3l1.53 1.53a3.5 3.5 0 0 1 .28 4.62" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
+        <path d="m16 16-.53.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.49 3.49 0 0 1 1.97-.98" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <path d="M18.74 13.09c.26-.15.51-.34.73-.56L21 11l-1.53-1.53a3.5 3.5 0 0 0-4.62-.28" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <line x1="2" x2="22" y1="2" y2="22" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
       </svg>
     </>
   );

@@ -37,7 +37,7 @@
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -273,10 +273,10 @@
     100% { transform: rotate(360deg); }
   }
 </style>
-  <path d="m19 5 3-3" class="al-primary al-anim-fill al-delay-0" />
-  <path d="m2 22 3-3" class="al-secondary al-anim-fade al-delay-1" />
-  <path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z" class="al-secondary al-anim-fade al-delay-2" />
-  <path d="M7.5 13.5 10 11" class="al-secondary al-anim-fade al-delay-3" />
-  <path d="M10.5 16.5 13 14" class="al-secondary al-anim-fade al-delay-4" />
-  <path d="m12 6 6 6 2.3-2.3a2.4 2.4 0 0 0 0-3.4l-2.6-2.6a2.4 2.4 0 0 0-3.4 0Z" class="al-secondary al-anim-fade al-delay-5" />
+  <path d="m19 5 3-3" class="al-primary al-anim-scale-pop al-delay-0" />
+  <path d="m2 22 3-3" class="al-secondary al-anim-scale-pop al-delay-1" />
+  <path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z" class="al-secondary al-anim-scale-pop al-delay-2" />
+  <path d="M7.5 13.5 10 11" class="al-secondary al-anim-scale-pop al-delay-3" />
+  <path d="M10.5 16.5 13 14" class="al-secondary al-anim-scale-pop al-delay-4" />
+  <path d="m12 6 6 6 2.3-2.3a2.4 2.4 0 0 0 0-3.4l-2.6-2.6a2.4 2.4 0 0 0-3.4 0Z" class="al-secondary al-anim-scale-pop al-delay-5" />
 </svg>

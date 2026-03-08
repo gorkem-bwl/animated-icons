@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const ShieldUser = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M6.376 18.91a6 6 0 0 1 11.249.003" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <circle cx="12" cy="11" r="4" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M6.376 18.91a6 6 0 0 1 11.249.003" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <circle cx="12" cy="11" r="4" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

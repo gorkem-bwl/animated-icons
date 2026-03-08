@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const Video = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <rect x="2" y="6" width="14" height="12" rx="2" className="al-secondary al-anim-fill al-delay-1" style={{}} />
+        <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <rect x="2" y="6" width="14" height="12" rx="2" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

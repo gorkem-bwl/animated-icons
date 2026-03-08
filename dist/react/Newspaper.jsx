@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const Newspaper = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M15 18h-5" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M18 14h-8" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <rect width="8" height="4" x="10" y="6" rx="1" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M15 18h-5" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M18 14h-8" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <rect width="8" height="4" x="10" y="6" rx="1" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

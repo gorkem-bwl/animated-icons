@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const FishingHook = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m17.586 11.414-5.93 5.93a1 1 0 0 1-8-8l3.137-3.137a.707.707 0 0 1 1.207.5V10" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M20.414 8.586 22 7" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <circle cx="19" cy="10" r="2" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="m17.586 11.414-5.93 5.93a1 1 0 0 1-8-8l3.137-3.137a.707.707 0 0 1 1.207.5V10" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M20.414 8.586 22 7" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <circle cx="19" cy="10" r="2" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const SatelliteDish = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M4 10a7.31 7.31 0 0 0 10 10Z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m9 15 3-3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M17 13a6 6 0 0 0-6-6" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M21 13A10 10 0 0 0 11 3" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M4 10a7.31 7.31 0 0 0 10 10Z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m9 15 3-3" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M17 13a6 6 0 0 0-6-6" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M21 13A10 10 0 0 0 11 3" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

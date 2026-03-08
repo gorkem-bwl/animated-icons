@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,13 +298,13 @@ const RadioTower = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <circle cx="12" cy="9" r="2" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M16.2 4.8c2 2 2.26 5.11.8 7.47" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M9.5 18h5" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="m8 22 4-11 4 11" className="al-secondary al-anim-fade al-delay-6" style={{}} />
+        <path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <circle cx="12" cy="9" r="2" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M16.2 4.8c2 2 2.26 5.11.8 7.47" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M9.5 18h5" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="m8 22 4-11 4 11" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
       </svg>
     </>
   );

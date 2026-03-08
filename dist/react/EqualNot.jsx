@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const EqualNot = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <line x1="5" x2="19" y1="9" y2="9" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <line x1="5" x2="19" y1="15" y2="15" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <line x1="19" x2="5" y1="5" y2="19" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <line x1="5" x2="19" y1="9" y2="9" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <line x1="5" x2="19" y1="15" y2="15" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <line x1="19" x2="5" y1="5" y2="19" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

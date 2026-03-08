@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,14 +298,14 @@ const ChessQueen = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M4 20a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m12.474 5.943 1.567 5.34a1 1 0 0 0 1.75.328l2.616-3.402" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m20 9-3 9" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m5.594 8.209 2.615 3.403a1 1 0 0 0 1.75-.329l1.567-5.34" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M7 18 4 9" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <circle cx="12" cy="4" r="2" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <circle cx="20" cy="7" r="2" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <circle cx="4" cy="7" r="2" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <path d="M4 20a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m12.474 5.943 1.567 5.34a1 1 0 0 0 1.75.328l2.616-3.402" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m20 9-3 9" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m5.594 8.209 2.615 3.403a1 1 0 0 0 1.75-.329l1.567-5.34" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M7 18 4 9" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <circle cx="12" cy="4" r="2" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <circle cx="20" cy="7" r="2" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
+        <circle cx="4" cy="7" r="2" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const FlaskConical = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M6.453 15h11.094" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M8.5 2h7" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M6.453 15h11.094" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M8.5 2h7" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

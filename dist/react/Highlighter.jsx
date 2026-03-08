@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,7 +298,7 @@ const Highlighter = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m9 11-6 6v3h9l3-3" className="al-primary al-anim-fill al-delay-0" style={{}} />
+        <path d="m9 11-6 6v3h9l3-3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
         <path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
       </svg>
     </>

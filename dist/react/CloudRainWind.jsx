@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const CloudRainWind = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m9.2 22 3-7" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m9 13-3 7" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m17 13-3 7" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m9.2 22 3-7" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m9 13-3 7" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m17 13-3 7" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

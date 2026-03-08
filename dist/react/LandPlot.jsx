@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const LandPlot = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m12 8 6-3-6-3v10" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m8 11.99-5.5 3.14a1 1 0 0 0 0 1.74l8.5 4.86a2 2 0 0 0 2 0l8.5-4.86a1 1 0 0 0 0-1.74L16 12" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m6.49 12.85 11.02 6.3" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M17.51 12.85 6.5 19.15" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="m12 8 6-3-6-3v10" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m8 11.99-5.5 3.14a1 1 0 0 0 0 1.74l8.5 4.86a2 2 0 0 0 2 0l8.5-4.86a1 1 0 0 0 0-1.74L16 12" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m6.49 12.85 11.02 6.3" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M17.51 12.85 6.5 19.15" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

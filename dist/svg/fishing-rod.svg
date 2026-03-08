@@ -37,7 +37,7 @@
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -273,7 +273,7 @@
     100% { transform: rotate(360deg); }
   }
 </style>
-  <path d="M4 11h1" class="al-primary al-anim-fill al-delay-0" />
-  <path d="M8 15a2 2 0 0 1-4 0V3a1 1 0 0 1 1-1h.5C14 2 20 9 20 18v4" class="al-secondary al-anim-fade al-delay-1" />
-  <circle cx="18" cy="18" r="2" class="al-secondary al-anim-fade al-delay-2" />
+  <path d="M4 11h1" class="al-primary al-anim-scale-pop al-delay-0" />
+  <path d="M8 15a2 2 0 0 1-4 0V3a1 1 0 0 1 1-1h.5C14 2 20 9 20 18v4" class="al-secondary al-anim-scale-pop al-delay-1" />
+  <circle cx="18" cy="18" r="2" class="al-secondary al-anim-scale-pop al-delay-2" />
 </svg>

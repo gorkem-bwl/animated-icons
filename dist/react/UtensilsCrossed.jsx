@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const UtensilsCrossed = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m2.1 21.8 6.4-6.3" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m19 5-7 7" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m2.1 21.8 6.4-6.3" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m19 5-7 7" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

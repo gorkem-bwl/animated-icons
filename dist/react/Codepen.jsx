@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const Codepen = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <line x1="12" x2="12" y1="22" y2="15.5" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <polyline points="22 8.5 12 15.5 2 8.5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <polyline points="2 15.5 12 8.5 22 15.5" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <line x1="12" x2="12" y1="2" y2="8.5" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <line x1="12" x2="12" y1="22" y2="15.5" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <polyline points="22 8.5 12 15.5 2 8.5" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <polyline points="2 15.5 12 8.5 22 15.5" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <line x1="12" x2="12" y1="2" y2="8.5" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const Watch = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M12 10v2.2l1.6 1" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m16.13 7.66-.81-4.05a2 2 0 0 0-2-1.61h-2.68a2 2 0 0 0-2 1.61l-.78 4.05" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m7.88 16.36.8 4a2 2 0 0 0 2 1.61h2.72a2 2 0 0 0 2-1.61l.81-4.05" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <circle cx="12" cy="12" r="6" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M12 10v2.2l1.6 1" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m16.13 7.66-.81-4.05a2 2 0 0 0-2-1.61h-2.68a2 2 0 0 0-2 1.61l-.78 4.05" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m7.88 16.36.8 4a2 2 0 0 0 2 1.61h2.72a2 2 0 0 0 2-1.61l.81-4.05" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <circle cx="12" cy="12" r="6" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

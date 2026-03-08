@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,12 +298,12 @@ const Landmark = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M10 18v-7" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M14 18v-7" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M18 18v-7" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M3 22h18" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M6 18v-7" className="al-secondary al-anim-fade al-delay-5" style={{}} />
+        <path d="M10 18v-7" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M14 18v-7" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M18 18v-7" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M3 22h18" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M6 18v-7" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const Dribbble = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="12" cy="12" r="10" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M8.56 2.75c4.37 6 6 9.42 8 17.72" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <circle cx="12" cy="12" r="10" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M8.56 2.75c4.37 6 6 9.42 8 17.72" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

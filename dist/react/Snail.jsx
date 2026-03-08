@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const Snail = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M2 13a6 6 0 1 0 12 0 4 4 0 1 0-8 0 2 2 0 0 0 4 0" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <circle cx="10" cy="13" r="8" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M2 21h12c4.4 0 8-3.6 8-8V7a2 2 0 1 0-4 0v6" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M18 3 19.1 5.2" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M22 3 20.9 5.2" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="M2 13a6 6 0 1 0 12 0 4 4 0 1 0-8 0 2 2 0 0 0 4 0" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <circle cx="10" cy="13" r="8" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M2 21h12c4.4 0 8-3.6 8-8V7a2 2 0 1 0-4 0v6" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M18 3 19.1 5.2" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M22 3 20.9 5.2" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

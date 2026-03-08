@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,13 +298,13 @@ const GlobeOff = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M10.114 4.462A14.5 14.5 0 0 1 12 2a10 10 0 0 1 9.313 13.643" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M15.557 15.556A14.5 14.5 0 0 1 12 22 10 10 0 0 1 4.929 4.929" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M15.892 10.234A14.5 14.5 0 0 0 12 2a10 10 0 0 0-3.643.687" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M17.656 12H22" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M19.071 19.071A10 10 0 0 1 12 22 14.5 14.5 0 0 1 8.44 8.45" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M2 12h10" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="m2 2 20 20" className="al-secondary al-anim-fade al-delay-6" style={{}} />
+        <path d="M10.114 4.462A14.5 14.5 0 0 1 12 2a10 10 0 0 1 9.313 13.643" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M15.557 15.556A14.5 14.5 0 0 1 12 22 10 10 0 0 1 4.929 4.929" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M15.892 10.234A14.5 14.5 0 0 0 12 2a10 10 0 0 0-3.643.687" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M17.656 12H22" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M19.071 19.071A10 10 0 0 1 12 22 14.5 14.5 0 0 1 8.44 8.45" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M2 12h10" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="m2 2 20 20" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
       </svg>
     </>
   );

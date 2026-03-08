@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const BellDot = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M10.268 21a2 2 0 0 0 3.464 0" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M11.68 2.009A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673c-.824-.85-1.678-1.731-2.21-3.348" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <circle cx="18" cy="5" r="3" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M10.268 21a2 2 0 0 0 3.464 0" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M11.68 2.009A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673c-.824-.85-1.678-1.731-2.21-3.348" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <circle cx="18" cy="5" r="3" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

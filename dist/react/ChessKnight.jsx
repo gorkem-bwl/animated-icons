@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const ChessKnight = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M5 20a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M16.5 18c1-2 2.5-5 2.5-9a7 7 0 0 0-7-7H6.635a1 1 0 0 0-.768 1.64L7 5l-2.32 5.802a2 2 0 0 0 .95 2.526l2.87 1.456" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m15 5 1.425-1.425" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m17 8 1.53-1.53" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M9.713 12.185 7 18" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="M5 20a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M16.5 18c1-2 2.5-5 2.5-9a7 7 0 0 0-7-7H6.635a1 1 0 0 0-.768 1.64L7 5l-2.32 5.802a2 2 0 0 0 .95 2.526l2.87 1.456" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m15 5 1.425-1.425" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m17 8 1.53-1.53" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M9.713 12.185 7 18" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

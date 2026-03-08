@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const LampWallDown = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M19.929 18.629A1 1 0 0 1 19 20H9a1 1 0 0 1-.928-1.371l2-5A1 1 0 0 1 11 13h6a1 1 0 0 1 .928.629z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M6 3a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M8 6h4a2 2 0 0 1 2 2v5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M19.929 18.629A1 1 0 0 1 19 20H9a1 1 0 0 1-.928-1.371l2-5A1 1 0 0 1 11 13h6a1 1 0 0 1 .928.629z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M6 3a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M8 6h4a2 2 0 0 1 2 2v5" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

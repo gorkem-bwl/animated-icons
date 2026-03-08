@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,13 +298,13 @@ const CandyOff = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M10 10v7.9" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M11.802 6.145a5 5 0 0 1 6.053 6.053" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M14 6.1v2.243" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m15.5 15.571-.964.964a5 5 0 0 1-7.071 0 5 5 0 0 1 0-7.07l.964-.965" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M16 7V3a1 1 0 0 1 1.707-.707 2.5 2.5 0 0 0 2.152.717 1 1 0 0 1 1.131 1.131 2.5 2.5 0 0 0 .717 2.152A1 1 0 0 1 21 8h-4" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="m2 2 20 20" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="M8 17v4a1 1 0 0 1-1.707.707 2.5 2.5 0 0 0-2.152-.717 1 1 0 0 1-1.131-1.131 2.5 2.5 0 0 0-.717-2.152A1 1 0 0 1 3 16h4" className="al-secondary al-anim-fade al-delay-6" style={{}} />
+        <path d="M10 10v7.9" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M11.802 6.145a5 5 0 0 1 6.053 6.053" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M14 6.1v2.243" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m15.5 15.571-.964.964a5 5 0 0 1-7.071 0 5 5 0 0 1 0-7.07l.964-.965" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M16 7V3a1 1 0 0 1 1.707-.707 2.5 2.5 0 0 0 2.152.717 1 1 0 0 1 1.131 1.131 2.5 2.5 0 0 0 .717 2.152A1 1 0 0 1 21 8h-4" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="m2 2 20 20" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="M8 17v4a1 1 0 0 1-1.707.707 2.5 2.5 0 0 0-2.152-.717 1 1 0 0 1-1.131-1.131 2.5 2.5 0 0 0-.717-2.152A1 1 0 0 1 3 16h4" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
       </svg>
     </>
   );

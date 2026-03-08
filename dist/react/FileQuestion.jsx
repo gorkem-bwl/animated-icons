@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const FileQuestion = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M12 17h.01" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M12 17h.01" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

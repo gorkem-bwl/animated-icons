@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,16 +298,16 @@ const ShipWheel = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <circle cx="12" cy="12" r="8" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M12 2v7.5" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m19 5-5.23 5.23" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M22 12h-7.5" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="m19 19-5.23-5.23" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M12 14.5V22" className="al-secondary al-anim-fade al-delay-5" style={{}} />
-        <path d="M10.23 13.77 5 19" className="al-secondary al-anim-fade al-delay-6" style={{}} />
-        <path d="M9.5 12H2" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <path d="M10.23 10.23 5 5" className="al-secondary al-anim-fade al-delay-7" style={{}} />
-        <circle cx="12" cy="12" r="2.5" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <circle cx="12" cy="12" r="8" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M12 2v7.5" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m19 5-5.23 5.23" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M22 12h-7.5" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="m19 19-5.23-5.23" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M12 14.5V22" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
+        <path d="M10.23 13.77 5 19" className="al-secondary al-anim-scale-pop al-delay-6" style={{}} />
+        <path d="M9.5 12H2" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <path d="M10.23 10.23 5 5" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
+        <circle cx="12" cy="12" r="2.5" className="al-secondary al-anim-scale-pop al-delay-7" style={{}} />
       </svg>
     </>
   );

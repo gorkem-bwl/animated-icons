@@ -290,7 +290,7 @@ const animationStrategies = {
     if (iconName.includes('volume') || iconName.includes('speaker')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: i === 0 ? 'fill' : 'pulse-element',
+        anim: i === 0 ? 'scale-pop' : 'pulse-element',
         delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
@@ -305,19 +305,50 @@ const animationStrategies = {
       }));
     }
 
-    if (iconName.includes('music')) {
+    if (iconName.includes('music') || iconName.includes('audio')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: el.tag === 'circle' || (el.tag === 'path' && estimatePathLength(el) < 20) ? 'fill' : 'draw',
+        anim: el.tag === 'circle' ? 'scale-pop' : 'fade',
         delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
     }
 
-    // play: fill the triangle
+    // rewind, fast-forward, skip: nudge in direction
+    if (iconName.includes('rewind') || iconName.includes('skip-back') || iconName.includes('chevron-first')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: 'nudge',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+        customProps: { tx: -2, ty: 0 },
+      }));
+    }
+
+    if (iconName.includes('fast-forward') || iconName.includes('skip-forward') || iconName.includes('chevron-last')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: 'nudge',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+        customProps: { tx: 2, ty: 0 },
+      }));
+    }
+
+    // mic: scale-pop
+    if (iconName.includes('mic')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: 'scale-pop',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    // play, pause, stop, headphones, etc: scale-pop
     return elements.map((el, i) => ({
       ...el,
-      anim: 'fill',
+      anim: 'scale-pop',
       delay: i,
       colorGroup: i === 0 ? 'primary' : 'secondary',
     }));
@@ -419,7 +450,7 @@ const animationStrategies = {
     if (iconName.includes('zap')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: 'fill',
+        anim: 'scale-pop',
         delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
@@ -452,9 +483,10 @@ const animationStrategies = {
     if (iconName.includes('moon')) {
       return elements.map((el, i) => ({
         ...el,
-        anim: 'fill',
+        anim: 'gear',
         delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
+        customProps: { rotation: -15 },
       }));
     }
 
@@ -516,9 +548,19 @@ const animationStrategies = {
 
   // ── Editing (pencil, copy, scissors) ──
   draw(elements, iconName) {
+    if (iconName.includes('scissors')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: 'gear',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+        customProps: { rotation: 15 },
+      }));
+    }
+
     return elements.map((el, i) => ({
       ...el,
-      anim: i === 0 ? 'fill' : 'fade',
+      anim: i === 0 ? 'scale-pop' : 'fade',
       delay: i,
       colorGroup: i === 0 ? 'primary' : 'secondary',
     }));
@@ -600,7 +642,22 @@ const animationStrategies = {
       }));
     }
 
-    return animationStrategies.draw(elements, iconName);
+    if (iconName.includes('flag')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: i === 0 ? 'fill' : 'shake',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    // Default: scale-pop is always visible
+    return elements.map((el, i) => ({
+      ...el,
+      anim: i === 0 ? 'scale-pop' : 'fade',
+      delay: i,
+      colorGroup: i === 0 ? 'primary' : 'secondary',
+    }));
   },
 
   // ── Data (bar-chart, trending, database) ──
@@ -615,11 +672,13 @@ const animationStrategies = {
     }
 
     if (iconName.includes('trending')) {
+      const isUp = iconName.includes('up');
       return elements.map((el, i) => ({
         ...el,
-        anim: i === 0 ? 'fill' : 'fade',
+        anim: 'nudge',
         delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
+        customProps: { tx: 1.5, ty: isUp ? -1.5 : 1.5 },
       }));
     }
 
@@ -671,7 +730,7 @@ function getIconCategory(iconName, categories) {
       return { category: catName, animation: catData.animation };
     }
   }
-  return { category: 'uncategorized', animation: 'draw' };
+  return { category: 'uncategorized', animation: 'toggle' };
 }
 
 // ─── CSS Generation ──────────────────────────────────────────────────
@@ -701,7 +760,7 @@ function generateAnimationCSS() {
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */

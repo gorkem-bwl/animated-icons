@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,7 +298,7 @@ const LocateOff = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M12 19v3" className="al-primary al-anim-fill al-delay-0" style={{}} />
+        <path d="M12 19v3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
         <path d="M12 2v3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
         <path d="M18.89 13.24a7 7 0 0 0-8.13-8.13" className="al-secondary al-anim-fade al-delay-2" style={{}} />
         <path d="M19 12h3" className="al-secondary al-anim-fade al-delay-3" style={{}} />

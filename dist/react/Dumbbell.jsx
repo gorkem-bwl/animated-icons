@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const Dumbbell = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m2.5 21.5 1.4-1.4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m20.1 3.9 1.4-1.4" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="m9.6 14.4 4.8-4.8" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m2.5 21.5 1.4-1.4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m20.1 3.9 1.4-1.4" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="m9.6 14.4 4.8-4.8" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

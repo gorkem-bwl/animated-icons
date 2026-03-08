@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,7 +298,7 @@ const PenTool = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z" className="al-primary al-anim-fill al-delay-0" style={{}} />
+        <path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
         <path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18" className="al-secondary al-anim-fade al-delay-1" style={{}} />
         <path d="m2.3 2.3 7.286 7.286" className="al-secondary al-anim-fade al-delay-2" style={{}} />
         <circle cx="11" cy="11" r="2" className="al-secondary al-anim-fade al-delay-3" style={{}} />

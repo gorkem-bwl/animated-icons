@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,7 +298,7 @@ const Speaker = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect width="16" height="20" x="4" y="2" rx="2" className="al-primary al-anim-fill al-delay-0" style={{}} />
+        <rect width="16" height="20" x="4" y="2" rx="2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
         <path d="M12 6h.01" className="al-secondary al-anim-pulse-element al-delay-1" style={{}} />
         <circle cx="12" cy="14" r="4" className="al-secondary al-anim-pulse-element al-delay-2" style={{}} />
         <path d="M12 14h.01" className="al-secondary al-anim-pulse-element al-delay-3" style={{}} />

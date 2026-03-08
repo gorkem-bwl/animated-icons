@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,12 +298,12 @@ const Syringe = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m18 2 4 4" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="m17 7 3-3" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m9 11 4 4" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="m5 19-3 3" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="m14 4 6 6" className="al-secondary al-anim-fade al-delay-5" style={{}} />
+        <path d="m18 2 4 4" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="m17 7 3-3" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m9 11 4 4" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="m5 19-3 3" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="m14 4 6 6" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,7 +298,7 @@ const Ruler = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z" className="al-primary al-anim-fill al-delay-0" style={{}} />
+        <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
         <path d="m14.5 12.5 2-2" className="al-secondary al-anim-fade al-delay-1" style={{}} />
         <path d="m11.5 9.5 2-2" className="al-secondary al-anim-fade al-delay-2" style={{}} />
         <path d="m8.5 6.5 2-2" className="al-secondary al-anim-fade al-delay-3" style={{}} />

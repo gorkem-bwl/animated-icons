@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const Brush = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m11 10 3 3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M6.5 21A3.5 3.5 0 1 0 3 17.5a2.62 2.62 0 0 1-.708 1.792A1 1 0 0 0 3 21z" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M9.969 17.031 21.378 5.624a1 1 0 0 0-3.002-3.002L6.967 14.031" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="m11 10 3 3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M6.5 21A3.5 3.5 0 1 0 3 17.5a2.62 2.62 0 0 1-.708 1.792A1 1 0 0 0 3 21z" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M9.969 17.031 21.378 5.624a1 1 0 0 0-3.002-3.002L6.967 14.031" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const MoonStar = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M18 5h4" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M20 3v4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M18 5h4" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M20 3v4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const CloudMoon = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M13 16a3 3 0 0 1 0 6H7a5 5 0 1 1 4.9-6z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M18.376 14.512a6 6 0 0 0 3.461-4.127c.148-.625-.659-.97-1.248-.714a4 4 0 0 1-5.259-5.26c.255-.589-.09-1.395-.716-1.248a6 6 0 0 0-4.594 5.36" className="al-secondary al-anim-fill al-delay-1" style={{}} />
+        <path d="M13 16a3 3 0 0 1 0 6H7a5 5 0 1 1 4.9-6z" className="al-primary al-anim-gear al-delay-0" style={{ '--al-rotation': '-15deg' }} />
+        <path d="M18.376 14.512a6 6 0 0 0 3.461-4.127c.148-.625-.659-.97-1.248-.714a4 4 0 0 1-5.259-5.26c.255-.589-.09-1.395-.716-1.248a6 6 0 0 0-4.594 5.36" className="al-secondary al-anim-gear al-delay-1" style={{ '--al-rotation': '-15deg' }} />
       </svg>
     </>
   );

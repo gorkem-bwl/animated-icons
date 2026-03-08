@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const MonitorSmartphone = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M10 19v-3.96 3.15" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M7 19h5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <rect width="6" height="10" x="16" y="12" rx="2" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M10 19v-3.96 3.15" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M7 19h5" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <rect width="6" height="10" x="16" y="12" rx="2" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

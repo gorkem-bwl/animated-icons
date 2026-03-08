@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const Cylinder = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <ellipse cx="12" cy="5" rx="9" ry="3" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M3 5v14a9 3 0 0 0 18 0V5" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <ellipse cx="12" cy="5" rx="9" ry="3" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M3 5v14a9 3 0 0 0 18 0V5" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

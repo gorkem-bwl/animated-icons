@@ -37,7 +37,7 @@
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -273,6 +273,6 @@
     100% { transform: rotate(360deg); }
   }
 </style>
-  <path d="M3 10A6.06 6.06 0 0 1 12 10 A6.06 6.06 0 0 0 21 10" class="al-primary al-anim-fill al-delay-0" />
-  <path d="M6 3v12a6 6 0 0 0 12 0V3" class="al-secondary al-anim-fade al-delay-1" />
+  <path d="M3 10A6.06 6.06 0 0 1 12 10 A6.06 6.06 0 0 0 21 10" class="al-primary al-anim-scale-pop al-delay-0" />
+  <path d="M6 3v12a6 6 0 0 0 12 0V3" class="al-secondary al-anim-scale-pop al-delay-1" />
 </svg>

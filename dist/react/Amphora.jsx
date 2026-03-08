@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,12 +298,12 @@ const Amphora = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M10 2v5.632c0 .424-.272.795-.653.982A6 6 0 0 0 6 14c.006 4 3 7 5 8" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M10 5H8a2 2 0 0 0 0 4h.68" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M14 2v5.632c0 .424.272.795.652.982A6 6 0 0 1 18 14c0 4-3 7-5 8" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M14 5h2a2 2 0 0 1 0 4h-.68" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M18 22H6" className="al-secondary al-anim-fade al-delay-4" style={{}} />
-        <path d="M9 2h6" className="al-secondary al-anim-fade al-delay-5" style={{}} />
+        <path d="M10 2v5.632c0 .424-.272.795-.653.982A6 6 0 0 0 6 14c.006 4 3 7 5 8" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M10 5H8a2 2 0 0 0 0 4h.68" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M14 2v5.632c0 .424.272.795.652.982A6 6 0 0 1 18 14c0 4-3 7-5 8" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M14 5h2a2 2 0 0 1 0 4h-.68" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M18 22H6" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
+        <path d="M9 2h6" className="al-secondary al-anim-scale-pop al-delay-5" style={{}} />
       </svg>
     </>
   );

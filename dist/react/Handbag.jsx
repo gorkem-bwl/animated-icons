@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const Handbag = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M2.048 18.566A2 2 0 0 0 4 21h16a2 2 0 0 0 1.952-2.434l-2-9A2 2 0 0 0 18 8H6a2 2 0 0 0-1.952 1.566z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M8 11V6a4 4 0 0 1 8 0v5" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <path d="M2.048 18.566A2 2 0 0 0 4 21h16a2 2 0 0 0 1.952-2.434l-2-9A2 2 0 0 0 18 8H6a2 2 0 0 0-1.952 1.566z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M8 11V6a4 4 0 0 1 8 0v5" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

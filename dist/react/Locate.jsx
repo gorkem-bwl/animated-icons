@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,7 +298,7 @@ const Locate = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <line x1="2" x2="5" y1="12" y2="12" className="al-primary al-anim-fill al-delay-0" style={{}} />
+        <line x1="2" x2="5" y1="12" y2="12" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
         <line x1="19" x2="22" y1="12" y2="12" className="al-secondary al-anim-fade al-delay-1" style={{}} />
         <line x1="12" x2="12" y1="2" y2="5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
         <line x1="12" x2="12" y1="19" y2="22" className="al-secondary al-anim-fade al-delay-3" style={{}} />

@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,11 +298,11 @@ const SunMoon = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M12 2v2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M16 12a4 4 0 0 0-4-4" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="m19 5-1.256 1.256" className="al-secondary al-anim-fade al-delay-3" style={{}} />
-        <path d="M20 12h2" className="al-secondary al-anim-fade al-delay-4" style={{}} />
+        <path d="M12 2v2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M16 12a4 4 0 0 0-4-4" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="m19 5-1.256 1.256" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
+        <path d="M20 12h2" className="al-secondary al-anim-scale-pop al-delay-4" style={{}} />
       </svg>
     </>
   );

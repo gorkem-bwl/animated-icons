@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const ClockCheck = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M12 6v6l4 2" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M22 12a10 10 0 1 0-11 9.95" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="m22 16-5.5 5.5L14 19" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M12 6v6l4 2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M22 12a10 10 0 1 0-11 9.95" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="m22 16-5.5 5.5L14 19" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

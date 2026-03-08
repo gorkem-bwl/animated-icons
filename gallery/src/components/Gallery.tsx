@@ -50,7 +50,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 function CategoryIcon({ svg, isActive }: { svg: string; isActive: boolean }) {
   return (
     <span
-      className={`al-icon-wrapper inline-flex items-center justify-center shrink-0 [&_svg]:w-4 [&_svg]:h-4 transition-colors ${
+      className={`inline-flex items-center justify-center shrink-0 [&_svg]:w-4 [&_svg]:h-4 transition-colors ${
         isActive
           ? "text-white dark:text-neutral-900"
           : "text-neutral-400 dark:text-white/30"
@@ -235,7 +235,7 @@ export default function Gallery({ iconsMeta }: GalleryProps) {
                     <button
                       key={cat.name}
                       onClick={() => handleCategoryChange(cat.name)}
-                      className={`flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-[13px] font-medium transition-all text-left group/cat ${
+                      className={`al-icon-wrapper flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-[13px] font-medium transition-all text-left cursor-pointer group/cat ${
                         isActive
                           ? "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900"
                           : "text-neutral-600 dark:text-white/50 hover:text-neutral-900 dark:hover:text-white/80 hover:bg-neutral-100 dark:hover:bg-white/[0.06]"
@@ -371,7 +371,7 @@ export default function Gallery({ iconsMeta }: GalleryProps) {
                   <button
                     key={cat.name}
                     onClick={() => handleCategoryChange(cat.name)}
-                    className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium transition-all flex items-center gap-1.5 ${
+                    className={`al-icon-wrapper shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer ${
                       isActive
                         ? "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 shadow-sm"
                         : "text-neutral-500 dark:text-white/40 hover:text-neutral-700 dark:hover:text-white/60 hover:bg-neutral-100 dark:hover:bg-white/[0.06]"

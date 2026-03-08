@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const Shapes = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <rect x="3" y="14" width="7" height="7" rx="1" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <circle cx="17.5" cy="17.5" r="3.5" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <rect x="3" y="14" width="7" height="7" rx="1" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <circle cx="17.5" cy="17.5" r="3.5" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );

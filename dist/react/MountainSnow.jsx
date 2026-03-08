@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,8 +298,8 @@ const MountainSnow = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="m8 3 4 8 5-5 5 15H2L8 3z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <path d="m8 3 4 8 5-5 5 15H2L8 3z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
       </svg>
     </>
   );

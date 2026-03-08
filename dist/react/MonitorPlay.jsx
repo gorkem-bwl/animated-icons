@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const MonitorPlay = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M12 17v4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M8 21h8" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <rect x="2" y="3" width="20" height="14" rx="2" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M12 17v4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M8 21h8" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <rect x="2" y="3" width="20" height="14" rx="2" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

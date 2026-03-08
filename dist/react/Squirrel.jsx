@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,10 +298,10 @@ const Squirrel = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M15.236 22a3 3 0 0 0-2.2-5" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M16 20a3 3 0 0 1 3-3h1a2 2 0 0 0 2-2v-2a4 4 0 0 0-4-4V4" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M18 13h.01" className="al-secondary al-anim-fade al-delay-2" style={{}} />
-        <path d="M18 6a4 4 0 0 0-4 4 7 7 0 0 0-7 7c0-5 4-5 4-10.5a4.5 4.5 0 1 0-9 0 2.5 2.5 0 0 0 5 0C7 10 3 11 3 17c0 2.8 2.2 5 5 5h10" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M15.236 22a3 3 0 0 0-2.2-5" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M16 20a3 3 0 0 1 3-3h1a2 2 0 0 0 2-2v-2a4 4 0 0 0-4-4V4" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M18 13h.01" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
+        <path d="M18 6a4 4 0 0 0-4 4 7 7 0 0 0-7 7c0-5 4-5 4-10.5a4.5 4.5 0 1 0-9 0 2.5 2.5 0 0 0 5 0C7 10 3 11 3 17c0 2.8 2.2 5 5 5h10" className="al-secondary al-anim-scale-pop al-delay-3" style={{}} />
       </svg>
     </>
   );

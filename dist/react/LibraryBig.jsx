@@ -23,7 +23,7 @@ const cssText = `
   }
   .animated-lucide-icon:hover .al-anim-fill,
   .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.12;
+    fill-opacity: 0.18;
   }
 
   /* ── Draw animation: path re-draws on hover via keyframe ── */
@@ -298,9 +298,9 @@ const LibraryBig = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <rect width="8" height="18" x="3" y="3" rx="1" className="al-primary al-anim-fill al-delay-0" style={{}} />
-        <path d="M7 3v18" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M20.4 18.9c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <rect width="8" height="18" x="3" y="3" rx="1" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
+        <path d="M7 3v18" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M20.4 18.9c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );
