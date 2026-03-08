@@ -3,11 +3,17 @@
 /**
  * Animated Lucide Build Script
  *
- * Processes Lucide SVG icons and generates:
- * 1. Animated SVG files (standalone) with aria-label and role="img"
- * 2. React components with accessibility props
- * 3. CSS animation definitions
- * 4. Icon metadata for the gallery
+ * Uses CSS transitions (not keyframe animations) for rich, semantic SVG animations.
+ * Inspired by the pattern: transition properties on elements, triggered by .group:hover.
+ *
+ * Animation types:
+ * - fill: Shape fills with translucent currentColor on hover
+ * - draw: Path draws in via stroke-dashoffset transition
+ * - fade: Element fades in on hover
+ * - transform: Element moves/scales/rotates via CSS transition
+ * - bar: Bar grows via scaleY from bottom
+ *
+ * Each element gets an animation class + a stagger delay class.
  */
 
 import fs from 'fs';
@@ -83,997 +89,543 @@ function toLabel(iconName) {
   return iconName.split('-').join(' ');
 }
 
-// ─── Animation Strategies ────────────────────────────────────────────
+// ─── Approximate path length for stroke-dash animations ─────────────
+
+function estimatePathLength(el) {
+  if (el.tag === 'line') {
+    const x1 = parseFloat(el.attrs.x1 || 0), y1 = parseFloat(el.attrs.y1 || 0);
+    const x2 = parseFloat(el.attrs.x2 || 0), y2 = parseFloat(el.attrs.y2 || 0);
+    return Math.sqrt((x2-x1)**2 + (y2-y1)**2);
+  }
+  if (el.tag === 'circle') {
+    return 2 * Math.PI * parseFloat(el.attrs.r || 0);
+  }
+  if (el.tag === 'rect') {
+    const w = parseFloat(el.attrs.width || 0), h = parseFloat(el.attrs.height || 0);
+    return 2 * (w + h);
+  }
+  if (el.tag === 'ellipse') {
+    const rx = parseFloat(el.attrs.rx || 0), ry = parseFloat(el.attrs.ry || 0);
+    return Math.PI * (3*(rx+ry) - Math.sqrt((3*rx+ry)*(rx+3*ry)));
+  }
+  if (el.tag === 'polyline' || el.tag === 'polygon') {
+    const pts = (el.attrs.points || '').trim().split(/[\s,]+/).map(Number);
+    let len = 0;
+    for (let i = 2; i < pts.length; i += 2) {
+      len += Math.sqrt((pts[i]-pts[i-2])**2 + (pts[i+1]-pts[i-1])**2);
+    }
+    if (el.tag === 'polygon' && pts.length >= 4) {
+      len += Math.sqrt((pts[0]-pts[pts.length-2])**2 + (pts[1]-pts[pts.length-1])**2);
+    }
+    return len;
+  }
+  // path: rough estimate based on d attribute length
+  const d = el.attrs.d || '';
+  const coords = d.match(/[-+]?\d*\.?\d+/g) || [];
+  if (coords.length < 4) return 20;
+  let len = 0;
+  for (let i = 2; i < coords.length; i += 2) {
+    if (i+1 < coords.length) {
+      const dx = parseFloat(coords[i]) - parseFloat(coords[i-2]);
+      const dy = parseFloat(coords[i+1]) - parseFloat(coords[i-1]);
+      len += Math.sqrt(dx*dx + dy*dy);
+    }
+  }
+  return Math.max(len, 10);
+}
+
+// ─── Element Classification ─────────────────────────────────────────
+// Classify SVG elements by their role in the icon
+
+function classifyElement(el, index, total, iconName) {
+  const tag = el.tag;
+  const d = el.attrs.d || '';
+  const r = parseFloat(el.attrs.r || 0);
+  const w = parseFloat(el.attrs.width || 0);
+  const h = parseFloat(el.attrs.height || 0);
+
+  // Small circles (dots, pupils) → detail
+  if (tag === 'circle' && r <= 1.5) return 'dot';
+
+  // Large circles (heads, main shapes) → container
+  if (tag === 'circle' && r >= 4) return 'container';
+
+  // Large rects → container
+  if (tag === 'rect' && w >= 10 && h >= 10) return 'container';
+
+  // Short paths (checkmarks, small details)
+  const pathLen = estimatePathLength(el);
+  if (tag === 'path' && pathLen < 15) return 'detail';
+
+  // Lines → detail
+  if (tag === 'line') return 'detail';
+
+  // First element is often the main shape
+  if (index === 0 && total > 1) return 'container';
+
+  // Last elements tend to be details
+  if (index === total - 1 && total > 2) return 'detail';
+
+  return 'body';
+}
+
+// ─── Animation Assignment Engine ────────────────────────────────────
+// Each strategy assigns animation properties to elements
 
 const animationStrategies = {
+
+  // ── Directional (arrows, chevrons, redo/undo, refresh) ──
   directional(elements, iconName) {
-    const isRight = iconName.includes('right') || iconName.includes('redo');
-    const isLeft = iconName.includes('left') || iconName.includes('undo');
-    const isUp = iconName.includes('up');
-    const isDown = iconName.includes('down') || iconName.includes('chevron-down');
     const isRefresh = iconName.includes('refresh') || iconName.includes('rotate');
 
     if (isRefresh) {
       return elements.map((el, i) => ({
         ...el,
-        animation: {
-          name: `spin-${iconName}-${i}`,
-          css: `
-@keyframes spin-${iconName}-${i} {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(180deg); }
-  100% { transform: rotate(360deg); }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: spin-${iconName}-${i} 0.65s cubic-bezier(0.4, 0, 0.2, 1);`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
+        anim: 'spin',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
     }
 
-    // Arrow-right: shaft draws in from left, arrowhead overshoots right then bounces back
-    if (iconName === 'arrow-right') {
+    // Redo/undo: full spin
+    if (iconName === 'redo' || iconName === 'undo') {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: 'spin',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    // Determine direction
+    const isRight = iconName.includes('right') || iconName.includes('redo');
+    const isLeft = iconName.includes('left') || iconName.includes('undo');
+    const isUp = iconName.includes('up');
+    const isDown = iconName.includes('down') || iconName.includes('chevron-down');
+    const tx = isRight ? 2 : isLeft ? -2 : 0;
+    const ty = isDown ? 2 : isUp ? -2 : 0;
+
+    return elements.map((el, i) => ({
+      ...el,
+      anim: 'nudge',
+      delay: i,
+      colorGroup: i === 0 ? 'primary' : 'secondary',
+      customProps: { tx: i === 0 ? tx * 0.5 : tx, ty: i === 0 ? ty * 0.5 : ty },
+    }));
+  },
+
+  // ── Communication (mail, send, message, inbox) ──
+  'pop-envelope'(elements, iconName) {
+    if (iconName.includes('send')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: 'shake',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    if (iconName.includes('message')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: i === 0 ? 'fill' : 'scale-pop',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    if (iconName.includes('inbox')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: i === 0 ? 'fill' : 'fade',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    // Mail: flap opens/closes, body fills
+    return elements.map((el, i) => ({
+      ...el,
+      anim: i === 0 ? 'mail-flap' : 'fill',
+      delay: i,
+      colorGroup: i === 0 ? 'primary' : 'secondary',
+    }));
+  },
+
+  // ── Playback (play, volume, camera, music) ──
+  playback(elements, iconName) {
+    if (iconName.includes('volume') || iconName.includes('speaker')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: i === 0 ? 'fill' : 'pulse-element',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    if (iconName.includes('camera')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: i === 0 ? 'fill' : (classifyElement(el, i, elements.length, iconName) === 'container' ? 'fill' : 'scale-pop'),
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    if (iconName.includes('music')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: el.tag === 'circle' || (el.tag === 'path' && estimatePathLength(el) < 20) ? 'fill' : 'draw',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    // play: fill the triangle
+    return elements.map((el, i) => ({
+      ...el,
+      anim: 'fill',
+      delay: i,
+      colorGroup: i === 0 ? 'primary' : 'secondary',
+    }));
+  },
+
+  // ── Files (file, folder, clipboard, book) ──
+  unfold(elements, iconName) {
+    const isBook = iconName.includes('book');
+    if (isBook) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: i === 0 ? 'fill' : (el.tag === 'line' ? 'fade' : 'page-turn'),
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    // Folder, file, clipboard: fill on main shape, fade on details
+    return elements.map((el, i) => ({
+      ...el,
+      anim: i === 0 ? 'fill' : 'fade',
+      delay: i,
+      colorGroup: i === 0 ? 'primary' : 'secondary',
+    }));
+  },
+
+  // ── UI (check, x, plus, menu, settings, search) ──
+  toggle(elements, iconName) {
+    if (iconName.includes('settings')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: 'gear',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+        customProps: { rotation: 90 },
+      }));
+    }
+
+    if (iconName.includes('search')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: i === 0 ? 'scale-pop' : 'fill',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    if (iconName.includes('menu')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: 'menu-line',
+        delay: i,
+        colorGroup: i % 2 === 0 ? 'primary' : 'secondary',
+        customProps: { scaleX: 1 - i * 0.15 },
+      }));
+    }
+
+    // check, x, plus: scale-pop on all elements (no draw/dasharray)
+    return elements.map((el, i) => ({
+      ...el,
+      anim: 'scale-pop',
+      delay: i,
+      colorGroup: i === 0 ? 'primary' : 'secondary',
+    }));
+  },
+
+  // ── Status (bell, alert, loader, zap) ──
+  pulse(elements, iconName) {
+    if (iconName.includes('bell')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: i === 0 ? 'bell-ring' : 'fade',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    if (iconName.includes('alert')) {
       return elements.map((el, i) => {
-        if (i === 0) {
-          // Shaft — slides in from left
-          return {
-            ...el,
-            animation: {
-              name: 'arrow-shaft-slide',
-              css: `
-@keyframes arrow-shaft-slide {
-  0% { transform: translateX(0); opacity: 1; }
-  30% { transform: translateX(-8px); opacity: 0.3; }
-  70% { transform: translateX(2px); opacity: 1; }
-  100% { transform: translateX(0); }
-}`,
-              style: '',
-              hoverCss: 'animation: arrow-shaft-slide 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;',
-              colorGroup: 'secondary',
-            }
-          };
-        }
-        // Arrowhead — shoots right with overshoot
+        const role = classifyElement(el, i, elements.length, iconName);
         return {
           ...el,
-          animation: {
-            name: 'arrow-head-shoot',
-            css: `
-@keyframes arrow-head-shoot {
-  0% { transform: translateX(0); }
-  40% { transform: translateX(6px); }
-  70% { transform: translateX(-2px); }
-  100% { transform: translateX(0); }
-}`,
-            style: '',
-            hoverCss: 'animation: arrow-head-shoot 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;',
-            colorGroup: 'primary',
-          }
+          anim: role === 'container' ? 'fill' : 'pulse-element',
+          delay: i,
+          colorGroup: i === 0 ? 'primary' : 'secondary',
         };
       });
     }
 
-    // Chevron-down: bounces down with spring
-    if (iconName === 'chevron-down') {
+    if (iconName.includes('loader')) {
       return elements.map((el, i) => ({
         ...el,
-        animation: {
-          name: 'chevron-bounce',
-          css: `
-@keyframes chevron-bounce {
-  0% { transform: translateY(0); }
-  30% { transform: translateY(5px); }
-  50% { transform: translateY(-3px); }
-  70% { transform: translateY(2px); }
-  100% { transform: translateY(0); }
-}`,
-          style: '',
-          hoverCss: 'animation: chevron-bounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;',
-          colorGroup: 'primary',
-        }
+        anim: 'spin',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
     }
 
-    // Redo: sweeping arc motion
-    if (iconName === 'redo') {
+    if (iconName.includes('zap')) {
       return elements.map((el, i) => ({
         ...el,
-        animation: {
-          name: `redo-sweep-${i}`,
-          css: i === 0 ? `
-@keyframes redo-sweep-0 {
-  0% { transform: rotate(0deg) scale(1); }
-  40% { transform: rotate(-30deg) scale(0.9); }
-  70% { transform: rotate(10deg) scale(1.05); }
-  100% { transform: rotate(0deg) scale(1); }
-}` : `
-@keyframes redo-sweep-1 {
-  0% { transform: translateX(0) translateY(0); }
-  40% { transform: translateX(4px) translateY(-3px); }
-  70% { transform: translateX(-1px) translateY(1px); }
-  100% { transform: translateX(0) translateY(0); }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: redo-sweep-${i} 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
+        anim: 'fill',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
     }
 
-    // Generic directional — bigger movement
-    const tx = isRight ? 6 : isLeft ? -6 : 0;
-    const ty = isDown ? 6 : isUp ? -6 : 0;
-
+    // Default: fill containers, fade details
     return elements.map((el, i) => {
-      const delay = i * 0.06;
-      const distance = i === 0 ? { tx: tx * 0.4, ty: ty * 0.4 } : { tx, ty };
+      const role = classifyElement(el, i, elements.length, iconName);
       return {
         ...el,
-        animation: {
-          name: `nudge-${iconName}-${i}`,
-          css: `
-@keyframes nudge-${iconName}-${i} {
-  0% { transform: translate(0, 0); }
-  40% { transform: translate(${distance.tx}px, ${distance.ty}px); }
-  70% { transform: translate(${-distance.tx * 0.3}px, ${-distance.ty * 0.3}px); }
-  100% { transform: translate(0, 0); }
-}`,
-          style: '',
-          hoverCss: `animation: nudge-${iconName}-${i} 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) ${delay}s both;`,
-          colorGroup: i === 0 ? 'secondary' : 'primary',
-        }
+        anim: role === 'container' ? 'fill' : 'fade',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
       };
     });
   },
 
-  'pop-envelope'(elements, iconName) {
-    // Send: paper plane launches up-right dramatically
-    if (iconName.includes('send')) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: `send-launch-${i}`,
-          css: i === 0 ? `
-@keyframes send-launch-0 {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  30% { transform: translate(-3px, 2px) rotate(5deg); }
-  60% { transform: translate(8px, -6px) rotate(-15deg); }
-  80% { transform: translate(2px, -1px) rotate(-3deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
-}` : `
-@keyframes send-launch-${i} {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  30% { transform: translate(-2px, 1px) rotate(3deg); }
-  60% { transform: translate(6px, -5px) rotate(-10deg); }
-  80% { transform: translate(1px, -1px) rotate(-2deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: send-launch-${i} 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
-      }));
-    }
-
-    // Inbox: item drops in from above
-    if (iconName.includes('inbox')) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: `inbox-drop-${i}`,
-          css: i === 0 ? `
-@keyframes inbox-drop-0 {
-  0% { transform: translateY(-10px); opacity: 0; }
-  50% { transform: translateY(3px); opacity: 1; }
-  70% { transform: translateY(-2px); }
-  100% { transform: translateY(0); opacity: 1; }
-}` : `
-@keyframes inbox-drop-${i} {
-  0% { transform: scaleY(1) translateY(0); }
-  50% { transform: scaleY(0.92) translateY(2px); }
-  100% { transform: scaleY(1) translateY(0); }
-}`,
-          style: i === 0 ? '' : 'transform-origin: center bottom;',
-          hoverCss: `animation: inbox-drop-${i} 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.05}s both;`,
-          colorGroup: i === 0 ? 'secondary' : 'primary',
-        }
-      }));
-    }
-
-    // Message bubble: pops up with bounce like a chat message appearing
-    if (iconName.includes('message')) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: `message-pop-${i}`,
-          css: `
-@keyframes message-pop-${i} {
-  0% { transform: scale(1) translateY(0); }
-  20% { transform: scale(0.85) translateY(4px); }
-  50% { transform: scale(1.15) translateY(-4px); }
-  70% { transform: scale(0.95) translateY(1px); }
-  100% { transform: scale(1) translateY(0); }
-}`,
-          style: 'transform-origin: 12px 14px;',
-          hoverCss: `animation: message-pop-${i} 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
-      }));
-    }
-
-    // Mail: flap opens wide then closes, letter peeks out
-    return elements.map((el, i) => {
-      if (i === 0) {
-        // Flap / letter content — rises up out of envelope
-        return {
-          ...el,
-          animation: {
-            name: 'mail-letter-peek',
-            css: `
-@keyframes mail-letter-peek {
-  0% { transform: translateY(0) rotateX(0deg); }
-  30% { transform: translateY(-8px) rotateX(-20deg); }
-  60% { transform: translateY(-4px) rotateX(-10deg); }
-  100% { transform: translateY(0) rotateX(0deg); }
-}`,
-            style: 'transform-origin: center bottom;',
-            hoverCss: 'animation: mail-letter-peek 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;',
-            colorGroup: 'secondary',
-          }
-        };
-      }
-      // Envelope body — slight squeeze reaction
-      return {
-        ...el,
-        animation: {
-          name: 'mail-body-react',
-          css: `
-@keyframes mail-body-react {
-  0% { transform: scale(1, 1); }
-  30% { transform: scale(1.03, 0.94); }
-  60% { transform: scale(0.98, 1.02); }
-  100% { transform: scale(1, 1); }
-}`,
-          style: 'transform-origin: center bottom;',
-          hoverCss: 'animation: mail-body-react 0.5s ease 0.05s both;',
-          colorGroup: 'primary',
-        }
-      };
-    });
-  },
-
-  playback(elements, iconName) {
-    // Volume: sound waves pulse outward dramatically
-    if (iconName.includes('volume') || iconName.includes('speaker')) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: `sound-pulse-${i}`,
-          css: i === 0 ? `
-@keyframes sound-pulse-0 {
-  0% { transform: translateX(0); }
-  30% { transform: translateX(-2px); }
-  60% { transform: translateX(1px); }
-  100% { transform: translateX(0); }
-}` : `
-@keyframes sound-pulse-${i} {
-  0% { transform: scaleX(1) translateX(0); opacity: 0.4; }
-  30% { transform: scaleX(1.4) translateX(3px); opacity: 1; }
-  60% { transform: scaleX(0.8) translateX(-1px); opacity: 0.6; }
-  100% { transform: scaleX(1) translateX(0); opacity: 0.55; }
-}`,
-          style: i === 0 ? '' : 'transform-origin: 4px 12px;',
-          hoverCss: `animation: sound-pulse-${i} 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.1}s both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
-      }));
-    }
-
-    // Camera: shutter click with flash effect
-    if (iconName.includes('camera')) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: `shutter-click-${i}`,
-          css: i === 0 ? `
-@keyframes shutter-click-0 {
-  0% { transform: scale(1); }
-  20% { transform: scale(0.88); }
-  40% { transform: scale(1.06); }
-  60% { transform: scale(0.97); }
-  100% { transform: scale(1); }
-}` : `
-@keyframes shutter-click-${i} {
-  0% { transform: scale(1); opacity: 1; }
-  20% { transform: scale(0.5); opacity: 0.3; }
-  40% { transform: scale(1.3); opacity: 1; }
-  60% { transform: scale(0.9); opacity: 0.8; }
-  100% { transform: scale(1); opacity: 1; }
-}`,
-          style: 'transform-origin: 12px 13px;',
-          hoverCss: `animation: shutter-click-${i} 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.05}s both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
-      }));
-    }
-
-    // Music: notes sway side to side like dancing
-    if (iconName.includes('music')) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: `music-dance-${i}`,
-          css: `
-@keyframes music-dance-${i} {
-  0% { transform: rotate(0deg) translateY(0); }
-  20% { transform: rotate(${i % 2 === 0 ? 12 : -8}deg) translateY(-2px); }
-  40% { transform: rotate(${i % 2 === 0 ? -8 : 12}deg) translateY(1px); }
-  60% { transform: rotate(${i % 2 === 0 ? 5 : -5}deg) translateY(-1px); }
-  100% { transform: rotate(0deg) translateY(0); }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: music-dance-${i} 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.06}s both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
-      }));
-    }
-
-    // Play: triangle scales up then snaps with a press-in effect
-    return elements.map((el, i) => ({
-      ...el,
-      animation: {
-        name: `play-press-${i}`,
-        css: `
-@keyframes play-press-${i} {
-  0% { transform: scale(1) translateX(0); }
-  25% { transform: scale(0.75) translateX(-2px); }
-  50% { transform: scale(1.2) translateX(3px); }
-  75% { transform: scale(0.95) translateX(0); }
-  100% { transform: scale(1) translateX(0); }
-}`,
-        style: 'transform-origin: 10px 12px;',
-        hoverCss: `animation: play-press-${i} 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.06}s both;`,
-        colorGroup: i === 0 ? 'primary' : 'secondary',
-      }
-    }));
-  },
-
-  unfold(elements, iconName) {
-    const isFolder = iconName.includes('folder');
-    return elements.map((el, i) => {
-      if (isFolder && i === 0) {
-        return {
-          ...el,
-          animation: {
-            name: 'folder-open',
-            css: `
-@keyframes folder-open {
-  0% { transform: rotateX(0deg); }
-  50% { transform: rotateX(-15deg); }
-  100% { transform: rotateX(0deg); }
-}`,
-            style: 'transform-origin: center bottom;',
-            hoverCss: 'animation: folder-open 0.4s ease both;',
-            colorGroup: 'primary',
-          }
-        };
-      }
-      return {
-        ...el,
-        animation: {
-          name: `page-reveal-${iconName}-${i}`,
-          css: `
-@keyframes page-reveal-${iconName}-${i} {
-  0% { transform: scaleY(1); }
-  30% { transform: scaleY(0.92); }
-  60% { transform: scaleY(1.03); }
-  100% { transform: scaleY(1); }
-}`,
-          style: 'transform-origin: center bottom;',
-          hoverCss: `animation: page-reveal-${iconName}-${i} 0.4s ease ${i * 0.07}s both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
-      };
-    });
-  },
-
-  toggle(elements, iconName) {
-    const isSearch = iconName.includes('search');
-    const isSettings = iconName.includes('settings');
-    const isMenu = iconName.includes('menu');
-
-    if (isSettings) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: `gear-spin-${i}`,
-          css: `
-@keyframes gear-spin-${i} {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(${i === 0 ? 90 : -90}deg); }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: gear-spin-${i} 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
-      }));
-    }
-
-    if (isSearch) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: i === 0 ? 'search-handle' : 'search-glass',
-          css: i === 0 ? `
-@keyframes search-handle {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(1px, 1px); }
-  100% { transform: translate(0, 0); }
-}` : `
-@keyframes search-glass {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}`,
-          style: i === 0 ? '' : 'transform-origin: 11px 11px;',
-          hoverCss: `animation: ${i === 0 ? 'search-handle' : 'search-glass'} 0.35s ease both;`,
-          colorGroup: i === 0 ? 'secondary' : 'primary',
-        }
-      }));
-    }
-
-    if (isMenu) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: `menu-line-${i}`,
-          css: `
-@keyframes menu-line-${i} {
-  0% { transform: scaleX(1); }
-  40% { transform: scaleX(${1 - i * 0.1}); }
-  100% { transform: scaleX(1); }
-}`,
-          style: 'transform-origin: left center;',
-          hoverCss: `animation: menu-line-${i} 0.35s ease ${i * 0.05}s both;`,
-          colorGroup: i % 2 === 0 ? 'primary' : 'secondary',
-        }
-      }));
-    }
-
-    return elements.map((el, i) => ({
-      ...el,
-      animation: {
-        name: `toggle-pop-${iconName}-${i}`,
-        css: `
-@keyframes toggle-pop-${iconName}-${i} {
-  0% { transform: scale(1); }
-  50% { transform: scale(${i === 0 ? 0.8 : 1.2}); }
-  100% { transform: scale(1); }
-}`,
-        style: 'transform-origin: 12px 12px;',
-        hoverCss: `animation: toggle-pop-${iconName}-${i} 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;`,
-        colorGroup: i === 0 ? 'primary' : 'secondary',
-      }
-    }));
-  },
-
-  pulse(elements, iconName) {
-    const isBell = iconName.includes('bell');
-    const isLoader = iconName.includes('loader');
-    const isZap = iconName.includes('zap');
-
-    if (isBell) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: i === 0 ? 'bell-ring' : `bell-part-${i}`,
-          css: i === 0 ? `
-@keyframes bell-ring {
-  0% { transform: rotate(0deg); }
-  15% { transform: rotate(12deg); }
-  30% { transform: rotate(-10deg); }
-  45% { transform: rotate(8deg); }
-  60% { transform: rotate(-5deg); }
-  75% { transform: rotate(2deg); }
-  100% { transform: rotate(0deg); }
-}` : `
-@keyframes bell-part-${i} {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(1.5px); }
-  50% { transform: translateX(-1.5px); }
-  75% { transform: translateX(0.5px); }
-  100% { transform: translateX(0); }
-}`,
-          style: 'transform-origin: 12px 3px;',
-          hoverCss: `animation: ${i === 0 ? 'bell-ring' : `bell-part-${i}`} 0.5s ease both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
-      }));
-    }
-
-    if (isLoader) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: `loader-spin-${i}`,
-          css: `
-@keyframes loader-spin-${i} {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: loader-spin-${i} 0.8s linear;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
-      }));
-    }
-
-    if (isZap) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: `zap-flash-${i}`,
-          css: `
-@keyframes zap-flash-${i} {
-  0% { opacity: 1; transform: scale(1); }
-  20% { opacity: 0.6; transform: scale(0.9); }
-  40% { opacity: 1; transform: scale(1.15); }
-  60% { opacity: 0.8; transform: scale(1); }
-  80% { opacity: 1; transform: scale(1.05); }
-  100% { opacity: 1; transform: scale(1); }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: zap-flash-${i} 0.4s ease both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
-      }));
-    }
-
-    return elements.map((el, i) => ({
-      ...el,
-      animation: {
-        name: `pulse-${iconName}-${i}`,
-        css: `
-@keyframes pulse-${iconName}-${i} {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.08); opacity: 0.85; }
-  100% { transform: scale(1); opacity: 1; }
-}`,
-        style: 'transform-origin: 12px 12px;',
-        hoverCss: `animation: pulse-${iconName}-${i} 0.5s ease ${i * 0.1}s both;`,
-        colorGroup: i === 0 ? 'primary' : 'secondary',
-      }
-    }));
-  },
-
+  // ── Weather (sun, moon, cloud, snow) ──
   ambient(elements, iconName) {
-    const isSun = iconName.includes('sun');
-    const isMoon = iconName.includes('moon');
-    const isSnow = iconName.includes('snow');
-    const isCloud = iconName.includes('cloud');
-
-    if (isSun) {
+    if (iconName.includes('sun')) {
       return elements.map((el, i) => ({
         ...el,
-        animation: {
-          name: i === 0 ? 'sun-spin' : `sun-ray-${i}`,
-          css: i === 0 ? `
-@keyframes sun-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(45deg); }
-}` : `
-@keyframes sun-ray-${i} {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.2); opacity: 0.7; }
-  100% { transform: scale(1); opacity: 1; }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: ${i === 0 ? 'sun-spin' : `sun-ray-${i}`} 0.6s ease both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
+        anim: i === 0 ? 'gear' : 'fade',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+        customProps: i === 0 ? { rotation: 45 } : undefined,
       }));
     }
 
-    if (isMoon) {
+    if (iconName.includes('moon')) {
       return elements.map((el, i) => ({
         ...el,
-        animation: {
-          name: 'moon-rock',
-          css: `
-@keyframes moon-rock {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(-10deg); }
-  75% { transform: rotate(5deg); }
-  100% { transform: rotate(0deg); }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: 'animation: moon-rock 0.6s ease both;',
-          colorGroup: 'primary',
-        }
+        anim: 'fill',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
     }
 
-    if (isSnow) {
+    if (iconName.includes('cloud')) {
       return elements.map((el, i) => ({
         ...el,
-        animation: {
-          name: `snow-float-${i}`,
-          css: `
-@keyframes snow-float-${i} {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-2px) rotate(${i % 2 === 0 ? 15 : -15}deg); }
-  100% { transform: translateY(0) rotate(0deg); }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: snow-float-${i} 0.7s ease ${i * 0.1}s both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
+        anim: i === 0 ? 'fill' : 'fade',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
     }
 
-    if (isCloud) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: `cloud-drift-${i}`,
-          css: `
-@keyframes cloud-drift-${i} {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(${i === 0 ? 2 : -1}px); }
-  100% { transform: translateX(0); }
-}`,
-          style: '',
-          hoverCss: `animation: cloud-drift-${i} 0.7s ease ${i * 0.1}s both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
-      }));
-    }
-
+    // snow, etc
     return elements.map((el, i) => ({
       ...el,
-      animation: {
-        name: `float-${iconName}-${i}`,
-        css: `
-@keyframes float-${iconName}-${i} {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-2px); }
-  100% { transform: translateY(0); }
-}`,
-        style: '',
-        hoverCss: `animation: float-${iconName}-${i} 0.6s ease ${i * 0.1}s both;`,
-        colorGroup: i === 0 ? 'primary' : 'secondary',
-      }
+      anim: 'fade',
+      delay: i,
+      colorGroup: i === 0 ? 'primary' : 'secondary',
     }));
   },
 
+  // ── Objects (home, lock, trash, cart, rocket) ──
   'bounce-in'(elements, iconName) {
-    const isRocket = iconName.includes('rocket');
-    const isTrash = iconName.includes('trash');
-    const isCart = iconName.includes('cart');
-
-    if (isRocket) {
+    if (iconName.includes('rocket')) {
       return elements.map((el, i) => ({
         ...el,
-        animation: {
-          name: `rocket-launch-${i}`,
-          css: `
-@keyframes rocket-launch-${i} {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(2px, -3px); }
-  100% { transform: translate(0, 0); }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: rocket-launch-${i} 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.05}s both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
+        anim: 'rocket-lift',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
     }
 
-    if (isTrash) {
+    if (iconName.includes('trash')) {
       return elements.map((el, i) => ({
         ...el,
-        animation: {
-          name: i === 0 ? 'trash-lid' : `trash-body-${i}`,
-          css: i === 0 ? `
-@keyframes trash-lid {
-  0% { transform: translateY(0) rotate(0deg); }
-  40% { transform: translateY(-3px) rotate(-8deg); }
-  100% { transform: translateY(0) rotate(0deg); }
-}` : `
-@keyframes trash-body-${i} {
-  0% { transform: scaleY(1); }
-  30% { transform: scaleY(0.95); }
-  100% { transform: scaleY(1); }
-}`,
-          style: i === 0 ? 'transform-origin: 12px 6px;' : 'transform-origin: center bottom;',
-          hoverCss: `animation: ${i === 0 ? 'trash-lid' : `trash-body-${i}`} 0.4s ease ${i * 0.05}s both;`,
-          colorGroup: i === 0 ? 'secondary' : 'primary',
-        }
+        anim: i === 0 ? 'handle-lift' : 'fill',
+        delay: i,
+        colorGroup: i === 0 ? 'secondary' : 'primary',
       }));
     }
 
-    if (isCart) {
+    if (iconName.includes('cart')) {
       return elements.map((el, i) => ({
         ...el,
-        animation: {
-          name: `cart-roll-${i}`,
-          css: `
-@keyframes cart-roll-${i} {
-  0% { transform: translateX(0); }
-  30% { transform: translateX(3px); }
-  60% { transform: translateX(-1px); }
-  100% { transform: translateX(0); }
-}`,
-          style: '',
-          hoverCss: `animation: cart-roll-${i} 0.4s ease ${i * 0.04}s both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
+        anim: el.tag === 'circle' ? 'fill' : 'shake',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
     }
 
+    // Default: fill on first, fade on rest
     return elements.map((el, i) => ({
       ...el,
-      animation: {
-        name: `bounce-${iconName}-${i}`,
-        css: `
-@keyframes bounce-${iconName}-${i} {
-  0% { transform: scale(1); }
-  30% { transform: scale(0.9); }
-  60% { transform: scale(1.07); }
-  100% { transform: scale(1); }
-}`,
-        style: 'transform-origin: 12px 12px;',
-        hoverCss: `animation: bounce-${iconName}-${i} 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.06}s both;`,
-        colorGroup: i === 0 ? 'primary' : 'secondary',
-      }
+      anim: i === 0 ? 'fill' : 'fade',
+      delay: i,
+      colorGroup: i === 0 ? 'primary' : 'secondary',
     }));
   },
 
+  // ── Editing (pencil, copy, scissors) ──
   draw(elements, iconName) {
     return elements.map((el, i) => ({
       ...el,
-      animation: {
-        name: `draw-in-${iconName}-${i}`,
-        usesStrokeDash: true,
-        css: `
-@keyframes draw-in-${iconName}-${i} {
-  0% { stroke-dashoffset: var(--path-length-${i}); }
-  100% { stroke-dashoffset: 0; }
-}`,
-        style: '',
-        hoverCss: `animation: draw-in-${iconName}-${i} 0.5s ease ${i * 0.1}s both;`,
-        colorGroup: i === 0 ? 'primary' : 'secondary',
-      }
+      anim: i === 0 ? 'fill' : 'fade',
+      delay: i,
+      colorGroup: i === 0 ? 'primary' : 'secondary',
     }));
   },
 
+  // ── People (user, heart, eye, smile) ──
   wave(elements, iconName) {
-    const isHeart = iconName.includes('heart');
-    const isSmile = iconName.includes('smile');
-    const isEye = iconName.includes('eye');
-
-    if (isHeart) {
+    if (iconName.includes('heart')) {
       return elements.map((el, i) => ({
         ...el,
-        animation: {
-          name: 'heart-beat',
-          css: `
-@keyframes heart-beat {
-  0% { transform: scale(1); }
-  15% { transform: scale(1.15); }
-  30% { transform: scale(1); }
-  45% { transform: scale(1.1); }
-  60% { transform: scale(1); }
-}`,
-          style: 'transform-origin: 12px 13px;',
-          hoverCss: 'animation: heart-beat 0.6s ease both;',
-          colorGroup: 'primary',
-        }
+        anim: 'heart-beat',
+        delay: i,
+        colorGroup: 'primary',
       }));
     }
 
-    if (isEye) {
+    if (iconName.includes('eye')) {
       return elements.map((el, i) => ({
         ...el,
-        animation: {
-          name: i === 0 ? 'eye-blink-outer' : `eye-blink-inner-${i}`,
-          css: i === 0 ? `
-@keyframes eye-blink-outer {
-  0% { transform: scaleY(1); }
-  40% { transform: scaleY(0.1); }
-  60% { transform: scaleY(0.1); }
-  100% { transform: scaleY(1); }
-}` : `
-@keyframes eye-blink-inner-${i} {
-  0% { transform: scaleY(1); opacity: 1; }
-  40% { transform: scaleY(0.3); opacity: 0; }
-  60% { transform: scaleY(0.3); opacity: 0; }
-  100% { transform: scaleY(1); opacity: 1; }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: ${i === 0 ? 'eye-blink-outer' : `eye-blink-inner-${i}`} 0.4s ease both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
+        anim: i === 0 ? 'fill' : 'scale-pop',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
     }
 
-    if (isSmile) {
+    if (iconName.includes('smile') || iconName.includes('frown') || iconName.includes('meh')) {
       return elements.map((el, i) => ({
         ...el,
-        animation: {
-          name: `smile-pop-${i}`,
-          css: `
-@keyframes smile-pop-${i} {
-  0% { transform: scale(1); }
-  50% { transform: scale(${i === 0 ? 1.08 : 1.15}); }
-  100% { transform: scale(1); }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: smile-pop-${i} 0.4s ease ${i * 0.05}s both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
+        anim: i === 0 ? 'fill' : 'fade',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
       }));
     }
 
+    // user, fingerprint: fill on circles, fade on body
     return elements.map((el, i) => ({
       ...el,
-      animation: {
-        name: `wave-${iconName}-${i}`,
-        css: `
-@keyframes wave-${iconName}-${i} {
-  0% { transform: rotate(0deg) translateY(0); }
-  25% { transform: rotate(-3deg) translateY(-1px); }
-  50% { transform: rotate(3deg) translateY(0); }
-  75% { transform: rotate(-1deg) translateY(-0.5px); }
-  100% { transform: rotate(0deg) translateY(0); }
-}`,
-        style: 'transform-origin: 12px 16px;',
-        hoverCss: `animation: wave-${iconName}-${i} 0.5s ease ${i * 0.08}s both;`,
-        colorGroup: i === 0 ? 'primary' : 'secondary',
-      }
+      anim: el.tag === 'circle' ? 'fill' : 'fade',
+      delay: i,
+      colorGroup: i === 0 ? 'primary' : 'secondary',
     }));
   },
 
+  // ── Navigation (map-pin, globe, compass) ──
   locate(elements, iconName) {
-    const isPin = iconName.includes('pin');
-    const isGlobe = iconName.includes('globe');
-    const isCompass = iconName.includes('compass');
-    const isNav = iconName.includes('navigation');
-
-    if (isPin) {
+    if (iconName.includes('pin')) {
       return elements.map((el, i) => ({
         ...el,
-        animation: {
-          name: `pin-drop-${i}`,
-          css: `
-@keyframes pin-drop-${i} {
-  0% { transform: translateY(-4px); opacity: 0.5; }
-  60% { transform: translateY(1px); opacity: 1; }
-  80% { transform: translateY(-1px); }
-  100% { transform: translateY(0); }
-}`,
-          style: 'transform-origin: 12px 24px;',
-          hoverCss: `animation: pin-drop-${i} 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.05}s both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
-      }));
-    }
-
-    if (isGlobe) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: `globe-spin-${i}`,
-          css: `
-@keyframes globe-spin-${i} {
-  0% { transform: rotateY(0deg); }
-  100% { transform: rotateY(${i === 0 ? 20 : -10}deg); }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: globe-spin-${i} 0.6s ease both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
-      }));
-    }
-
-    if (isCompass) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: `compass-needle-${i}`,
-          css: `
-@keyframes compass-needle-${i} {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(${i === 0 ? 15 : 25}deg); }
-  50% { transform: rotate(${i === 0 ? -10 : -15}deg); }
-  75% { transform: rotate(${i === 0 ? 5 : 8}deg); }
-  100% { transform: rotate(0deg); }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: compass-needle-${i} 0.6s ease both;`,
-          colorGroup: i === 0 ? 'primary' : 'secondary',
-        }
-      }));
-    }
-
-    if (isNav) {
-      return elements.map((el, i) => ({
-        ...el,
-        animation: {
-          name: `nav-point-${i}`,
-          css: `
-@keyframes nav-point-${i} {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-3px) rotate(5deg); }
-  100% { transform: translateY(0) rotate(0deg); }
-}`,
-          style: 'transform-origin: 12px 12px;',
-          hoverCss: `animation: nav-point-${i} 0.4s ease both;`,
-          colorGroup: 'primary',
-        }
-      }));
-    }
-
-    return animationStrategies.pulse(elements, iconName);
-  },
-
-  'chart-rise'(elements, iconName) {
-    return elements.map((el, i) => ({
-      ...el,
-      animation: {
-        name: `bar-rise-${iconName}-${i}`,
-        css: `
-@keyframes bar-rise-${iconName}-${i} {
-  0% { transform: scaleY(0.3); opacity: 0.5; }
-  60% { transform: scaleY(1.05); opacity: 1; }
-  100% { transform: scaleY(1); opacity: 1; }
-}`,
-        style: 'transform-origin: center bottom;',
-        hoverCss: `animation: bar-rise-${iconName}-${i} 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.08}s both;`,
-        colorGroup: i % 2 === 0 ? 'primary' : 'secondary',
-      }
-    }));
-  },
-
-  shield(elements, iconName) {
-    return elements.map((el, i) => ({
-      ...el,
-      animation: {
-        name: i === 0 ? `shield-solid-${iconName}` : `shield-inner-${iconName}-${i}`,
-        css: i === 0 ? `
-@keyframes shield-solid-${iconName} {
-  0% { transform: scale(1); }
-  30% { transform: scale(1.08); }
-  60% { transform: scale(0.97); }
-  100% { transform: scale(1); }
-}` : `
-@keyframes shield-inner-${iconName}-${i} {
-  0% { transform: scale(0.5); opacity: 0; }
-  60% { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(1); opacity: 1; }
-}`,
-        style: 'transform-origin: 12px 12px;',
-        hoverCss: `animation: ${i === 0 ? `shield-solid-${iconName}` : `shield-inner-${iconName}-${i}`} 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.08}s both;`,
+        anim: i === 0 ? 'fill' : 'dot-appear',
+        delay: i,
         colorGroup: i === 0 ? 'primary' : 'secondary',
-      }
+      }));
+    }
+
+    if (iconName.includes('globe')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: i === 0 ? 'fill' : 'fade',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    if (iconName.includes('compass')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: i === 0 ? 'fill' : 'shake',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    if (iconName.includes('navigation')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: 'rocket-lift',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    return animationStrategies.draw(elements, iconName);
+  },
+
+  // ── Data (bar-chart, trending, database) ──
+  'chart-rise'(elements, iconName) {
+    if (iconName.includes('bar-chart')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: el.tag === 'line' ? 'bar' : 'fill',
+        delay: i,
+        colorGroup: i % 2 === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    if (iconName.includes('trending')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: i === 0 ? 'fill' : 'fade',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    // database, etc
+    return elements.map((el, i) => ({
+      ...el,
+      anim: i === 0 ? 'fill' : 'fade',
+      delay: i,
+      colorGroup: i === 0 ? 'primary' : 'secondary',
     }));
   },
 
+  // ── Security (shield, key, fingerprint) ──
+  shield(elements, iconName) {
+    if (iconName.includes('key')) {
+      return elements.map((el, i) => ({
+        ...el,
+        anim: el.tag === 'circle' ? 'fill' : 'fade',
+        delay: i,
+        colorGroup: i === 0 ? 'primary' : 'secondary',
+      }));
+    }
+
+    // Shield: container fills, inner elements fade
+    return elements.map((el, i) => ({
+      ...el,
+      anim: i === 0 ? 'fill' : 'fade',
+      delay: i,
+      colorGroup: i === 0 ? 'primary' : 'secondary',
+    }));
+  },
+
+  // ── Development (code, terminal, git, bug) ──
   'type-in'(elements, iconName) {
     return elements.map((el, i) => ({
       ...el,
-      animation: {
-        name: `type-${iconName}-${i}`,
-        usesStrokeDash: true,
-        css: `
-@keyframes type-${iconName}-${i} {
-  0% { stroke-dashoffset: var(--path-length-${i}); opacity: 0.3; }
-  100% { stroke-dashoffset: 0; opacity: 1; }
-}`,
-        style: '',
-        hoverCss: `animation: type-${iconName}-${i} 0.4s ease ${i * 0.12}s both;`,
-        colorGroup: i % 2 === 0 ? 'primary' : 'secondary',
-      }
+      anim: i === 0 ? 'fill' : 'fade',
+      delay: i,
+      colorGroup: i % 2 === 0 ? 'primary' : 'secondary',
     }));
   },
 };
@@ -1089,6 +641,271 @@ function getIconCategory(iconName, categories) {
   return { category: 'uncategorized', animation: 'draw' };
 }
 
+// ─── CSS Generation ──────────────────────────────────────────────────
+// Generates the shared animation CSS that goes in <style> tags
+
+function generateAnimationCSS() {
+  return `
+  /* Delay utilities — 80ms increments */
+  .al-delay-0 { --al-delay: 0ms; }
+  .al-delay-1 { --al-delay: 80ms; }
+  .al-delay-2 { --al-delay: 160ms; }
+  .al-delay-3 { --al-delay: 240ms; }
+  .al-delay-4 { --al-delay: 320ms; }
+  .al-delay-5 { --al-delay: 400ms; }
+  .al-delay-6 { --al-delay: 480ms; }
+  .al-delay-7 { --al-delay: 560ms; }
+
+  /* Two-tone colors — no opacity tricks, just two real colors */
+  .al-primary { stroke: var(--animated-lucide-primary, var(--al-primary, currentColor)); }
+  .al-secondary { stroke: var(--animated-lucide-secondary, var(--al-secondary, currentColor)); }
+
+  /* ── Fill animation: shape fills with translucent color ── */
+  .al-anim-fill {
+    fill: currentColor;
+    fill-opacity: 0;
+    transition: fill-opacity 500ms ease var(--al-delay, 0ms);
+  }
+  .animated-lucide-icon:hover .al-anim-fill,
+  .al-icon-wrapper:hover .al-anim-fill {
+    fill-opacity: 0.12;
+  }
+
+  /* ── Draw animation: path re-draws on hover via keyframe ── */
+  .al-anim-draw {
+    /* Fully visible by default */
+  }
+  .animated-lucide-icon:hover .al-anim-draw,
+  .al-icon-wrapper:hover .al-anim-draw {
+    animation: al-draw-in 600ms ease var(--al-delay, 0ms) both;
+  }
+  @keyframes al-draw-in {
+    0% { stroke-dashoffset: var(--al-dash-len, 50); }
+    100% { stroke-dashoffset: 0; }
+  }
+
+  /* ── Draw-line: shorter lines re-draw on hover ── */
+  .al-anim-draw-line {
+    /* Fully visible by default */
+  }
+  .animated-lucide-icon:hover .al-anim-draw-line,
+  .al-icon-wrapper:hover .al-anim-draw-line {
+    animation: al-draw-line 500ms ease var(--al-delay, 0ms) both;
+  }
+  @keyframes al-draw-line {
+    0% { stroke-dashoffset: var(--al-dash-len, 20); }
+    100% { stroke-dashoffset: 0; }
+  }
+
+  /* ── Fade animation: subtle pop on hover (fully visible by default) ── */
+  .al-anim-fade {
+    /* Fully visible by default */
+  }
+  .animated-lucide-icon:hover .al-anim-fade,
+  .al-icon-wrapper:hover .al-anim-fade {
+    animation: al-fade-pop 500ms ease var(--al-delay, 0ms) both;
+  }
+  @keyframes al-fade-pop {
+    0% { opacity: 0.3; transform: scale(0.92); }
+    60% { opacity: 1; transform: scale(1.04); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  /* ── Dot appear: dot pops on hover (fully visible by default) ── */
+  .al-anim-dot-appear {
+    /* Fully visible by default */
+  }
+  .animated-lucide-icon:hover .al-anim-dot-appear,
+  .al-icon-wrapper:hover .al-anim-dot-appear {
+    animation: al-dot-pop 500ms ease 200ms both;
+  }
+  @keyframes al-dot-pop {
+    0% { transform: scale(1); }
+    40% { transform: scale(0.3); }
+    70% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+
+  /* ── Bar animation: bars bounce on hover (full size by default) ── */
+  .al-anim-bar {
+    transform-origin: center bottom;
+  }
+  .animated-lucide-icon:hover .al-anim-bar,
+  .al-icon-wrapper:hover .al-anim-bar {
+    animation: al-bar-grow 600ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms) both;
+  }
+  @keyframes al-bar-grow {
+    0% { transform: scaleY(0.2); }
+    60% { transform: scaleY(1.08); }
+    100% { transform: scaleY(1); }
+  }
+
+  /* ── Scale-pop: element pops with scale ── */
+  .al-anim-scale-pop {
+    transform-origin: center;
+  }
+  .animated-lucide-icon:hover .al-anim-scale-pop,
+  .al-icon-wrapper:hover .al-anim-scale-pop {
+    animation: al-scale-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms) both;
+  }
+  @keyframes al-scale-pop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  /* ── Pulse element: pulsing opacity for attention ── */
+  .al-anim-pulse-element {
+    /* Fully visible by default */
+  }
+  .animated-lucide-icon:hover .al-anim-pulse-element,
+  .al-icon-wrapper:hover .al-anim-pulse-element {
+    animation: al-pulse 0.7s ease-in-out;
+  }
+  @keyframes al-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ── Gear: rotation on hover ── */
+  .al-anim-gear {
+    transform-origin: 12px 12px;
+    transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms);
+  }
+  .animated-lucide-icon:hover .al-anim-gear,
+  .al-icon-wrapper:hover .al-anim-gear {
+    transform: rotate(var(--al-rotation, 90deg));
+  }
+
+  /* ── Nudge: translate in a direction ── */
+  .al-anim-nudge {
+    transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms);
+  }
+  .animated-lucide-icon:hover .al-anim-nudge,
+  .al-icon-wrapper:hover .al-anim-nudge {
+    transform: translate(var(--al-tx, 0px), var(--al-ty, 0px));
+  }
+
+  /* ── Bell ring: keyframe ring animation ── */
+  .al-anim-bell-ring {
+    transform-origin: 12px 3px;
+  }
+  .animated-lucide-icon:hover .al-anim-bell-ring,
+  .al-icon-wrapper:hover .al-anim-bell-ring {
+    animation: al-bell-ring 0.7s ease;
+  }
+  @keyframes al-bell-ring {
+    0% { transform: rotate(0deg); }
+    12% { transform: rotate(14deg); }
+    24% { transform: rotate(-12deg); }
+    36% { transform: rotate(8deg); }
+    48% { transform: rotate(-5deg); }
+    60% { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  /* ── Heart beat: keyframe scale ── */
+  .al-anim-heart-beat {
+    transform-origin: 12px 13px;
+  }
+  .animated-lucide-icon:hover .al-anim-heart-beat,
+  .al-icon-wrapper:hover .al-anim-heart-beat {
+    animation: al-heart-beat 0.8s ease;
+  }
+  @keyframes al-heart-beat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.2); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.15); }
+    60% { transform: scale(1); }
+  }
+
+  /* ── Rocket lift ── */
+  .al-anim-rocket-lift {
+    transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms);
+  }
+  .animated-lucide-icon:hover .al-anim-rocket-lift,
+  .al-icon-wrapper:hover .al-anim-rocket-lift {
+    transform: translate(1px, -1.5px);
+  }
+
+  /* ── Handle lift (trash lid, briefcase handle) ── */
+  .al-anim-handle-lift {
+    transition: transform 500ms ease var(--al-delay, 0ms);
+  }
+  .animated-lucide-icon:hover .al-anim-handle-lift,
+  .al-icon-wrapper:hover .al-anim-handle-lift {
+    transform: translateY(-1.5px);
+  }
+
+  /* ── Page turn ── */
+  .al-anim-page-turn {
+    transform-origin: left center;
+    transition: transform 500ms ease var(--al-delay, 0ms);
+  }
+  .animated-lucide-icon:hover .al-anim-page-turn,
+  .al-icon-wrapper:hover .al-anim-page-turn {
+    transform: rotateY(-12deg);
+  }
+
+  /* ── Menu line (staggered scaleX) ── */
+  .al-anim-menu-line {
+    transform-origin: left center;
+    transition: transform 400ms ease var(--al-delay, 0ms);
+  }
+  .animated-lucide-icon:hover .al-anim-menu-line,
+  .al-icon-wrapper:hover .al-anim-menu-line {
+    transform: scaleX(var(--al-scale-x, 0.7));
+  }
+
+  /* ── Mail flap: envelope opens and closes ── */
+  .al-anim-mail-flap {
+    transform-origin: center top;
+  }
+  .animated-lucide-icon:hover .al-anim-mail-flap,
+  .al-icon-wrapper:hover .al-anim-mail-flap {
+    animation: al-mail-flap 700ms ease var(--al-delay, 0ms) both;
+  }
+  @keyframes al-mail-flap {
+    0% { transform: rotateX(0deg); }
+    40% { transform: rotateX(-30deg); }
+    70% { transform: rotateX(5deg); }
+    100% { transform: rotateX(0deg); }
+  }
+
+  /* ── Shake: horizontal wobble ── */
+  .al-anim-shake {
+    transform-origin: center;
+  }
+  .animated-lucide-icon:hover .al-anim-shake,
+  .al-icon-wrapper:hover .al-anim-shake {
+    animation: al-shake 600ms ease var(--al-delay, 0ms) both;
+  }
+  @keyframes al-shake {
+    0% { transform: translateX(0) rotate(0deg); }
+    15% { transform: translateX(-1.5px) rotate(-3deg); }
+    30% { transform: translateX(1.5px) rotate(3deg); }
+    45% { transform: translateX(-1px) rotate(-2deg); }
+    60% { transform: translateX(1px) rotate(2deg); }
+    75% { transform: translateX(-0.5px) rotate(-1deg); }
+    100% { transform: translateX(0) rotate(0deg); }
+  }
+
+  /* ── Spin: full 360 rotation ── */
+  .al-anim-spin {
+    transform-origin: 12px 12px;
+  }
+  .animated-lucide-icon:hover .al-anim-spin,
+  .al-icon-wrapper:hover .al-anim-spin {
+    animation: al-spin 700ms cubic-bezier(0.4, 0, 0.2, 1) var(--al-delay, 0ms) both;
+  }
+  @keyframes al-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`;
+}
+
 // ─── Generate Animated SVG ──────────────────────────────────────────
 
 function generateAnimatedSvg(iconName, svgContent, animationType) {
@@ -1096,39 +913,46 @@ function generateAnimatedSvg(iconName, svgContent, animationType) {
   const strategy = animationStrategies[animationType] || animationStrategies.draw;
   const animatedElements = strategy(elements, iconName);
   const label = toLabel(iconName);
-
-  const keyframes = new Set();
-  animatedElements.forEach(el => keyframes.add(el.animation.css.trim()));
+  const svgAttrs = extractSvgAttrs(svgContent);
 
   let innerSvg = '';
   animatedElements.forEach((el, i) => {
-    const colorClass = el.animation.colorGroup === 'primary' ? 'animated-lucide-primary' : 'animated-lucide-secondary';
-    const dashAttrs = el.animation.usesStrokeDash ? ` stroke-dasharray="var(--path-length-${i})" stroke-dashoffset="0"` : '';
+    const colorClass = el.colorGroup === 'primary' ? 'al-primary' : 'al-secondary';
+    const delayClass = `al-delay-${Math.min(el.delay || 0, 7)}`;
+    const animClass = `al-anim-${el.anim}`;
+
     let attrs = '';
     for (const [key, val] of Object.entries(el.attrs)) {
       attrs += ` ${key}="${val}"`;
     }
-    innerSvg += `  <${el.tag}${attrs}${dashAttrs} class="${colorClass} animated-lucide-el-${i}" style="${el.animation.style}" />\n`;
+
+    // Add stroke-dash attrs for draw animations — only dasharray + CSS var for keyframe length
+    // Do NOT set stroke-dashoffset so the path stays fully visible by default
+    let extraAttrs = '';
+    if (el.anim === 'draw' || el.anim === 'draw-line') {
+      const len = Math.ceil(estimatePathLength(el));
+      extraAttrs += ` stroke-dasharray="${len}"`;
+      // The keyframe reads --al-dash-len to know how far to animate
+      if (!el.customProps) el.customProps = {};
+      el.customProps.dashLen = len;
+    }
+
+    // Add custom CSS properties as style
+    let style = '';
+    if (el.customProps) {
+      const parts = [];
+      if (el.customProps.rotation !== undefined) parts.push(`--al-rotation: ${el.customProps.rotation}deg`);
+      if (el.customProps.tx !== undefined) parts.push(`--al-tx: ${el.customProps.tx}px`);
+      if (el.customProps.ty !== undefined) parts.push(`--al-ty: ${el.customProps.ty}px`);
+      if (el.customProps.scaleX !== undefined) parts.push(`--al-scale-x: ${el.customProps.scaleX}`);
+      if (el.customProps.dashLen !== undefined) parts.push(`--al-dash-len: ${el.customProps.dashLen}`);
+      if (parts.length) style = ` style="${parts.join('; ')}"`;
+    }
+
+    innerSvg += `  <${el.tag}${attrs}${extraAttrs} class="${colorClass} ${animClass} ${delayClass}"${style} />\n`;
   });
 
-  let hoverCss = '';
-  animatedElements.forEach((el, i) => {
-    // Trigger on self-hover (standalone SVG) AND parent wrapper hover (gallery/app)
-    hoverCss += `.animated-lucide-icon:hover .animated-lucide-el-${i},\n.al-icon-wrapper:hover .animated-lucide-el-${i} { ${el.animation.hoverCss} }\n`;
-  });
-
-  const css = `
-<style>
-  .animated-lucide-primary { stroke: var(--animated-lucide-primary, currentColor); }
-  .animated-lucide-secondary { stroke: var(--animated-lucide-secondary, currentColor); opacity: 0.55; }
-  .animated-lucide-icon:hover .animated-lucide-secondary,
-  .al-icon-wrapper:hover .animated-lucide-secondary { opacity: 0.7; }
-  .animated-lucide-icon * { transition: opacity 0.2s ease; }
-${Array.from(keyframes).join('\n')}
-${hoverCss}
-</style>`;
-
-  const svgAttrs = extractSvgAttrs(svgContent);
+  const css = `<style>${generateAnimationCSS()}</style>`;
 
   return `<svg
   xmlns="http://www.w3.org/2000/svg"
@@ -1140,6 +964,7 @@ ${hoverCss}
   stroke-width="${svgAttrs['stroke-width'] || '2'}"
   stroke-linecap="${svgAttrs['stroke-linecap'] || 'round'}"
   stroke-linejoin="${svgAttrs['stroke-linejoin'] || 'round'}"
+  overflow="hidden"
   class="animated-lucide-icon animated-lucide-${iconName}"
   role="img"
   aria-label="${label}"
@@ -1162,48 +987,45 @@ function generateReactComponent(iconName, svgContent, animationType) {
   const componentName = toPascalCase(iconName);
   const label = toLabel(iconName);
 
-  const keyframes = new Set();
-  animatedElements.forEach(el => keyframes.add(el.animation.css.trim()));
-
-  let hoverStyles = '';
-  animatedElements.forEach((el, i) => {
-    hoverStyles += `  .animated-lucide-${iconName}:hover .al-el-${i},\n  .al-icon-wrapper:hover .al-el-${i} { ${el.animation.hoverCss} }\n`;
-  });
-
-  const styleBlock = `\`.animated-lucide-${iconName} .al-primary { stroke: var(--al-primary, currentColor); }
-.animated-lucide-${iconName} .al-secondary { stroke: var(--al-secondary, currentColor); opacity: 0.55; }
-.animated-lucide-${iconName}:hover .al-secondary,
-.al-icon-wrapper:hover .al-secondary { opacity: 0.7; }
-.animated-lucide-${iconName} * { transition: opacity 0.2s ease; }
-${Array.from(keyframes).join('\n')}
-${hoverStyles}\``;
-
   let elementsJsx = '';
   animatedElements.forEach((el, i) => {
-    const colorClass = el.animation.colorGroup === 'primary' ? 'al-primary' : 'al-secondary';
+    const colorClass = el.colorGroup === 'primary' ? 'al-primary' : 'al-secondary';
+    const delayClass = `al-delay-${Math.min(el.delay || 0, 7)}`;
+    const animClass = `al-anim-${el.anim}`;
+
     let attrs = '';
     for (const [key, val] of Object.entries(el.attrs)) {
       const reactKey = key.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
       attrs += ` ${reactKey}="${val}"`;
     }
-    const dashAttrs = el.animation.usesStrokeDash ? ` strokeDasharray="var(--path-length-${i})" strokeDashoffset="0"` : '';
+
+    let extraAttrs = '';
+    if (el.anim === 'draw' || el.anim === 'draw-line') {
+      const len = Math.ceil(estimatePathLength(el));
+      extraAttrs += ` strokeDasharray="${len}"`;
+      if (!el.customProps) el.customProps = {};
+      el.customProps.dashLen = len;
+    }
 
     let styleObj = '{}';
-    if (el.animation.style) {
-      const parts = el.animation.style.split(';').filter(Boolean).map(s => {
-        const [prop, val] = s.split(':').map(x => x.trim());
-        const reactProp = prop.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
-        return `${reactProp}: '${val}'`;
-      });
+    if (el.customProps) {
+      const parts = [];
+      if (el.customProps.rotation !== undefined) parts.push(`'--al-rotation': '${el.customProps.rotation}deg'`);
+      if (el.customProps.tx !== undefined) parts.push(`'--al-tx': '${el.customProps.tx}px'`);
+      if (el.customProps.ty !== undefined) parts.push(`'--al-ty': '${el.customProps.ty}px'`);
+      if (el.customProps.scaleX !== undefined) parts.push(`'--al-scale-x': '${el.customProps.scaleX}'`);
+      if (el.customProps.dashLen !== undefined) parts.push(`'--al-dash-len': '${el.customProps.dashLen}'`);
       styleObj = `{ ${parts.join(', ')} }`;
     }
 
-    elementsJsx += `        <${el.tag}${attrs}${dashAttrs} className="al-el-${i} ${colorClass}" style={${styleObj}} />\n`;
+    elementsJsx += `        <${el.tag}${attrs}${extraAttrs} className="${colorClass} ${animClass} ${delayClass}" style={${styleObj}} />\n`;
   });
 
-  return `import React, { forwardRef, useId } from 'react';
+  const cssText = '`' + generateAnimationCSS() + '`';
 
-const cssText = ${styleBlock};
+  return `import React, { forwardRef } from 'react';
+
+const cssText = ${cssText};
 
 const ${componentName} = forwardRef(({
   size = 24,
@@ -1216,8 +1038,6 @@ const ${componentName} = forwardRef(({
   style = {},
   ...props
 }, ref) => {
-  const styleId = useId();
-
   const cssVars = {
     '--al-primary': primaryColor || color,
     '--al-secondary': secondaryColor || color,
@@ -1260,7 +1080,7 @@ export default ${componentName};
 // ─── Main Build ─────────────────────────────────────────────────────
 
 function build() {
-  console.log('Building Animated Lucide icons...\\n');
+  console.log('Building Animated Lucide icons...\n');
 
   const categories = JSON.parse(fs.readFileSync(CATEGORIES_FILE, 'utf-8'));
 
@@ -1318,7 +1138,7 @@ function build() {
   fs.writeFileSync(path.join(OUT_REACT, 'index.js'), indexExports.join('\n') + '\n');
   fs.writeFileSync(path.join(GALLERY_DATA, 'icons.json'), JSON.stringify(galleryIcons, null, 2));
 
-  console.log(`\\nDone! ${processed} icons processed, ${skipped} skipped.`);
+  console.log(`\nDone! ${processed} icons processed, ${skipped} skipped.`);
 }
 
 build();

@@ -20,7 +20,7 @@ export default function Gallery({ icons }: GalleryProps) {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
   const [primaryColor, setPrimaryColor] = useState("#0d9488");
-  const [secondaryColor, setSecondaryColor] = useState("#5eead4");
+  const [secondaryColor, setSecondaryColor] = useState("#0f766e");
   const [showColorPicker, setShowColorPicker] = useState(false);
 
   const categories = useMemo(() => {
@@ -111,12 +111,12 @@ export default function Gallery({ icons }: GalleryProps) {
           </div>
           <div className="flex gap-2 flex-wrap">
             {[
-              { p: "#0d9488", s: "#5eead4", name: "Teal" },
-              { p: "#3b82f6", s: "#93c5fd", name: "Blue" },
-              { p: "#ef4444", s: "#fca5a5", name: "Red" },
-              { p: "#f59e0b", s: "#fcd34d", name: "Amber" },
-              { p: "#8b5cf6", s: "#c4b5fd", name: "Violet" },
-              { p: "#ec4899", s: "#f9a8d4", name: "Pink" },
+              { p: "#0d9488", s: "#0f766e", name: "Teal" },
+              { p: "#3b82f6", s: "#2563eb", name: "Blue" },
+              { p: "#ef4444", s: "#dc2626", name: "Red" },
+              { p: "#f59e0b", s: "#d97706", name: "Amber" },
+              { p: "#8b5cf6", s: "#7c3aed", name: "Violet" },
+              { p: "#ec4899", s: "#db2777", name: "Pink" },
             ].map((preset) => (
               <button
                 key={preset.name}

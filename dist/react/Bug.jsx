@@ -1,76 +1,263 @@
-import React, { forwardRef, useId } from 'react';
+import React, { forwardRef } from 'react';
 
-const cssText = `.animated-lucide-bug .al-primary { stroke: var(--al-primary, currentColor); }
-.animated-lucide-bug .al-secondary { stroke: var(--al-secondary, currentColor); opacity: 0.55; }
-.animated-lucide-bug:hover .al-secondary,
-.al-icon-wrapper:hover .al-secondary { opacity: 0.7; }
-.animated-lucide-bug * { transition: opacity 0.2s ease; }
-@keyframes type-bug-0 {
-  0% { stroke-dashoffset: var(--path-length-0); opacity: 0.3; }
-  100% { stroke-dashoffset: 0; opacity: 1; }
-}
-@keyframes type-bug-1 {
-  0% { stroke-dashoffset: var(--path-length-1); opacity: 0.3; }
-  100% { stroke-dashoffset: 0; opacity: 1; }
-}
-@keyframes type-bug-2 {
-  0% { stroke-dashoffset: var(--path-length-2); opacity: 0.3; }
-  100% { stroke-dashoffset: 0; opacity: 1; }
-}
-@keyframes type-bug-3 {
-  0% { stroke-dashoffset: var(--path-length-3); opacity: 0.3; }
-  100% { stroke-dashoffset: 0; opacity: 1; }
-}
-@keyframes type-bug-4 {
-  0% { stroke-dashoffset: var(--path-length-4); opacity: 0.3; }
-  100% { stroke-dashoffset: 0; opacity: 1; }
-}
-@keyframes type-bug-5 {
-  0% { stroke-dashoffset: var(--path-length-5); opacity: 0.3; }
-  100% { stroke-dashoffset: 0; opacity: 1; }
-}
-@keyframes type-bug-6 {
-  0% { stroke-dashoffset: var(--path-length-6); opacity: 0.3; }
-  100% { stroke-dashoffset: 0; opacity: 1; }
-}
-@keyframes type-bug-7 {
-  0% { stroke-dashoffset: var(--path-length-7); opacity: 0.3; }
-  100% { stroke-dashoffset: 0; opacity: 1; }
-}
-@keyframes type-bug-8 {
-  0% { stroke-dashoffset: var(--path-length-8); opacity: 0.3; }
-  100% { stroke-dashoffset: 0; opacity: 1; }
-}
-@keyframes type-bug-9 {
-  0% { stroke-dashoffset: var(--path-length-9); opacity: 0.3; }
-  100% { stroke-dashoffset: 0; opacity: 1; }
-}
-@keyframes type-bug-10 {
-  0% { stroke-dashoffset: var(--path-length-10); opacity: 0.3; }
-  100% { stroke-dashoffset: 0; opacity: 1; }
-}
-  .animated-lucide-bug:hover .al-el-0,
-  .al-icon-wrapper:hover .al-el-0 { animation: type-bug-0 0.4s ease 0s both; }
-  .animated-lucide-bug:hover .al-el-1,
-  .al-icon-wrapper:hover .al-el-1 { animation: type-bug-1 0.4s ease 0.12s both; }
-  .animated-lucide-bug:hover .al-el-2,
-  .al-icon-wrapper:hover .al-el-2 { animation: type-bug-2 0.4s ease 0.24s both; }
-  .animated-lucide-bug:hover .al-el-3,
-  .al-icon-wrapper:hover .al-el-3 { animation: type-bug-3 0.4s ease 0.36s both; }
-  .animated-lucide-bug:hover .al-el-4,
-  .al-icon-wrapper:hover .al-el-4 { animation: type-bug-4 0.4s ease 0.48s both; }
-  .animated-lucide-bug:hover .al-el-5,
-  .al-icon-wrapper:hover .al-el-5 { animation: type-bug-5 0.4s ease 0.6s both; }
-  .animated-lucide-bug:hover .al-el-6,
-  .al-icon-wrapper:hover .al-el-6 { animation: type-bug-6 0.4s ease 0.72s both; }
-  .animated-lucide-bug:hover .al-el-7,
-  .al-icon-wrapper:hover .al-el-7 { animation: type-bug-7 0.4s ease 0.84s both; }
-  .animated-lucide-bug:hover .al-el-8,
-  .al-icon-wrapper:hover .al-el-8 { animation: type-bug-8 0.4s ease 0.96s both; }
-  .animated-lucide-bug:hover .al-el-9,
-  .al-icon-wrapper:hover .al-el-9 { animation: type-bug-9 0.4s ease 1.08s both; }
-  .animated-lucide-bug:hover .al-el-10,
-  .al-icon-wrapper:hover .al-el-10 { animation: type-bug-10 0.4s ease 1.2s both; }
+const cssText = `
+  /* Delay utilities — 80ms increments */
+  .al-delay-0 { --al-delay: 0ms; }
+  .al-delay-1 { --al-delay: 80ms; }
+  .al-delay-2 { --al-delay: 160ms; }
+  .al-delay-3 { --al-delay: 240ms; }
+  .al-delay-4 { --al-delay: 320ms; }
+  .al-delay-5 { --al-delay: 400ms; }
+  .al-delay-6 { --al-delay: 480ms; }
+  .al-delay-7 { --al-delay: 560ms; }
+
+  /* Two-tone colors — no opacity tricks, just two real colors */
+  .al-primary { stroke: var(--animated-lucide-primary, var(--al-primary, currentColor)); }
+  .al-secondary { stroke: var(--animated-lucide-secondary, var(--al-secondary, currentColor)); }
+
+  /* ── Fill animation: shape fills with translucent color ── */
+  .al-anim-fill {
+    fill: currentColor;
+    fill-opacity: 0;
+    transition: fill-opacity 500ms ease var(--al-delay, 0ms);
+  }
+  .animated-lucide-icon:hover .al-anim-fill,
+  .al-icon-wrapper:hover .al-anim-fill {
+    fill-opacity: 0.12;
+  }
+
+  /* ── Draw animation: path re-draws on hover via keyframe ── */
+  .al-anim-draw {
+    /* Fully visible by default */
+  }
+  .animated-lucide-icon:hover .al-anim-draw,
+  .al-icon-wrapper:hover .al-anim-draw {
+    animation: al-draw-in 600ms ease var(--al-delay, 0ms) both;
+  }
+  @keyframes al-draw-in {
+    0% { stroke-dashoffset: var(--al-dash-len, 50); }
+    100% { stroke-dashoffset: 0; }
+  }
+
+  /* ── Draw-line: shorter lines re-draw on hover ── */
+  .al-anim-draw-line {
+    /* Fully visible by default */
+  }
+  .animated-lucide-icon:hover .al-anim-draw-line,
+  .al-icon-wrapper:hover .al-anim-draw-line {
+    animation: al-draw-line 500ms ease var(--al-delay, 0ms) both;
+  }
+  @keyframes al-draw-line {
+    0% { stroke-dashoffset: var(--al-dash-len, 20); }
+    100% { stroke-dashoffset: 0; }
+  }
+
+  /* ── Fade animation: subtle pop on hover (fully visible by default) ── */
+  .al-anim-fade {
+    /* Fully visible by default */
+  }
+  .animated-lucide-icon:hover .al-anim-fade,
+  .al-icon-wrapper:hover .al-anim-fade {
+    animation: al-fade-pop 500ms ease var(--al-delay, 0ms) both;
+  }
+  @keyframes al-fade-pop {
+    0% { opacity: 0.3; transform: scale(0.92); }
+    60% { opacity: 1; transform: scale(1.04); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  /* ── Dot appear: dot pops on hover (fully visible by default) ── */
+  .al-anim-dot-appear {
+    /* Fully visible by default */
+  }
+  .animated-lucide-icon:hover .al-anim-dot-appear,
+  .al-icon-wrapper:hover .al-anim-dot-appear {
+    animation: al-dot-pop 500ms ease 200ms both;
+  }
+  @keyframes al-dot-pop {
+    0% { transform: scale(1); }
+    40% { transform: scale(0.3); }
+    70% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+
+  /* ── Bar animation: bars bounce on hover (full size by default) ── */
+  .al-anim-bar {
+    transform-origin: center bottom;
+  }
+  .animated-lucide-icon:hover .al-anim-bar,
+  .al-icon-wrapper:hover .al-anim-bar {
+    animation: al-bar-grow 600ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms) both;
+  }
+  @keyframes al-bar-grow {
+    0% { transform: scaleY(0.2); }
+    60% { transform: scaleY(1.08); }
+    100% { transform: scaleY(1); }
+  }
+
+  /* ── Scale-pop: element pops with scale ── */
+  .al-anim-scale-pop {
+    transform-origin: center;
+  }
+  .animated-lucide-icon:hover .al-anim-scale-pop,
+  .al-icon-wrapper:hover .al-anim-scale-pop {
+    animation: al-scale-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms) both;
+  }
+  @keyframes al-scale-pop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  /* ── Pulse element: pulsing opacity for attention ── */
+  .al-anim-pulse-element {
+    /* Fully visible by default */
+  }
+  .animated-lucide-icon:hover .al-anim-pulse-element,
+  .al-icon-wrapper:hover .al-anim-pulse-element {
+    animation: al-pulse 0.7s ease-in-out;
+  }
+  @keyframes al-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ── Gear: rotation on hover ── */
+  .al-anim-gear {
+    transform-origin: 12px 12px;
+    transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms);
+  }
+  .animated-lucide-icon:hover .al-anim-gear,
+  .al-icon-wrapper:hover .al-anim-gear {
+    transform: rotate(var(--al-rotation, 90deg));
+  }
+
+  /* ── Nudge: translate in a direction ── */
+  .al-anim-nudge {
+    transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms);
+  }
+  .animated-lucide-icon:hover .al-anim-nudge,
+  .al-icon-wrapper:hover .al-anim-nudge {
+    transform: translate(var(--al-tx, 0px), var(--al-ty, 0px));
+  }
+
+  /* ── Bell ring: keyframe ring animation ── */
+  .al-anim-bell-ring {
+    transform-origin: 12px 3px;
+  }
+  .animated-lucide-icon:hover .al-anim-bell-ring,
+  .al-icon-wrapper:hover .al-anim-bell-ring {
+    animation: al-bell-ring 0.7s ease;
+  }
+  @keyframes al-bell-ring {
+    0% { transform: rotate(0deg); }
+    12% { transform: rotate(14deg); }
+    24% { transform: rotate(-12deg); }
+    36% { transform: rotate(8deg); }
+    48% { transform: rotate(-5deg); }
+    60% { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  /* ── Heart beat: keyframe scale ── */
+  .al-anim-heart-beat {
+    transform-origin: 12px 13px;
+  }
+  .animated-lucide-icon:hover .al-anim-heart-beat,
+  .al-icon-wrapper:hover .al-anim-heart-beat {
+    animation: al-heart-beat 0.8s ease;
+  }
+  @keyframes al-heart-beat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.2); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.15); }
+    60% { transform: scale(1); }
+  }
+
+  /* ── Rocket lift ── */
+  .al-anim-rocket-lift {
+    transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms);
+  }
+  .animated-lucide-icon:hover .al-anim-rocket-lift,
+  .al-icon-wrapper:hover .al-anim-rocket-lift {
+    transform: translate(1px, -1.5px);
+  }
+
+  /* ── Handle lift (trash lid, briefcase handle) ── */
+  .al-anim-handle-lift {
+    transition: transform 500ms ease var(--al-delay, 0ms);
+  }
+  .animated-lucide-icon:hover .al-anim-handle-lift,
+  .al-icon-wrapper:hover .al-anim-handle-lift {
+    transform: translateY(-1.5px);
+  }
+
+  /* ── Page turn ── */
+  .al-anim-page-turn {
+    transform-origin: left center;
+    transition: transform 500ms ease var(--al-delay, 0ms);
+  }
+  .animated-lucide-icon:hover .al-anim-page-turn,
+  .al-icon-wrapper:hover .al-anim-page-turn {
+    transform: rotateY(-12deg);
+  }
+
+  /* ── Menu line (staggered scaleX) ── */
+  .al-anim-menu-line {
+    transform-origin: left center;
+    transition: transform 400ms ease var(--al-delay, 0ms);
+  }
+  .animated-lucide-icon:hover .al-anim-menu-line,
+  .al-icon-wrapper:hover .al-anim-menu-line {
+    transform: scaleX(var(--al-scale-x, 0.7));
+  }
+
+  /* ── Mail flap: envelope opens and closes ── */
+  .al-anim-mail-flap {
+    transform-origin: center top;
+  }
+  .animated-lucide-icon:hover .al-anim-mail-flap,
+  .al-icon-wrapper:hover .al-anim-mail-flap {
+    animation: al-mail-flap 700ms ease var(--al-delay, 0ms) both;
+  }
+  @keyframes al-mail-flap {
+    0% { transform: rotateX(0deg); }
+    40% { transform: rotateX(-30deg); }
+    70% { transform: rotateX(5deg); }
+    100% { transform: rotateX(0deg); }
+  }
+
+  /* ── Shake: horizontal wobble ── */
+  .al-anim-shake {
+    transform-origin: center;
+  }
+  .animated-lucide-icon:hover .al-anim-shake,
+  .al-icon-wrapper:hover .al-anim-shake {
+    animation: al-shake 600ms ease var(--al-delay, 0ms) both;
+  }
+  @keyframes al-shake {
+    0% { transform: translateX(0) rotate(0deg); }
+    15% { transform: translateX(-1.5px) rotate(-3deg); }
+    30% { transform: translateX(1.5px) rotate(3deg); }
+    45% { transform: translateX(-1px) rotate(-2deg); }
+    60% { transform: translateX(1px) rotate(2deg); }
+    75% { transform: translateX(-0.5px) rotate(-1deg); }
+    100% { transform: translateX(0) rotate(0deg); }
+  }
+
+  /* ── Spin: full 360 rotation ── */
+  .al-anim-spin {
+    transform-origin: 12px 12px;
+  }
+  .animated-lucide-icon:hover .al-anim-spin,
+  .al-icon-wrapper:hover .al-anim-spin {
+    animation: al-spin 700ms cubic-bezier(0.4, 0, 0.2, 1) var(--al-delay, 0ms) both;
+  }
+  @keyframes al-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 `;
 
 const Bug = forwardRef(({
@@ -84,8 +271,6 @@ const Bug = forwardRef(({
   style = {},
   ...props
 }, ref) => {
-  const styleId = useId();
-
   const cssVars = {
     '--al-primary': primaryColor || color,
     '--al-secondary': secondaryColor || color,
@@ -113,17 +298,17 @@ const Bug = forwardRef(({
         {...props}
       >
         <title>{label}</title>
-        <path d="M12 20v-9" strokeDasharray="var(--path-length-0)" strokeDashoffset="0" className="al-el-0 al-primary" style={{}} />
-        <path d="M14 7a4 4 0 0 1 4 4v3a6 6 0 0 1-12 0v-3a4 4 0 0 1 4-4z" strokeDasharray="var(--path-length-1)" strokeDashoffset="0" className="al-el-1 al-secondary" style={{}} />
-        <path d="M14.12 3.88 16 2" strokeDasharray="var(--path-length-2)" strokeDashoffset="0" className="al-el-2 al-primary" style={{}} />
-        <path d="M21 21a4 4 0 0 0-3.81-4" strokeDasharray="var(--path-length-3)" strokeDashoffset="0" className="al-el-3 al-secondary" style={{}} />
-        <path d="M21 5a4 4 0 0 1-3.55 3.97" strokeDasharray="var(--path-length-4)" strokeDashoffset="0" className="al-el-4 al-primary" style={{}} />
-        <path d="M22 13h-4" strokeDasharray="var(--path-length-5)" strokeDashoffset="0" className="al-el-5 al-secondary" style={{}} />
-        <path d="M3 21a4 4 0 0 1 3.81-4" strokeDasharray="var(--path-length-6)" strokeDashoffset="0" className="al-el-6 al-primary" style={{}} />
-        <path d="M3 5a4 4 0 0 0 3.55 3.97" strokeDasharray="var(--path-length-7)" strokeDashoffset="0" className="al-el-7 al-secondary" style={{}} />
-        <path d="M6 13H2" strokeDasharray="var(--path-length-8)" strokeDashoffset="0" className="al-el-8 al-primary" style={{}} />
-        <path d="m8 2 1.88 1.88" strokeDasharray="var(--path-length-9)" strokeDashoffset="0" className="al-el-9 al-secondary" style={{}} />
-        <path d="M9 7.13V6a3 3 0 1 1 6 0v1.13" strokeDasharray="var(--path-length-10)" strokeDashoffset="0" className="al-el-10 al-primary" style={{}} />
+        <path d="M12 20v-9" className="al-primary al-anim-fill al-delay-0" style={{}} />
+        <path d="M14 7a4 4 0 0 1 4 4v3a6 6 0 0 1-12 0v-3a4 4 0 0 1 4-4z" className="al-secondary al-anim-fade al-delay-1" style={{}} />
+        <path d="M14.12 3.88 16 2" className="al-primary al-anim-fade al-delay-2" style={{}} />
+        <path d="M21 21a4 4 0 0 0-3.81-4" className="al-secondary al-anim-fade al-delay-3" style={{}} />
+        <path d="M21 5a4 4 0 0 1-3.55 3.97" className="al-primary al-anim-fade al-delay-4" style={{}} />
+        <path d="M22 13h-4" className="al-secondary al-anim-fade al-delay-5" style={{}} />
+        <path d="M3 21a4 4 0 0 1 3.81-4" className="al-primary al-anim-fade al-delay-6" style={{}} />
+        <path d="M3 5a4 4 0 0 0 3.55 3.97" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <path d="M6 13H2" className="al-primary al-anim-fade al-delay-7" style={{}} />
+        <path d="m8 2 1.88 1.88" className="al-secondary al-anim-fade al-delay-7" style={{}} />
+        <path d="M9 7.13V6a3 3 0 1 1 6 0v1.13" className="al-primary al-anim-fade al-delay-7" style={{}} />
       </svg>
     </>
   );
