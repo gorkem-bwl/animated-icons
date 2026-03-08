@@ -61,7 +61,9 @@
         "maximize", "minimize", "maximize-2", "minimize-2",
         "expand", "shrink", "external-link", "link", "link-2",
         "toggle-left", "toggle-right", "switch-camera",
-        "sliders", "sliders-horizontal", "settings", "settings-2"
+        "sliders", "sliders-horizontal", "settings", "settings-2",
+        "download", "upload", "share-2", "log-in", "log-out", "power", "save",
+        "filter", "layers"
       ]
     },
     "status": {
@@ -74,7 +76,7 @@
         "circle-dot", "loader", "loader-2", "loader-circle",
         "hourglass", "timer", "timer-off", "timer-reset",
         "signal", "signal-high", "signal-medium", "signal-low", "signal-zero",
-        "wifi", "wifi-off", "bluetooth", "bluetooth-off",
+        "wifi", "wifi-off", "bluetooth", "bluetooth-off", "bluetooth-connected",
         "activity", "activity-square", "pulse", "heart-pulse",
         "zap", "zap-off"
       ]
@@ -103,7 +105,9 @@
         "coffee", "cup-soda", "beer", "wine", "glass-water",
         "utensils", "cookie", "pizza", "apple", "banana",
         "car", "bus", "train", "plane", "ship", "bike", "rocket",
-        "lightbulb", "lamp", "flashlight", "candle"
+        "lightbulb", "lamp", "flashlight", "candle",
+        "printer", "phone", "smartphone", "laptop", "monitor", "tv",
+        "clock", "calendar"
       ]
     },
     "editing": {

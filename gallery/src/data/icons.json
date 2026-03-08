@@ -7,11 +7,67 @@
     "elementCount": 2
   },
   {
+    "name": "arrow-left",
+    "componentName": "ArrowLeft",
+    "category": "arrows",
+    "animation": "directional",
+    "elementCount": 2
+  },
+  {
+    "name": "arrow-up",
+    "componentName": "ArrowUp",
+    "category": "arrows",
+    "animation": "directional",
+    "elementCount": 2
+  },
+  {
+    "name": "arrow-down",
+    "componentName": "ArrowDown",
+    "category": "arrows",
+    "animation": "directional",
+    "elementCount": 2
+  },
+  {
+    "name": "chevron-right",
+    "componentName": "ChevronRight",
+    "category": "arrows",
+    "animation": "directional",
+    "elementCount": 1
+  },
+  {
+    "name": "chevron-left",
+    "componentName": "ChevronLeft",
+    "category": "arrows",
+    "animation": "directional",
+    "elementCount": 1
+  },
+  {
+    "name": "chevron-up",
+    "componentName": "ChevronUp",
+    "category": "arrows",
+    "animation": "directional",
+    "elementCount": 1
+  },
+  {
     "name": "chevron-down",
     "componentName": "ChevronDown",
     "category": "arrows",
     "animation": "directional",
     "elementCount": 1
+  },
+  {
+    "name": "redo",
+    "componentName": "Redo",
+    "category": "arrows",
+    "animation": "directional",
+    "elementCount": 2
+  },
+  {
+    "name": "undo",
+    "componentName": "Undo",
+    "category": "arrows",
+    "animation": "directional",
+    "elementCount": 2
   },
   {
     "name": "refresh-cw",
@@ -21,8 +77,15 @@
     "elementCount": 4
   },
   {
-    "name": "redo",
-    "componentName": "Redo",
+    "name": "refresh-ccw",
+    "componentName": "RefreshCcw",
+    "category": "arrows",
+    "animation": "directional",
+    "elementCount": 4
+  },
+  {
+    "name": "rotate-cw",
+    "componentName": "RotateCw",
     "category": "arrows",
     "animation": "directional",
     "elementCount": 2
@@ -33,6 +96,20 @@
     "category": "communication",
     "animation": "pop-envelope",
     "elementCount": 2
+  },
+  {
+    "name": "mail-open",
+    "componentName": "MailOpen",
+    "category": "communication",
+    "animation": "pop-envelope",
+    "elementCount": 2
+  },
+  {
+    "name": "mail-check",
+    "componentName": "MailCheck",
+    "category": "communication",
+    "animation": "pop-envelope",
+    "elementCount": 3
   },
   {
     "name": "send",
@@ -49,8 +126,36 @@
     "elementCount": 1
   },
   {
+    "name": "message-square",
+    "componentName": "MessageSquare",
+    "category": "communication",
+    "animation": "pop-envelope",
+    "elementCount": 1
+  },
+  {
     "name": "inbox",
     "componentName": "Inbox",
+    "category": "communication",
+    "animation": "pop-envelope",
+    "elementCount": 2
+  },
+  {
+    "name": "reply",
+    "componentName": "Reply",
+    "category": "communication",
+    "animation": "pop-envelope",
+    "elementCount": 2
+  },
+  {
+    "name": "forward",
+    "componentName": "Forward",
+    "category": "communication",
+    "animation": "pop-envelope",
+    "elementCount": 2
+  },
+  {
+    "name": "at-sign",
+    "componentName": "AtSign",
     "category": "communication",
     "animation": "pop-envelope",
     "elementCount": 2
@@ -63,6 +168,27 @@
     "elementCount": 1
   },
   {
+    "name": "pause",
+    "componentName": "Pause",
+    "category": "media",
+    "animation": "playback",
+    "elementCount": 2
+  },
+  {
+    "name": "skip-forward",
+    "componentName": "SkipForward",
+    "category": "media",
+    "animation": "playback",
+    "elementCount": 2
+  },
+  {
+    "name": "volume-1",
+    "componentName": "Volume1",
+    "category": "media",
+    "animation": "playback",
+    "elementCount": 2
+  },
+  {
     "name": "volume-2",
     "componentName": "Volume2",
     "category": "media",
@@ -70,8 +196,29 @@
     "elementCount": 3
   },
   {
+    "name": "mic",
+    "componentName": "Mic",
+    "category": "media",
+    "animation": "playback",
+    "elementCount": 3
+  },
+  {
+    "name": "headphones",
+    "componentName": "Headphones",
+    "category": "media",
+    "animation": "playback",
+    "elementCount": 1
+  },
+  {
     "name": "camera",
     "componentName": "Camera",
+    "category": "media",
+    "animation": "playback",
+    "elementCount": 2
+  },
+  {
+    "name": "video",
+    "componentName": "Video",
     "category": "media",
     "animation": "playback",
     "elementCount": 2
@@ -84,6 +231,20 @@
     "elementCount": 3
   },
   {
+    "name": "image",
+    "componentName": "Image",
+    "category": "media",
+    "animation": "playback",
+    "elementCount": 3
+  },
+  {
+    "name": "film",
+    "componentName": "Film",
+    "category": "media",
+    "animation": "playback",
+    "elementCount": 8
+  },
+  {
     "name": "file",
     "componentName": "File",
     "category": "files",
@@ -91,8 +252,29 @@
     "elementCount": 2
   },
   {
+    "name": "file-text",
+    "componentName": "FileText",
+    "category": "files",
+    "animation": "unfold",
+    "elementCount": 5
+  },
+  {
+    "name": "file-code",
+    "componentName": "FileCode",
+    "category": "files",
+    "animation": "unfold",
+    "elementCount": 4
+  },
+  {
     "name": "folder",
     "componentName": "Folder",
+    "category": "files",
+    "animation": "unfold",
+    "elementCount": 1
+  },
+  {
+    "name": "folder-open",
+    "componentName": "FolderOpen",
     "category": "files",
     "animation": "unfold",
     "elementCount": 1
@@ -112,11 +294,32 @@
     "elementCount": 2
   },
   {
+    "name": "bookmark",
+    "componentName": "Bookmark",
+    "category": "files",
+    "animation": "unfold",
+    "elementCount": 1
+  },
+  {
+    "name": "notebook",
+    "componentName": "Notebook",
+    "category": "files",
+    "animation": "unfold",
+    "elementCount": 6
+  },
+  {
     "name": "check",
     "componentName": "Check",
     "category": "ui",
     "animation": "toggle",
     "elementCount": 1
+  },
+  {
+    "name": "check-circle",
+    "componentName": "CheckCircle",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 2
   },
   {
     "name": "x",
@@ -126,11 +329,32 @@
     "elementCount": 2
   },
   {
+    "name": "x-circle",
+    "componentName": "XCircle",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 3
+  },
+  {
     "name": "plus",
     "componentName": "Plus",
     "category": "ui",
     "animation": "toggle",
     "elementCount": 2
+  },
+  {
+    "name": "plus-circle",
+    "componentName": "PlusCircle",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 3
+  },
+  {
+    "name": "minus",
+    "componentName": "Minus",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 1
   },
   {
     "name": "menu",
@@ -154,6 +378,34 @@
     "elementCount": 2
   },
   {
+    "name": "sliders",
+    "componentName": "Sliders",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 9
+  },
+  {
+    "name": "external-link",
+    "componentName": "ExternalLink",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 3
+  },
+  {
+    "name": "link",
+    "componentName": "Link",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 2
+  },
+  {
+    "name": "toggle-left",
+    "componentName": "ToggleLeft",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 2
+  },
+  {
     "name": "bell",
     "componentName": "Bell",
     "category": "status",
@@ -161,8 +413,36 @@
     "elementCount": 2
   },
   {
+    "name": "bell-ring",
+    "componentName": "BellRing",
+    "category": "status",
+    "animation": "pulse",
+    "elementCount": 4
+  },
+  {
     "name": "alert-triangle",
     "componentName": "AlertTriangle",
+    "category": "status",
+    "animation": "pulse",
+    "elementCount": 3
+  },
+  {
+    "name": "alert-circle",
+    "componentName": "AlertCircle",
+    "category": "status",
+    "animation": "pulse",
+    "elementCount": 3
+  },
+  {
+    "name": "info",
+    "componentName": "Info",
+    "category": "status",
+    "animation": "pulse",
+    "elementCount": 3
+  },
+  {
+    "name": "help-circle",
+    "componentName": "HelpCircle",
     "category": "status",
     "animation": "pulse",
     "elementCount": 3
@@ -182,6 +462,27 @@
     "elementCount": 1
   },
   {
+    "name": "wifi",
+    "componentName": "Wifi",
+    "category": "status",
+    "animation": "pulse",
+    "elementCount": 4
+  },
+  {
+    "name": "activity",
+    "componentName": "Activity",
+    "category": "status",
+    "animation": "pulse",
+    "elementCount": 1
+  },
+  {
+    "name": "timer",
+    "componentName": "Timer",
+    "category": "status",
+    "animation": "pulse",
+    "elementCount": 3
+  },
+  {
     "name": "sun",
     "componentName": "Sun",
     "category": "weather",
@@ -194,6 +495,13 @@
     "category": "weather",
     "animation": "ambient",
     "elementCount": 1
+  },
+  {
+    "name": "cloud-rain",
+    "componentName": "CloudRain",
+    "category": "weather",
+    "animation": "ambient",
+    "elementCount": 4
   },
   {
     "name": "moon",
@@ -210,11 +518,46 @@
     "elementCount": 12
   },
   {
+    "name": "wind",
+    "componentName": "Wind",
+    "category": "weather",
+    "animation": "ambient",
+    "elementCount": 3
+  },
+  {
+    "name": "star",
+    "componentName": "Star",
+    "category": "weather",
+    "animation": "ambient",
+    "elementCount": 1
+  },
+  {
+    "name": "sunrise",
+    "componentName": "Sunrise",
+    "category": "weather",
+    "animation": "ambient",
+    "elementCount": 8
+  },
+  {
+    "name": "sunset",
+    "componentName": "Sunset",
+    "category": "weather",
+    "animation": "ambient",
+    "elementCount": 8
+  },
+  {
     "name": "home",
     "componentName": "Home",
     "category": "objects",
     "animation": "bounce-in",
     "elementCount": 2
+  },
+  {
+    "name": "building",
+    "componentName": "Building",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 11
   },
   {
     "name": "lock",
@@ -224,11 +567,46 @@
     "elementCount": 2
   },
   {
+    "name": "lock-open",
+    "componentName": "LockOpen",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 2
+  },
+  {
+    "name": "key",
+    "componentName": "Key",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 3
+  },
+  {
     "name": "trash-2",
     "componentName": "Trash2",
     "category": "objects",
     "animation": "bounce-in",
     "elementCount": 5
+  },
+  {
+    "name": "archive",
+    "componentName": "Archive",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 3
+  },
+  {
+    "name": "package",
+    "componentName": "Package",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 4
+  },
+  {
+    "name": "gift",
+    "componentName": "Gift",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 4
   },
   {
     "name": "shopping-cart",
@@ -238,6 +616,20 @@
     "elementCount": 3
   },
   {
+    "name": "car",
+    "componentName": "Car",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 4
+  },
+  {
+    "name": "bike",
+    "componentName": "Bike",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 4
+  },
+  {
     "name": "rocket",
     "componentName": "Rocket",
     "category": "objects",
@@ -245,8 +637,29 @@
     "elementCount": 4
   },
   {
+    "name": "lightbulb",
+    "componentName": "Lightbulb",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 3
+  },
+  {
     "name": "pencil",
     "componentName": "Pencil",
+    "category": "editing",
+    "animation": "draw",
+    "elementCount": 2
+  },
+  {
+    "name": "pen",
+    "componentName": "Pen",
+    "category": "editing",
+    "animation": "draw",
+    "elementCount": 1
+  },
+  {
+    "name": "eraser",
+    "componentName": "Eraser",
     "category": "editing",
     "animation": "draw",
     "elementCount": 2
@@ -266,11 +679,67 @@
     "elementCount": 5
   },
   {
+    "name": "bold",
+    "componentName": "Bold",
+    "category": "editing",
+    "animation": "draw",
+    "elementCount": 1
+  },
+  {
+    "name": "italic",
+    "componentName": "Italic",
+    "category": "editing",
+    "animation": "draw",
+    "elementCount": 3
+  },
+  {
+    "name": "align-left",
+    "componentName": "AlignLeft",
+    "category": "editing",
+    "animation": "draw",
+    "elementCount": 3
+  },
+  {
+    "name": "list",
+    "componentName": "List",
+    "category": "editing",
+    "animation": "draw",
+    "elementCount": 6
+  },
+  {
+    "name": "crop",
+    "componentName": "Crop",
+    "category": "editing",
+    "animation": "draw",
+    "elementCount": 2
+  },
+  {
+    "name": "palette",
+    "componentName": "Palette",
+    "category": "editing",
+    "animation": "draw",
+    "elementCount": 5
+  },
+  {
     "name": "user",
     "componentName": "User",
     "category": "people",
     "animation": "wave",
     "elementCount": 2
+  },
+  {
+    "name": "user-plus",
+    "componentName": "UserPlus",
+    "category": "people",
+    "animation": "wave",
+    "elementCount": 4
+  },
+  {
+    "name": "users",
+    "componentName": "Users",
+    "category": "people",
+    "animation": "wave",
+    "elementCount": 4
   },
   {
     "name": "heart",
@@ -294,11 +763,53 @@
     "elementCount": 4
   },
   {
+    "name": "frown",
+    "componentName": "Frown",
+    "category": "people",
+    "animation": "wave",
+    "elementCount": 4
+  },
+  {
+    "name": "thumbs-up",
+    "componentName": "ThumbsUp",
+    "category": "people",
+    "animation": "wave",
+    "elementCount": 2
+  },
+  {
+    "name": "hand",
+    "componentName": "Hand",
+    "category": "people",
+    "animation": "wave",
+    "elementCount": 4
+  },
+  {
+    "name": "brain",
+    "componentName": "Brain",
+    "category": "people",
+    "animation": "wave",
+    "elementCount": 8
+  },
+  {
+    "name": "fingerprint",
+    "componentName": "Fingerprint",
+    "category": "people",
+    "animation": "wave",
+    "elementCount": 9
+  },
+  {
     "name": "map-pin",
     "componentName": "MapPin",
     "category": "navigation",
     "animation": "locate",
     "elementCount": 2
+  },
+  {
+    "name": "map",
+    "componentName": "Map",
+    "category": "navigation",
+    "animation": "locate",
+    "elementCount": 3
   },
   {
     "name": "globe",
@@ -322,6 +833,20 @@
     "elementCount": 1
   },
   {
+    "name": "locate",
+    "componentName": "Locate",
+    "category": "navigation",
+    "animation": "locate",
+    "elementCount": 5
+  },
+  {
+    "name": "flag",
+    "componentName": "Flag",
+    "category": "navigation",
+    "animation": "locate",
+    "elementCount": 1
+  },
+  {
     "name": "bar-chart-2",
     "componentName": "BarChart2",
     "category": "data",
@@ -329,8 +854,29 @@
     "elementCount": 3
   },
   {
+    "name": "line-chart",
+    "componentName": "LineChart",
+    "category": "data",
+    "animation": "chart-rise",
+    "elementCount": 2
+  },
+  {
+    "name": "pie-chart",
+    "componentName": "PieChart",
+    "category": "data",
+    "animation": "chart-rise",
+    "elementCount": 2
+  },
+  {
     "name": "trending-up",
     "componentName": "TrendingUp",
+    "category": "data",
+    "animation": "chart-rise",
+    "elementCount": 2
+  },
+  {
+    "name": "trending-down",
+    "componentName": "TrendingDown",
     "category": "data",
     "animation": "chart-rise",
     "elementCount": 2
@@ -343,6 +889,27 @@
     "elementCount": 3
   },
   {
+    "name": "server",
+    "componentName": "Server",
+    "category": "data",
+    "animation": "chart-rise",
+    "elementCount": 4
+  },
+  {
+    "name": "table",
+    "componentName": "Table",
+    "category": "data",
+    "animation": "chart-rise",
+    "elementCount": 4
+  },
+  {
+    "name": "calculator",
+    "componentName": "Calculator",
+    "category": "data",
+    "animation": "chart-rise",
+    "elementCount": 10
+  },
+  {
     "name": "shield",
     "componentName": "Shield",
     "category": "security",
@@ -350,18 +917,25 @@
     "elementCount": 1
   },
   {
-    "name": "key",
-    "componentName": "Key",
-    "category": "objects",
-    "animation": "bounce-in",
-    "elementCount": 3
+    "name": "shield-check",
+    "componentName": "ShieldCheck",
+    "category": "security",
+    "animation": "shield",
+    "elementCount": 2
   },
   {
-    "name": "fingerprint",
-    "componentName": "Fingerprint",
-    "category": "people",
-    "animation": "wave",
-    "elementCount": 9
+    "name": "scan",
+    "componentName": "Scan",
+    "category": "security",
+    "animation": "shield",
+    "elementCount": 4
+  },
+  {
+    "name": "qr-code",
+    "componentName": "QrCode",
+    "category": "security",
+    "animation": "shield",
+    "elementCount": 12
   },
   {
     "name": "code",
@@ -371,6 +945,13 @@
     "elementCount": 2
   },
   {
+    "name": "code-2",
+    "componentName": "Code2",
+    "category": "development",
+    "animation": "type-in",
+    "elementCount": 3
+  },
+  {
     "name": "terminal",
     "componentName": "Terminal",
     "category": "development",
@@ -378,8 +959,29 @@
     "elementCount": 2
   },
   {
+    "name": "terminal-square",
+    "componentName": "TerminalSquare",
+    "category": "development",
+    "animation": "type-in",
+    "elementCount": 3
+  },
+  {
     "name": "git-branch",
     "componentName": "GitBranch",
+    "category": "development",
+    "animation": "type-in",
+    "elementCount": 3
+  },
+  {
+    "name": "git-commit",
+    "componentName": "GitCommit",
+    "category": "development",
+    "animation": "type-in",
+    "elementCount": 3
+  },
+  {
+    "name": "git-merge",
+    "componentName": "GitMerge",
     "category": "development",
     "animation": "type-in",
     "elementCount": 3
@@ -390,5 +992,173 @@
     "category": "development",
     "animation": "type-in",
     "elementCount": 11
+  },
+  {
+    "name": "wrench",
+    "componentName": "Wrench",
+    "category": "development",
+    "animation": "type-in",
+    "elementCount": 1
+  },
+  {
+    "name": "cpu",
+    "componentName": "Cpu",
+    "category": "development",
+    "animation": "type-in",
+    "elementCount": 14
+  },
+  {
+    "name": "box",
+    "componentName": "Box",
+    "category": "development",
+    "animation": "type-in",
+    "elementCount": 3
+  },
+  {
+    "name": "puzzle",
+    "componentName": "Puzzle",
+    "category": "development",
+    "animation": "type-in",
+    "elementCount": 1
+  },
+  {
+    "name": "download",
+    "componentName": "Download",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 3
+  },
+  {
+    "name": "upload",
+    "componentName": "Upload",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 3
+  },
+  {
+    "name": "share-2",
+    "componentName": "Share2",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 5
+  },
+  {
+    "name": "log-in",
+    "componentName": "LogIn",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 3
+  },
+  {
+    "name": "log-out",
+    "componentName": "LogOut",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 3
+  },
+  {
+    "name": "power",
+    "componentName": "Power",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 2
+  },
+  {
+    "name": "save",
+    "componentName": "Save",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 3
+  },
+  {
+    "name": "printer",
+    "componentName": "Printer",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 3
+  },
+  {
+    "name": "bluetooth",
+    "componentName": "Bluetooth",
+    "category": "status",
+    "animation": "pulse",
+    "elementCount": 1
+  },
+  {
+    "name": "clock",
+    "componentName": "Clock",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 2
+  },
+  {
+    "name": "calendar",
+    "componentName": "Calendar",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 4
+  },
+  {
+    "name": "phone",
+    "componentName": "Phone",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 1
+  },
+  {
+    "name": "smartphone",
+    "componentName": "Smartphone",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 2
+  },
+  {
+    "name": "laptop",
+    "componentName": "Laptop",
+    "category": "objects",
+    "animation": "bounce-in",
+    "elementCount": 2
+  },
+  {
+    "name": "monitor",
+    "componentName": "Monitor",
+    "category": "media",
+    "animation": "playback",
+    "elementCount": 3
+  },
+  {
+    "name": "tv",
+    "componentName": "Tv",
+    "category": "media",
+    "animation": "playback",
+    "elementCount": 2
+  },
+  {
+    "name": "hash",
+    "componentName": "Hash",
+    "category": "data",
+    "animation": "chart-rise",
+    "elementCount": 4
+  },
+  {
+    "name": "percent",
+    "componentName": "Percent",
+    "category": "data",
+    "animation": "chart-rise",
+    "elementCount": 3
+  },
+  {
+    "name": "filter",
+    "componentName": "Filter",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 1
+  },
+  {
+    "name": "layers",
+    "componentName": "Layers",
+    "category": "ui",
+    "animation": "toggle",
+    "elementCount": 3
   }
 ]

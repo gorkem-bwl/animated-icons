@@ -31,20 +31,53 @@ const OUT_CSS = path.join(OUT_DIR, 'css');
 const GALLERY_DATA = path.join(ROOT, 'gallery/src/data');
 
 const INITIAL_SUBSET = [
-  'arrow-right', 'chevron-down', 'refresh-cw', 'redo',
-  'mail', 'send', 'message-circle', 'inbox',
-  'play', 'volume-2', 'camera', 'music',
-  'file', 'folder', 'clipboard', 'book-open',
-  'check', 'x', 'plus', 'menu', 'settings', 'search',
-  'bell', 'alert-triangle', 'loader', 'zap',
-  'sun', 'cloud', 'moon', 'snowflake',
-  'home', 'lock', 'trash-2', 'shopping-cart', 'rocket',
-  'pencil', 'copy', 'scissors',
-  'user', 'heart', 'eye', 'smile',
-  'map-pin', 'globe', 'compass', 'navigation',
-  'bar-chart-2', 'trending-up', 'database',
-  'shield', 'key', 'fingerprint',
-  'code', 'terminal', 'git-branch', 'bug',
+  // Arrows & directional
+  'arrow-right', 'arrow-left', 'arrow-up', 'arrow-down',
+  'chevron-right', 'chevron-left', 'chevron-up', 'chevron-down',
+  'redo', 'undo', 'refresh-cw', 'refresh-ccw', 'rotate-cw',
+  // Communication
+  'mail', 'mail-open', 'mail-check', 'send', 'message-circle', 'message-square',
+  'inbox', 'reply', 'forward', 'at-sign',
+  // Media
+  'play', 'pause', 'skip-forward', 'volume-1', 'volume-2',
+  'mic', 'headphones', 'camera', 'video', 'music', 'image', 'film',
+  // Files & documents
+  'file', 'file-text', 'file-code', 'folder', 'folder-open',
+  'clipboard', 'book-open', 'bookmark', 'notebook',
+  // UI controls
+  'check', 'check-circle', 'x', 'x-circle', 'plus', 'plus-circle', 'minus',
+  'menu', 'settings', 'search', 'sliders', 'external-link', 'link', 'toggle-left',
+  // Status & alerts
+  'bell', 'bell-ring', 'alert-triangle', 'alert-circle', 'info', 'help-circle',
+  'loader', 'zap', 'wifi', 'activity', 'timer',
+  // Weather & nature
+  'sun', 'cloud', 'cloud-rain', 'moon', 'snowflake',
+  'wind', 'star', 'sunrise', 'sunset',
+  // Objects
+  'home', 'building', 'lock', 'lock-open', 'key',
+  'trash-2', 'archive', 'package', 'gift', 'shopping-cart',
+  'car', 'bike', 'rocket', 'lightbulb',
+  // Editing & text
+  'pencil', 'pen', 'eraser', 'copy', 'scissors',
+  'bold', 'italic', 'align-left', 'list', 'crop', 'palette',
+  // People & social
+  'user', 'user-plus', 'users', 'heart', 'eye', 'smile', 'frown',
+  'thumbs-up', 'hand', 'brain', 'fingerprint',
+  // Navigation & location
+  'map-pin', 'map', 'globe', 'compass', 'navigation', 'locate', 'flag',
+  // Data & charts
+  'bar-chart-2', 'line-chart', 'pie-chart', 'trending-up', 'trending-down',
+  'database', 'server', 'table', 'calculator',
+  // Security
+  'shield', 'shield-check', 'scan', 'qr-code',
+  // Development
+  'code', 'code-2', 'terminal', 'terminal-square',
+  'git-branch', 'git-commit', 'git-merge', 'bug',
+  'wrench', 'cpu', 'box', 'puzzle',
+  // Actions & system
+  'download', 'upload', 'share-2', 'log-in', 'log-out', 'power', 'save', 'printer',
+  'bluetooth', 'clock', 'calendar', 'phone', 'smartphone', 'laptop', 'monitor', 'tv',
+  'hash', 'percent', 'filter', 'layers',
 ];
 
 // ─── SVG Parser ──────────────────────────────────────────────────────
