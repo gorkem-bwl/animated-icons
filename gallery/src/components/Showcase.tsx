@@ -12,7 +12,7 @@ const ICON_CHUNK_MAP: Record<string, number> = {
   "shopping-cart": 7, "map-pin": 5, "message-square": 5,
   phone: 6, globe: 4, bell: 1, mail: 5, layers: 5,
   "bar-chart-2": 0, eye: 3, lock: 5, code: 2, zap: 9,
-  scissors: 7, "arrow-right": 0, check: 1,
+  scissors: 7, "arrow-right": 0, check: 1, camera: 1,
 };
 
 const COLOR_VARS = {
@@ -136,8 +136,8 @@ export default function Showcase() {
             <div className="space-y-3">
               <div className="flex gap-2 flex-wrap">
                 <button className="al-icon-wrapper inline-flex items-center gap-2 rounded-lg bg-teal-600 hover:bg-teal-700 px-4 py-2 text-sm text-white font-medium transition-colors cursor-pointer">
-                  <AnimIcon name="plus" cache={svgCache} size="h-4 w-4" />
-                  Create new
+                  <AnimIcon name="send" cache={svgCache} size="h-4 w-4" />
+                  Send
                 </button>
                 <button className="al-icon-wrapper inline-flex items-center gap-2 rounded-lg border border-neutral-200 dark:border-white/[0.1] bg-white dark:bg-white/[0.04] px-4 py-2 text-sm text-neutral-700 dark:text-white/60 font-medium hover:bg-neutral-50 dark:hover:bg-white/[0.08] transition-colors cursor-pointer">
                   <AnimIcon name="download" cache={svgCache} size="h-4 w-4" />
@@ -230,7 +230,7 @@ export default function Showcase() {
                 {[
                   { icon: "home", label: "Home", active: true },
                   { icon: "search", label: "Search" },
-                  { icon: "plus", label: "New", fab: true },
+                  { icon: "camera", label: "Camera", fab: true },
                   { icon: "bell", label: "Alerts" },
                   { icon: "user", label: "Profile" },
                 ].map((item) => (
