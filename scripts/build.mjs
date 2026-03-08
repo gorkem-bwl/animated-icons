@@ -1134,14 +1134,12 @@ function build() {
   let processed = 0;
   let skipped = 0;
 
-  for (const iconName of INITIAL_SUBSET) {
-    const svgPath = path.join(ICONS_DIR, `${iconName}.svg`);
-    if (!fs.existsSync(svgPath)) {
-      console.log(`  skip: ${iconName} (not found)`);
-      skipped++;
-      continue;
-    }
+  // Process ALL icons from lucide-static
+  const allIconFiles = fs.readdirSync(ICONS_DIR).filter(f => f.endsWith('.svg')).sort();
+  const allIconNames = allIconFiles.map(f => f.replace('.svg', ''));
 
+  for (const iconName of allIconNames) {
+    const svgPath = path.join(ICONS_DIR, `${iconName}.svg`);
     const svgContent = fs.readFileSync(svgPath, 'utf-8');
     const { category, animation } = getIconCategory(iconName, categories);
 
@@ -1161,12 +1159,13 @@ function build() {
     });
 
     processed++;
-    console.log(`  done: ${iconName} (${category}/${animation})`);
   }
+
+  console.log(`  Processed ${processed} icons.`);
 
   indexExports.push('');
   indexExports.push('// Re-export all icon names for programmatic access');
-  indexExports.push(`export const iconNames = ${JSON.stringify(INITIAL_SUBSET.filter(n => fs.existsSync(path.join(ICONS_DIR, `${n}.svg`))))};`);
+  indexExports.push(`export const iconNames = ${JSON.stringify(allIconNames)};`);
 
   fs.writeFileSync(path.join(OUT_REACT, 'index.js'), indexExports.join('\n') + '\n');
   fs.writeFileSync(path.join(GALLERY_DATA, 'icons.json'), JSON.stringify(galleryIcons, null, 2));

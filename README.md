@@ -8,7 +8,7 @@ Beautifully animated, two-tone [Lucide](https://lucide.dev) icons with CSS-only 
 
 - CSS transition-based animations triggered on hover (no Framer Motion, no JS)
 - Two-tone color support via CSS custom properties
-- 166 icons across 14 categories, with more coming
+- All 1,951 Lucide icons across 14 categories
 - Multiple output formats: React components, standalone SVGs
 - Accessible: `role="img"`, `aria-label`, and `<title>` on every icon
 - Semantic animations per category (bells ring, hearts beat, gears rotate, shields fill)
@@ -137,9 +137,7 @@ All components forward refs and spread additional props onto the SVG element.
 
 ## Available icons
 
-`activity` `alert-circle` `alert-triangle` `align-left` `archive` `arrow-down` `arrow-left` `arrow-right` `arrow-up` `at-sign` `bar-chart-2` `bell` `bell-ring` `bike` `bluetooth` `bold` `book-open` `bookmark` `box` `brain` `bug` `building` `calculator` `calendar` `camera` `car` `check` `check-circle` `chevron-down` `chevron-left` `chevron-right` `chevron-up` `clipboard` `clock` `cloud` `cloud-rain` `code` `code-2` `compass` `copy` `cpu` `crop` `database` `download` `eraser` `external-link` `eye` `file` `file-code` `file-text` `film` `filter` `fingerprint` `flag` `folder` `folder-open` `forward` `frown` `gift` `git-branch` `git-commit` `git-merge` `globe` `hand` `hash` `headphones` `heart` `help-circle` `home` `image` `inbox` `info` `italic` `key` `laptop` `layers` `lightbulb` `line-chart` `link` `list` `loader` `locate` `lock` `lock-open` `log-in` `log-out` `mail` `mail-check` `mail-open` `map` `map-pin` `menu` `message-circle` `message-square` `mic` `minus` `monitor` `moon` `music` `navigation` `notebook` `package` `palette` `pause` `pen` `pencil` `percent` `phone` `pie-chart` `play` `plus` `plus-circle` `power` `printer` `puzzle` `qr-code` `redo` `refresh-ccw` `refresh-cw` `reply` `rocket` `rotate-cw` `save` `scan` `scissors` `search` `send` `server` `settings` `share-2` `shield` `shield-check` `shopping-cart` `skip-forward` `sliders` `smartphone` `smile` `snowflake` `star` `sun` `sunrise` `sunset` `table` `terminal` `terminal-square` `thumbs-up` `timer` `toggle-left` `trash-2` `trending-down` `trending-up` `tv` `undo` `upload` `user` `user-plus` `users` `video` `volume-1` `volume-2` `wifi` `wind` `wrench` `x` `x-circle` `zap`
-
-166 icons and growing. The build system supports all ~1,950 Lucide icons.
+All 1,951 Lucide icons are supported. Browse them at [animated-icons.vercel.app](https://animated-icons.vercel.app).
 
 ## Building from source
 
