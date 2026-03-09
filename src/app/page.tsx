@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import PageClient from "@/components/PageClient";
 import ThemeToggle from "@/components/ThemeToggle";
+import HeroGridBar from "@/components/HeroGridBar";
 import lucideMeta from "@/data/icons-meta.json";
 import heroiconsMeta from "@/data/heroicons-meta.json";
 import iconoirMeta from "@/data/iconoir-meta.json";
@@ -79,6 +80,7 @@ export default function Home() {
             </a>
           </div>
         </div>
+        <HeroGridBar />
         <div className="h-px bg-gradient-to-r from-transparent via-neutral-200 dark:via-white/[0.06] to-transparent" />
       </header>
 
