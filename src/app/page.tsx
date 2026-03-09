@@ -1,7 +1,30 @@
+import type { ReactNode } from "react";
 import PageClient from "@/components/PageClient";
 import ThemeToggle from "@/components/ThemeToggle";
 import lucideMeta from "@/data/icons-meta.json";
 import heroiconsMeta from "@/data/heroicons-meta.json";
+
+/* Syntax highlight helpers */
+const Kw = ({ children }: { children: ReactNode }) => <span className="text-purple-600 dark:text-purple-400">{children}</span>;
+const Fn = ({ children }: { children: ReactNode }) => <span className="text-blue-600 dark:text-blue-400">{children}</span>;
+const Str = ({ children }: { children: ReactNode }) => <span className="text-emerald-600 dark:text-emerald-400">{children}</span>;
+const Tag = ({ children }: { children: ReactNode }) => <span className="text-red-500 dark:text-red-400">{children}</span>;
+const Attr = ({ children }: { children: ReactNode }) => <span className="text-amber-600 dark:text-amber-400">{children}</span>;
+const Val = ({ children }: { children: ReactNode }) => <span className="text-blue-600 dark:text-blue-400">{children}</span>;
+const Css = ({ children }: { children: ReactNode }) => <span className="text-cyan-600 dark:text-cyan-400">{children}</span>;
+const Cmt = ({ children }: { children: ReactNode }) => <span className="text-neutral-400 dark:text-white/25 italic">{children}</span>;
+
+function CodeCard({ dot, title, children }: { dot: string; title: string; children: ReactNode }) {
+  return (
+    <div className="rounded-2xl border border-neutral-200 dark:border-white/[0.06] bg-neutral-50 dark:bg-white/[0.02] overflow-hidden">
+      <div className="px-5 py-3 border-b border-neutral-200 dark:border-white/[0.06] flex items-center gap-2">
+        <span className={`h-2.5 w-2.5 rounded-full ${dot}`} />
+        <h3 className="text-xs font-medium text-neutral-600 dark:text-white/60">{title}</h3>
+      </div>
+      <pre className="p-5 text-[13px] text-neutral-700 dark:text-white/60 font-mono overflow-x-auto leading-relaxed">{children}</pre>
+    </div>
+  );
+}
 
 const metaBySet: Record<string, typeof lucideMeta> = {
   lucide: lucideMeta,
@@ -72,67 +95,45 @@ export default function Home() {
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
-            <div className="rounded-2xl border border-neutral-200 dark:border-white/[0.06] bg-neutral-50 dark:bg-white/[0.02] overflow-hidden">
-              <div className="px-5 py-3 border-b border-neutral-200 dark:border-white/[0.06] flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-blue-500/80" />
-                <h3 className="text-xs font-medium text-neutral-600 dark:text-white/60">
-                  Lucide (React)
-                </h3>
-              </div>
-              <pre className="p-5 text-[13px] text-neutral-700 dark:text-white/60 font-mono overflow-x-auto leading-relaxed">
-{`import { Heart, Mail }
-  from 'animated-lucide-react';
-
-function App() {
-  return (
-    <Heart
-      size={24}
-      primaryColor="#ef4444"
-      secondaryColor="#dc2626"
-    />
-  );
-}`}
-              </pre>
-            </div>
-            <div className="rounded-2xl border border-neutral-200 dark:border-white/[0.06] bg-neutral-50 dark:bg-white/[0.02] overflow-hidden">
-              <div className="px-5 py-3 border-b border-neutral-200 dark:border-white/[0.06] flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-indigo-500/80" />
-                <h3 className="text-xs font-medium text-neutral-600 dark:text-white/60">
-                  Heroicons (React)
-                </h3>
-              </div>
-              <pre className="p-5 text-[13px] text-neutral-700 dark:text-white/60 font-mono overflow-x-auto leading-relaxed">
-{`import { Heart, Envelope }
-  from 'animated-heroicons-react';
-
-function App() {
-  return (
-    <Heart
-      size={24}
-      primaryColor="#ef4444"
-      secondaryColor="#dc2626"
-    />
-  );
-}`}
-              </pre>
-            </div>
+            <CodeCard dot="bg-blue-500/80" title="Lucide (React)">
+              <Kw>import</Kw> {"{ "}<Fn>Heart</Fn>, <Fn>Mail</Fn>{" }"}{"\n"}
+              {"  "}<Kw>from</Kw> <Str>&apos;animated-lucide-react&apos;</Str>;{"\n"}
+              {"\n"}
+              <Kw>function</Kw> <Fn>App</Fn>() {"{"}{"\n"}
+              {"  "}<Kw>return</Kw> ({"\n"}
+              {"    "}<Tag>&lt;Heart</Tag>{"\n"}
+              {"      "}<Attr>size</Attr>=<Val>{"{"}24{"}"}</Val>{"\n"}
+              {"      "}<Attr>primaryColor</Attr>=<Str>&quot;#ef4444&quot;</Str>{"\n"}
+              {"      "}<Attr>secondaryColor</Attr>=<Str>&quot;#dc2626&quot;</Str>{"\n"}
+              {"    "}<Tag>/&gt;</Tag>{"\n"}
+              {"  );"}{"\n"}
+              {"}"}
+            </CodeCard>
+            <CodeCard dot="bg-indigo-500/80" title="Heroicons (React)">
+              <Kw>import</Kw> {"{ "}<Fn>Heart</Fn>, <Fn>Envelope</Fn>{" }"}{"\n"}
+              {"  "}<Kw>from</Kw> <Str>&apos;animated-heroicons-react&apos;</Str>;{"\n"}
+              {"\n"}
+              <Kw>function</Kw> <Fn>App</Fn>() {"{"}{"\n"}
+              {"  "}<Kw>return</Kw> ({"\n"}
+              {"    "}<Tag>&lt;Heart</Tag>{"\n"}
+              {"      "}<Attr>size</Attr>=<Val>{"{"}24{"}"}</Val>{"\n"}
+              {"      "}<Attr>primaryColor</Attr>=<Str>&quot;#ef4444&quot;</Str>{"\n"}
+              {"      "}<Attr>secondaryColor</Attr>=<Str>&quot;#dc2626&quot;</Str>{"\n"}
+              {"    "}<Tag>/&gt;</Tag>{"\n"}
+              {"  );"}{"\n"}
+              {"}"}
+            </CodeCard>
           </div>
-          <div className="mt-5 rounded-2xl border border-neutral-200 dark:border-white/[0.06] bg-neutral-50 dark:bg-white/[0.02] overflow-hidden">
-            <div className="px-5 py-3 border-b border-neutral-200 dark:border-white/[0.06] flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-teal-500/80" />
-              <h3 className="text-xs font-medium text-neutral-600 dark:text-white/60">
-                Standalone SVG
-              </h3>
-            </div>
-            <pre className="p-5 text-[13px] text-neutral-700 dark:text-white/60 font-mono overflow-x-auto leading-relaxed">
-{`<div class="al-icon-wrapper"
-  style="
-    --animated-lucide-primary: #0d9488;
-    --animated-lucide-secondary: #0f766e;
-  ">
-  <!-- paste SVG from dist/svg/ -->
-</div>`}
-            </pre>
+          <div className="mt-5">
+            <CodeCard dot="bg-teal-500/80" title="Standalone SVG">
+              <Tag>&lt;div</Tag> <Attr>class</Attr>=<Str>&quot;al-icon-wrapper&quot;</Str>{"\n"}
+              {"  "}<Attr>style</Attr>=<Str>&quot;</Str>{"\n"}
+              {"    "}<Css>--animated-lucide-primary</Css>: <Str>#0d9488</Str>;{"\n"}
+              {"    "}<Css>--animated-lucide-secondary</Css>: <Str>#0f766e</Str>;{"\n"}
+              {"  "}<Str>&quot;</Str><Tag>&gt;</Tag>{"\n"}
+              {"  "}<Cmt>&lt;!-- paste SVG from dist/svg/ --&gt;</Cmt>{"\n"}
+              <Tag>&lt;/div&gt;</Tag>
+            </CodeCard>
           </div>
         </div>
       </section>
