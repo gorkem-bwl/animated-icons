@@ -8,9 +8,9 @@ Beautifully animated, two-tone icon libraries with CSS-only hover animations. Cu
 
 ## How this started
 
-I needed animated icons for [VerifyWise](https://verifywise.ai), an AI governance platform I'm working on. Looked around, couldn't find what I wanted. Everything was either bloated with JS animation libraries, only had a dozen icons, or came with per-icon licensing. All I needed was simple CSS hover animations that work anywhere.
+Last week (March 7-8) over the weekend I needed animated icons for [VerifyWise](https://verifywise.ai), an AI governance platform I'm working on. Looked around but couldn't find what I wanted. Everything was either bloated with JS animation libraries, only had a few dozens of icons (one had 340+ tbh) or came with per-icon licensing. I just needed was simple CSS hover animations that would work anywhere.
 
-So I built it. I used [Claude Code](https://claude.ai) to write a build system that takes Lucide's SVGs, breaks them into individual elements, figures out what each shape is, and assigns the right animation. Bells ring, hearts beat, gears rotate. The first 1,933 icons were working within hours. Added Iconoir, then Heroicons. Then Vue, Svelte, and Web Components output. Then the gallery site. 3,640 animated icons, done over a weekend.
+So I used Claude Code to write a build system that takes Lucide's SVGs, breaks them into individual elements, figures out what each shape is, and assigns the right animation. I first built the first 1,933 icons and then added Iconoir and Heroicons. 3,640 animated icons were done over a weekend.
 
 ## Features
 
