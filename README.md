@@ -318,6 +318,42 @@ The shared animation engine reads source SVG icons and:
 
 Animations use CSS transitions and keyframes, triggered by `:hover` on the icon or a parent wrapper class. No JavaScript animation library required.
 
+## Contributing icons
+
+We welcome contributions! There are two ways to add more animated icons:
+
+### Add icons to an existing set
+
+If new icons are added to Lucide, Heroicons, or Iconoir, update the corresponding categories JSON file with the new icon-to-category mappings:
+
+- **Lucide:** `src/data/categories.json`
+- **Heroicons:** `icons/heroicons/categories.json`
+- **Iconoir:** `icons/iconoir/categories.json`
+
+Each entry maps an icon name to a category (e.g., `"heart": "status"`, `"arrow-right": "arrows"`). The category determines which animation the icon receives. See the [Animation types](#animation-types) table for available categories and their effects.
+
+Then rebuild:
+
+```bash
+node scripts/build.mjs           # Lucide
+node scripts/build-heroicons.mjs  # Heroicons
+node scripts/build-iconoir.mjs    # Iconoir
+node scripts/prepare-gallery.mjs  # Regenerate gallery data
+```
+
+### Add an entirely new icon set
+
+The animation engine is designed to be icon-set-agnostic. Adding a new set requires no changes to gallery components or animation logic — just config and category mapping:
+
+1. Add an entry to `scripts/icon-set-configs.mjs` with paths, prefixes, and CSS variable names
+2. Create a `categories.json` file mapping each icon name to an animation category
+3. Create a thin build script (2 lines: import engine + config, call `buildIconSet`)
+4. Add a `build:<name>` script to `package.json`
+5. Import the generated metadata in `src/app/page.tsx`
+6. Run `prepare-gallery.mjs` to regenerate gallery config
+
+The best icon sets for animation are those with multi-element SVGs (multiple paths, circles, rects) rather than single-path icons. Lucide (94% multi-element) and Iconoir (90%) animate particularly well.
+
 ## License
 
 ISC
