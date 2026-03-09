@@ -98,7 +98,9 @@ export default function IconCard({
         <div
           ref={popoverRef}
           className="absolute z-50 top-full left-1/2 -translate-x-1/2 mt-2 w-64 rounded-xl border border-neutral-200 dark:border-white/[0.08] bg-white dark:bg-[#141415] shadow-lg dark:shadow-black/40 overflow-hidden"
+          style={{ animation: "popIn 150ms ease-out" }}
         >
+          <style>{`@keyframes popIn { from { opacity: 0; transform: translateY(4px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }`}</style>
 
           {/* Icon preview — SVG from our own build output, trusted */}
           <div className={`${wrapperClass} flex items-center gap-3 px-4 pt-4 pb-3`}>
