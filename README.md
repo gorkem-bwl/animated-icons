@@ -1,6 +1,6 @@
-# Animated Lucide Icons
+# Animated Icons
 
-Beautifully animated, two-tone [Lucide](https://lucide.dev) icons with CSS-only hover animations. Drop-in replacement for `lucide-react` with zero JavaScript animation dependencies.
+Beautifully animated, two-tone icon libraries with CSS-only hover animations. Currently supports [Lucide](https://lucide.dev) (1,951 icons) and [Heroicons](https://heroicons.com) (324 icons). Zero JavaScript animation dependencies.
 
 **[Live preview](https://animated-icons.vercel.app)**
 
@@ -8,17 +8,23 @@ Beautifully animated, two-tone [Lucide](https://lucide.dev) icons with CSS-only 
 
 - CSS transition-based animations triggered on hover (no Framer Motion, no JS)
 - Two-tone color support via CSS custom properties
-- All 1,951 Lucide icons across 14 categories
+- 2,275 animated icons across two icon sets
 - Multiple output formats: React components, standalone SVGs
 - Accessible: `role="img"`, `aria-label`, and `<title>` on every icon
 - Semantic animations per category (bells ring, hearts beat, gears rotate, shields fill)
-- Fully visible default state: animations only add effects on hover, never hide parts of the icon
+- Fully visible default state: animations only add effects on hover
+- Shared animation engine: adding new icon sets requires only config + category mapping
+
+## Supported icon sets
+
+| Icon set | Icons | Package | Wrapper class |
+| -------- | ----- | ------- | ------------- |
+| Lucide | 1,951 | `animated-lucide-react` | `al-icon-wrapper` |
+| Heroicons | 324 | `animated-heroicons-react` | `ah-icon-wrapper` |
 
 ## Quick start
 
-### React
-
-Copy the components from `dist/react/` into your project:
+### React (Lucide)
 
 ```jsx
 import { Heart, Bell, Settings } from './animated-lucide-react';
@@ -32,19 +38,25 @@ function App() {
 }
 ```
 
-Wrap the icon (or its parent) with the `al-icon-wrapper` class to trigger animations on hover.
+### React (Heroicons)
+
+```jsx
+import { Heart, Envelope } from './animated-heroicons-react';
+
+function App() {
+  return (
+    <div className="ah-icon-wrapper">
+      <Heart size={24} primaryColor="#ef4444" secondaryColor="#dc2626" />
+    </div>
+  );
+}
+```
+
+Wrap the icon (or its parent) with the wrapper class to trigger animations on hover.
 
 ### SVG
 
-Copy the SVGs from `dist/svg/` and use them directly in HTML:
-
-```html
-<div class="al-icon-wrapper">
-  <img src="heart.svg" alt="Heart" />
-</div>
-```
-
-Or inline them:
+Copy SVGs from `dist/svg/` (Lucide) or `dist/heroicons/svg/` (Heroicons) and use them directly:
 
 ```html
 <div class="al-icon-wrapper">
@@ -56,12 +68,19 @@ Each SVG includes its own `<style>` block with all animation CSS, so no external
 
 ## Customizing colors
 
-Colors are controlled via CSS custom properties. Set them on a parent element:
+Colors are controlled via CSS custom properties:
 
 ```css
+/* Lucide */
 .my-icons {
   --animated-lucide-primary: #0d9488;
   --animated-lucide-secondary: #0f766e;
+}
+
+/* Heroicons */
+.my-icons {
+  --animated-heroicon-primary: #3b82f6;
+  --animated-heroicon-secondary: #2563eb;
 }
 ```
 
@@ -82,16 +101,19 @@ Or pass them directly to React components:
 | Violet | `#8b5cf6` | `#7c3aed` |
 | Pink   | `#ec4899` | `#db2777` |
 
-For best results, pick two shades of the same hue that are close together.
-
 ## Hover trigger
 
-Animations trigger on two selectors:
+Animations trigger on two selectors per icon set:
 
-1. `.animated-lucide-icon:hover` (hovering the SVG itself)
-2. `.al-icon-wrapper:hover` (hovering a parent wrapper)
+**Lucide:**
+1. `.animated-lucide-icon:hover`
+2. `.al-icon-wrapper:hover`
 
-This means you can wrap icons in buttons, cards, or nav items and the animation triggers when hovering the container:
+**Heroicons:**
+1. `.animated-heroicon:hover`
+2. `.ah-icon-wrapper:hover`
+
+Wrap icons in buttons, cards, or nav items and the animation triggers when hovering the container:
 
 ```html
 <button class="al-icon-wrapper">
@@ -107,19 +129,19 @@ This means you can wrap icons in buttons, cards, or nav items and the animation 
 | `fade`       | Pop-in with subtle scale              | Details, secondary elements          |
 | `scale-pop`  | Bounce scale                          | Check, x, plus, eye pupil            |
 | `spin`       | Full 360 rotation                     | Redo, refresh, loader                |
-| `gear`       | Partial rotation                      | Settings                             |
-| `nudge`      | Translate in a direction              | Arrows, chevrons                     |
-| `shake`      | Horizontal wobble                     | Send, shopping cart                  |
+| `gear`       | Partial rotation                      | Settings, cog, sun, moon             |
+| `nudge`      | Translate in a direction              | Arrows, chevrons, truck              |
+| `shake`      | Horizontal wobble                     | Send, cart, bars, menu, flag         |
 | `bell-ring`  | Pendulum swing from top               | Bell                                 |
 | `heart-beat` | Double-pulse scale                    | Heart                                |
-| `mail-flap`  | Envelope opens and closes             | Mail                                 |
-| `rocket-lift`| Diagonal translate up-right           | Rocket, navigation, send             |
-| `bar`        | Grow from bottom with bounce          | Bar chart                            |
+| `mail-flap`  | Envelope opens and closes             | Mail, envelope                       |
+| `rocket-lift`| Diagonal translate up-right           | Rocket, navigation                   |
+| `bar`        | Grow from bottom with bounce          | Bar chart, chart-bar                 |
 | `handle-lift`| Lift upward                           | Trash lid                            |
 | `page-turn`  | Rotate on Y axis                      | Book pages                           |
-| `menu-line`  | Staggered scaleX                      | Hamburger menu                       |
-| `pulse`      | Opacity pulse                         | Alert indicators                     |
-| `dot-appear` | Pop scale on small elements           | Map pin dot, question mark dot       |
+| `menu-line`  | Staggered scaleX                      | Hamburger menu (multi-element)       |
+| `pulse`      | Opacity pulse                         | Alert indicators, signal, wifi       |
+| `dot-appear` | Pop scale on small elements           | Map pin dot                          |
 
 ## React component props
 
@@ -129,7 +151,7 @@ This means you can wrap icons in buttons, cards, or nav items and the animation 
 | `color`          | `string` | `'currentColor'` | Stroke color                    |
 | `primaryColor`   | `string` | -                | Primary tone color              |
 | `secondaryColor` | `string` | -                | Secondary tone color            |
-| `strokeWidth`    | `number` | `2`              | SVG stroke width                |
+| `strokeWidth`    | `number` | `2` / `1.5`      | SVG stroke width (set-specific) |
 | `className`      | `string` | `''`             | Additional CSS classes           |
 | `label`          | `string` | icon name        | Accessible label                |
 
@@ -137,7 +159,7 @@ All components forward refs and spread additional props onto the SVG element.
 
 ## Available icons
 
-All 1,951 Lucide icons are supported. Browse them at [animated-icons.vercel.app](https://animated-icons.vercel.app).
+Browse all 2,275 icons at [animated-icons.vercel.app](https://animated-icons.vercel.app).
 
 ## Building from source
 
@@ -145,45 +167,73 @@ All 1,951 Lucide icons are supported. Browse them at [animated-icons.vercel.app]
 # Install dependencies
 npm install
 
-# Build animated icons
+# Build Lucide icons
 node scripts/build.mjs
 
-# Prepare gallery data
+# Build Heroicons
+node scripts/build-heroicons.mjs
+
+# Prepare gallery data (chunks + config)
 node scripts/prepare-gallery.mjs
 
 # Run the gallery locally
-cd gallery && npm install && npx next dev
+npm run dev
 ```
 
 ## Project structure
 
 ```
-animated-lucide/
+animated-icons/
   scripts/
-    build.mjs              # Animation engine and icon generator
-    prepare-gallery.mjs    # Embeds SVG content into gallery data
-  src/data/
-    categories.json        # Icon categorization and animation mapping
+    animation-engine.mjs     # Shared animation engine (strategies, CSS, SVG/React generation)
+    icon-set-configs.mjs     # Central config for all icon sets
+    build.mjs                # Lucide build (thin wrapper)
+    build-heroicons.mjs      # Heroicons build (thin wrapper)
+    prepare-gallery.mjs      # Gallery data preparation (chunks + TS config generation)
+  icons/
+    heroicons/
+      categories.json        # Heroicons category mapping
+  src/
+    data/
+      categories.json        # Lucide category mapping
+      icon-set-config.ts     # Auto-generated gallery config (from prepare-gallery)
+    components/              # Next.js gallery components
   dist/
-    svg/                   # Standalone animated SVG files
-    react/                 # React components (JSX)
-  gallery/                 # Next.js preview website
+    svg/                     # Animated Lucide SVGs
+    react/                   # Animated Lucide React components
+    css/                     # Shared Lucide CSS
+    heroicons/
+      svg/                   # Animated Heroicons SVGs
+      react/                 # Animated Heroicons React components
+      css/                   # Shared Heroicons CSS
 ```
+
+## Adding a new icon set
+
+1. Add an entry to `scripts/icon-set-configs.mjs` with paths, prefixes, and CSS variable names
+2. Create a categories JSON file mapping icons to animation categories
+3. Create a thin build script (2 lines: import engine + config, call `buildIconSet`)
+4. Add a `build:<name>` script to `package.json`
+5. Import the generated metadata in `src/app/page.tsx`
+6. Run `prepare-gallery.mjs` to regenerate gallery config
+
+No changes to gallery components are needed.
 
 ## How it works
 
-The build script reads Lucide's original SVG icons and:
+The shared animation engine reads source SVG icons and:
 
 1. Parses individual SVG elements (paths, circles, rects, lines)
 2. Classifies each element by its role (container, detail, dot)
 3. Assigns animation classes based on the icon's category
-4. Applies staggered delays (80ms increments) for sequential reveals
-5. Outputs SVGs with embedded `<style>` blocks and React components
+4. Handles single-path icons with category-appropriate whole-icon animations
+5. Applies staggered delays (80ms increments) for sequential reveals
+6. Outputs SVGs with embedded `<style>` blocks and React components
 
-Animations use CSS transitions and keyframes, triggered by `:hover` on the icon or a parent `.al-icon-wrapper`. No JavaScript animation library required.
+Animations use CSS transitions and keyframes, triggered by `:hover` on the icon or a parent wrapper class. No JavaScript animation library required.
 
 ## License
 
 ISC
 
-Icons based on [Lucide](https://lucide.dev) (ISC License).
+Icons based on [Lucide](https://lucide.dev) (ISC License) and [Heroicons](https://heroicons.com) (MIT License).
