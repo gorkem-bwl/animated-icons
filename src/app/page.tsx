@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import PageClient from "@/components/PageClient";
 import ThemeToggle from "@/components/ThemeToggle";
 import HeroGridBar from "@/components/HeroGridBar";
+import ShareButton from "@/components/ShareButton";
 import lucideMeta from "@/data/icons-meta.json";
 import heroiconsMeta from "@/data/heroicons-meta.json";
 import iconoirMeta from "@/data/iconoir-meta.json";
@@ -43,14 +44,7 @@ export default function Home() {
       <header className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-teal-500/[0.06] dark:from-teal-500/[0.04] via-transparent to-transparent" />
         <div className="absolute top-4 right-6 z-10 flex items-center gap-2">
-          <a
-            href="https://x.com/intent/tweet?text=Check%20out%20these%20beautifully%20animated%20icons%20%E2%80%94%20CSS-only%20hover%20animations%20for%20Lucide%2C%20Iconoir%2C%20and%20Heroicons%20%F0%9F%94%A5&url=https%3A%2F%2Fanimated-icons.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-neutral-200 dark:border-white/[0.08] bg-neutral-50 dark:bg-white/[0.03] px-3 py-2 text-xs font-medium text-neutral-500 dark:text-white/50 hover:text-neutral-700 dark:hover:text-white/70 transition-colors"
-          >
-            Share with <span className="text-red-500">&#10084;</span> on 𝕏
-          </a>
+          <ShareButton />
           <ThemeToggle />
         </div>
         <div className="relative mx-auto max-w-3xl px-6 pt-20 pb-16 text-center">
