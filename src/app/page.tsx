@@ -3,6 +3,7 @@ import PageClient from "@/components/PageClient";
 import ThemeToggle from "@/components/ThemeToggle";
 import HeroGridBar from "@/components/HeroGridBar";
 import ShareButton from "@/components/ShareButton";
+import GitHubStars from "@/components/GitHubStars";
 import lucideMeta from "@/data/icons-meta.json";
 import heroiconsMeta from "@/data/heroicons-meta.json";
 import iconoirMeta from "@/data/iconoir-meta.json";
@@ -44,6 +45,7 @@ export default function Home() {
       <header className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-teal-500/[0.06] dark:from-teal-500/[0.04] via-transparent to-transparent" />
         <div className="absolute top-4 right-6 z-10 flex items-center gap-2">
+          <GitHubStars />
           <ShareButton />
           <ThemeToggle />
         </div>
