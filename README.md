@@ -121,6 +121,22 @@ Vue components use `<style scoped>` so animation CSS is automatically included p
 
 Web Components use Shadow DOM — each icon encapsulates its own styles. No external CSS needed, works in any framework or vanilla HTML.
 
+### CDN (zero install)
+
+Use icons directly from a CDN — no npm install, no build step:
+
+```html
+<!-- Load the icons you need -->
+<script type="module" src="https://cdn.jsdelivr.net/npm/@animated-color-icons/lucide-wc/Heart.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@animated-color-icons/lucide-wc/Bell.js"></script>
+
+<!-- Use them anywhere -->
+<animated-lucide-heart></animated-lucide-heart>
+<animated-lucide-bell size="32" primary-color="#3b82f6" secondary-color="#2563eb"></animated-lucide-bell>
+```
+
+Replace `lucide-wc` with `heroicons-wc` or `iconoir-wc` for other icon sets. All packages are available on [jsDelivr](https://www.jsdelivr.com/package/npm/@animated-color-icons/lucide-wc) and [unpkg](https://unpkg.com/@animated-color-icons/lucide-wc/).
+
 ### SVG
 
 Copy SVGs from `dist/svg/` (Lucide), `dist/heroicons/svg/` (Heroicons), or `dist/iconoir/svg/` (Iconoir) and use them directly:
