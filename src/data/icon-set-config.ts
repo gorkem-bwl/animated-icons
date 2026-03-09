@@ -18,7 +18,7 @@ export interface IconSetGalleryConfig {
 export const ICON_SET_CONFIG: Record<string, IconSetGalleryConfig> = {
   lucide: {
     label: "Lucide",
-    packageName: "animated-lucide-react",
+    packageName: "@animated-color-icons/lucide-react",
     cssPrefix: "al",
     wrapperClass: "al-icon-wrapper",
     primaryVar: "--animated-lucide-primary",
@@ -47,7 +47,7 @@ export const ICON_SET_CONFIG: Record<string, IconSetGalleryConfig> = {
   },
   iconoir: {
     label: "Iconoir",
-    packageName: "animated-iconoir-react",
+    packageName: "@animated-color-icons/iconoir-react",
     cssPrefix: "ai",
     wrapperClass: "ai-icon-wrapper",
     primaryVar: "--animated-iconoir-primary",
@@ -76,7 +76,7 @@ export const ICON_SET_CONFIG: Record<string, IconSetGalleryConfig> = {
   },
   heroicons: {
     label: "Heroicons",
-    packageName: "animated-heroicons-react",
+    packageName: "@animated-color-icons/heroicons-react",
     cssPrefix: "ah",
     wrapperClass: "ah-icon-wrapper",
     primaryVar: "--animated-heroicon-primary",

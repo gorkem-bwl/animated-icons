@@ -103,7 +103,7 @@ export default function Home() {
           <div className="grid gap-5 md:grid-cols-2">
             <CodeCard dot="bg-blue-500/80" title="React">
               <Kw>import</Kw> {"{ "}<Fn>Heart</Fn>, <Fn>Bell</Fn>{" }"}{"\n"}
-              {"  "}<Kw>from</Kw> <Str>&apos;animated-lucide-react&apos;</Str>;{"\n"}
+              {"  "}<Kw>from</Kw> <Str>&apos;@animated-color-icons/lucide-react&apos;</Str>;{"\n"}
               {"\n"}
               <Kw>function</Kw> <Fn>App</Fn>() {"{"}{"\n"}
               {"  "}<Kw>return</Kw> ({"\n"}
@@ -125,13 +125,13 @@ export default function Home() {
               <Tag>&lt;/template&gt;</Tag>{"\n"}
               {"\n"}
               <Tag>&lt;script setup&gt;</Tag>{"\n"}
-              <Kw>import</Kw> {"{ "}<Fn>Heart</Fn>{" }"} <Kw>from</Kw> <Str>&apos;animated-lucide-vue&apos;</Str>;{"\n"}
+              <Kw>import</Kw> {"{ "}<Fn>Heart</Fn>{" }"} <Kw>from</Kw> <Str>&apos;@animated-color-icons/lucide-vue&apos;</Str>;{"\n"}
               <Tag>&lt;/script&gt;</Tag>
             </CodeCard>
             <CodeCard dot="bg-orange-500/80" title="Svelte">
               <Tag>&lt;script&gt;</Tag>{"\n"}
               {"  "}<Kw>import</Kw> <Fn>Heart</Fn> <Kw>from</Kw>{"\n"}
-              {"    "}<Str>&apos;animated-lucide-svelte/Heart.svelte&apos;</Str>;{"\n"}
+              {"    "}<Str>&apos;@animated-color-icons/lucide-svelte/Heart.svelte&apos;</Str>;{"\n"}
               <Tag>&lt;/script&gt;</Tag>{"\n"}
               {"\n"}
               <Tag>&lt;Heart</Tag>{"\n"}
@@ -142,7 +142,7 @@ export default function Home() {
             </CodeCard>
             <CodeCard dot="bg-purple-500/80" title="Web Components">
               <Tag>&lt;script</Tag> <Attr>type</Attr>=<Str>&quot;module&quot;</Str><Tag>&gt;</Tag>{"\n"}
-              {"  "}<Kw>import</Kw> <Str>&apos;animated-lucide-wc/Heart.js&apos;</Str>;{"\n"}
+              {"  "}<Kw>import</Kw> <Str>&apos;@animated-color-icons/lucide-wc/Heart.js&apos;</Str>;{"\n"}
               <Tag>&lt;/script&gt;</Tag>{"\n"}
               {"\n"}
               <Tag>&lt;animated-lucide-heart</Tag>{"\n"}

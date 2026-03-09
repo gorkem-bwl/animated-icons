@@ -25,57 +25,49 @@ Beautifully animated, two-tone icon libraries with CSS-only hover animations. Cu
 | Iconoir | 1,383 | `ai-icon-wrapper` |
 | Heroicons | 324 | `ah-icon-wrapper` |
 
+### npm packages
+
+All packages are published under the `@animated-color-icons` scope:
+
+| Icon set | React | Vue | Svelte | Web Components |
+| -------- | ----- | --- | ------ | -------------- |
+| Lucide | `@animated-color-icons/lucide-react` | `@animated-color-icons/lucide-vue` | `@animated-color-icons/lucide-svelte` | `@animated-color-icons/lucide-wc` |
+| Heroicons | `@animated-color-icons/heroicons-react` | `@animated-color-icons/heroicons-vue` | `@animated-color-icons/heroicons-svelte` | `@animated-color-icons/heroicons-wc` |
+| Iconoir | `@animated-color-icons/iconoir-react` | `@animated-color-icons/iconoir-vue` | `@animated-color-icons/iconoir-svelte` | `@animated-color-icons/iconoir-wc` |
+
 ### Output formats
 
-Each icon set is available in 5 formats:
-
-| Format | Directory | Usage |
-| ------ | --------- | ----- |
-| **React** | `dist/react/` | `import { Heart } from './dist/react'` |
-| **Vue** | `dist/vue/` | `import { Heart } from './dist/vue'` |
-| **Svelte** | `dist/svelte/` | `import Heart from './dist/svelte/Heart.svelte'` |
-| **Web Components** | `dist/web-components/` | `<animated-lucide-heart>` |
-| **SVG** | `dist/svg/` | Copy and paste, includes embedded CSS |
+Each icon set is also available in standalone SVG format with embedded CSS in `dist/svg/`.
 
 ## Quick start
 
-### React (Lucide)
+### Installation
+
+```bash
+# React
+npm install @animated-color-icons/lucide-react
+
+# Vue
+npm install @animated-color-icons/lucide-vue
+
+# Svelte
+npm install @animated-color-icons/lucide-svelte
+
+# Web Components
+npm install @animated-color-icons/lucide-wc
+```
+
+Replace `lucide` with `heroicons` or `iconoir` for other icon sets.
+
+### React
 
 ```jsx
-import { Heart, Bell, Settings } from './animated-lucide-react';
+import { Heart, Bell, Settings } from '@animated-color-icons/lucide-react';
 
 function App() {
   return (
     <div className="al-icon-wrapper">
       <Heart size={24} primaryColor="#0d9488" secondaryColor="#0f766e" />
-    </div>
-  );
-}
-```
-
-### React (Heroicons)
-
-```jsx
-import { Heart, Envelope } from './animated-heroicons-react';
-
-function App() {
-  return (
-    <div className="ah-icon-wrapper">
-      <Heart size={24} primaryColor="#ef4444" secondaryColor="#dc2626" />
-    </div>
-  );
-}
-```
-
-### React (Iconoir)
-
-```jsx
-import { Heart, Mail } from './animated-iconoir-react';
-
-function App() {
-  return (
-    <div className="ai-icon-wrapper">
-      <Heart size={24} primaryColor="#ef4444" secondaryColor="#dc2626" />
     </div>
   );
 }
@@ -93,7 +85,7 @@ Wrap the icon (or its parent) with the wrapper class to trigger animations on ho
 </template>
 
 <script setup>
-import { Heart, Bell, Settings } from './animated-lucide-vue';
+import { Heart, Bell, Settings } from '@animated-color-icons/lucide-vue';
 </script>
 ```
 
@@ -103,7 +95,7 @@ Vue components use `<style scoped>` so animation CSS is automatically included p
 
 ```svelte
 <script>
-  import Heart from './animated-lucide-svelte/Heart.svelte';
+  import Heart from '@animated-color-icons/lucide-svelte/Heart.svelte';
 </script>
 
 <div class="al-icon-wrapper">
@@ -115,13 +107,12 @@ Vue components use `<style scoped>` so animation CSS is automatically included p
 
 ```html
 <script type="module">
-  import './animated-lucide-wc/Heart.js';
+  import '@animated-color-icons/lucide-wc/Heart.js';
 </script>
 
 <div class="al-icon-wrapper">
   <animated-lucide-heart
     size="24"
-    color="#0d9488"
     primary-color="#0d9488"
     secondary-color="#0f766e">
   </animated-lucide-heart>

@@ -52,7 +52,7 @@ export const iconSetConfigs = {
     publicData: path.join(ROOT, 'public/data/lucide'),
 
     // Gallery config
-    packageName: 'animated-lucide-react',
+    packageName: '@animated-color-icons/lucide-react',
     chunkPath: '/data/lucide',
     chunkSize: 200,
 
@@ -108,7 +108,7 @@ export const iconSetConfigs = {
     galleryMetaFile: 'iconoir-meta.json',
     publicData: path.join(ROOT, 'public/data/iconoir'),
 
-    packageName: 'animated-iconoir-react',
+    packageName: '@animated-color-icons/iconoir-react',
     chunkPath: '/data/iconoir',
     chunkSize: 200,
 
@@ -162,7 +162,7 @@ export const iconSetConfigs = {
     galleryMetaFile: 'heroicons-meta.json',
     publicData: path.join(ROOT, 'public/data/heroicons'),
 
-    packageName: 'animated-heroicons-react',
+    packageName: '@animated-color-icons/heroicons-react',
     chunkPath: '/data/heroicons',
     chunkSize: 100,
 
