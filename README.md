@@ -1,5 +1,7 @@
 # Animated Icons
 
+![Animated Icons - Lucide, Iconoir, and Heroicons with CSS-only hover animations](assets/hero.gif)
+
 Beautifully animated, two-tone icon libraries with CSS-only hover animations. Currently supports [Lucide](https://lucide.dev) (1,933 icons), [Heroicons](https://heroicons.com) (324 icons), and [Iconoir](https://iconoir.com) (1,383 icons). Zero JavaScript animation dependencies.
 
 **[Live preview](https://animated-icons.vercel.app)**
