@@ -973,6 +973,94 @@ export default ${componentName};
 `;
 }
 
+// ─── Generate Vue Component ─────────────────────────────────────────
+
+export function generateVueComponent(iconName, svgContent, animationType, config) {
+  const elements = parseSvgElements(svgContent);
+  const strategy = animationStrategies[animationType] || animationStrategies.toggle;
+  const animatedElements = strategy(elements, iconName);
+  const componentName = toPascalCase(iconName);
+  const label = toLabel(iconName);
+  const p = config.cssPrefix;
+
+  let elementsTemplate = '';
+  animatedElements.forEach((el) => {
+    const colorClass = el.colorGroup === 'primary' ? `${p}-primary` : `${p}-secondary`;
+    const delayClass = `${p}-delay-${Math.min(el.delay || 0, 7)}`;
+    const animClass = `${p}-anim-${el.anim}`;
+
+    let attrs = '';
+    for (const [key, val] of Object.entries(el.attrs)) {
+      attrs += ` ${key}="${val}"`;
+    }
+
+    let extraAttrs = '';
+    if (el.anim === 'draw' || el.anim === 'draw-line') {
+      const len = Math.ceil(estimatePathLength(el));
+      extraAttrs += ` stroke-dasharray="${len}"`;
+      if (!el.customProps) el.customProps = {};
+      el.customProps.dashLen = len;
+    }
+
+    let styleAttr = '';
+    if (el.customProps) {
+      const parts = [];
+      if (el.customProps.rotation !== undefined) parts.push(`--${p}-rotation: ${el.customProps.rotation}deg`);
+      if (el.customProps.tx !== undefined) parts.push(`--${p}-tx: ${el.customProps.tx}px`);
+      if (el.customProps.ty !== undefined) parts.push(`--${p}-ty: ${el.customProps.ty}px`);
+      if (el.customProps.scaleX !== undefined) parts.push(`--${p}-scale-x: ${el.customProps.scaleX}`);
+      if (el.customProps.dashLen !== undefined) parts.push(`--${p}-dash-len: ${el.customProps.dashLen}`);
+      if (parts.length) styleAttr = ` style="${parts.join('; ')}"`;
+    }
+
+    elementsTemplate += `      <${el.tag}${attrs}${extraAttrs} class="${colorClass} ${animClass} ${delayClass}"${styleAttr} />\n`;
+  });
+
+  return `<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    :width="size"
+    :height="size"
+    viewBox="0 0 24 24"
+    fill="${config.defaultFill}"
+    :stroke="color"
+    :stroke-width="strokeWidth"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    :class="['${config.svgClassName}', '${config.svgClassName}-${iconName}', className]"
+    :style="cssVars"
+    role="img"
+    :aria-label="label"
+  >
+    <title>{{ label }}</title>
+${elementsTemplate}  </svg>
+</template>
+
+<script setup>
+import { computed } from 'vue';
+
+const props = defineProps({
+  size: { type: Number, default: 24 },
+  color: { type: String, default: 'currentColor' },
+  primaryColor: { type: String, default: '' },
+  secondaryColor: { type: String, default: '' },
+  strokeWidth: { type: Number, default: ${config.defaultStrokeWidthNum} },
+  className: { type: String, default: '' },
+  label: { type: String, default: '${label}' },
+});
+
+const cssVars = computed(() => ({
+  '${config.shortPrimaryVar}': props.primaryColor || props.color,
+  '${config.shortSecondaryVar}': props.secondaryColor || props.color,
+}));
+</script>
+
+<style scoped>
+${generateAnimationCSS(config)}
+</style>
+`;
+}
+
 // ─── Main Build Orchestrator ─────────────────────────────────────────
 
 export function buildIconSet(config) {
@@ -986,11 +1074,13 @@ export function buildIconSet(config) {
   const categories = JSON.parse(fs.readFileSync(config.categoriesFile, 'utf-8'));
 
   const dirs = [config.outSvg, config.outReact, config.outCss, config.galleryData];
+  if (config.outVue) dirs.push(config.outVue);
   if (config.copySourceTo) dirs.push(config.copySourceTo);
   dirs.forEach(dir => fs.mkdirSync(dir, { recursive: true }));
 
   const galleryIcons = [];
   const indexExports = [];
+  const vueExports = [];
   let processed = 0;
 
   const allIconFiles = fs.readdirSync(config.sourceDir).filter(f => f.endsWith('.svg')).sort();
@@ -1037,6 +1127,12 @@ export function buildIconSet(config) {
     fs.writeFileSync(path.join(config.outReact, `${componentName}.jsx`), reactComponent);
     indexExports.push(`export { default as ${componentName} } from './${componentName}';`);
 
+    if (config.outVue) {
+      const vueComponent = generateVueComponent(iconName, svgContent, animation, config);
+      fs.writeFileSync(path.join(config.outVue, `${componentName}.vue`), vueComponent);
+      vueExports.push(`export { default as ${componentName} } from './${componentName}.vue';`);
+    }
+
     galleryIcons.push({
       name: iconName,
       componentName,
@@ -1054,6 +1150,12 @@ export function buildIconSet(config) {
   indexExports.push('');
   indexExports.push(`export const iconNames = ${JSON.stringify(allIconNames)};`);
   fs.writeFileSync(path.join(config.outReact, 'index.js'), indexExports.join('\n') + '\n');
+
+  if (config.outVue) {
+    vueExports.push('');
+    vueExports.push(`export const iconNames = ${JSON.stringify(allIconNames)};`);
+    fs.writeFileSync(path.join(config.outVue, 'index.js'), vueExports.join('\n') + '\n');
+  }
 
   fs.writeFileSync(
     path.join(config.galleryData, config.galleryIconsFile),

@@ -11,7 +11,7 @@ Beautifully animated, two-tone icon libraries with CSS-only hover animations. Cu
 - CSS transition-based animations triggered on hover (no Framer Motion, no JS)
 - Two-tone color support via CSS custom properties
 - 3,640 animated icons across three icon sets
-- Multiple output formats: React components, standalone SVGs
+- Multiple output formats: React components, Vue components, standalone SVGs
 - Accessible: `role="img"`, `aria-label`, and `<title>` on every icon
 - Semantic animations per category (bells ring, hearts beat, gears rotate, shields fill)
 - Fully visible default state: animations only add effects on hover
@@ -19,11 +19,11 @@ Beautifully animated, two-tone icon libraries with CSS-only hover animations. Cu
 
 ## Supported icon sets
 
-| Icon set | Icons | Package | Wrapper class |
-| -------- | ----- | ------- | ------------- |
-| Lucide | 1,933 | `animated-lucide-react` | `al-icon-wrapper` |
-| Heroicons | 324 | `animated-heroicons-react` | `ah-icon-wrapper` |
-| Iconoir | 1,383 | `animated-iconoir-react` | `ai-icon-wrapper` |
+| Icon set | Icons | React | Vue | Wrapper class |
+| -------- | ----- | ----- | --- | ------------- |
+| Lucide | 1,933 | `animated-lucide-react` | `animated-lucide-vue` | `al-icon-wrapper` |
+| Heroicons | 324 | `animated-heroicons-react` | `animated-heroicons-vue` | `ah-icon-wrapper` |
+| Iconoir | 1,383 | `animated-iconoir-react` | `animated-iconoir-vue` | `ai-icon-wrapper` |
 
 ## Quick start
 
@@ -70,6 +70,22 @@ function App() {
 ```
 
 Wrap the icon (or its parent) with the wrapper class to trigger animations on hover.
+
+### Vue
+
+```vue
+<template>
+  <div class="al-icon-wrapper">
+    <Heart :size="24" primary-color="#0d9488" secondary-color="#0f766e" />
+  </div>
+</template>
+
+<script setup>
+import { Heart, Bell, Settings } from './animated-lucide-vue';
+</script>
+```
+
+Vue components use `<style scoped>` so animation CSS is automatically included per-component.
 
 ### SVG
 
@@ -234,14 +250,17 @@ animated-icons/
   dist/
     svg/                     # Animated Lucide SVGs
     react/                   # Animated Lucide React components
+    vue/                     # Animated Lucide Vue components
     css/                     # Shared Lucide CSS
     heroicons/
       svg/                   # Animated Heroicons SVGs
       react/                 # Animated Heroicons React components
+      vue/                   # Animated Heroicons Vue components
       css/                   # Shared Heroicons CSS
     iconoir/
       svg/                   # Animated Iconoir SVGs
       react/                 # Animated Iconoir React components
+      vue/                   # Animated Iconoir Vue components
       css/                   # Shared Iconoir CSS
 ```
 
