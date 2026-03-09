@@ -106,14 +106,14 @@ const cssText = `
   @keyframes al-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 `;
 
-const Grid2x2Check = forwardRef(({
+const Grid2X2Check = forwardRef(({
   size = 24,
   color = 'currentColor',
   primaryColor,
   secondaryColor,
   strokeWidth = 2,
   className = '',
-  label = 'grid 2x2 check',
+  label = 'grid 2 x 2 check',
   style = {},
   ...props
 }, ref) => {
@@ -137,7 +137,7 @@ const Grid2x2Check = forwardRef(({
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`animated-lucide-icon animated-lucide-icon-grid-2x2-check ${className}`}
+        className={`animated-lucide-icon animated-lucide-icon-grid-2-x-2-check ${className}`}
         style={cssVars}
         role="img"
         aria-label={label}
@@ -151,7 +151,7 @@ const Grid2x2Check = forwardRef(({
   );
 });
 
-Grid2x2Check.displayName = 'Grid2x2Check';
+Grid2X2Check.displayName = 'Grid2X2Check';
 
-export { Grid2x2Check };
-export default Grid2x2Check;
+export { Grid2X2Check };
+export default Grid2X2Check;

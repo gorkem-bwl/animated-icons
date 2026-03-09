@@ -106,14 +106,14 @@ const cssText = `
   @keyframes al-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 `;
 
-const FileAxis3d = forwardRef(({
+const FileAxis3D = forwardRef(({
   size = 24,
   color = 'currentColor',
   primaryColor,
   secondaryColor,
   strokeWidth = 2,
   className = '',
-  label = 'file axis 3d',
+  label = 'file axis 3 d',
   style = {},
   ...props
 }, ref) => {
@@ -137,7 +137,7 @@ const FileAxis3d = forwardRef(({
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`animated-lucide-icon animated-lucide-icon-file-axis-3d ${className}`}
+        className={`animated-lucide-icon animated-lucide-icon-file-axis-3-d ${className}`}
         style={cssVars}
         role="img"
         aria-label={label}
@@ -153,7 +153,7 @@ const FileAxis3d = forwardRef(({
   );
 });
 
-FileAxis3d.displayName = 'FileAxis3d';
+FileAxis3D.displayName = 'FileAxis3D';
 
-export { FileAxis3d };
-export default FileAxis3d;
+export { FileAxis3D };
+export default FileAxis3D;

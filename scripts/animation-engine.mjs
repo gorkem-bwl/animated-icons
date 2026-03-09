@@ -994,9 +994,29 @@ export function buildIconSet(config) {
   let processed = 0;
 
   const allIconFiles = fs.readdirSync(config.sourceDir).filter(f => f.endsWith('.svg')).sort();
-  const allIconNames = allIconFiles.map(f => f.replace('.svg', ''));
+  let allIconNames = allIconFiles.map(f => f.replace('.svg', ''));
 
-  console.log(`  Found ${allIconFiles.length} ${config.name} SVGs.\n`);
+  // Filter out legacy aliases (e.g. arrow-down-az is an alias for arrow-down-a-z)
+  // These are identical SVGs that only differ in CSS class name
+  const normalized = {};
+  for (const name of allIconNames) {
+    const key = name.replace(/-/g, '');
+    (normalized[key] ??= []).push(name);
+  }
+  const legacyAliases = new Set();
+  for (const group of Object.values(normalized)) {
+    if (group.length > 1) {
+      // Keep the longer (canonical) name, skip the shorter (legacy) one
+      group.sort((a, b) => a.length - b.length);
+      for (let i = 0; i < group.length - 1; i++) legacyAliases.add(group[i]);
+    }
+  }
+  if (legacyAliases.size > 0) {
+    allIconNames = allIconNames.filter(n => !legacyAliases.has(n));
+    console.log(`  Filtered ${legacyAliases.size} legacy aliases.`);
+  }
+
+  console.log(`  Found ${allIconNames.length} ${config.name} SVGs.\n`);
 
   for (const iconName of allIconNames) {
     const svgPath = path.join(config.sourceDir, `${iconName}.svg`);

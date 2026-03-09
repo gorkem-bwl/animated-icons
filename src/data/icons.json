@@ -518,21 +518,7 @@
     "elementCount": 5
   },
   {
-    "name": "arrow-down-01",
-    "componentName": "ArrowDown01",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 5
-  },
-  {
     "name": "arrow-down-1-0",
-    "componentName": "ArrowDown10",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 5
-  },
-  {
-    "name": "arrow-down-10",
     "componentName": "ArrowDown10",
     "category": "uncategorized",
     "animation": "toggle",
@@ -541,13 +527,6 @@
   {
     "name": "arrow-down-a-z",
     "componentName": "ArrowDownAZ",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 5
-  },
-  {
-    "name": "arrow-down-az",
-    "componentName": "ArrowDownAz",
     "category": "uncategorized",
     "animation": "toggle",
     "elementCount": 5
@@ -672,13 +651,6 @@
     "elementCount": 5
   },
   {
-    "name": "arrow-down-za",
-    "componentName": "ArrowDownZa",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 5
-  },
-  {
     "name": "arrow-down",
     "componentName": "ArrowDown",
     "category": "arrows",
@@ -777,21 +749,7 @@
     "elementCount": 5
   },
   {
-    "name": "arrow-up-01",
-    "componentName": "ArrowUp01",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 5
-  },
-  {
     "name": "arrow-up-1-0",
-    "componentName": "ArrowUp10",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 5
-  },
-  {
-    "name": "arrow-up-10",
     "componentName": "ArrowUp10",
     "category": "uncategorized",
     "animation": "toggle",
@@ -800,13 +758,6 @@
   {
     "name": "arrow-up-a-z",
     "componentName": "ArrowUpAZ",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 5
-  },
-  {
-    "name": "arrow-up-az",
-    "componentName": "ArrowUpAz",
     "category": "uncategorized",
     "animation": "toggle",
     "elementCount": 5
@@ -931,13 +882,6 @@
     "elementCount": 5
   },
   {
-    "name": "arrow-up-za",
-    "componentName": "ArrowUpZa",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 5
-  },
-  {
     "name": "arrow-up",
     "componentName": "ArrowUp",
     "category": "arrows",
@@ -1010,13 +954,6 @@
   {
     "name": "axis-3-d",
     "componentName": "Axis3D",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 4
-  },
-  {
-    "name": "axis-3d",
-    "componentName": "Axis3d",
     "category": "uncategorized",
     "animation": "toggle",
     "elementCount": 4
@@ -4725,13 +4662,6 @@
     "elementCount": 4
   },
   {
-    "name": "file-axis-3d",
-    "componentName": "FileAxis3d",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 4
-  },
-  {
     "name": "file-badge-2",
     "componentName": "FileBadge2",
     "category": "uncategorized",
@@ -6209,34 +6139,6 @@
     "elementCount": 3
   },
   {
-    "name": "grid-2x2-check",
-    "componentName": "Grid2x2Check",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 2
-  },
-  {
-    "name": "grid-2x2-plus",
-    "componentName": "Grid2x2Plus",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 3
-  },
-  {
-    "name": "grid-2x2-x",
-    "componentName": "Grid2x2X",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 3
-  },
-  {
-    "name": "grid-2x2",
-    "componentName": "Grid2x2",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 3
-  },
-  {
     "name": "grid-3-x-3",
     "componentName": "Grid3X3",
     "category": "uncategorized",
@@ -6249,13 +6151,6 @@
     "category": "uncategorized",
     "animation": "toggle",
     "elementCount": 4
-  },
-  {
-    "name": "grid-3x3",
-    "componentName": "Grid3x3",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 5
   },
   {
     "name": "grid",
@@ -8449,13 +8344,6 @@
     "elementCount": 4
   },
   {
-    "name": "move-3d",
-    "componentName": "Move3d",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 4
-  },
-  {
     "name": "move-diagonal-2",
     "componentName": "MoveDiagonal2",
     "category": "arrows",
@@ -10052,13 +9940,6 @@
     "elementCount": 3
   },
   {
-    "name": "rotate-3d",
-    "componentName": "Rotate3d",
-    "category": "editing",
-    "animation": "draw",
-    "elementCount": 3
-  },
-  {
     "name": "rotate-ccw-key",
     "componentName": "RotateCcwKey",
     "category": "uncategorized",
@@ -10236,13 +10117,6 @@
   {
     "name": "scale-3-d",
     "componentName": "Scale3D",
-    "category": "uncategorized",
-    "animation": "toggle",
-    "elementCount": 4
-  },
-  {
-    "name": "scale-3d",
-    "componentName": "Scale3d",
     "category": "uncategorized",
     "animation": "toggle",
     "elementCount": 4

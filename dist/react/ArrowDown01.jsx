@@ -113,7 +113,7 @@ const ArrowDown01 = forwardRef(({
   secondaryColor,
   strokeWidth = 2,
   className = '',
-  label = 'arrow down 01',
+  label = 'arrow down 0 1',
   style = {},
   ...props
 }, ref) => {
@@ -137,7 +137,7 @@ const ArrowDown01 = forwardRef(({
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`animated-lucide-icon animated-lucide-icon-arrow-down-01 ${className}`}
+        className={`animated-lucide-icon animated-lucide-icon-arrow-down-0-1 ${className}`}
         style={cssVars}
         role="img"
         aria-label={label}

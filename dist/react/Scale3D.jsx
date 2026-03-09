@@ -106,14 +106,14 @@ const cssText = `
   @keyframes al-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 `;
 
-const Scale3d = forwardRef(({
+const Scale3D = forwardRef(({
   size = 24,
   color = 'currentColor',
   primaryColor,
   secondaryColor,
   strokeWidth = 2,
   className = '',
-  label = 'scale 3d',
+  label = 'scale 3 d',
   style = {},
   ...props
 }, ref) => {
@@ -137,7 +137,7 @@ const Scale3d = forwardRef(({
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`animated-lucide-icon animated-lucide-icon-scale-3d ${className}`}
+        className={`animated-lucide-icon animated-lucide-icon-scale-3-d ${className}`}
         style={cssVars}
         role="img"
         aria-label={label}
@@ -153,7 +153,7 @@ const Scale3d = forwardRef(({
   );
 });
 
-Scale3d.displayName = 'Scale3d';
+Scale3D.displayName = 'Scale3D';
 
-export { Scale3d };
-export default Scale3d;
+export { Scale3D };
+export default Scale3D;

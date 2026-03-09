@@ -1,6 +1,6 @@
 # Animated Icons
 
-Beautifully animated, two-tone icon libraries with CSS-only hover animations. Currently supports [Lucide](https://lucide.dev) (1,951 icons) and [Heroicons](https://heroicons.com) (324 icons). Zero JavaScript animation dependencies.
+Beautifully animated, two-tone icon libraries with CSS-only hover animations. Currently supports [Lucide](https://lucide.dev) (1,933 icons) and [Heroicons](https://heroicons.com) (324 icons). Zero JavaScript animation dependencies.
 
 **[Live preview](https://animated-icons.vercel.app)**
 
@@ -8,7 +8,7 @@ Beautifully animated, two-tone icon libraries with CSS-only hover animations. Cu
 
 - CSS transition-based animations triggered on hover (no Framer Motion, no JS)
 - Two-tone color support via CSS custom properties
-- 2,275 animated icons across two icon sets
+- 2,257 animated icons across two icon sets
 - Multiple output formats: React components, standalone SVGs
 - Accessible: `role="img"`, `aria-label`, and `<title>` on every icon
 - Semantic animations per category (bells ring, hearts beat, gears rotate, shields fill)
@@ -19,7 +19,7 @@ Beautifully animated, two-tone icon libraries with CSS-only hover animations. Cu
 
 | Icon set | Icons | Package | Wrapper class |
 | -------- | ----- | ------- | ------------- |
-| Lucide | 1,951 | `animated-lucide-react` | `al-icon-wrapper` |
+| Lucide | 1,933 | `animated-lucide-react` | `al-icon-wrapper` |
 | Heroicons | 324 | `animated-heroicons-react` | `ah-icon-wrapper` |
 
 ## Quick start
@@ -159,7 +159,7 @@ All components forward refs and spread additional props onto the SVG element.
 
 ## Available icons
 
-Browse all 2,275 icons at [animated-icons.vercel.app](https://animated-icons.vercel.app).
+Browse all 2,257 icons at [animated-icons.vercel.app](https://animated-icons.vercel.app).
 
 ## Building from source
 

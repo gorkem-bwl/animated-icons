@@ -106,14 +106,14 @@ const cssText = `
   @keyframes al-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 `;
 
-const Grid3x3 = forwardRef(({
+const Grid3X3 = forwardRef(({
   size = 24,
   color = 'currentColor',
   primaryColor,
   secondaryColor,
   strokeWidth = 2,
   className = '',
-  label = 'grid 3x3',
+  label = 'grid 3 x 3',
   style = {},
   ...props
 }, ref) => {
@@ -137,7 +137,7 @@ const Grid3x3 = forwardRef(({
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`animated-lucide-icon animated-lucide-icon-grid-3x3 ${className}`}
+        className={`animated-lucide-icon animated-lucide-icon-grid-3-x-3 ${className}`}
         style={cssVars}
         role="img"
         aria-label={label}
@@ -154,7 +154,7 @@ const Grid3x3 = forwardRef(({
   );
 });
 
-Grid3x3.displayName = 'Grid3x3';
+Grid3X3.displayName = 'Grid3X3';
 
-export { Grid3x3 };
-export default Grid3x3;
+export { Grid3X3 };
+export default Grid3X3;

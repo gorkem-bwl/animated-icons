@@ -106,14 +106,14 @@ const cssText = `
   @keyframes al-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 `;
 
-const Axis3d = forwardRef(({
+const Axis3D = forwardRef(({
   size = 24,
   color = 'currentColor',
   primaryColor,
   secondaryColor,
   strokeWidth = 2,
   className = '',
-  label = 'axis 3d',
+  label = 'axis 3 d',
   style = {},
   ...props
 }, ref) => {
@@ -137,7 +137,7 @@ const Axis3d = forwardRef(({
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`animated-lucide-icon animated-lucide-icon-axis-3d ${className}`}
+        className={`animated-lucide-icon animated-lucide-icon-axis-3-d ${className}`}
         style={cssVars}
         role="img"
         aria-label={label}
@@ -153,7 +153,7 @@ const Axis3d = forwardRef(({
   );
 });
 
-Axis3d.displayName = 'Axis3d';
+Axis3D.displayName = 'Axis3D';
 
-export { Axis3d };
-export default Axis3d;
+export { Axis3D };
+export default Axis3D;

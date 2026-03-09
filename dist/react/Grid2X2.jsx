@@ -106,14 +106,14 @@ const cssText = `
   @keyframes al-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 `;
 
-const Grid2x2 = forwardRef(({
+const Grid2X2 = forwardRef(({
   size = 24,
   color = 'currentColor',
   primaryColor,
   secondaryColor,
   strokeWidth = 2,
   className = '',
-  label = 'grid 2x2',
+  label = 'grid 2 x 2',
   style = {},
   ...props
 }, ref) => {
@@ -137,7 +137,7 @@ const Grid2x2 = forwardRef(({
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`animated-lucide-icon animated-lucide-icon-grid-2x2 ${className}`}
+        className={`animated-lucide-icon animated-lucide-icon-grid-2-x-2 ${className}`}
         style={cssVars}
         role="img"
         aria-label={label}
@@ -152,7 +152,7 @@ const Grid2x2 = forwardRef(({
   );
 });
 
-Grid2x2.displayName = 'Grid2x2';
+Grid2X2.displayName = 'Grid2X2';
 
-export { Grid2x2 };
-export default Grid2x2;
+export { Grid2X2 };
+export default Grid2X2;

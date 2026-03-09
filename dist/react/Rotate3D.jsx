@@ -106,14 +106,14 @@ const cssText = `
   @keyframes al-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 `;
 
-const Rotate3d = forwardRef(({
+const Rotate3D = forwardRef(({
   size = 24,
   color = 'currentColor',
   primaryColor,
   secondaryColor,
   strokeWidth = 2,
   className = '',
-  label = 'rotate 3d',
+  label = 'rotate 3 d',
   style = {},
   ...props
 }, ref) => {
@@ -137,7 +137,7 @@ const Rotate3d = forwardRef(({
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`animated-lucide-icon animated-lucide-icon-rotate-3d ${className}`}
+        className={`animated-lucide-icon animated-lucide-icon-rotate-3-d ${className}`}
         style={cssVars}
         role="img"
         aria-label={label}
@@ -145,14 +145,14 @@ const Rotate3d = forwardRef(({
       >
         <title>{label}</title>
         <path d="M16.466 7.5C15.643 4.237 13.952 2 12 2 9.239 2 7 6.477 7 12s2.239 10 5 10c.342 0 .677-.069 1-.2" className="al-primary al-anim-scale-pop al-delay-0" style={{}} />
-        <path d="m15.194 13.707 3.814 1.86-1.86 3.814" className="al-secondary al-anim-fade al-delay-1" style={{}} />
-        <path d="M19 15.57c-1.804.885-4.274 1.43-7 1.43-5.523 0-10-2.239-10-5s4.477-5 10-5c4.838 0 8.873 1.718 9.8 4" className="al-secondary al-anim-fade al-delay-2" style={{}} />
+        <path d="m15.194 13.707 3.814 1.86-1.86 3.814" className="al-secondary al-anim-scale-pop al-delay-1" style={{}} />
+        <path d="M19 15.57c-1.804.885-4.274 1.43-7 1.43-5.523 0-10-2.239-10-5s4.477-5 10-5c4.838 0 8.873 1.718 9.8 4" className="al-secondary al-anim-scale-pop al-delay-2" style={{}} />
       </svg>
     </>
   );
 });
 
-Rotate3d.displayName = 'Rotate3d';
+Rotate3D.displayName = 'Rotate3D';
 
-export { Rotate3d };
-export default Rotate3d;
+export { Rotate3D };
+export default Rotate3D;

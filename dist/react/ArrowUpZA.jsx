@@ -106,14 +106,14 @@ const cssText = `
   @keyframes al-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 `;
 
-const ArrowUpZa = forwardRef(({
+const ArrowUpZA = forwardRef(({
   size = 24,
   color = 'currentColor',
   primaryColor,
   secondaryColor,
   strokeWidth = 2,
   className = '',
-  label = 'arrow up za',
+  label = 'arrow up z a',
   style = {},
   ...props
 }, ref) => {
@@ -137,7 +137,7 @@ const ArrowUpZa = forwardRef(({
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`animated-lucide-icon animated-lucide-icon-arrow-up-za ${className}`}
+        className={`animated-lucide-icon animated-lucide-icon-arrow-up-z-a ${className}`}
         style={cssVars}
         role="img"
         aria-label={label}
@@ -154,7 +154,7 @@ const ArrowUpZa = forwardRef(({
   );
 });
 
-ArrowUpZa.displayName = 'ArrowUpZa';
+ArrowUpZA.displayName = 'ArrowUpZA';
 
-export { ArrowUpZa };
-export default ArrowUpZa;
+export { ArrowUpZA };
+export default ArrowUpZA;

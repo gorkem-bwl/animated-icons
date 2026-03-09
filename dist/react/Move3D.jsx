@@ -106,14 +106,14 @@ const cssText = `
   @keyframes al-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 `;
 
-const Move3d = forwardRef(({
+const Move3D = forwardRef(({
   size = 24,
   color = 'currentColor',
   primaryColor,
   secondaryColor,
   strokeWidth = 2,
   className = '',
-  label = 'move 3d',
+  label = 'move 3 d',
   style = {},
   ...props
 }, ref) => {
@@ -137,7 +137,7 @@ const Move3d = forwardRef(({
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`animated-lucide-icon animated-lucide-icon-move-3d ${className}`}
+        className={`animated-lucide-icon animated-lucide-icon-move-3-d ${className}`}
         style={cssVars}
         role="img"
         aria-label={label}
@@ -153,7 +153,7 @@ const Move3d = forwardRef(({
   );
 });
 
-Move3d.displayName = 'Move3d';
+Move3D.displayName = 'Move3D';
 
-export { Move3d };
-export default Move3d;
+export { Move3D };
+export default Move3D;
