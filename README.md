@@ -370,6 +370,12 @@ The animation engine is designed to be icon-set-agnostic. Adding a new set requi
 
 The best icon sets for animation are those with multi-element SVGs (multiple paths, circles, rects) rather than single-path icons. Lucide (94% multi-element) and Iconoir (90%) animate particularly well.
 
+## Story
+
+I was looking for an animated icon set for [VerifyWise](https://verifywise.ai), an AI governance platform I'm building. Every option I found was either too heavy (JavaScript animation libraries), too limited (a handful of icons), or too expensive (per-icon licensing). I wanted something simple: CSS-only hover animations that work with any framework, no runtime dependencies.
+
+Then I thought — what if I just build it? I opened [Claude Code](https://claude.ai) and started describing what I wanted: take Lucide's SVG icons, parse the individual elements, classify them by shape, and assign semantically meaningful CSS animations. Bells should ring. Hearts should beat. Gears should rotate. A few hours later, the first 1,933 Lucide icons were animating. Then Iconoir. Then Heroicons. Then Vue, Svelte, and Web Components output. Then this gallery site. 3,640 animated icons, built in a weekend.
+
 ## License
 
 ISC
