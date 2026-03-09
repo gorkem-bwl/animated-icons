@@ -180,7 +180,7 @@ export default function Gallery({ iconsMeta, activeSet, config, primaryColor, se
                 <circle cx="11" cy="11" r="8" />
                 <path d="m21 21-4.3-4.3" />
               </svg>
-              <input id="icon-search" type="text" placeholder="Search..." value={search} onChange={(e) => handleSearchChange(e.target.value)} className="w-full rounded-lg border border-neutral-200 dark:border-white/[0.08] bg-white dark:bg-white/[0.04] pl-9 pr-8 py-2 text-sm text-neutral-800 dark:text-white/80 placeholder:text-neutral-400 dark:placeholder:text-white/25 focus:border-teal-500/50 dark:focus:border-teal-500/30 focus:outline-none focus:ring-2 focus:ring-teal-500/10 transition-all" />
+              <input id="icon-search" type="text" placeholder={`Search ${iconsMeta.length.toLocaleString()} icons...`} value={search} onChange={(e) => handleSearchChange(e.target.value)} className="w-full rounded-lg border border-neutral-200 dark:border-white/[0.08] bg-white dark:bg-white/[0.04] pl-9 pr-8 py-2 text-sm text-neutral-800 dark:text-white/80 placeholder:text-neutral-400 dark:placeholder:text-white/25 focus:border-teal-500/50 dark:focus:border-teal-500/30 focus:outline-none focus:ring-2 focus:ring-teal-500/10 transition-all" />
               {search && (
                 <button onClick={() => handleSearchChange("")} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-white/30 hover:text-neutral-600 dark:hover:text-white/60 cursor-pointer" aria-label="Clear search">
                   <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">

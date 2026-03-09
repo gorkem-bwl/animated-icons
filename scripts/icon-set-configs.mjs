@@ -76,6 +76,57 @@ export const iconSetConfigs = {
     copySourceTo: null,
   },
 
+  iconoir: {
+    name: 'iconoir',
+    label: 'Iconoir',
+
+    cssPrefix: 'ai',
+    svgClassName: 'animated-iconoir',
+    wrapperClass: 'ai-icon-wrapper',
+    primaryVar: '--animated-iconoir-primary',
+    secondaryVar: '--animated-iconoir-secondary',
+    shortPrimaryVar: '--ai-primary',
+    shortSecondaryVar: '--ai-secondary',
+
+    defaultStrokeWidth: '1.5',
+    defaultStrokeWidthNum: 1.5,
+    defaultFill: 'none',
+
+    sourceDir: path.join(ROOT, 'node_modules/iconoir/icons/regular'),
+    categoriesFile: path.join(ROOT, 'icons/iconoir/categories.json'),
+    outSvg: path.join(ROOT, 'dist/iconoir/svg'),
+    outReact: path.join(ROOT, 'dist/iconoir/react'),
+    outCss: path.join(ROOT, 'dist/iconoir/css'),
+    galleryData: path.join(ROOT, 'src/data'),
+    galleryIconsFile: 'iconoir-icons.json',
+    galleryMetaFile: 'iconoir-meta.json',
+    publicData: path.join(ROOT, 'public/data/iconoir'),
+
+    packageName: 'animated-iconoir-react',
+    chunkPath: '/data/iconoir',
+    chunkSize: 200,
+
+    categoryIcons: {
+      all: 'view-grid',
+      arrows: 'arrow-right',
+      communication: 'mail',
+      media: 'play',
+      files: 'folder',
+      ui: 'settings',
+      status: 'bell',
+      weather: 'sun-light',
+      objects: 'home',
+      editing: 'edit-pencil',
+      people: 'user',
+      navigation: 'map-pin',
+      data: 'graph-up',
+      security: 'shield',
+      development: 'code',
+    },
+
+    copySourceTo: null,
+  },
+
   heroicons: {
     name: 'heroicons',
     label: 'Heroicons',
@@ -125,55 +176,6 @@ export const iconSetConfigs = {
     },
 
     copySourceTo: path.join(ROOT, 'icons/heroicons/source'),
-  },
-
-  iconoir: {
-    name: 'iconoir',
-    label: 'Iconoir',
-
-    cssPrefix: 'ai',
-    svgClassName: 'animated-iconoir',
-    wrapperClass: 'ai-icon-wrapper',
-    primaryVar: '--animated-iconoir-primary',
-    secondaryVar: '--animated-iconoir-secondary',
-    shortPrimaryVar: '--ai-primary',
-    shortSecondaryVar: '--ai-secondary',
-
-    defaultStrokeWidth: '1.5',
-    defaultStrokeWidthNum: 1.5,
-    defaultFill: 'none',
-
-    sourceDir: path.join(ROOT, 'node_modules/iconoir/icons/regular'),
-    categoriesFile: path.join(ROOT, 'icons/iconoir/categories.json'),
-    outSvg: path.join(ROOT, 'dist/iconoir/svg'),
-    outReact: path.join(ROOT, 'dist/iconoir/react'),
-    outCss: path.join(ROOT, 'dist/iconoir/css'),
-    galleryData: path.join(ROOT, 'src/data'),
-    galleryIconsFile: 'iconoir-icons.json',
-    galleryMetaFile: 'iconoir-meta.json',
-    publicData: path.join(ROOT, 'public/data/iconoir'),
-
-    packageName: 'animated-iconoir-react',
-    chunkPath: '/data/iconoir',
-    chunkSize: 200,
-
-    categoryIcons: {
-      all: 'view-grid',
-      arrows: 'arrow-right',
-      communication: 'mail',
-      media: 'play',
-      files: 'folder',
-      ui: 'settings',
-      status: 'bell',
-      weather: 'sun-light',
-      objects: 'home',
-      editing: 'edit-pencil',
-      people: 'user',
-      navigation: 'map-pin',
-      data: 'graph-up',
-      security: 'shield',
-      development: 'code',
-    },
 
     copySourceTo: null,
   },

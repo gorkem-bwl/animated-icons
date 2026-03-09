@@ -45,35 +45,6 @@ export const ICON_SET_CONFIG: Record<string, IconSetGalleryConfig> = {
           "development": "code"
     },
   },
-  heroicons: {
-    label: "Heroicons",
-    packageName: "animated-heroicons-react",
-    cssPrefix: "ah",
-    wrapperClass: "ah-icon-wrapper",
-    primaryVar: "--animated-heroicon-primary",
-    secondaryVar: "--animated-heroicon-secondary",
-    shortPrimaryVar: "--ah-primary",
-    shortSecondaryVar: "--ah-secondary",
-    chunkPath: "/data/heroicons",
-    chunkSize: 100,
-    categoryIcons: {
-          "all": "squares-2x2",
-          "arrows": "arrow-right",
-          "communication": "envelope",
-          "media": "play",
-          "files": "document-text",
-          "ui": "cog",
-          "status": "bell",
-          "weather": "sun",
-          "objects": "home",
-          "editing": "pencil",
-          "people": "user",
-          "navigation": "map-pin",
-          "data": "chart-bar",
-          "security": "shield-check",
-          "development": "code-bracket"
-    },
-  },
   iconoir: {
     label: "Iconoir",
     packageName: "animated-iconoir-react",
@@ -102,8 +73,37 @@ export const ICON_SET_CONFIG: Record<string, IconSetGalleryConfig> = {
           "security": "shield",
           "development": "code"
     },
+  },
+  heroicons: {
+    label: "Heroicons",
+    packageName: "animated-heroicons-react",
+    cssPrefix: "ah",
+    wrapperClass: "ah-icon-wrapper",
+    primaryVar: "--animated-heroicon-primary",
+    secondaryVar: "--animated-heroicon-secondary",
+    shortPrimaryVar: "--ah-primary",
+    shortSecondaryVar: "--ah-secondary",
+    chunkPath: "/data/heroicons",
+    chunkSize: 100,
+    categoryIcons: {
+          "all": "squares-2x2",
+          "arrows": "arrow-right",
+          "communication": "envelope",
+          "media": "play",
+          "files": "document-text",
+          "ui": "cog",
+          "status": "bell",
+          "weather": "sun",
+          "objects": "home",
+          "editing": "pencil",
+          "people": "user",
+          "navigation": "map-pin",
+          "data": "chart-bar",
+          "security": "shield-check",
+          "development": "code-bracket"
+    },
   }
 };
 
-export const ICON_SET_KEYS = ["lucide","heroicons","iconoir"] as const;
+export const ICON_SET_KEYS = ["lucide","iconoir","heroicons"] as const;
 export type IconSet = typeof ICON_SET_KEYS[number];

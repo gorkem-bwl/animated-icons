@@ -237,7 +237,7 @@ export default function Showcase({ primaryColor, secondaryColor, activeSet }: Sh
       <div className="mx-auto max-w-5xl px-6 py-20" style={COLOR_VARS}>
         <div className="text-center mb-14">
           <h2 className="text-2xl font-bold text-neutral-900 dark:text-white/90">
-            See them in action
+            See {setConfig.label} in action
           </h2>
           <p className="mt-2 text-sm text-neutral-500 dark:text-white/40">
             Hover over any element to preview the animation
