@@ -78,9 +78,7 @@ export default function PageClient({ metaBySet }: PageClientProps) {
           }}
         />
       </div>
-      {activeSet === "lucide" && (
-        <Showcase primaryColor={primaryColor} secondaryColor={secondaryColor} />
-      )}
+      <Showcase primaryColor={primaryColor} secondaryColor={secondaryColor} activeSet={activeSet} />
     </>
   );
 }
