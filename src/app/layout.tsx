@@ -3,9 +3,9 @@ import "./globals.css";
 import { ThemeScript } from "@/components/ThemeScript";
 
 export const metadata: Metadata = {
-  title: "Animated Icons — Lucide & Heroicons",
+  title: "Animated Icons — Lucide, Iconoir & Heroicons",
   description:
-    "2,275 beautiful, semantically animated icons with CSS-only hover transitions and two-tone color support.",
+    "3,640 beautiful, semantically animated icons with CSS-only hover transitions and two-tone color support.",
 };
 
 export default function RootLayout({
