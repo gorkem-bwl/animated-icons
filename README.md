@@ -6,6 +6,12 @@ Beautifully animated, two-tone icon libraries with CSS-only hover animations. Cu
 
 **[Live preview](https://animated-icons.vercel.app)**
 
+## How this started
+
+I needed animated icons for [VerifyWise](https://verifywise.ai), an AI governance platform I'm working on. Looked around, couldn't find what I wanted. Everything was either bloated with JS animation libraries, only had a dozen icons, or came with per-icon licensing. All I needed was simple CSS hover animations that work anywhere.
+
+So I built it. I used [Claude Code](https://claude.ai) to write a build system that takes Lucide's SVGs, breaks them into individual elements, figures out what each shape is, and assigns the right animation. Bells ring, hearts beat, gears rotate. The first 1,933 icons were working within hours. Added Iconoir, then Heroicons. Then Vue, Svelte, and Web Components output. Then the gallery site. 3,640 animated icons, done over a weekend.
+
 ## Features
 
 - CSS transition-based animations triggered on hover (no Framer Motion, no JS)
@@ -369,12 +375,6 @@ The animation engine is designed to be icon-set-agnostic. Adding a new set requi
 6. Run `prepare-gallery.mjs` to regenerate gallery config
 
 The best icon sets for animation are those with multi-element SVGs (multiple paths, circles, rects) rather than single-path icons. Lucide (94% multi-element) and Iconoir (90%) animate particularly well.
-
-## Story
-
-I was looking for an animated icon set for [VerifyWise](https://verifywise.ai), an AI governance platform I'm building. Every option I found was either too heavy (JavaScript animation libraries), too limited (a handful of icons), or too expensive (per-icon licensing). I wanted something simple: CSS-only hover animations that work with any framework, no runtime dependencies.
-
-Then I thought — what if I just build it? I opened [Claude Code](https://claude.ai) and started describing what I wanted: take Lucide's SVG icons, parse the individual elements, classify them by shape, and assign semantically meaningful CSS animations. Bells should ring. Hearts should beat. Gears should rotate. A few hours later, the first 1,933 Lucide icons were animating. Then Iconoir. Then Heroicons. Then Vue, Svelte, and Web Components output. Then this gallery site. 3,640 animated icons, built in a weekend.
 
 ## License
 
