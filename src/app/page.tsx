@@ -3,8 +3,13 @@ import ThemeToggle from "@/components/ThemeToggle";
 import lucideMeta from "@/data/icons-meta.json";
 import heroiconsMeta from "@/data/heroicons-meta.json";
 
+const metaBySet: Record<string, typeof lucideMeta> = {
+  lucide: lucideMeta,
+  heroicons: heroiconsMeta,
+};
+
 export default function Home() {
-  const totalIcons = lucideMeta.length + heroiconsMeta.length;
+  const totalIcons = Object.values(metaBySet).reduce((sum, m) => sum + m.length, 0);
 
   return (
     <main className="min-h-screen">
@@ -53,7 +58,7 @@ export default function Home() {
       </header>
 
       {/* Gallery + Showcase (share color state) */}
-      <PageClient lucideMeta={lucideMeta} heroiconsMeta={heroiconsMeta} />
+      <PageClient metaBySet={metaBySet} />
 
       {/* Usage section */}
       <section className="border-t border-neutral-200 dark:border-white/[0.06]">

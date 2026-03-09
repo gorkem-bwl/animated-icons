@@ -1,27 +1,31 @@
 #!/usr/bin/env node
 
 /**
- * Prepares gallery data for both Lucide and Heroicons:
+ * Prepares gallery data for all icon sets:
  * 1. icons-meta.json — lightweight metadata for static page
  * 2. public/data/{set}/icons-chunk-{N}.json — SVG content in chunks
+ * 3. src/data/icon-set-config.ts — auto-generated gallery config
  */
 
 import fs from 'fs';
 import path from 'path';
+import { iconSetConfigs, generateGalleryConfigTS } from './icon-set-configs.mjs';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
-function prepareSet({ name, svgDir, galleryData, publicData, chunkSize, iconsJsonName }) {
-  fs.mkdirSync(publicData, { recursive: true });
-  fs.mkdirSync(galleryData, { recursive: true });
+console.log('Preparing gallery data...\n');
 
-  const iconsPath = path.join(galleryData, iconsJsonName || 'icons.json');
+for (const [key, config] of Object.entries(iconSetConfigs)) {
+  const iconsPath = path.join(config.galleryData, config.galleryIconsFile);
+
   if (!fs.existsSync(iconsPath)) {
-    console.log(`  Skipping ${name}: no icons.json found at ${iconsPath}`);
-    return;
+    console.log(`  Skipping ${config.name}: no ${config.galleryIconsFile} found`);
+    continue;
   }
+
+  fs.mkdirSync(config.publicData, { recursive: true });
 
   const icons = JSON.parse(fs.readFileSync(iconsPath, 'utf-8'));
 
@@ -34,66 +38,44 @@ function prepareSet({ name, svgDir, galleryData, publicData, chunkSize, iconsJso
     elementCount: icon.elementCount,
   }));
 
-  const metaFileName = name === 'lucide' ? 'icons-meta.json' : 'heroicons-meta.json';
   fs.writeFileSync(
-    path.join(ROOT, 'src/data', metaFileName),
+    path.join(ROOT, 'src/data', config.galleryMetaFile),
     JSON.stringify(meta)
   );
 
   // 2. Build name→svg lookup and write chunks
   const svgMap = {};
   for (const icon of icons) {
-    const svgPath = path.join(svgDir, `${icon.name}.svg`);
+    const svgPath = path.join(config.outSvg, `${icon.name}.svg`);
     if (fs.existsSync(svgPath)) {
       svgMap[icon.name] = fs.readFileSync(svgPath, 'utf-8');
     }
   }
 
   const names = icons.map(i => i.name);
-  const totalChunks = Math.ceil(names.length / chunkSize);
+  const totalChunks = Math.ceil(names.length / config.chunkSize);
 
-  const manifest = { totalIcons: names.length, chunkSize, totalChunks };
-  fs.writeFileSync(path.join(publicData, 'manifest.json'), JSON.stringify(manifest));
+  const manifest = { totalIcons: names.length, chunkSize: config.chunkSize, totalChunks };
+  fs.writeFileSync(path.join(config.publicData, 'manifest.json'), JSON.stringify(manifest));
 
   for (let i = 0; i < totalChunks; i++) {
-    const chunkNames = names.slice(i * chunkSize, (i + 1) * chunkSize);
+    const chunkNames = names.slice(i * config.chunkSize, (i + 1) * config.chunkSize);
     const chunkData = {};
     for (const n of chunkNames) {
       chunkData[n] = svgMap[n];
     }
     fs.writeFileSync(
-      path.join(publicData, `icons-chunk-${i}.json`),
+      path.join(config.publicData, `icons-chunk-${i}.json`),
       JSON.stringify(chunkData)
     );
   }
 
-  console.log(`  ${name}: ${icons.length} icons → ${totalChunks} chunks of ${chunkSize}`);
+  console.log(`  ${config.name}: ${icons.length} icons -> ${totalChunks} chunks of ${config.chunkSize}`);
 }
 
-console.log('Preparing gallery data...\n');
-
-// Lucide
-prepareSet({
-  name: 'lucide',
-  svgDir: path.join(ROOT, 'dist/svg'),
-  galleryData: path.join(ROOT, 'src/data'),
-  publicData: path.join(ROOT, 'public/data/lucide'),
-  chunkSize: 200,
-});
-
-// Heroicons
-const heroiconsSvgDir = path.join(ROOT, 'dist/heroicons/svg');
-if (fs.existsSync(heroiconsSvgDir)) {
-  prepareSet({
-    name: 'heroicons',
-    svgDir: heroiconsSvgDir,
-    galleryData: path.join(ROOT, 'src/data'),
-    publicData: path.join(ROOT, 'public/data/heroicons'),
-    chunkSize: 100,
-    iconsJsonName: 'heroicons-icons.json',
-  });
-} else {
-  console.log('  heroicons: skipped (no dist/heroicons/svg found)');
-}
+// 3. Generate gallery config TypeScript file
+const configTS = generateGalleryConfigTS();
+fs.writeFileSync(path.join(ROOT, 'src/data/icon-set-config.ts'), configTS);
+console.log('\n  Generated src/data/icon-set-config.ts');
 
 console.log('\nDone!');

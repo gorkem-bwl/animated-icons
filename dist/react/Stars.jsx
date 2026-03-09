@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
 const cssText = `
-  /* Delay utilities — 80ms increments */
   .al-delay-0 { --al-delay: 0ms; }
   .al-delay-1 { --al-delay: 80ms; }
   .al-delay-2 { --al-delay: 160ms; }
@@ -11,253 +10,100 @@ const cssText = `
   .al-delay-6 { --al-delay: 480ms; }
   .al-delay-7 { --al-delay: 560ms; }
 
-  /* Two-tone colors — no opacity tricks, just two real colors */
   .al-primary { stroke: var(--animated-lucide-primary, var(--al-primary, currentColor)); }
   .al-secondary { stroke: var(--animated-lucide-secondary, var(--al-secondary, currentColor)); }
 
-  /* ── Fill animation: shape fills with translucent color ── */
   .al-anim-fill {
     fill: currentColor;
     fill-opacity: 0;
     transition: fill-opacity 500ms ease var(--al-delay, 0ms);
   }
   .animated-lucide-icon:hover .al-anim-fill,
-  .al-icon-wrapper:hover .al-anim-fill {
-    fill-opacity: 0.18;
-  }
+  .al-icon-wrapper:hover .al-anim-fill { fill-opacity: 0.18; }
 
-  /* ── Draw animation: path re-draws on hover via keyframe ── */
-  .al-anim-draw {
-    /* Fully visible by default */
-  }
+  .al-anim-draw { }
   .animated-lucide-icon:hover .al-anim-draw,
-  .al-icon-wrapper:hover .al-anim-draw {
-    animation: al-draw-in 600ms ease var(--al-delay, 0ms) both;
-  }
-  @keyframes al-draw-in {
-    0% { stroke-dashoffset: var(--al-dash-len, 50); }
-    100% { stroke-dashoffset: 0; }
-  }
+  .al-icon-wrapper:hover .al-anim-draw { animation: al-draw-in 600ms ease var(--al-delay, 0ms) both; }
+  @keyframes al-draw-in { 0% { stroke-dashoffset: var(--al-dash-len, 50); } 100% { stroke-dashoffset: 0; } }
 
-  /* ── Draw-line: shorter lines re-draw on hover ── */
-  .al-anim-draw-line {
-    /* Fully visible by default */
-  }
+  .al-anim-draw-line { }
   .animated-lucide-icon:hover .al-anim-draw-line,
-  .al-icon-wrapper:hover .al-anim-draw-line {
-    animation: al-draw-line 500ms ease var(--al-delay, 0ms) both;
-  }
-  @keyframes al-draw-line {
-    0% { stroke-dashoffset: var(--al-dash-len, 20); }
-    100% { stroke-dashoffset: 0; }
-  }
+  .al-icon-wrapper:hover .al-anim-draw-line { animation: al-draw-line 500ms ease var(--al-delay, 0ms) both; }
+  @keyframes al-draw-line { 0% { stroke-dashoffset: var(--al-dash-len, 20); } 100% { stroke-dashoffset: 0; } }
 
-  /* ── Fade animation: subtle pop on hover (fully visible by default) ── */
-  .al-anim-fade {
-    /* Fully visible by default */
-  }
+  .al-anim-fade { }
   .animated-lucide-icon:hover .al-anim-fade,
-  .al-icon-wrapper:hover .al-anim-fade {
-    animation: al-fade-pop 500ms ease var(--al-delay, 0ms) both;
-  }
-  @keyframes al-fade-pop {
-    0% { opacity: 0.3; transform: scale(0.92); }
-    60% { opacity: 1; transform: scale(1.04); }
-    100% { opacity: 1; transform: scale(1); }
-  }
+  .al-icon-wrapper:hover .al-anim-fade { animation: al-fade-pop 500ms ease var(--al-delay, 0ms) both; }
+  @keyframes al-fade-pop { 0% { opacity: 0.3; transform: scale(0.92); } 60% { opacity: 1; transform: scale(1.04); } 100% { opacity: 1; transform: scale(1); } }
 
-  /* ── Dot appear: dot pops on hover (fully visible by default) ── */
-  .al-anim-dot-appear {
-    /* Fully visible by default */
-  }
+  .al-anim-dot-appear { }
   .animated-lucide-icon:hover .al-anim-dot-appear,
-  .al-icon-wrapper:hover .al-anim-dot-appear {
-    animation: al-dot-pop 500ms ease 200ms both;
-  }
-  @keyframes al-dot-pop {
-    0% { transform: scale(1); }
-    40% { transform: scale(0.3); }
-    70% { transform: scale(1.3); }
-    100% { transform: scale(1); }
-  }
+  .al-icon-wrapper:hover .al-anim-dot-appear { animation: al-dot-pop 500ms ease 200ms both; }
+  @keyframes al-dot-pop { 0% { transform: scale(1); } 40% { transform: scale(0.3); } 70% { transform: scale(1.3); } 100% { transform: scale(1); } }
 
-  /* ── Bar animation: bars bounce on hover (full size by default) ── */
-  .al-anim-bar {
-    transform-origin: center bottom;
-  }
+  .al-anim-bar { transform-origin: center bottom; }
   .animated-lucide-icon:hover .al-anim-bar,
-  .al-icon-wrapper:hover .al-anim-bar {
-    animation: al-bar-grow 600ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms) both;
-  }
-  @keyframes al-bar-grow {
-    0% { transform: scaleY(0.2); }
-    60% { transform: scaleY(1.08); }
-    100% { transform: scaleY(1); }
-  }
+  .al-icon-wrapper:hover .al-anim-bar { animation: al-bar-grow 600ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms) both; }
+  @keyframes al-bar-grow { 0% { transform: scaleY(0.2); } 60% { transform: scaleY(1.08); } 100% { transform: scaleY(1); } }
 
-  /* ── Scale-pop: element pops with scale ── */
-  .al-anim-scale-pop {
-    transform-origin: center;
-  }
+  .al-anim-scale-pop { transform-origin: center; }
   .animated-lucide-icon:hover .al-anim-scale-pop,
-  .al-icon-wrapper:hover .al-anim-scale-pop {
-    animation: al-scale-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms) both;
-  }
-  @keyframes al-scale-pop {
-    0% { transform: scale(1); }
-    40% { transform: scale(1.15); }
-    100% { transform: scale(1); }
-  }
+  .al-icon-wrapper:hover .al-anim-scale-pop { animation: al-scale-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms) both; }
+  @keyframes al-scale-pop { 0% { transform: scale(1); } 40% { transform: scale(1.15); } 100% { transform: scale(1); } }
 
-  /* ── Pulse element: pulsing opacity for attention ── */
-  .al-anim-pulse-element {
-    /* Fully visible by default */
-  }
+  .al-anim-pulse-element { }
   .animated-lucide-icon:hover .al-anim-pulse-element,
-  .al-icon-wrapper:hover .al-anim-pulse-element {
-    animation: al-pulse 0.7s ease-in-out;
-  }
-  @keyframes al-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
+  .al-icon-wrapper:hover .al-anim-pulse-element { animation: al-pulse 0.7s ease-in-out; }
+  @keyframes al-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-  /* ── Gear: rotation on hover ── */
-  .al-anim-gear {
-    transform-origin: 12px 12px;
-    transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms);
-  }
+  .al-anim-gear { transform-origin: 12px 12px; transition: transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms); }
   .animated-lucide-icon:hover .al-anim-gear,
-  .al-icon-wrapper:hover .al-anim-gear {
-    transform: rotate(var(--al-rotation, 90deg));
-  }
+  .al-icon-wrapper:hover .al-anim-gear { transform: rotate(var(--al-rotation, 90deg)); }
 
-  /* ── Nudge: translate in a direction ── */
-  .al-anim-nudge {
-    transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms);
-  }
+  .al-anim-nudge { transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms); }
   .animated-lucide-icon:hover .al-anim-nudge,
-  .al-icon-wrapper:hover .al-anim-nudge {
-    transform: translate(var(--al-tx, 0px), var(--al-ty, 0px));
-  }
+  .al-icon-wrapper:hover .al-anim-nudge { transform: translate(var(--al-tx, 0px), var(--al-ty, 0px)); }
 
-  /* ── Bell ring: keyframe ring animation ── */
-  .al-anim-bell-ring {
-    transform-origin: 12px 3px;
-  }
+  .al-anim-bell-ring { transform-origin: 12px 3px; }
   .animated-lucide-icon:hover .al-anim-bell-ring,
-  .al-icon-wrapper:hover .al-anim-bell-ring {
-    animation: al-bell-ring 0.7s ease;
-  }
-  @keyframes al-bell-ring {
-    0% { transform: rotate(0deg); }
-    12% { transform: rotate(14deg); }
-    24% { transform: rotate(-12deg); }
-    36% { transform: rotate(8deg); }
-    48% { transform: rotate(-5deg); }
-    60% { transform: rotate(2deg); }
-    100% { transform: rotate(0deg); }
-  }
+  .al-icon-wrapper:hover .al-anim-bell-ring { animation: al-bell-ring 0.7s ease; }
+  @keyframes al-bell-ring { 0% { transform: rotate(0deg); } 12% { transform: rotate(14deg); } 24% { transform: rotate(-12deg); } 36% { transform: rotate(8deg); } 48% { transform: rotate(-5deg); } 60% { transform: rotate(2deg); } 100% { transform: rotate(0deg); } }
 
-  /* ── Heart beat: keyframe scale ── */
-  .al-anim-heart-beat {
-    transform-origin: 12px 13px;
-  }
+  .al-anim-heart-beat { transform-origin: 12px 13px; }
   .animated-lucide-icon:hover .al-anim-heart-beat,
-  .al-icon-wrapper:hover .al-anim-heart-beat {
-    animation: al-heart-beat 0.8s ease;
-  }
-  @keyframes al-heart-beat {
-    0% { transform: scale(1); }
-    15% { transform: scale(1.2); }
-    30% { transform: scale(1); }
-    45% { transform: scale(1.15); }
-    60% { transform: scale(1); }
-  }
+  .al-icon-wrapper:hover .al-anim-heart-beat { animation: al-heart-beat 0.8s ease; }
+  @keyframes al-heart-beat { 0% { transform: scale(1); } 15% { transform: scale(1.2); } 30% { transform: scale(1); } 45% { transform: scale(1.15); } 60% { transform: scale(1); } }
 
-  /* ── Rocket lift ── */
-  .al-anim-rocket-lift {
-    transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms);
-  }
+  .al-anim-rocket-lift { transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms); }
   .animated-lucide-icon:hover .al-anim-rocket-lift,
-  .al-icon-wrapper:hover .al-anim-rocket-lift {
-    transform: translate(1px, -1.5px);
-  }
+  .al-icon-wrapper:hover .al-anim-rocket-lift { transform: translate(1px, -1.5px); }
 
-  /* ── Handle lift (trash lid, briefcase handle) ── */
-  .al-anim-handle-lift {
-    transition: transform 500ms ease var(--al-delay, 0ms);
-  }
+  .al-anim-handle-lift { transition: transform 500ms ease var(--al-delay, 0ms); }
   .animated-lucide-icon:hover .al-anim-handle-lift,
-  .al-icon-wrapper:hover .al-anim-handle-lift {
-    transform: translateY(-1.5px);
-  }
+  .al-icon-wrapper:hover .al-anim-handle-lift { transform: translateY(-1.5px); }
 
-  /* ── Page turn ── */
-  .al-anim-page-turn {
-    transform-origin: left center;
-    transition: transform 500ms ease var(--al-delay, 0ms);
-  }
+  .al-anim-page-turn { transform-origin: left center; transition: transform 500ms ease var(--al-delay, 0ms); }
   .animated-lucide-icon:hover .al-anim-page-turn,
-  .al-icon-wrapper:hover .al-anim-page-turn {
-    transform: rotateY(-12deg);
-  }
+  .al-icon-wrapper:hover .al-anim-page-turn { transform: rotateY(-12deg); }
 
-  /* ── Menu line (staggered scaleX) ── */
-  .al-anim-menu-line {
-    transform-origin: left center;
-    transition: transform 400ms ease var(--al-delay, 0ms);
-  }
+  .al-anim-menu-line { transform-origin: left center; transition: transform 400ms ease var(--al-delay, 0ms); }
   .animated-lucide-icon:hover .al-anim-menu-line,
-  .al-icon-wrapper:hover .al-anim-menu-line {
-    transform: scaleX(var(--al-scale-x, 0.7));
-  }
+  .al-icon-wrapper:hover .al-anim-menu-line { transform: scaleX(var(--al-scale-x, 0.7)); }
 
-  /* ── Mail flap: envelope opens and closes ── */
-  .al-anim-mail-flap {
-    transform-origin: center top;
-  }
+  .al-anim-mail-flap { transform-origin: center top; }
   .animated-lucide-icon:hover .al-anim-mail-flap,
-  .al-icon-wrapper:hover .al-anim-mail-flap {
-    animation: al-mail-flap 700ms ease var(--al-delay, 0ms) both;
-  }
-  @keyframes al-mail-flap {
-    0% { transform: rotateX(0deg); }
-    40% { transform: rotateX(-30deg); }
-    70% { transform: rotateX(5deg); }
-    100% { transform: rotateX(0deg); }
-  }
+  .al-icon-wrapper:hover .al-anim-mail-flap { animation: al-mail-flap 700ms ease var(--al-delay, 0ms) both; }
+  @keyframes al-mail-flap { 0% { transform: rotateX(0deg); } 40% { transform: rotateX(-30deg); } 70% { transform: rotateX(5deg); } 100% { transform: rotateX(0deg); } }
 
-  /* ── Shake: horizontal wobble ── */
-  .al-anim-shake {
-    transform-origin: center;
-  }
+  .al-anim-shake { transform-origin: center; }
   .animated-lucide-icon:hover .al-anim-shake,
-  .al-icon-wrapper:hover .al-anim-shake {
-    animation: al-shake 600ms ease var(--al-delay, 0ms) both;
-  }
-  @keyframes al-shake {
-    0% { transform: translateX(0) rotate(0deg); }
-    15% { transform: translateX(-1.5px) rotate(-3deg); }
-    30% { transform: translateX(1.5px) rotate(3deg); }
-    45% { transform: translateX(-1px) rotate(-2deg); }
-    60% { transform: translateX(1px) rotate(2deg); }
-    75% { transform: translateX(-0.5px) rotate(-1deg); }
-    100% { transform: translateX(0) rotate(0deg); }
-  }
+  .al-icon-wrapper:hover .al-anim-shake { animation: al-shake 600ms ease var(--al-delay, 0ms) both; }
+  @keyframes al-shake { 0% { transform: translateX(0) rotate(0deg); } 15% { transform: translateX(-1.5px) rotate(-3deg); } 30% { transform: translateX(1.5px) rotate(3deg); } 45% { transform: translateX(-1px) rotate(-2deg); } 60% { transform: translateX(1px) rotate(2deg); } 75% { transform: translateX(-0.5px) rotate(-1deg); } 100% { transform: translateX(0) rotate(0deg); } }
 
-  /* ── Spin: full 360 rotation ── */
-  .al-anim-spin {
-    transform-origin: 12px 12px;
-  }
+  .al-anim-spin { transform-origin: 12px 12px; }
   .animated-lucide-icon:hover .al-anim-spin,
-  .al-icon-wrapper:hover .al-anim-spin {
-    animation: al-spin 700ms cubic-bezier(0.4, 0, 0.2, 1) var(--al-delay, 0ms) both;
-  }
-  @keyframes al-spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+  .al-icon-wrapper:hover .al-anim-spin { animation: al-spin 700ms cubic-bezier(0.4, 0, 0.2, 1) var(--al-delay, 0ms) both; }
+  @keyframes al-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 `;
 
 const Stars = forwardRef(({
@@ -291,7 +137,7 @@ const Stars = forwardRef(({
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`animated-lucide-icon animated-lucide-stars ${className}`}
+        className={`animated-lucide-icon animated-lucide-icon-stars ${className}`}
         style={cssVars}
         role="img"
         aria-label={label}

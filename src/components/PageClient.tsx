@@ -3,8 +3,11 @@
 import { useState } from "react";
 import Gallery from "./Gallery";
 import Showcase from "./Showcase";
+import { ICON_SET_CONFIG, ICON_SET_KEYS } from "@/data/icon-set-config";
+import type { IconSet } from "@/data/icon-set-config";
 
-export type IconSet = "lucide" | "heroicons";
+export type { IconSet };
+export { ICON_SET_CONFIG };
 
 export interface IconMeta {
   name: string;
@@ -14,58 +17,16 @@ export interface IconMeta {
   elementCount: number;
 }
 
-export const ICON_SET_CONFIG: Record<IconSet, {
-  label: string;
-  count: number;
-  packageName: string;
-  cssPrefix: string;
-  wrapperClass: string;
-  primaryVar: string;
-  secondaryVar: string;
-  shortPrimaryVar: string;
-  shortSecondaryVar: string;
-  chunkPath: string;
-  chunkSize: number;
-}> = {
-  lucide: {
-    label: "Lucide",
-    count: 1951,
-    packageName: "animated-lucide-react",
-    cssPrefix: "al",
-    wrapperClass: "al-icon-wrapper",
-    primaryVar: "--animated-lucide-primary",
-    secondaryVar: "--animated-lucide-secondary",
-    shortPrimaryVar: "--al-primary",
-    shortSecondaryVar: "--al-secondary",
-    chunkPath: "/data/lucide",
-    chunkSize: 200,
-  },
-  heroicons: {
-    label: "Heroicons",
-    count: 324,
-    packageName: "animated-heroicons-react",
-    cssPrefix: "ah",
-    wrapperClass: "ah-icon-wrapper",
-    primaryVar: "--animated-heroicon-primary",
-    secondaryVar: "--animated-heroicon-secondary",
-    shortPrimaryVar: "--ah-primary",
-    shortSecondaryVar: "--ah-secondary",
-    chunkPath: "/data/heroicons",
-    chunkSize: 100,
-  },
-};
-
 interface PageClientProps {
-  lucideMeta: IconMeta[];
-  heroiconsMeta: IconMeta[];
+  metaBySet: Record<string, IconMeta[]>;
 }
 
-export default function PageClient({ lucideMeta, heroiconsMeta }: PageClientProps) {
-  const [activeSet, setActiveSet] = useState<IconSet>("lucide");
+export default function PageClient({ metaBySet }: PageClientProps) {
+  const [activeSet, setActiveSet] = useState<IconSet>(ICON_SET_KEYS[0]);
   const [primaryColor, setPrimaryColor] = useState("#0d9488");
   const [secondaryColor, setSecondaryColor] = useState("#0f766e");
 
-  const iconsMeta = activeSet === "lucide" ? lucideMeta : heroiconsMeta;
+  const iconsMeta = metaBySet[activeSet] || [];
   const config = ICON_SET_CONFIG[activeSet];
 
   return (
@@ -74,8 +35,9 @@ export default function PageClient({ lucideMeta, heroiconsMeta }: PageClientProp
       <div className="border-b border-neutral-200 dark:border-white/[0.06]">
         <div className="mx-auto max-w-[1400px] px-6">
           <div className="flex items-center gap-1 py-2">
-            {(Object.keys(ICON_SET_CONFIG) as IconSet[]).map((set) => {
+            {ICON_SET_KEYS.map((set) => {
               const cfg = ICON_SET_CONFIG[set];
+              const count = metaBySet[set]?.length || 0;
               const isActive = activeSet === set;
               return (
                 <button
@@ -91,7 +53,7 @@ export default function PageClient({ lucideMeta, heroiconsMeta }: PageClientProp
                   <span className={`ml-2 text-xs tabular-nums ${
                     isActive ? "text-neutral-500 dark:text-white/40" : "text-neutral-300 dark:text-white/20"
                   }`}>
-                    {cfg.count.toLocaleString()}
+                    {count.toLocaleString()}
                   </span>
                   {isActive && (
                     <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-neutral-900 dark:bg-white rounded-full" />
