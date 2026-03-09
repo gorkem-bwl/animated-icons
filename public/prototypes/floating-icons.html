@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Icons - Floating Hero</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-shadow: 0 0 40px rgba(255,255,255,0.08), 0 2px 8px rgba(0,0,0,0.5);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .icons-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .floating-icon {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+    will-change: opacity;
+  }
+
+  .floating-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .floating-icon.visible {
+    opacity: 0.2;
+  }
+
+  .floating-icon.fading-out {
+    opacity: 0;
+  }
+
+  /* Glow effects per set */
+  .floating-icon.set-lucide {
+    filter: drop-shadow(0 0 6px rgba(13, 148, 136, 0.3));
+  }
+  .floating-icon.set-iconoir {
+    filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.3));
+  }
+  .floating-icon.set-heroicons {
+    filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.3));
+  }
+
+  /* ===== Animation trigger overrides: .floating-icon.animating replaces :hover ===== */
+
+  /* --- Lucide (al-) --- */
+  .floating-icon.animating .al-anim-fill { fill-opacity: 0.18; }
+  .floating-icon.animating .al-anim-fade { animation: al-fade-pop 500ms ease var(--al-delay, 0ms) both; }
+  .floating-icon.animating .al-anim-draw { animation: al-draw-in 600ms ease var(--al-delay, 0ms) both; }
+  .floating-icon.animating .al-anim-draw-line { animation: al-draw-line 500ms ease var(--al-delay, 0ms) both; }
+  .floating-icon.animating .al-anim-dot-appear { animation: al-dot-pop 500ms ease 200ms both; }
+  .floating-icon.animating .al-anim-bar { animation: al-bar-grow 600ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms) both; }
+  .floating-icon.animating .al-anim-scale-pop { animation: al-scale-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms) both; }
+  .floating-icon.animating .al-anim-pulse-element { animation: al-pulse 0.7s ease-in-out; }
+  .floating-icon.animating .al-anim-gear { transform: rotate(var(--al-rotation, 90deg)); }
+  .floating-icon.animating .al-anim-nudge { transform: translate(var(--al-tx, 0px), var(--al-ty, 0px)); }
+  .floating-icon.animating .al-anim-bell-ring { animation: al-bell-ring 0.7s ease; }
+  .floating-icon.animating .al-anim-heart-beat { animation: al-heart-beat 0.8s ease; }
+  .floating-icon.animating .al-anim-rocket-lift { transform: translate(1px, -1.5px); }
+  .floating-icon.animating .al-anim-handle-lift { transform: translateY(-1.5px); }
+  .floating-icon.animating .al-anim-page-turn { transform: rotateY(-12deg); }
+  .floating-icon.animating .al-anim-menu-line { transform: scaleX(var(--al-scale-x, 0.7)); }
+  .floating-icon.animating .al-anim-mail-flap { animation: al-mail-flap 700ms ease var(--al-delay, 0ms) both; }
+  .floating-icon.animating .al-anim-shake { animation: al-shake 600ms ease var(--al-delay, 0ms) both; }
+  .floating-icon.animating .al-anim-spin { animation: al-spin 700ms cubic-bezier(0.4, 0, 0.2, 1) var(--al-delay, 0ms) both; }
+
+  /* --- Iconoir (ai-) --- */
+  .floating-icon.animating .ai-anim-fill { fill-opacity: 0.18; }
+  .floating-icon.animating .ai-anim-fade { animation: ai-fade-pop 500ms ease var(--ai-delay, 0ms) both; }
+  .floating-icon.animating .ai-anim-draw { animation: ai-draw-in 600ms ease var(--ai-delay, 0ms) both; }
+  .floating-icon.animating .ai-anim-draw-line { animation: ai-draw-line 500ms ease var(--ai-delay, 0ms) both; }
+  .floating-icon.animating .ai-anim-dot-appear { animation: ai-dot-pop 500ms ease 200ms both; }
+  .floating-icon.animating .ai-anim-bar { animation: ai-bar-grow 600ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--ai-delay, 0ms) both; }
+  .floating-icon.animating .ai-anim-scale-pop { animation: ai-scale-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--ai-delay, 0ms) both; }
+  .floating-icon.animating .ai-anim-pulse-element { animation: ai-pulse 0.7s ease-in-out; }
+  .floating-icon.animating .ai-anim-gear { transform: rotate(var(--ai-rotation, 90deg)); }
+  .floating-icon.animating .ai-anim-nudge { transform: translate(var(--ai-tx, 0px), var(--ai-ty, 0px)); }
+  .floating-icon.animating .ai-anim-bell-ring { animation: ai-bell-ring 0.7s ease; }
+  .floating-icon.animating .ai-anim-heart-beat { animation: ai-heart-beat 0.8s ease; }
+  .floating-icon.animating .ai-anim-rocket-lift { transform: translate(1px, -1.5px); }
+  .floating-icon.animating .ai-anim-handle-lift { transform: translateY(-1.5px); }
+  .floating-icon.animating .ai-anim-page-turn { transform: rotateY(-12deg); }
+  .floating-icon.animating .ai-anim-menu-line { transform: scaleX(var(--ai-scale-x, 0.7)); }
+  .floating-icon.animating .ai-anim-mail-flap { animation: ai-mail-flap 700ms ease var(--ai-delay, 0ms) both; }
+  .floating-icon.animating .ai-anim-shake { animation: ai-shake 600ms ease var(--ai-delay, 0ms) both; }
+  .floating-icon.animating .ai-anim-spin { animation: ai-spin 700ms cubic-bezier(0.4, 0, 0.2, 1) var(--ai-delay, 0ms) both; }
+
+  /* --- Heroicons (ah-) --- */
+  .floating-icon.animating .ah-anim-fill { fill-opacity: 0.18; }
+  .floating-icon.animating .ah-anim-fade { animation: ah-fade-pop 500ms ease var(--ah-delay, 0ms) both; }
+  .floating-icon.animating .ah-anim-draw { animation: ah-draw-in 600ms ease var(--ah-delay, 0ms) both; }
+  .floating-icon.animating .ah-anim-draw-line { animation: ah-draw-line 500ms ease var(--ah-delay, 0ms) both; }
+  .floating-icon.animating .ah-anim-dot-appear { animation: ah-dot-pop 500ms ease 200ms both; }
+  .floating-icon.animating .ah-anim-bar { animation: ah-bar-grow 600ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--ah-delay, 0ms) both; }
+  .floating-icon.animating .ah-anim-scale-pop { animation: ah-scale-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--ah-delay, 0ms) both; }
+  .floating-icon.animating .ah-anim-pulse-element { animation: ah-pulse 0.7s ease-in-out; }
+  .floating-icon.animating .ah-anim-gear { transform: rotate(var(--ah-rotation, 90deg)); }
+  .floating-icon.animating .ah-anim-nudge { transform: translate(var(--ah-tx, 0px), var(--ah-ty, 0px)); }
+  .floating-icon.animating .ah-anim-bell-ring { animation: ah-bell-ring 0.7s ease; }
+  .floating-icon.animating .ah-anim-heart-beat { animation: ah-heart-beat 0.8s ease; }
+  .floating-icon.animating .ah-anim-rocket-lift { transform: translate(1px, -1.5px); }
+  .floating-icon.animating .ah-anim-handle-lift { transform: translateY(-1.5px); }
+  .floating-icon.animating .ah-anim-page-turn { transform: rotateY(-12deg); }
+  .floating-icon.animating .ah-anim-menu-line { transform: scaleX(var(--ah-scale-x, 0.7)); }
+  .floating-icon.animating .ah-anim-mail-flap { animation: ah-mail-flap 700ms ease var(--ah-delay, 0ms) both; }
+  .floating-icon.animating .ah-anim-shake { animation: ah-shake 600ms ease var(--ah-delay, 0ms) both; }
+  .floating-icon.animating .ah-anim-spin { animation: ah-spin 700ms cubic-bezier(0.4, 0, 0.2, 1) var(--ah-delay, 0ms) both; }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="icons-canvas" id="iconsCanvas"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Animated Icons</h1>
+    <p class="hero-subtitle">3,640 icons across 3 sets</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  'use strict';
+
+  var CELL_SIZE = 100;
+  var SPAWN_INTERVAL = 400;
+  var FADE_IN_MS = 300;
+  var HOLD_MS = 1500;
+  var FADE_OUT_MS = 300;
+  var ICON_SIZE_MIN = 32;
+  var ICON_SIZE_MAX = 40;
+  var MAX_VISIBLE = 12;
+
+  var SETS = [
+    {
+      name: 'lucide',
+      url: '/data/lucide/icons-chunk-0.json',
+      color: '#0d9488',
+      cssVar: '--animated-lucide-primary',
+      className: 'set-lucide',
+    },
+    {
+      name: 'iconoir',
+      url: '/data/iconoir/icons-chunk-0.json',
+      color: '#6366f1',
+      cssVar: '--animated-iconoir-primary',
+      className: 'set-iconoir',
+    },
+    {
+      name: 'heroicons',
+      url: '/data/heroicons/icons-chunk-0.json',
+      color: '#f59e0b',
+      cssVar: '--animated-heroicon-primary',
+      className: 'set-heroicons',
+    },
+  ];
+
+  var canvas = document.getElementById('iconsCanvas');
+  var allIcons = [];
+  var grid = { cols: 0, rows: 0, occupied: new Set() };
+  var activeCount = 0;
+  var spawnTimer = null;
+  var stylesInjected = new Set();
+
+  function recalcGrid() {
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    grid.cols = Math.floor(w / CELL_SIZE);
+    grid.rows = Math.floor(h / CELL_SIZE);
+  }
+
+  function getMaxIcons() {
+    var w = window.innerWidth;
+    if (w < 640) return 5;
+    if (w < 1024) return 8;
+    return MAX_VISIBLE;
+  }
+
+  function randomFreeCell() {
+    var totalCells = grid.cols * grid.rows;
+    if (grid.occupied.size >= totalCells) return null;
+
+    for (var i = 0; i < 20; i++) {
+      var idx = Math.floor(Math.random() * totalCells);
+      if (!grid.occupied.has(idx)) return idx;
+    }
+
+    var free = [];
+    for (var j = 0; j < totalCells; j++) {
+      if (!grid.occupied.has(j)) free.push(j);
+    }
+    if (free.length === 0) return null;
+    return free[Math.floor(Math.random() * free.length)];
+  }
+
+  function cellToPosition(cellIdx) {
+    var col = cellIdx % grid.cols;
+    var row = Math.floor(cellIdx / grid.cols);
+    var jitterX = Math.random() * (CELL_SIZE - 40);
+    var jitterY = Math.random() * (CELL_SIZE - 40);
+    return {
+      x: col * CELL_SIZE + jitterX,
+      y: row * CELL_SIZE + jitterY,
+    };
+  }
+
+  function extractAndInjectStyle(svgString, setName) {
+    if (stylesInjected.has(setName)) {
+      return svgString.replace(/<style>[\s\S]*?<\/style>/g, '');
+    }
+
+    var match = svgString.match(/<style>([\s\S]*?)<\/style>/);
+    if (match) {
+      var styleEl = document.createElement('style');
+      styleEl.setAttribute('data-set', setName);
+      styleEl.textContent = match[1];
+      document.head.appendChild(styleEl);
+      stylesInjected.add(setName);
+    }
+    return svgString.replace(/<style>[\s\S]*?<\/style>/g, '');
+  }
+
+  function spawnIcon() {
+    if (allIcons.length === 0) return;
+    if (activeCount >= getMaxIcons()) return;
+
+    var cellIdx = randomFreeCell();
+    if (cellIdx === null) return;
+
+    grid.occupied.add(cellIdx);
+    activeCount++;
+
+    var pos = cellToPosition(cellIdx);
+    var iconData = allIcons[Math.floor(Math.random() * allIcons.length)];
+    var set = iconData.set;
+
+    var size = ICON_SIZE_MIN + Math.floor(Math.random() * (ICON_SIZE_MAX - ICON_SIZE_MIN + 1));
+    var cleanSvg = extractAndInjectStyle(iconData.svg, set.name);
+
+    var el = document.createElement('div');
+    el.className = 'floating-icon ' + set.className;
+    el.style.cssText =
+      'left:' + pos.x + 'px;top:' + pos.y + 'px;width:' + size + 'px;height:' + size + 'px;' +
+      set.cssVar + ':' + set.color + ';color:' + set.color + ';';
+
+    // Use DOMParser for safe SVG insertion
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(cleanSvg, 'image/svg+xml');
+    var svgEl = doc.documentElement;
+    if (svgEl && svgEl.tagName === 'svg') {
+      el.appendChild(document.importNode(svgEl, true));
+    }
+
+    canvas.appendChild(el);
+
+    requestAnimationFrame(function () {
+      el.classList.add('visible');
+
+      setTimeout(function () {
+        el.classList.add('animating');
+
+        setTimeout(function () {
+          el.classList.remove('visible');
+          el.classList.add('fading-out');
+
+          setTimeout(function () {
+            el.remove();
+            grid.occupied.delete(cellIdx);
+            activeCount--;
+          }, FADE_OUT_MS);
+        }, HOLD_MS);
+      }, FADE_IN_MS);
+    });
+  }
+
+  function startSpawning() {
+    if (spawnTimer) return;
+
+    function tick() {
+      spawnIcon();
+      spawnTimer = setTimeout(tick, SPAWN_INTERVAL);
+    }
+    tick();
+  }
+
+  function loadIcons() {
+    var promises = SETS.map(function (set) {
+      return fetch(set.url)
+        .then(function (res) {
+          if (!res.ok) throw new Error('Failed to load ' + set.url);
+          return res.json();
+        })
+        .then(function (data) {
+          return Object.values(data).map(function (svg) {
+            return { svg: svg, set: set };
+          });
+        })
+        .catch(function (err) {
+          console.warn('Could not load ' + set.name + ' icons:', err);
+          return [];
+        });
+    });
+
+    return Promise.all(promises).then(function (results) {
+      allIcons = results.reduce(function (acc, arr) { return acc.concat(arr); }, []);
+
+      // Shuffle
+      for (var i = allIcons.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = allIcons[i];
+        allIcons[i] = allIcons[j];
+        allIcons[j] = tmp;
+      }
+
+      console.log('Loaded ' + allIcons.length + ' icons across ' + SETS.length + ' sets');
+    });
+  }
+
+  var resizeTimeout;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function () {
+      recalcGrid();
+    }, 200);
+  });
+
+  recalcGrid();
+  loadIcons().then(function () {
+    startSpawning();
+  });
+})();
+</script>
+
+</body>
+</html>

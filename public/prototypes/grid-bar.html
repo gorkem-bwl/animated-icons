@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Icons - Grid Bar Prototype</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .grid-bar-wrapper {
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .grid-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    gap: 2px;
+    opacity: 0;
+    transition: opacity 400ms ease;
+    pointer-events: none;
+  }
+
+  .grid-layer.active {
+    opacity: 1;
+  }
+
+  .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .cell svg {
+    width: 28px;
+    height: 28px;
+    opacity: 0.55;
+    transition: opacity 300ms ease;
+  }
+
+  .cell.animating svg {
+    opacity: 0.85;
+  }
+
+  /* Gradient overlays */
+  .gradient-left,
+  .gradient-right,
+  .gradient-top,
+  .gradient-bottom {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .gradient-left {
+    top: 0; left: 0; bottom: 0;
+    width: 120px;
+    background: linear-gradient(to right, #0a0a0a 0%, transparent 100%);
+  }
+
+  .gradient-right {
+    top: 0; right: 0; bottom: 0;
+    width: 120px;
+    background: linear-gradient(to left, #0a0a0a 0%, transparent 100%);
+  }
+
+  .gradient-top {
+    top: 0; left: 0; right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, #0a0a0a 0%, transparent 100%);
+  }
+
+  .gradient-bottom {
+    bottom: 0; left: 0; right: 0;
+    height: 40px;
+    background: linear-gradient(to top, #0a0a0a 0%, transparent 100%);
+  }
+
+  /* Title overlay */
+  .title-overlay {
+    position: absolute;
+    z-index: 20;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .title-overlay h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+  }
+
+  .title-overlay p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.55);
+    font-weight: 400;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.8);
+  }
+
+  /* Set labels */
+  .set-label {
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    z-index: 15;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 400ms ease;
+    pointer-events: none;
+  }
+
+  .set-label.active {
+    opacity: 0.4;
+  }
+
+  /* ======================================================
+     Programmatic animation triggers (.cell.animating ...)
+     Duplicates hover rules so wave can trigger without hover.
+     ====================================================== */
+
+  /* --- Lucide (al-) --- */
+  .cell.animating .al-anim-fill { fill-opacity: 0.18; }
+  .cell.animating .al-anim-draw { animation: al-draw-in 600ms ease var(--al-delay, 0ms) both; }
+  .cell.animating .al-anim-draw-line { animation: al-draw-line 500ms ease var(--al-delay, 0ms) both; }
+  .cell.animating .al-anim-fade { animation: al-fade-pop 500ms ease var(--al-delay, 0ms) both; }
+  .cell.animating .al-anim-dot-appear { animation: al-dot-pop 500ms ease 200ms both; }
+  .cell.animating .al-anim-bar { animation: al-bar-grow 600ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms) both; }
+  .cell.animating .al-anim-scale-pop { animation: al-scale-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--al-delay, 0ms) both; }
+  .cell.animating .al-anim-pulse-element { animation: al-pulse 0.7s ease-in-out; }
+  .cell.animating .al-anim-gear { transform: rotate(var(--al-rotation, 90deg)); }
+  .cell.animating .al-anim-nudge { transform: translate(var(--al-tx, 0px), var(--al-ty, 0px)); }
+  .cell.animating .al-anim-bell-ring { animation: al-bell-ring 0.7s ease; }
+  .cell.animating .al-anim-heart-beat { animation: al-heart-beat 0.8s ease; }
+  .cell.animating .al-anim-rocket-lift { transform: translate(1px, -1.5px); }
+  .cell.animating .al-anim-handle-lift { transform: translateY(-1.5px); }
+  .cell.animating .al-anim-page-turn { transform: rotateY(-12deg); }
+  .cell.animating .al-anim-menu-line { transform: scaleX(var(--al-scale-x, 0.7)); }
+  .cell.animating .al-anim-mail-flap { animation: al-mail-flap 700ms ease var(--al-delay, 0ms) both; }
+  .cell.animating .al-anim-shake { animation: al-shake 600ms ease var(--al-delay, 0ms) both; }
+  .cell.animating .al-anim-spin { animation: al-spin 700ms cubic-bezier(0.4, 0, 0.2, 1) var(--al-delay, 0ms) both; }
+
+  /* --- Iconoir (ai-) --- */
+  .cell.animating .ai-anim-fill { fill-opacity: 0.18; }
+  .cell.animating .ai-anim-draw { animation: ai-draw-in 600ms ease var(--ai-delay, 0ms) both; }
+  .cell.animating .ai-anim-draw-line { animation: ai-draw-line 500ms ease var(--ai-delay, 0ms) both; }
+  .cell.animating .ai-anim-fade { animation: ai-fade-pop 500ms ease var(--ai-delay, 0ms) both; }
+  .cell.animating .ai-anim-dot-appear { animation: ai-dot-pop 500ms ease 200ms both; }
+  .cell.animating .ai-anim-bar { animation: ai-bar-grow 600ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--ai-delay, 0ms) both; }
+  .cell.animating .ai-anim-scale-pop { animation: ai-scale-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--ai-delay, 0ms) both; }
+  .cell.animating .ai-anim-pulse-element { animation: ai-pulse 0.7s ease-in-out; }
+  .cell.animating .ai-anim-gear { transform: rotate(var(--ai-rotation, 90deg)); }
+  .cell.animating .ai-anim-nudge { transform: translate(var(--ai-tx, 0px), var(--ai-ty, 0px)); }
+  .cell.animating .ai-anim-bell-ring { animation: ai-bell-ring 0.7s ease; }
+  .cell.animating .ai-anim-heart-beat { animation: ai-heart-beat 0.8s ease; }
+  .cell.animating .ai-anim-rocket-lift { transform: translate(1px, -1.5px); }
+  .cell.animating .ai-anim-handle-lift { transform: translateY(-1.5px); }
+  .cell.animating .ai-anim-page-turn { transform: rotateY(-12deg); }
+  .cell.animating .ai-anim-menu-line { transform: scaleX(var(--ai-scale-x, 0.7)); }
+  .cell.animating .ai-anim-mail-flap { animation: ai-mail-flap 700ms ease var(--ai-delay, 0ms) both; }
+  .cell.animating .ai-anim-shake { animation: ai-shake 600ms ease var(--ai-delay, 0ms) both; }
+  .cell.animating .ai-anim-spin { animation: ai-spin 700ms cubic-bezier(0.4, 0, 0.2, 1) var(--ai-delay, 0ms) both; }
+
+  /* --- Heroicons (ah-) --- */
+  .cell.animating .ah-anim-fill { fill-opacity: 0.18; }
+  .cell.animating .ah-anim-draw { animation: ah-draw-in 600ms ease var(--ah-delay, 0ms) both; }
+  .cell.animating .ah-anim-draw-line { animation: ah-draw-line 500ms ease var(--ah-delay, 0ms) both; }
+  .cell.animating .ah-anim-fade { animation: ah-fade-pop 500ms ease var(--ah-delay, 0ms) both; }
+  .cell.animating .ah-anim-dot-appear { animation: ah-dot-pop 500ms ease 200ms both; }
+  .cell.animating .ah-anim-bar { animation: ah-bar-grow 600ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--ah-delay, 0ms) both; }
+  .cell.animating .ah-anim-scale-pop { animation: ah-scale-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--ah-delay, 0ms) both; }
+  .cell.animating .ah-anim-pulse-element { animation: ah-pulse 0.7s ease-in-out; }
+  .cell.animating .ah-anim-gear { transform: rotate(var(--ah-rotation, 90deg)); }
+  .cell.animating .ah-anim-nudge { transform: translate(var(--ah-tx, 0px), var(--ah-ty, 0px)); }
+  .cell.animating .ah-anim-bell-ring { animation: ah-bell-ring 0.7s ease; }
+  .cell.animating .ah-anim-heart-beat { animation: ah-heart-beat 0.8s ease; }
+  .cell.animating .ah-anim-rocket-lift { transform: translate(1px, -1.5px); }
+  .cell.animating .ah-anim-handle-lift { transform: translateY(-1.5px); }
+  .cell.animating .ah-anim-page-turn { transform: rotateY(-12deg); }
+  .cell.animating .ah-anim-menu-line { transform: scaleX(var(--ah-scale-x, 0.7)); }
+  .cell.animating .ah-anim-mail-flap { animation: ah-mail-flap 700ms ease var(--ah-delay, 0ms) both; }
+  .cell.animating .ah-anim-shake { animation: ah-shake 600ms ease var(--ah-delay, 0ms) both; }
+  .cell.animating .ah-anim-spin { animation: ah-spin 700ms cubic-bezier(0.4, 0, 0.2, 1) var(--ah-delay, 0ms) both; }
+</style>
+</head>
+<body>
+
+<div class="grid-bar-wrapper" id="gridBar">
+  <!-- Gradient overlays -->
+  <div class="gradient-left"></div>
+  <div class="gradient-right"></div>
+  <div class="gradient-top"></div>
+  <div class="gradient-bottom"></div>
+
+  <!-- Title overlay -->
+  <div class="title-overlay">
+    <h1>Animated Icons</h1>
+    <p>3,640 icons across 3 sets</p>
+  </div>
+
+  <!-- Set labels -->
+  <div class="set-label" id="label-lucide">Lucide</div>
+  <div class="set-label" id="label-iconoir">Iconoir</div>
+  <div class="set-label" id="label-heroicons">Heroicons</div>
+
+  <!-- Grid layers -->
+  <div class="grid-layer" id="layer-lucide" style="
+    --animated-lucide-primary: #0d9488;
+    --animated-lucide-secondary: #0d9488;
+    color: #0d9488;
+  "></div>
+  <div class="grid-layer" id="layer-iconoir" style="
+    --animated-iconoir-primary: #6366f1;
+    --animated-iconoir-secondary: #6366f1;
+    color: #6366f1;
+  "></div>
+  <div class="grid-layer" id="layer-heroicons" style="
+    --animated-heroicon-primary: #f59e0b;
+    --animated-heroicon-secondary: #f59e0b;
+    color: #f59e0b;
+  "></div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var SETS = [
+    { id: 'lucide',    url: '/data/lucide/icons-chunk-0.json',    prefix: 'al', label: 'label-lucide' },
+    { id: 'iconoir',   url: '/data/iconoir/icons-chunk-0.json',   prefix: 'ai', label: 'label-iconoir' },
+    { id: 'heroicons', url: '/data/heroicons/icons-chunk-0.json', prefix: 'ah', label: 'label-heroicons' }
+  ];
+
+  var CELL_SIZE = 70;
+  var ROWS = 3;
+  var STAGGER = 25;
+  var WAVE_DURATION = 1500;
+  var CROSSFADE_MS = 400;
+
+  var cols = 0;
+  var totalCells = 0;
+  var iconData = {};
+  var stylesInjected = {};
+
+  // --- Fetch all icon data ---
+  function loadAll() {
+    Promise.all(SETS.map(function (s) {
+      return fetch(s.url).then(function (r) { return r.json(); });
+    })).then(function (results) {
+      results.forEach(function (chunk, i) {
+        iconData[SETS[i].id] = Object.values(chunk);
+      });
+      buildGrids();
+      startLoop();
+    });
+  }
+
+  // --- Extract first style block per set, strip from all SVGs ---
+  function extractAndInjectStyle(svgStr, setId) {
+    var match = svgStr.match(/<style>([\s\S]*?)<\/style>/);
+    if (match && !stylesInjected[setId]) {
+      var styleEl = document.createElement('style');
+      styleEl.textContent = match[1];
+      document.head.appendChild(styleEl);
+      stylesInjected[setId] = true;
+    }
+    return svgStr.replace(/<style>[\s\S]*?<\/style>/, '');
+  }
+
+  // --- Calculate columns ---
+  function calcCols() {
+    return Math.floor(window.innerWidth / CELL_SIZE);
+  }
+
+  // --- Build all three grid layers ---
+  function buildGrids() {
+    cols = calcCols();
+    totalCells = cols * ROWS;
+
+    var barHeight = ROWS * CELL_SIZE;
+    var wrapper = document.getElementById('gridBar');
+    wrapper.style.height = barHeight + 'px';
+
+    SETS.forEach(function (set) {
+      var layer = document.getElementById('layer-' + set.id);
+      // Clear existing content safely
+      while (layer.firstChild) {
+        layer.removeChild(layer.firstChild);
+      }
+      layer.style.gridTemplateColumns = 'repeat(' + cols + ', 1fr)';
+      layer.style.gridTemplateRows = 'repeat(' + ROWS + ', 1fr)';
+
+      var icons = iconData[set.id];
+      for (var i = 0; i < totalCells; i++) {
+        var cell = document.createElement('div');
+        cell.className = 'cell';
+        var row = Math.floor(i / cols);
+        var col = i % cols;
+        cell.setAttribute('data-row', row);
+        cell.setAttribute('data-col', col);
+
+        // Parse SVG safely using DOMParser
+        var svgRaw = icons[i % icons.length];
+        var svgClean = extractAndInjectStyle(svgRaw, set.id);
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(svgClean, 'image/svg+xml');
+        var svgNode = doc.documentElement;
+        if (svgNode && svgNode.nodeName === 'svg') {
+          cell.appendChild(document.importNode(svgNode, true));
+        }
+
+        layer.appendChild(cell);
+      }
+    });
+  }
+
+  // --- Trigger wave animation across a layer ---
+  function triggerWave(setId) {
+    var layer = document.getElementById('layer-' + setId);
+    var cells = layer.querySelectorAll('.cell');
+
+    cells.forEach(function (cell) {
+      var row = parseInt(cell.getAttribute('data-row'), 10);
+      var col = parseInt(cell.getAttribute('data-col'), 10);
+      var delay = (row + col) * STAGGER;
+
+      setTimeout(function () {
+        cell.classList.add('animating');
+      }, delay);
+    });
+
+    // Remove animating class after wave completes
+    var maxDelay = (ROWS - 1 + cols - 1) * STAGGER + 800;
+    setTimeout(function () {
+      cells.forEach(function (cell) {
+        cell.classList.remove('animating');
+      });
+    }, maxDelay);
+  }
+
+  // --- Set the active layer and label ---
+  function setActive(index) {
+    SETS.forEach(function (s, i) {
+      var layer = document.getElementById('layer-' + s.id);
+      var label = document.getElementById(s.label);
+      if (i === index) {
+        layer.classList.add('active');
+        label.classList.add('active');
+      } else {
+        layer.classList.remove('active');
+        label.classList.remove('active');
+      }
+    });
+  }
+
+  // --- Main animation loop ---
+  function startLoop() {
+    var current = 0;
+
+    function cycle() {
+      setActive(current);
+
+      setTimeout(function () {
+        triggerWave(SETS[current].id);
+      }, 200);
+
+      setTimeout(function () {
+        current = (current + 1) % SETS.length;
+        cycle();
+      }, WAVE_DURATION + CROSSFADE_MS + 200);
+    }
+
+    cycle();
+  }
+
+  // --- Handle window resize ---
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      buildGrids();
+    }, 200);
+  });
+
+  // --- Initialize ---
+  loadAll();
+})();
+</script>
+</body>
+</html>
