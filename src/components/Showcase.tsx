@@ -25,7 +25,7 @@ interface ShowcaseSetConfig {
 
 const SHOWCASE_CONFIGS: Record<string, ShowcaseSetConfig> = {
   lucide: {
-    chunkPrefix: "/data/icons-chunk-",
+    chunkPrefix: "/data/lucide/icons-chunk-",
     chunkMap: {
       home: 4, inbox: 4, calendar: 1, settings: 7, user: 9,
       search: 7, heart: 4, "share-2": 7, bookmark: 1, plus: 6,
