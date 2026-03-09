@@ -1061,6 +1061,200 @@ ${generateAnimationCSS(config)}
 `;
 }
 
+// ─── Generate Svelte Component ───────────────────────────────────────
+
+export function generateSvelteComponent(iconName, svgContent, animationType, config) {
+  const elements = parseSvgElements(svgContent);
+  const strategy = animationStrategies[animationType] || animationStrategies.toggle;
+  const animatedElements = strategy(elements, iconName);
+  const label = toLabel(iconName);
+  const p = config.cssPrefix;
+
+  let elementsMarkup = '';
+  animatedElements.forEach((el) => {
+    const colorClass = el.colorGroup === 'primary' ? `${p}-primary` : `${p}-secondary`;
+    const delayClass = `${p}-delay-${Math.min(el.delay || 0, 7)}`;
+    const animClass = `${p}-anim-${el.anim}`;
+
+    let attrs = '';
+    for (const [key, val] of Object.entries(el.attrs)) {
+      attrs += ` ${key}="${val}"`;
+    }
+
+    let extraAttrs = '';
+    if (el.anim === 'draw' || el.anim === 'draw-line') {
+      const len = Math.ceil(estimatePathLength(el));
+      extraAttrs += ` stroke-dasharray="${len}"`;
+      if (!el.customProps) el.customProps = {};
+      el.customProps.dashLen = len;
+    }
+
+    let styleAttr = '';
+    if (el.customProps) {
+      const parts = [];
+      if (el.customProps.rotation !== undefined) parts.push(`--${p}-rotation: ${el.customProps.rotation}deg`);
+      if (el.customProps.tx !== undefined) parts.push(`--${p}-tx: ${el.customProps.tx}px`);
+      if (el.customProps.ty !== undefined) parts.push(`--${p}-ty: ${el.customProps.ty}px`);
+      if (el.customProps.scaleX !== undefined) parts.push(`--${p}-scale-x: ${el.customProps.scaleX}`);
+      if (el.customProps.dashLen !== undefined) parts.push(`--${p}-dash-len: ${el.customProps.dashLen}`);
+      if (parts.length) styleAttr = ` style="${parts.join('; ')}"`;
+    }
+
+    elementsMarkup += `    <${el.tag}${attrs}${extraAttrs} class="${colorClass} ${animClass} ${delayClass}"${styleAttr} />\n`;
+  });
+
+  return `<script>
+  export let size = 24;
+  export let color = 'currentColor';
+  export let primaryColor = '';
+  export let secondaryColor = '';
+  export let strokeWidth = ${config.defaultStrokeWidthNum};
+  export let className = '';
+  export let label = '${label}';
+
+  $: cssVars = \`${config.shortPrimaryVar}: \${primaryColor || color}; ${config.shortSecondaryVar}: \${secondaryColor || color}\`;
+</script>
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="${config.defaultFill}"
+  stroke={color}
+  stroke-width={strokeWidth}
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="${config.svgClassName} ${config.svgClassName}-${iconName} {className}"
+  style={cssVars}
+  role="img"
+  aria-label={label}
+>
+  <title>{label}</title>
+${elementsMarkup}</svg>
+
+<style>
+${generateAnimationCSS(config)}
+</style>
+`;
+}
+
+// ─── Generate Web Component ─────────────────────────────────────────
+
+export function generateWebComponent(iconName, svgContent, animationType, config) {
+  const elements = parseSvgElements(svgContent);
+  const strategy = animationStrategies[animationType] || animationStrategies.toggle;
+  const animatedElements = strategy(elements, iconName);
+  const componentName = toPascalCase(iconName);
+  const tagName = `animated-${config.name}-${iconName}`;
+  const label = toLabel(iconName);
+  const p = config.cssPrefix;
+
+  let elementsMarkup = '';
+  animatedElements.forEach((el) => {
+    const colorClass = el.colorGroup === 'primary' ? `${p}-primary` : `${p}-secondary`;
+    const delayClass = `${p}-delay-${Math.min(el.delay || 0, 7)}`;
+    const animClass = `${p}-anim-${el.anim}`;
+
+    let attrs = '';
+    for (const [key, val] of Object.entries(el.attrs)) {
+      attrs += ` ${key}="${val}"`;
+    }
+
+    let extraAttrs = '';
+    if (el.anim === 'draw' || el.anim === 'draw-line') {
+      const len = Math.ceil(estimatePathLength(el));
+      extraAttrs += ` stroke-dasharray="${len}"`;
+      if (!el.customProps) el.customProps = {};
+      el.customProps.dashLen = len;
+    }
+
+    let styleAttr = '';
+    if (el.customProps) {
+      const parts = [];
+      if (el.customProps.rotation !== undefined) parts.push(`--${p}-rotation: ${el.customProps.rotation}deg`);
+      if (el.customProps.tx !== undefined) parts.push(`--${p}-tx: ${el.customProps.tx}px`);
+      if (el.customProps.ty !== undefined) parts.push(`--${p}-ty: ${el.customProps.ty}px`);
+      if (el.customProps.scaleX !== undefined) parts.push(`--${p}-scale-x: ${el.customProps.scaleX}`);
+      if (el.customProps.dashLen !== undefined) parts.push(`--${p}-dash-len: ${el.customProps.dashLen}`);
+      if (parts.length) styleAttr = ` style="${parts.join('; ')}"`;
+    }
+
+    elementsMarkup += `        <${el.tag}${attrs}${extraAttrs} class="${colorClass} ${animClass} ${delayClass}"${styleAttr} />\n`;
+  });
+
+  const css = generateAnimationCSS(config);
+
+  // Web Component uses Shadow DOM for style encapsulation.
+  // All SVG content is from our own build output — trusted, not user input.
+  return `/**
+ * <${tagName}> Web Component
+ * Usage: <${tagName} size="24" color="#0d9488"></${tagName}>
+ */
+class ${componentName}Icon extends HTMLElement {
+  static get observedAttributes() {
+    return ['size', 'color', 'primary-color', 'secondary-color', 'stroke-width', 'label'];
+  }
+
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this._render();
+  }
+
+  attributeChangedCallback() {
+    this._render();
+  }
+
+  _render() {
+    const size = this.getAttribute('size') || '24';
+    const color = this.getAttribute('color') || 'currentColor';
+    const primaryColor = this.getAttribute('primary-color') || color;
+    const secondaryColor = this.getAttribute('secondary-color') || color;
+    const strokeWidth = this.getAttribute('stroke-width') || '${config.defaultStrokeWidth}';
+    const iconLabel = this.getAttribute('label') || '${label}';
+
+    // Build SVG using DOM APIs for safe rendering
+    const style = document.createElement('style');
+    style.textContent = ':host { display: inline-flex; } ' + ${JSON.stringify(css)};
+
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    svg.setAttribute('width', size);
+    svg.setAttribute('height', size);
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', '${config.defaultFill}');
+    svg.setAttribute('stroke', color);
+    svg.setAttribute('stroke-width', strokeWidth);
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    svg.setAttribute('class', '${config.svgClassName} ${config.svgClassName}-${iconName}');
+    svg.setAttribute('style', '${config.shortPrimaryVar}: ' + primaryColor + '; ${config.shortSecondaryVar}: ' + secondaryColor);
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', iconLabel);
+
+    const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+    title.textContent = iconLabel;
+    svg.appendChild(title);
+
+    // Static SVG elements from build output — trusted content
+    const template = document.createElement('template');
+    template.innerHTML = \`${elementsMarkup}\`;
+    svg.appendChild(template.content);
+
+    this.shadowRoot.replaceChildren(style, svg);
+  }
+}
+
+if (!customElements.get('${tagName}')) {
+  customElements.define('${tagName}', ${componentName}Icon);
+}
+
+export { ${componentName}Icon };
+export default ${componentName}Icon;
+`;
+}
+
 // ─── Main Build Orchestrator ─────────────────────────────────────────
 
 export function buildIconSet(config) {
@@ -1075,12 +1269,16 @@ export function buildIconSet(config) {
 
   const dirs = [config.outSvg, config.outReact, config.outCss, config.galleryData];
   if (config.outVue) dirs.push(config.outVue);
+  if (config.outSvelte) dirs.push(config.outSvelte);
+  if (config.outWc) dirs.push(config.outWc);
   if (config.copySourceTo) dirs.push(config.copySourceTo);
   dirs.forEach(dir => fs.mkdirSync(dir, { recursive: true }));
 
   const galleryIcons = [];
   const indexExports = [];
   const vueExports = [];
+  const svelteExports = [];
+  const wcExports = [];
   let processed = 0;
 
   const allIconFiles = fs.readdirSync(config.sourceDir).filter(f => f.endsWith('.svg')).sort();
@@ -1133,6 +1331,18 @@ export function buildIconSet(config) {
       vueExports.push(`export { default as ${componentName} } from './${componentName}.vue';`);
     }
 
+    if (config.outSvelte) {
+      const svelteComponent = generateSvelteComponent(iconName, svgContent, animation, config);
+      fs.writeFileSync(path.join(config.outSvelte, `${componentName}.svelte`), svelteComponent);
+      svelteExports.push(`export { default as ${componentName} } from './${componentName}.svelte';`);
+    }
+
+    if (config.outWc) {
+      const wcComponent = generateWebComponent(iconName, svgContent, animation, config);
+      fs.writeFileSync(path.join(config.outWc, `${componentName}.js`), wcComponent);
+      wcExports.push(`export { default as ${componentName} } from './${componentName}.js';`);
+    }
+
     galleryIcons.push({
       name: iconName,
       componentName,
@@ -1155,6 +1365,18 @@ export function buildIconSet(config) {
     vueExports.push('');
     vueExports.push(`export const iconNames = ${JSON.stringify(allIconNames)};`);
     fs.writeFileSync(path.join(config.outVue, 'index.js'), vueExports.join('\n') + '\n');
+  }
+
+  if (config.outSvelte) {
+    svelteExports.push('');
+    svelteExports.push(`export const iconNames = ${JSON.stringify(allIconNames)};`);
+    fs.writeFileSync(path.join(config.outSvelte, 'index.js'), svelteExports.join('\n') + '\n');
+  }
+
+  if (config.outWc) {
+    wcExports.push('');
+    wcExports.push(`export const iconNames = ${JSON.stringify(allIconNames)};`);
+    fs.writeFileSync(path.join(config.outWc, 'index.js'), wcExports.join('\n') + '\n');
   }
 
   fs.writeFileSync(

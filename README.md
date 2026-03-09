@@ -11,7 +11,7 @@ Beautifully animated, two-tone icon libraries with CSS-only hover animations. Cu
 - CSS transition-based animations triggered on hover (no Framer Motion, no JS)
 - Two-tone color support via CSS custom properties
 - 3,640 animated icons across three icon sets
-- Multiple output formats: React components, Vue components, standalone SVGs
+- Multiple output formats: React, Vue, Svelte, Web Components, standalone SVGs
 - Accessible: `role="img"`, `aria-label`, and `<title>` on every icon
 - Semantic animations per category (bells ring, hearts beat, gears rotate, shields fill)
 - Fully visible default state: animations only add effects on hover
@@ -19,11 +19,23 @@ Beautifully animated, two-tone icon libraries with CSS-only hover animations. Cu
 
 ## Supported icon sets
 
-| Icon set | Icons | React | Vue | Wrapper class |
-| -------- | ----- | ----- | --- | ------------- |
-| Lucide | 1,933 | `animated-lucide-react` | `animated-lucide-vue` | `al-icon-wrapper` |
-| Heroicons | 324 | `animated-heroicons-react` | `animated-heroicons-vue` | `ah-icon-wrapper` |
-| Iconoir | 1,383 | `animated-iconoir-react` | `animated-iconoir-vue` | `ai-icon-wrapper` |
+| Icon set | Icons | Wrapper class |
+| -------- | ----- | ------------- |
+| Lucide | 1,933 | `al-icon-wrapper` |
+| Iconoir | 1,383 | `ai-icon-wrapper` |
+| Heroicons | 324 | `ah-icon-wrapper` |
+
+### Output formats
+
+Each icon set is available in 5 formats:
+
+| Format | Directory | Usage |
+| ------ | --------- | ----- |
+| **React** | `dist/react/` | `import { Heart } from './dist/react'` |
+| **Vue** | `dist/vue/` | `import { Heart } from './dist/vue'` |
+| **Svelte** | `dist/svelte/` | `import Heart from './dist/svelte/Heart.svelte'` |
+| **Web Components** | `dist/web-components/` | `<animated-lucide-heart>` |
+| **SVG** | `dist/svg/` | Copy and paste, includes embedded CSS |
 
 ## Quick start
 
@@ -86,6 +98,37 @@ import { Heart, Bell, Settings } from './animated-lucide-vue';
 ```
 
 Vue components use `<style scoped>` so animation CSS is automatically included per-component.
+
+### Svelte
+
+```svelte
+<script>
+  import Heart from './animated-lucide-svelte/Heart.svelte';
+</script>
+
+<div class="al-icon-wrapper">
+  <Heart size={24} primaryColor="#0d9488" secondaryColor="#0f766e" />
+</div>
+```
+
+### Web Components
+
+```html
+<script type="module">
+  import './animated-lucide-wc/Heart.js';
+</script>
+
+<div class="al-icon-wrapper">
+  <animated-lucide-heart
+    size="24"
+    color="#0d9488"
+    primary-color="#0d9488"
+    secondary-color="#0f766e">
+  </animated-lucide-heart>
+</div>
+```
+
+Web Components use Shadow DOM — each icon encapsulates its own styles. No external CSS needed, works in any framework or vanilla HTML.
 
 ### SVG
 
@@ -186,7 +229,9 @@ Wrap icons in buttons, cards, or nav items and the animation triggers when hover
 | `pulse`      | Opacity pulse                         | Alert indicators, signal, wifi       |
 | `dot-appear` | Pop scale on small elements           | Map pin dot                          |
 
-## React component props
+## Component props
+
+All frameworks share the same prop API:
 
 | Prop             | Type     | Default          | Description                     |
 | ---------------- | -------- | ---------------- | ------------------------------- |
@@ -198,7 +243,7 @@ Wrap icons in buttons, cards, or nav items and the animation triggers when hover
 | `className`      | `string` | `''`             | Additional CSS classes           |
 | `label`          | `string` | icon name        | Accessible label                |
 
-All components forward refs and spread additional props onto the SVG element.
+React components forward refs and spread additional props onto the SVG element. Web Components use kebab-case attributes (`primary-color`, `secondary-color`, `stroke-width`).
 
 ## Available icons
 
@@ -249,19 +294,13 @@ animated-icons/
     components/              # Next.js gallery components
   dist/
     svg/                     # Animated Lucide SVGs
-    react/                   # Animated Lucide React components
-    vue/                     # Animated Lucide Vue components
+    react/                   # Lucide React components (.jsx)
+    vue/                     # Lucide Vue components (.vue)
+    svelte/                  # Lucide Svelte components (.svelte)
+    web-components/          # Lucide Web Components (.js)
     css/                     # Shared Lucide CSS
-    heroicons/
-      svg/                   # Animated Heroicons SVGs
-      react/                 # Animated Heroicons React components
-      vue/                   # Animated Heroicons Vue components
-      css/                   # Shared Heroicons CSS
-    iconoir/
-      svg/                   # Animated Iconoir SVGs
-      react/                 # Animated Iconoir React components
-      vue/                   # Animated Iconoir Vue components
-      css/                   # Shared Iconoir CSS
+    heroicons/               # Same structure for Heroicons
+    iconoir/                 # Same structure for Iconoir
 ```
 
 ## Adding a new icon set
@@ -284,7 +323,7 @@ The shared animation engine reads source SVG icons and:
 3. Assigns animation classes based on the icon's category
 4. Handles single-path icons with category-appropriate whole-icon animations
 5. Applies staggered delays (80ms increments) for sequential reveals
-6. Outputs SVGs with embedded `<style>` blocks and React components
+6. Outputs SVGs with embedded `<style>` blocks, plus React, Vue, Svelte, and Web Components
 
 Animations use CSS transitions and keyframes, triggered by `:hover` on the icon or a parent wrapper class. No JavaScript animation library required.
 

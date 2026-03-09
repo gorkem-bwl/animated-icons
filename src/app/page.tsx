@@ -59,7 +59,7 @@ export default function Home() {
           </h1>
           <p className="mx-auto mt-5 max-w-lg text-[15px] text-neutral-500 dark:text-white/40 leading-relaxed">
             Lucide, Heroicons, and Iconoir — semantically animated with CSS-only hover
-            transitions and two-tone color support.
+            transitions and two-tone color support. Available for React, Vue, Svelte, and Web Components.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
@@ -100,48 +100,56 @@ export default function Home() {
               Get animated icons in your project in seconds
             </p>
           </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            <CodeCard dot="bg-blue-500/80" title="Lucide (React)">
-              <Kw>import</Kw> {"{ "}<Fn>Heart</Fn>, <Fn>Mail</Fn>{" }"}{"\n"}
+          <div className="grid gap-5 md:grid-cols-2">
+            <CodeCard dot="bg-blue-500/80" title="React">
+              <Kw>import</Kw> {"{ "}<Fn>Heart</Fn>, <Fn>Bell</Fn>{" }"}{"\n"}
               {"  "}<Kw>from</Kw> <Str>&apos;animated-lucide-react&apos;</Str>;{"\n"}
               {"\n"}
               <Kw>function</Kw> <Fn>App</Fn>() {"{"}{"\n"}
               {"  "}<Kw>return</Kw> ({"\n"}
               {"    "}<Tag>&lt;Heart</Tag>{"\n"}
               {"      "}<Attr>size</Attr>=<Val>{"{"}24{"}"}</Val>{"\n"}
-              {"      "}<Attr>primaryColor</Attr>=<Str>&quot;#ef4444&quot;</Str>{"\n"}
-              {"      "}<Attr>secondaryColor</Attr>=<Str>&quot;#dc2626&quot;</Str>{"\n"}
+              {"      "}<Attr>primaryColor</Attr>=<Str>&quot;#0d9488&quot;</Str>{"\n"}
+              {"      "}<Attr>secondaryColor</Attr>=<Str>&quot;#0f766e&quot;</Str>{"\n"}
               {"    "}<Tag>/&gt;</Tag>{"\n"}
               {"  );"}{"\n"}
               {"}"}
             </CodeCard>
-            <CodeCard dot="bg-indigo-500/80" title="Heroicons (React)">
-              <Kw>import</Kw> {"{ "}<Fn>Heart</Fn>, <Fn>Envelope</Fn>{" }"}{"\n"}
-              {"  "}<Kw>from</Kw> <Str>&apos;animated-heroicons-react&apos;</Str>;{"\n"}
+            <CodeCard dot="bg-emerald-500/80" title="Vue">
+              <Tag>&lt;template&gt;</Tag>{"\n"}
+              {"  "}<Tag>&lt;Heart</Tag>{"\n"}
+              {"    "}<Attr>:size</Attr>=<Str>&quot;24&quot;</Str>{"\n"}
+              {"    "}<Attr>primary-color</Attr>=<Str>&quot;#0d9488&quot;</Str>{"\n"}
+              {"    "}<Attr>secondary-color</Attr>=<Str>&quot;#0f766e&quot;</Str>{"\n"}
+              {"  "}<Tag>/&gt;</Tag>{"\n"}
+              <Tag>&lt;/template&gt;</Tag>{"\n"}
               {"\n"}
-              <Kw>function</Kw> <Fn>App</Fn>() {"{"}{"\n"}
-              {"  "}<Kw>return</Kw> ({"\n"}
-              {"    "}<Tag>&lt;Heart</Tag>{"\n"}
-              {"      "}<Attr>size</Attr>=<Val>{"{"}24{"}"}</Val>{"\n"}
-              {"      "}<Attr>primaryColor</Attr>=<Str>&quot;#ef4444&quot;</Str>{"\n"}
-              {"      "}<Attr>secondaryColor</Attr>=<Str>&quot;#dc2626&quot;</Str>{"\n"}
-              {"    "}<Tag>/&gt;</Tag>{"\n"}
-              {"  );"}{"\n"}
-              {"}"}
+              <Tag>&lt;script setup&gt;</Tag>{"\n"}
+              <Kw>import</Kw> {"{ "}<Fn>Heart</Fn>{" }"} <Kw>from</Kw> <Str>&apos;animated-lucide-vue&apos;</Str>;{"\n"}
+              <Tag>&lt;/script&gt;</Tag>
             </CodeCard>
-            <CodeCard dot="bg-orange-500/80" title="Iconoir (React)">
-              <Kw>import</Kw> {"{ "}<Fn>Heart</Fn>, <Fn>Mail</Fn>{" }"}{"\n"}
-              {"  "}<Kw>from</Kw> <Str>&apos;animated-iconoir-react&apos;</Str>;{"\n"}
+            <CodeCard dot="bg-orange-500/80" title="Svelte">
+              <Tag>&lt;script&gt;</Tag>{"\n"}
+              {"  "}<Kw>import</Kw> <Fn>Heart</Fn> <Kw>from</Kw>{"\n"}
+              {"    "}<Str>&apos;animated-lucide-svelte/Heart.svelte&apos;</Str>;{"\n"}
+              <Tag>&lt;/script&gt;</Tag>{"\n"}
               {"\n"}
-              <Kw>function</Kw> <Fn>App</Fn>() {"{"}{"\n"}
-              {"  "}<Kw>return</Kw> ({"\n"}
-              {"    "}<Tag>&lt;Heart</Tag>{"\n"}
-              {"      "}<Attr>size</Attr>=<Val>{"{"}24{"}"}</Val>{"\n"}
-              {"      "}<Attr>primaryColor</Attr>=<Str>&quot;#ef4444&quot;</Str>{"\n"}
-              {"      "}<Attr>secondaryColor</Attr>=<Str>&quot;#dc2626&quot;</Str>{"\n"}
-              {"    "}<Tag>/&gt;</Tag>{"\n"}
-              {"  );"}{"\n"}
-              {"}"}
+              <Tag>&lt;Heart</Tag>{"\n"}
+              {"  "}<Attr>size</Attr>=<Val>{"{"}24{"}"}</Val>{"\n"}
+              {"  "}<Attr>primaryColor</Attr>=<Str>&quot;#0d9488&quot;</Str>{"\n"}
+              {"  "}<Attr>secondaryColor</Attr>=<Str>&quot;#0f766e&quot;</Str>{"\n"}
+              <Tag>/&gt;</Tag>
+            </CodeCard>
+            <CodeCard dot="bg-purple-500/80" title="Web Components">
+              <Tag>&lt;script</Tag> <Attr>type</Attr>=<Str>&quot;module&quot;</Str><Tag>&gt;</Tag>{"\n"}
+              {"  "}<Kw>import</Kw> <Str>&apos;animated-lucide-wc/Heart.js&apos;</Str>;{"\n"}
+              <Tag>&lt;/script&gt;</Tag>{"\n"}
+              {"\n"}
+              <Tag>&lt;animated-lucide-heart</Tag>{"\n"}
+              {"  "}<Attr>size</Attr>=<Str>&quot;24&quot;</Str>{"\n"}
+              {"  "}<Attr>primary-color</Attr>=<Str>&quot;#0d9488&quot;</Str>{"\n"}
+              {"  "}<Attr>secondary-color</Attr>=<Str>&quot;#0f766e&quot;</Str><Tag>&gt;</Tag>{"\n"}
+              <Tag>&lt;/animated-lucide-heart&gt;</Tag>
             </CodeCard>
           </div>
           <div className="mt-5">
