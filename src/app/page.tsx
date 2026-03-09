@@ -203,6 +203,15 @@ export default function Home() {
           >
             Source on GitHub
           </a>
+          {" "}&middot; Made by{" "}
+          <a
+            href="https://www.linkedin.com/in/gorkemcetin/"
+            className="underline decoration-neutral-300 dark:decoration-white/20 hover:text-neutral-600 dark:hover:text-white/40 underline-offset-2 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Dr. Gorkem Cetin
+          </a>
         </p>
       </footer>
     </main>
