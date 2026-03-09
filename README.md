@@ -1,6 +1,6 @@
 # Animated Icons
 
-Beautifully animated, two-tone icon libraries with CSS-only hover animations. Currently supports [Lucide](https://lucide.dev) (1,933 icons) and [Heroicons](https://heroicons.com) (324 icons). Zero JavaScript animation dependencies.
+Beautifully animated, two-tone icon libraries with CSS-only hover animations. Currently supports [Lucide](https://lucide.dev) (1,933 icons), [Heroicons](https://heroicons.com) (324 icons), and [Iconoir](https://iconoir.com) (1,383 icons). Zero JavaScript animation dependencies.
 
 **[Live preview](https://animated-icons.vercel.app)**
 
@@ -8,7 +8,7 @@ Beautifully animated, two-tone icon libraries with CSS-only hover animations. Cu
 
 - CSS transition-based animations triggered on hover (no Framer Motion, no JS)
 - Two-tone color support via CSS custom properties
-- 2,257 animated icons across two icon sets
+- 3,640 animated icons across three icon sets
 - Multiple output formats: React components, standalone SVGs
 - Accessible: `role="img"`, `aria-label`, and `<title>` on every icon
 - Semantic animations per category (bells ring, hearts beat, gears rotate, shields fill)
@@ -21,6 +21,7 @@ Beautifully animated, two-tone icon libraries with CSS-only hover animations. Cu
 | -------- | ----- | ------- | ------------- |
 | Lucide | 1,933 | `animated-lucide-react` | `al-icon-wrapper` |
 | Heroicons | 324 | `animated-heroicons-react` | `ah-icon-wrapper` |
+| Iconoir | 1,383 | `animated-iconoir-react` | `ai-icon-wrapper` |
 
 ## Quick start
 
@@ -52,11 +53,25 @@ function App() {
 }
 ```
 
+### React (Iconoir)
+
+```jsx
+import { Heart, Mail } from './animated-iconoir-react';
+
+function App() {
+  return (
+    <div className="ai-icon-wrapper">
+      <Heart size={24} primaryColor="#ef4444" secondaryColor="#dc2626" />
+    </div>
+  );
+}
+```
+
 Wrap the icon (or its parent) with the wrapper class to trigger animations on hover.
 
 ### SVG
 
-Copy SVGs from `dist/svg/` (Lucide) or `dist/heroicons/svg/` (Heroicons) and use them directly:
+Copy SVGs from `dist/svg/` (Lucide), `dist/heroicons/svg/` (Heroicons), or `dist/iconoir/svg/` (Iconoir) and use them directly:
 
 ```html
 <div class="al-icon-wrapper">
@@ -81,6 +96,12 @@ Colors are controlled via CSS custom properties:
 .my-icons {
   --animated-heroicon-primary: #3b82f6;
   --animated-heroicon-secondary: #2563eb;
+}
+
+/* Iconoir */
+.my-icons {
+  --animated-iconoir-primary: #f59e0b;
+  --animated-iconoir-secondary: #d97706;
 }
 ```
 
@@ -112,6 +133,10 @@ Animations trigger on two selectors per icon set:
 **Heroicons:**
 1. `.animated-heroicon:hover`
 2. `.ah-icon-wrapper:hover`
+
+**Iconoir:**
+1. `.animated-iconoir:hover`
+2. `.ai-icon-wrapper:hover`
 
 Wrap icons in buttons, cards, or nav items and the animation triggers when hovering the container:
 
@@ -159,7 +184,7 @@ All components forward refs and spread additional props onto the SVG element.
 
 ## Available icons
 
-Browse all 2,257 icons at [animated-icons.vercel.app](https://animated-icons.vercel.app).
+Browse all 3,640 icons at [animated-icons.vercel.app](https://animated-icons.vercel.app).
 
 ## Building from source
 
@@ -172,6 +197,9 @@ node scripts/build.mjs
 
 # Build Heroicons
 node scripts/build-heroicons.mjs
+
+# Build Iconoir
+node scripts/build-iconoir.mjs
 
 # Prepare gallery data (chunks + config)
 node scripts/prepare-gallery.mjs
@@ -189,10 +217,13 @@ animated-icons/
     icon-set-configs.mjs     # Central config for all icon sets
     build.mjs                # Lucide build (thin wrapper)
     build-heroicons.mjs      # Heroicons build (thin wrapper)
+    build-iconoir.mjs        # Iconoir build (thin wrapper)
     prepare-gallery.mjs      # Gallery data preparation (chunks + TS config generation)
   icons/
     heroicons/
       categories.json        # Heroicons category mapping
+    iconoir/
+      categories.json        # Iconoir category mapping
   src/
     data/
       categories.json        # Lucide category mapping
@@ -206,6 +237,10 @@ animated-icons/
       svg/                   # Animated Heroicons SVGs
       react/                 # Animated Heroicons React components
       css/                   # Shared Heroicons CSS
+    iconoir/
+      svg/                   # Animated Iconoir SVGs
+      react/                 # Animated Iconoir React components
+      css/                   # Shared Iconoir CSS
 ```
 
 ## Adding a new icon set
@@ -236,4 +271,4 @@ Animations use CSS transitions and keyframes, triggered by `:hover` on the icon 
 
 ISC
 
-Icons based on [Lucide](https://lucide.dev) (ISC License) and [Heroicons](https://heroicons.com) (MIT License).
+Icons based on [Lucide](https://lucide.dev) (ISC License), [Heroicons](https://heroicons.com) (MIT License), and [Iconoir](https://iconoir.com) (MIT License).

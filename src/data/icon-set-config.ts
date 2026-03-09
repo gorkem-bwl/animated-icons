@@ -73,8 +73,37 @@ export const ICON_SET_CONFIG: Record<string, IconSetGalleryConfig> = {
           "security": "shield-check",
           "development": "code-bracket"
     },
+  },
+  iconoir: {
+    label: "Iconoir",
+    packageName: "animated-iconoir-react",
+    cssPrefix: "ai",
+    wrapperClass: "ai-icon-wrapper",
+    primaryVar: "--animated-iconoir-primary",
+    secondaryVar: "--animated-iconoir-secondary",
+    shortPrimaryVar: "--ai-primary",
+    shortSecondaryVar: "--ai-secondary",
+    chunkPath: "/data/iconoir",
+    chunkSize: 200,
+    categoryIcons: {
+          "all": "view-grid",
+          "arrows": "arrow-right",
+          "communication": "mail",
+          "media": "play",
+          "files": "folder",
+          "ui": "settings",
+          "status": "bell",
+          "weather": "sun-light",
+          "objects": "home",
+          "editing": "edit-pencil",
+          "people": "user",
+          "navigation": "map-pin",
+          "data": "graph-up",
+          "security": "shield",
+          "development": "code"
+    },
   }
 };
 
-export const ICON_SET_KEYS = ["lucide","heroicons"] as const;
+export const ICON_SET_KEYS = ["lucide","heroicons","iconoir"] as const;
 export type IconSet = typeof ICON_SET_KEYS[number];

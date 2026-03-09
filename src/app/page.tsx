@@ -3,6 +3,7 @@ import PageClient from "@/components/PageClient";
 import ThemeToggle from "@/components/ThemeToggle";
 import lucideMeta from "@/data/icons-meta.json";
 import heroiconsMeta from "@/data/heroicons-meta.json";
+import iconoirMeta from "@/data/iconoir-meta.json";
 
 /* Syntax highlight helpers */
 const Kw = ({ children }: { children: ReactNode }) => <span className="text-purple-600 dark:text-purple-400">{children}</span>;
@@ -29,6 +30,7 @@ function CodeCard({ dot, title, children }: { dot: string; title: string; childr
 const metaBySet: Record<string, typeof lucideMeta> = {
   lucide: lucideMeta,
   heroicons: heroiconsMeta,
+  iconoir: iconoirMeta,
 };
 
 export default function Home() {
@@ -53,7 +55,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="mx-auto mt-5 max-w-lg text-[15px] text-neutral-500 dark:text-white/40 leading-relaxed">
-            Lucide and Heroicons, semantically animated with CSS-only hover
+            Lucide, Heroicons, and Iconoir — semantically animated with CSS-only hover
             transitions and two-tone color support.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -94,7 +96,7 @@ export default function Home() {
               Get animated icons in your project in seconds
             </p>
           </div>
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="grid gap-5 md:grid-cols-3">
             <CodeCard dot="bg-blue-500/80" title="Lucide (React)">
               <Kw>import</Kw> {"{ "}<Fn>Heart</Fn>, <Fn>Mail</Fn>{" }"}{"\n"}
               {"  "}<Kw>from</Kw> <Str>&apos;animated-lucide-react&apos;</Str>;{"\n"}
@@ -112,6 +114,20 @@ export default function Home() {
             <CodeCard dot="bg-indigo-500/80" title="Heroicons (React)">
               <Kw>import</Kw> {"{ "}<Fn>Heart</Fn>, <Fn>Envelope</Fn>{" }"}{"\n"}
               {"  "}<Kw>from</Kw> <Str>&apos;animated-heroicons-react&apos;</Str>;{"\n"}
+              {"\n"}
+              <Kw>function</Kw> <Fn>App</Fn>() {"{"}{"\n"}
+              {"  "}<Kw>return</Kw> ({"\n"}
+              {"    "}<Tag>&lt;Heart</Tag>{"\n"}
+              {"      "}<Attr>size</Attr>=<Val>{"{"}24{"}"}</Val>{"\n"}
+              {"      "}<Attr>primaryColor</Attr>=<Str>&quot;#ef4444&quot;</Str>{"\n"}
+              {"      "}<Attr>secondaryColor</Attr>=<Str>&quot;#dc2626&quot;</Str>{"\n"}
+              {"    "}<Tag>/&gt;</Tag>{"\n"}
+              {"  );"}{"\n"}
+              {"}"}
+            </CodeCard>
+            <CodeCard dot="bg-orange-500/80" title="Iconoir (React)">
+              <Kw>import</Kw> {"{ "}<Fn>Heart</Fn>, <Fn>Mail</Fn>{" }"}{"\n"}
+              {"  "}<Kw>from</Kw> <Str>&apos;animated-iconoir-react&apos;</Str>;{"\n"}
               {"\n"}
               <Kw>function</Kw> <Fn>App</Fn>() {"{"}{"\n"}
               {"  "}<Kw>return</Kw> ({"\n"}
@@ -150,7 +166,7 @@ export default function Home() {
           >
             Lucide
           </a>
-          {" "}and{" "}
+          {", "}
           <a
             href="https://heroicons.com"
             className="underline decoration-neutral-300 dark:decoration-white/20 hover:text-neutral-600 dark:hover:text-white/40 underline-offset-2 transition-colors"
@@ -158,6 +174,15 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             Heroicons
+          </a>
+          {", and "}
+          <a
+            href="https://iconoir.com"
+            className="underline decoration-neutral-300 dark:decoration-white/20 hover:text-neutral-600 dark:hover:text-white/40 underline-offset-2 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Iconoir
           </a>
           {" "}&middot; Icons licensed under ISC / MIT &middot;{" "}
           <a

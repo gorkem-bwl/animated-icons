@@ -124,6 +124,55 @@ const SHOWCASE_CONFIGS: Record<string, ShowcaseSetConfig> = {
       ],
     },
   },
+  iconoir: {
+    chunkPrefix: "/data/iconoir/icons-chunk-",
+    chunkMap: {
+      home: 3, mail: 3, calendar: 0, settings: 5, user: 6,
+      search: 5, heart: 3, "share-ios": 5, bookmark: 0,
+      send: 5, download: 1, cart: 1, "map-pin": 3,
+      "chat-bubble": 1, phone: 4, globe: 2, bell: 0,
+      star: 5, "edit-pencil": 2, trash: 6, eye: 2,
+      lock: 3, code: 1, bold: 0, italic: 3, underline: 6,
+      camera: 1, "graph-up": 2, "view-grid": 6, play: 4,
+      scissor: 5, "media-image": 3, "color-picker": 1,
+    },
+    icons: {
+      sidebar: [
+        { icon: "home", label: "Home", active: true },
+        { icon: "mail", label: "Inbox", badge: "3" },
+        { icon: "calendar", label: "Calendar" },
+        { icon: "graph-up", label: "Analytics" },
+        { icon: "settings", label: "Settings" },
+      ],
+      tabs: [
+        { icon: "view-grid", label: "Overview", active: true },
+        { icon: "mail", label: "Messages" },
+      ],
+      buttonsLabeled: [
+        { icon: "send", label: "Send" },
+        { icon: "download", label: "Download" },
+      ],
+      buttonsIcon: ["heart", "bookmark", "share-ios", "edit-pencil", "trash"],
+      toolbar: [
+        ["bold", "italic", "underline"],
+        ["scissor", "edit-pencil", "eye"],
+        ["media-image", "code"],
+      ],
+      cardActions: [
+        { icon: "heart", label: "24" },
+        { icon: "chat-bubble", label: "8" },
+        { icon: "share-ios" },
+      ],
+      cardBookmark: "bookmark",
+      bottomNav: [
+        { icon: "home", label: "Home", active: true },
+        { icon: "search", label: "Search" },
+        { icon: "camera", label: "Camera", fab: true },
+        { icon: "bell", label: "Alerts" },
+        { icon: "user", label: "Profile" },
+      ],
+    },
+  },
 };
 
 /* ─── Component ─── */
