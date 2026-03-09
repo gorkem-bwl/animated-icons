@@ -1139,6 +1139,110 @@ ${generateAnimationCSS(config)}
 `;
 }
 
+// ─── Generate Solid Component ───────────────────────────────────────
+
+export function generateSolidComponent(iconName, svgContent, animationType, config) {
+  const elements = parseSvgElements(svgContent);
+  const strategy = animationStrategies[animationType] || animationStrategies.toggle;
+  const animatedElements = strategy(elements, iconName);
+  const componentName = toPascalCase(iconName);
+  const label = toLabel(iconName);
+  const p = config.cssPrefix;
+
+  let elementsJsx = '';
+  animatedElements.forEach((el) => {
+    const colorClass = el.colorGroup === 'primary' ? `${p}-primary` : `${p}-secondary`;
+    const delayClass = `${p}-delay-${Math.min(el.delay || 0, 7)}`;
+    const animClass = `${p}-anim-${el.anim}`;
+
+    let attrs = '';
+    for (const [key, val] of Object.entries(el.attrs)) {
+      // Solid uses kebab-case for SVG attributes (no camelCase conversion needed)
+      attrs += ` ${key}="${val}"`;
+    }
+
+    let extraAttrs = '';
+    if (el.anim === 'draw' || el.anim === 'draw-line') {
+      const len = Math.ceil(estimatePathLength(el));
+      extraAttrs += ` stroke-dasharray="${len}"`;
+      if (!el.customProps) el.customProps = {};
+      el.customProps.dashLen = len;
+    }
+
+    let styleObj = '{}';
+    if (el.customProps) {
+      const parts = [];
+      if (el.customProps.rotation !== undefined) parts.push(`'--${p}-rotation': '${el.customProps.rotation}deg'`);
+      if (el.customProps.tx !== undefined) parts.push(`'--${p}-tx': '${el.customProps.tx}px'`);
+      if (el.customProps.ty !== undefined) parts.push(`'--${p}-ty': '${el.customProps.ty}px'`);
+      if (el.customProps.scaleX !== undefined) parts.push(`'--${p}-scale-x': '${el.customProps.scaleX}'`);
+      if (el.customProps.dashLen !== undefined) parts.push(`'--${p}-dash-len': '${el.customProps.dashLen}'`);
+      styleObj = `{ ${parts.join(', ')} }`;
+    }
+
+    elementsJsx += `        <${el.tag}${attrs}${extraAttrs} class="${colorClass} ${animClass} ${delayClass}" style={${styleObj}} />\n`;
+  });
+
+  const cssText = '`' + generateAnimationCSS(config) + '`';
+
+  return `import { mergeProps, splitProps } from 'solid-js';
+
+const cssText = ${cssText};
+let cssInjected = false;
+
+function ${componentName}(rawProps) {
+  const merged = mergeProps({
+    size: 24,
+    color: 'currentColor',
+    primaryColor: undefined,
+    secondaryColor: undefined,
+    strokeWidth: ${config.defaultStrokeWidthNum},
+    class: '',
+    label: '${label}',
+  }, rawProps);
+
+  const [local, svgProps] = splitProps(merged, [
+    'size', 'color', 'primaryColor', 'secondaryColor',
+    'strokeWidth', 'class', 'label',
+  ]);
+
+  if (!cssInjected && typeof document !== 'undefined') {
+    const style = document.createElement('style');
+    style.textContent = cssText;
+    document.head.appendChild(style);
+    cssInjected = true;
+  }
+
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={local.size}
+      height={local.size}
+      viewBox="0 0 24 24"
+      fill="${config.defaultFill}"
+      stroke={local.color}
+      stroke-width={local.strokeWidth}
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class={\`${config.svgClassName} ${config.svgClassName}-${iconName} \${local.class}\`}
+      style={{
+        '${config.shortPrimaryVar}': local.primaryColor || local.color,
+        '${config.shortSecondaryVar}': local.secondaryColor || local.color,
+      }}
+      role="img"
+      aria-label={local.label}
+      {...svgProps}
+    >
+      <title>{local.label}</title>
+${elementsJsx}    </svg>
+  );
+}
+
+export { ${componentName} };
+export default ${componentName};
+`;
+}
+
 // ─── Generate Web Component ─────────────────────────────────────────
 
 export function generateWebComponent(iconName, svgContent, animationType, config) {
@@ -1270,6 +1374,7 @@ export function buildIconSet(config) {
   const dirs = [config.outSvg, config.outReact, config.outCss, config.galleryData];
   if (config.outVue) dirs.push(config.outVue);
   if (config.outSvelte) dirs.push(config.outSvelte);
+  if (config.outSolid) dirs.push(config.outSolid);
   if (config.outWc) dirs.push(config.outWc);
   if (config.copySourceTo) dirs.push(config.copySourceTo);
   dirs.forEach(dir => fs.mkdirSync(dir, { recursive: true }));
@@ -1278,6 +1383,7 @@ export function buildIconSet(config) {
   const indexExports = [];
   const vueExports = [];
   const svelteExports = [];
+  const solidExports = [];
   const wcExports = [];
   let processed = 0;
 
@@ -1337,6 +1443,12 @@ export function buildIconSet(config) {
       svelteExports.push(`export { default as ${componentName} } from './${componentName}.svelte';`);
     }
 
+    if (config.outSolid) {
+      const solidComponent = generateSolidComponent(iconName, svgContent, animation, config);
+      fs.writeFileSync(path.join(config.outSolid, `${componentName}.jsx`), solidComponent);
+      solidExports.push(`export { default as ${componentName} } from './${componentName}';`);
+    }
+
     if (config.outWc) {
       const wcComponent = generateWebComponent(iconName, svgContent, animation, config);
       fs.writeFileSync(path.join(config.outWc, `${componentName}.js`), wcComponent);
@@ -1371,6 +1483,12 @@ export function buildIconSet(config) {
     svelteExports.push('');
     svelteExports.push(`export const iconNames = ${JSON.stringify(allIconNames)};`);
     fs.writeFileSync(path.join(config.outSvelte, 'index.js'), svelteExports.join('\n') + '\n');
+  }
+
+  if (config.outSolid) {
+    solidExports.push('');
+    solidExports.push(`export const iconNames = ${JSON.stringify(allIconNames)};`);
+    fs.writeFileSync(path.join(config.outSolid, 'index.js'), solidExports.join('\n') + '\n');
   }
 
   if (config.outWc) {

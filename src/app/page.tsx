@@ -61,7 +61,7 @@ export default function Home() {
           </h1>
           <p className="mx-auto mt-5 max-w-lg text-[15px] text-neutral-500 dark:text-white/40 leading-relaxed">
             Lucide, Heroicons, and Iconoir — semantically animated with CSS-only hover
-            transitions and two-tone color support. Available for React, Vue, Svelte, and Web Components.
+            transitions and two-tone color support. Available for React, Vue, Svelte, Solid, and Web Components.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
@@ -135,6 +135,16 @@ export default function Home() {
               {"  "}<Kw>import</Kw> <Fn>Heart</Fn> <Kw>from</Kw>{"\n"}
               {"    "}<Str>&apos;@animated-color-icons/lucide-svelte/Heart.svelte&apos;</Str>;{"\n"}
               <Tag>&lt;/script&gt;</Tag>{"\n"}
+              {"\n"}
+              <Tag>&lt;Heart</Tag>{"\n"}
+              {"  "}<Attr>size</Attr>=<Val>{"{"}24{"}"}</Val>{"\n"}
+              {"  "}<Attr>primaryColor</Attr>=<Str>&quot;#0d9488&quot;</Str>{"\n"}
+              {"  "}<Attr>secondaryColor</Attr>=<Str>&quot;#0f766e&quot;</Str>{"\n"}
+              <Tag>/&gt;</Tag>
+            </CodeCard>
+            <CodeCard dot="bg-blue-500/80" title="Solid">
+              <Kw>import</Kw> {"{ "}<Fn>Heart</Fn>{" }"} <Kw>from</Kw>{"\n"}
+              {"  "}<Str>&apos;@animated-color-icons/lucide-solid&apos;</Str>;{"\n"}
               {"\n"}
               <Tag>&lt;Heart</Tag>{"\n"}
               {"  "}<Attr>size</Attr>=<Val>{"{"}24{"}"}</Val>{"\n"}

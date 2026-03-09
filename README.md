@@ -17,7 +17,7 @@ So I used Claude Code to write a build system that takes Lucide's SVGs, breaks t
 - CSS transition-based animations triggered on hover (no Framer Motion, no JS)
 - Two-tone color support via CSS custom properties
 - 3,640 animated icons across three icon sets
-- Multiple output formats: React, Vue, Svelte, Web Components, standalone SVGs
+- Multiple output formats: React, Vue, Svelte, Solid, Web Components, standalone SVGs
 - Accessible: `role="img"`, `aria-label`, and `<title>` on every icon
 - Semantic animations per category (bells ring, hearts beat, gears rotate, shields fill)
 - Fully visible default state: animations only add effects on hover
@@ -35,11 +35,11 @@ So I used Claude Code to write a build system that takes Lucide's SVGs, breaks t
 
 All packages are published under the `@animated-color-icons` scope:
 
-| Icon set | React | Vue | Svelte | Web Components |
-| -------- | ----- | --- | ------ | -------------- |
-| Lucide | `@animated-color-icons/lucide-react` | `@animated-color-icons/lucide-vue` | `@animated-color-icons/lucide-svelte` | `@animated-color-icons/lucide-wc` |
-| Heroicons | `@animated-color-icons/heroicons-react` | `@animated-color-icons/heroicons-vue` | `@animated-color-icons/heroicons-svelte` | `@animated-color-icons/heroicons-wc` |
-| Iconoir | `@animated-color-icons/iconoir-react` | `@animated-color-icons/iconoir-vue` | `@animated-color-icons/iconoir-svelte` | `@animated-color-icons/iconoir-wc` |
+| Icon set | React | Vue | Svelte | Solid | Web Components |
+| -------- | ----- | --- | ------ | ----- | -------------- |
+| Lucide | `@animated-color-icons/lucide-react` | `@animated-color-icons/lucide-vue` | `@animated-color-icons/lucide-svelte` | `@animated-color-icons/lucide-solid` | `@animated-color-icons/lucide-wc` |
+| Heroicons | `@animated-color-icons/heroicons-react` | `@animated-color-icons/heroicons-vue` | `@animated-color-icons/heroicons-svelte` | `@animated-color-icons/heroicons-solid` | `@animated-color-icons/heroicons-wc` |
+| Iconoir | `@animated-color-icons/iconoir-react` | `@animated-color-icons/iconoir-vue` | `@animated-color-icons/iconoir-svelte` | `@animated-color-icons/iconoir-solid` | `@animated-color-icons/iconoir-wc` |
 
 ### Output formats
 
@@ -58,6 +58,9 @@ npm install @animated-color-icons/lucide-vue
 
 # Svelte
 npm install @animated-color-icons/lucide-svelte
+
+# Solid
+npm install @animated-color-icons/lucide-solid
 
 # Web Components
 npm install @animated-color-icons/lucide-wc
@@ -107,6 +110,20 @@ Vue components use `<style scoped>` so animation CSS is automatically included p
 <div class="al-icon-wrapper">
   <Heart size={24} primaryColor="#0d9488" secondaryColor="#0f766e" />
 </div>
+```
+
+### Solid
+
+```jsx
+import { Heart, Bell, Settings } from '@animated-color-icons/lucide-solid';
+
+function App() {
+  return (
+    <div class="al-icon-wrapper">
+      <Heart size={24} primaryColor="#0d9488" secondaryColor="#0f766e" />
+    </div>
+  );
+}
 ```
 
 ### Web Components
@@ -310,6 +327,7 @@ animated-icons/
     react/                   # Lucide React components (.jsx)
     vue/                     # Lucide Vue components (.vue)
     svelte/                  # Lucide Svelte components (.svelte)
+    solid/                   # Lucide Solid components (.jsx)
     web-components/          # Lucide Web Components (.js)
     css/                     # Shared Lucide CSS
     heroicons/               # Same structure for Heroicons

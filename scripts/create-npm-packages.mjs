@@ -12,7 +12,7 @@ const ROOT = path.resolve(__dirname, '..');
 const packages = [
   // Lucide
   {
-    name: '@animated-icons/lucide-react',
+    name: '@animated-color-icons/lucide-react',
     dir: 'dist/react',
     cssDir: 'dist/css',
     cssFile: 'animated-lucide.css',
@@ -22,7 +22,7 @@ const packages = [
     main: 'index.js',
   },
   {
-    name: '@animated-icons/lucide-vue',
+    name: '@animated-color-icons/lucide-vue',
     dir: 'dist/vue',
     cssDir: 'dist/css',
     cssFile: 'animated-lucide.css',
@@ -32,7 +32,7 @@ const packages = [
     main: 'index.js',
   },
   {
-    name: '@animated-icons/lucide-svelte',
+    name: '@animated-color-icons/lucide-svelte',
     dir: 'dist/svelte',
     cssDir: 'dist/css',
     cssFile: 'animated-lucide.css',
@@ -42,7 +42,17 @@ const packages = [
     main: 'index.js',
   },
   {
-    name: '@animated-icons/lucide-wc',
+    name: '@animated-color-icons/lucide-solid',
+    dir: 'dist/solid',
+    cssDir: 'dist/css',
+    cssFile: 'animated-lucide.css',
+    description: 'Animated Lucide icons for Solid — CSS-only hover animations with two-tone color support. 1,933 icons.',
+    keywords: ['lucide', 'icons', 'animated', 'solid', 'solidjs', 'css-animations', 'two-tone', 'hover'],
+    peerDeps: { 'solid-js': '>=1.0.0' },
+    main: 'index.js',
+  },
+  {
+    name: '@animated-color-icons/lucide-wc',
     dir: 'dist/web-components',
     cssDir: 'dist/css',
     cssFile: 'animated-lucide.css',
@@ -53,7 +63,7 @@ const packages = [
   },
   // Heroicons
   {
-    name: '@animated-icons/heroicons-react',
+    name: '@animated-color-icons/heroicons-react',
     dir: 'dist/heroicons/react',
     cssDir: 'dist/heroicons/css',
     cssFile: 'animated-heroicons.css',
@@ -63,7 +73,7 @@ const packages = [
     main: 'index.js',
   },
   {
-    name: '@animated-icons/heroicons-vue',
+    name: '@animated-color-icons/heroicons-vue',
     dir: 'dist/heroicons/vue',
     cssDir: 'dist/heroicons/css',
     cssFile: 'animated-heroicons.css',
@@ -73,7 +83,7 @@ const packages = [
     main: 'index.js',
   },
   {
-    name: '@animated-icons/heroicons-svelte',
+    name: '@animated-color-icons/heroicons-svelte',
     dir: 'dist/heroicons/svelte',
     cssDir: 'dist/heroicons/css',
     cssFile: 'animated-heroicons.css',
@@ -83,7 +93,17 @@ const packages = [
     main: 'index.js',
   },
   {
-    name: '@animated-icons/heroicons-wc',
+    name: '@animated-color-icons/heroicons-solid',
+    dir: 'dist/heroicons/solid',
+    cssDir: 'dist/heroicons/css',
+    cssFile: 'animated-heroicons.css',
+    description: 'Animated Heroicons for Solid — CSS-only hover animations with two-tone color support. 324 icons.',
+    keywords: ['heroicons', 'icons', 'animated', 'solid', 'solidjs', 'css-animations', 'two-tone', 'hover'],
+    peerDeps: { 'solid-js': '>=1.0.0' },
+    main: 'index.js',
+  },
+  {
+    name: '@animated-color-icons/heroicons-wc',
     dir: 'dist/heroicons/web-components',
     cssDir: 'dist/heroicons/css',
     cssFile: 'animated-heroicons.css',
@@ -94,7 +114,7 @@ const packages = [
   },
   // Iconoir
   {
-    name: '@animated-icons/iconoir-react',
+    name: '@animated-color-icons/iconoir-react',
     dir: 'dist/iconoir/react',
     cssDir: 'dist/iconoir/css',
     cssFile: 'animated-iconoir.css',
@@ -104,7 +124,7 @@ const packages = [
     main: 'index.js',
   },
   {
-    name: '@animated-icons/iconoir-vue',
+    name: '@animated-color-icons/iconoir-vue',
     dir: 'dist/iconoir/vue',
     cssDir: 'dist/iconoir/css',
     cssFile: 'animated-iconoir.css',
@@ -114,7 +134,7 @@ const packages = [
     main: 'index.js',
   },
   {
-    name: '@animated-icons/iconoir-svelte',
+    name: '@animated-color-icons/iconoir-svelte',
     dir: 'dist/iconoir/svelte',
     cssDir: 'dist/iconoir/css',
     cssFile: 'animated-iconoir.css',
@@ -124,7 +144,17 @@ const packages = [
     main: 'index.js',
   },
   {
-    name: '@animated-icons/iconoir-wc',
+    name: '@animated-color-icons/iconoir-solid',
+    dir: 'dist/iconoir/solid',
+    cssDir: 'dist/iconoir/css',
+    cssFile: 'animated-iconoir.css',
+    description: 'Animated Iconoir icons for Solid — CSS-only hover animations with two-tone color support. 1,383 icons.',
+    keywords: ['iconoir', 'icons', 'animated', 'solid', 'solidjs', 'css-animations', 'two-tone', 'hover'],
+    peerDeps: { 'solid-js': '>=1.0.0' },
+    main: 'index.js',
+  },
+  {
+    name: '@animated-color-icons/iconoir-wc',
     dir: 'dist/iconoir/web-components',
     cssDir: 'dist/iconoir/css',
     cssFile: 'animated-iconoir.css',
